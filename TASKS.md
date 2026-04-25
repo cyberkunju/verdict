@@ -8,12 +8,12 @@
 
 ## Status Banner
 
-- **Current phase:** Phase 4 (Person 1 ahead by 3 phases; Person 2 not yet started)
-- **Last sync:** Round 2 — full real-signal data for all 6 clips, schema-valid handoff JSON
+- **Current phase:** Phase 5 — [bold]full-stack mode active[/]; both persons own all folders, file-level ownership in task table below
+- **Last sync:** Round 3 — real GPT-4o analyst reports on all 6 clips; Person 2 frontend scaffold landed in parallel
 - **Hours used / 8:** ~1.0
-- **Schema version:** v1.0 (locked)
+- **Schema version:** v1.0 (locked — schema bump requires both signatures)
 - **Stack version:** v1.1 (Round-1 dependency additions co-signed — see CONTRACT.md §6)
-- **Data status:** [bold green]all_clips.json ready[/] — 6 clips, all schema-valid, real rPPG + voice + transcript + linguistic signals. py-feat / OPENAI_API_KEY use fallbacks (intentional).
+- **Data status:** [bold green]all_clips.json ready[/] — 6 clips, all schema-valid, real rPPG + voice + transcript + linguistic + GPT-4o analyst. py-feat fallback (intentional).
 
 ---
 
@@ -25,7 +25,8 @@ Both persons must check before next phase starts.
 - [ ] **S1 — Schema Lock** (end Phase 0): `CONTRACT.md` v1.0 acknowledged by both.
 - [x] **S2 — First Clip Handoff** (end Phase 3): `nixon_1973.json` validates. *(rendering pending Person 2)*
 - [x] **S3 — Full Data Handoff** (end Phase 4): All 6 clips schema-valid in `data/processed/all_clips.json`. *(rendering pending Person 2)*
-- [ ] **S4 — Demo Lock** (end Phase 6): Vercel URL works on phone, demo video exported < 2 min.
+- [ ] **S4 — Deploy Preview Live** (end Phase 5): Vercel URL works on phone with real data on all 4 routes.
+- [ ] **S5 — Demo Lock** (end Phase 6): demo video exported < 2 min, captions in place.
 
 ---
 
@@ -158,45 +159,85 @@ Both persons must check before next phase starts.
 
 ---
 
-## Phase 5 — Polish & Deploy (Scope Freeze Starts)
-**Target duration:** 60 min · **Hard end:** H6:30
+## Phase 5 — Full-Stack Polish & Deploy (Round 4)
+**Target duration:** 4h · **Hard end:** H6:00 · **Sync gate:** S4 (deploy preview live)
 
-### Person 1
-- [ ] Tune LLM reports for the 3 hero clips (Nixon, SBF, Haugen): rerun `synthesize.py` until cautious + concrete.
-- [ ] Manually tweak any score that contradicts narrative (rare, only if obviously wrong).
-- [ ] Write `SIGNAL_NOTES.md` in `/backend` listing real vs fallback per clip.
-- [ ] Stop pushing pipeline changes after this phase. Bug fixes only.
+Folder ownership rule **dissolved**. Both persons may edit `/frontend`, `/backend`, `/data`. **Schema (CONTRACT.md §2/§11) still locked** — changes require both signatures in the Schema Changes table below.
 
-### Person 2
-- [ ] Add Method section on home page (4 short cards: rPPG, AUs, Voice, Linguistic + LLM).
-- [ ] Add roadmap badges (Baseline Engine, Deepfake Gate, Temporal Replay) marked "Coming".
-- [ ] Mobile pass at 390px width.
-- [ ] Lighthouse run on production build, fix obvious perf flags.
-- [ ] Deploy to Vercel via GitHub integration.
-- [ ] Open live URL on phone, smoke-test 4 routes.
+### Conflict-Avoidance Protocol
+1. `git pull --rebase origin main` before every commit.
+2. Stage **only the files in your assigned task** below.
+3. Commit prefix: `feat(fe)`, `feat(pipe)`, `feat(data)`, `fix(...)`, `chore(...)`.
+4. Push immediately. Don't sit on local commits.
+5. If a rebase conflict appears (rare — should only be `TASKS.md` / `CONTRACT.md`), keep both blocks side-by-side, never silently overwrite.
+
+### Person 1 — Frontend & Demo
+
+| #  | Task | Files | Pri | Est |
+|----|------|-------|-----|-----|
+| F1 | Run `npm run sync-data`; flip `USE_MOCK=false` in `lib/clips.ts`; smoke test all 4 routes render real data | `frontend/lib/clips.ts`, `frontend/public/data/` | P0 | 15m |
+| F2 | Polish detail page: video player, scores grid, multi-line timeline (HR + F0 + AU15), analyst report sections, signal-quality badges | `frontend/app/archive/[clip_id]/page.tsx`, `frontend/components/signal-chart.tsx`, new `signal-quality-badge.tsx` | P0 | 45m |
+| F3 | Calibration logic: add "sincere" prediction path (Haugen), scatter plot, ROC-style visual | `frontend/app/calibration/page.tsx`, `frontend/components/calibration-visuals.tsx` | P1 | 30m |
+| F4 | New `/method` page with full pipeline explanation, formulas, citations | `frontend/app/method/page.tsx`, `frontend/app/layout.tsx` | P1 | 30m |
+| F5 | Mobile responsive + a11y: keyboard nav, ARIA, sm/md breakpoints | All frontend pages | P1 | 30m |
+| F6 | OpenGraph + Twitter card metadata; replace boilerplate `frontend/README.md` | `frontend/app/layout.tsx`, `frontend/README.md`, `frontend/public/og.png` | P2 | 20m |
+| F7 | Deploy to Vercel; verify production URL on phone | Vercel dashboard, possibly `vercel.json` | P0 | 20m |
+
+- [~] **F1 — sync-data + USE_MOCK flip** *(in progress, Round 4)*
+- [ ] F2 — detail page polish
+- [ ] F3 — calibration logic
+- [ ] F4 — `/method` page
+- [ ] F5 — mobile + a11y
+- [ ] F6 — OG metadata + README
+- [ ] F7 — Vercel deploy
+
+### Person 2 — Backend & Data Quality
+
+| #  | Task | Files | Pri | Est |
+|----|------|-------|-----|-----|
+| B1 | Refine clip timestamps so transcripts are speaker-only (no narrator preamble); re-run `verdict_pipeline.batch` | `backend/verdict_pipeline/clips.py`, then re-run pipeline | P0 | 30m |
+| B2 | Generate poster-frame thumbnails: ffmpeg extract midpoint per clip → `data/thumbnails/{clip_id}.jpg`; populate `thumbnail_url` | `backend/scripts/extract_thumbnails.py` (new), `backend/verdict_pipeline/batch.py` | P0 | 20m |
+| B3 | Try `pip install --no-deps py-feat`; if it imports cleanly, swap fallback for real AU extraction; if not, document failure | `backend/requirements.txt`, possibly `extract_facial.py` | P2 | 30m |
+| B4 | Populate `similar_clips`: cosine-distance over score vector + ground_truth match → top 2 per clip | `backend/verdict_pipeline/score.py` or new module | P1 | 20m |
+| B5 | Add `bias_notes` field per clip (e.g., "archival B&W footage degrades rPPG SNR") — schema bump required, both must sign | `CONTRACT.md` (S-gate), `schema.py`, `batch.py`, `frontend/lib/types.ts` | P2 | 30m |
+| B6 | Pytest harness: synthetic-input tests for `score.py`, schema validation, no-network smoke test | `backend/tests/` (new) | P3 | 45m |
+
+- [ ] B1 — timestamps + re-run pipeline
+- [ ] B2 — thumbnails
+- [ ] B3 — try py-feat --no-deps
+- [ ] B4 — similar_clips
+- [ ] B5 — bias_notes (schema bump)
+- [ ] B6 — pytest harness
+
+### Suggested Order — First 90 min
+
+```
+Person 1                                 Person 2
+──────────────────                       ──────────────────
+F1 sync + USE_MOCK flip       (15m)      B1 refine timestamps         (30m)
+F2 detail page polish         (45m)      B2 thumbnails                (20m)
+                                          → re-run batch              (5m)
+F7 deploy preview             (20m)      B3 try py-feat --no-deps     (30m)
+F3 calibration polish         (30m)      B4 similar_clips             (20m)
+```
 
 ### Both
-- [ ] **Scope freeze.** No new features added past this point.
+- [ ] Tick **S4 — Deploy Preview Live** at end of Phase 5.
+- [ ] No new features past S4. Bug-fix only into Phase 6.
 
 ---
 
 ## Phase 6 — Demo Production
-**Target duration:** 60 min · **Hard end:** H7:30 · **Sync gate: S4**
+**Target duration:** 60 min · **Hard end:** H7:00 · **Sync gate: S5 (demo lock)**
 
-### Person 2
+### Both — split however convenient
 - [ ] Re-read demo script in `PERSON2_FRONTEND_PRODUCT.md`.
 - [ ] Screen-capture all 6 sequences in OBS or Loom (homepage hero, archive, Nixon, Clinton, SBF, Haugen, calibration, analyst report).
 - [ ] Record voiceover (separate audio).
 - [ ] Edit in CapCut or DaVinci. Trim to ≤ 2 min.
 - [ ] Add captions for the 4 key voiceover lines.
 - [ ] Export 1080p MP4.
-
-### Person 1
-- [ ] Standby for data fixes only. No new features.
-- [ ] If a clip looks bad on camera, regenerate report only.
-
-### Both
-- [ ] Tick **S4 — Demo Lock** above.
+- [ ] Tick **S5 — Demo Lock** above.
 
 ---
 
@@ -242,6 +283,7 @@ Append blockers as they appear. Format: `[timestamp] OWNER → <message>`.
 
 ```
 [2026-04-25T05:48:08Z] P2 → Waiting for Person 1 handoff file `data/processed/all_clips.json` to run `npm run sync-data` and flip `USE_MOCK = false` in `frontend/lib/clips.ts`.
+[2026-04-25T07:00:00Z] resolved — P1 shipped Round 2/3, all 6 clips in `data/processed/`. P1 is now executing F1 itself in Round 4 full-stack mode.
 ```
 
 ---
@@ -266,4 +308,17 @@ When a phase finishes, drop a one-line note here for retrospective.
             full batch: all 6 clips schema-valid, real rPPG SNR 23-26 dB on HD
             clips, sincerity correctly flagged Haugen highest (83) / SBF lowest
             (34). Person 2 unblocked.
+
+2026-04-25  Round 3: Real GPT-4o cautious analyst reports on all 6 clips via
+            structured outputs (OPENAI_API_KEY in gitignored backend/.env).
+            Reports cite concrete signal numbers, avoid lying/guilty language,
+            cross-reference similar archive entries (SBF→Holmes/Armstrong,
+            Haugen→whistleblower path). Discovered Person 2 had shipped
+            frontend scaffold (be1d51d) in parallel — zero merge conflicts
+            thanks to folder ownership.
+
+2026-04-25  Round 4: Full-stack mode begins. Folder ownership dissolved.
+            New file-level task split: P1 owns frontend (F1–F7), P2 owns
+            backend polish (B1–B6). Schema stays locked. P1 starting on F1
+            (sync-data + USE_MOCK flip).
 ```
