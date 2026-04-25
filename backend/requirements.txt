@@ -46,5 +46,11 @@ python-dotenv>=1.0.1
 rich>=13.7                     # pretty CLI output
 tqdm>=4.66                     # progress bars
 
+# --- Product backend service ---
+fastapi>=0.115
+uvicorn>=0.30
+python-multipart>=0.0.9
+
 # --- Dev tooling ---
 ruff>=0.4.0
+pytest>=8.2

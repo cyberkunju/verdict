@@ -6,13 +6,20 @@ import argparse
 from pathlib import Path
 from typing import Any
 
+from services.similarity_service import assign_similar_clip_ids
+
 from . import SCHEMA_VERSION, clips as clip_registry
 from . import extract_facial, extract_rppg, extract_voice, linguistic, score, synthesize, transcribe
-from .config import PROCESSED_DIR, RAW_CLIPS_DIR, ensure_dirs
+from .config import PROCESSED_DIR, RAW_CLIPS_DIR, THUMBNAILS_DIR, ensure_dirs
 from .schema import validate_clip
 from .utils import Timer, get_logger, setup_logging, write_json
 
 log = get_logger("batch")
+
+
+def _thumbnail_url(clip_id: str, fallback: str) -> str:
+    local = THUMBNAILS_DIR / f"{clip_id}.jpg"
+    return str(local.relative_to(PROCESSED_DIR.parent.parent)) if local.exists() else fallback
 
 
 def process_clip(clip_id: str, *, video_path: Path | None = None) -> dict[str, Any]:
@@ -155,7 +162,7 @@ def process_clip(clip_id: str, *, video_path: Path | None = None) -> dict[str, A
         "video_url": meta.video_url or "",
         "video_start_seconds": meta.video_start_seconds,
         "video_end_seconds": meta.video_end_seconds or (meta.video_start_seconds + 12.0),
-        "thumbnail_url": meta.thumbnail_url,
+        "thumbnail_url": _thumbnail_url(meta.clip_id, meta.thumbnail_url),
         "signals": {
             "hr_baseline_bpm": rp.hr_baseline_bpm,
             "hr_peak_bpm": rp.hr_peak_bpm,
@@ -197,6 +204,7 @@ def process_clip(clip_id: str, *, video_path: Path | None = None) -> dict[str, A
 def write_outputs(payloads: list[dict]) -> None:
     """Write per-clip JSONs and the combined ``all_clips.json`` handoff."""
     ensure_dirs()
+    payloads = assign_similar_clip_ids(payloads)
     for p in payloads:
         out = PROCESSED_DIR / f"{p['clip_id']}.json"
         write_json(out, p)

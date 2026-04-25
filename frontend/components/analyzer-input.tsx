@@ -1,45 +1,84 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Search, ArrowRight, Upload, Video } from "lucide-react";
+import { ArrowRight, Loader2, Search, Upload, Video } from "lucide-react";
+
+import type { AnalyzeAcceptedResponse } from "@/lib/types";
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
 
 export function AnalyzerInput() {
   const [url, setUrl] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!url.trim()) return;
-    // Route to the analysis page with the URL
-    router.push(`/analyze?url=${encodeURIComponent(url)}`);
+    setError(null);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/analyze/url`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: url.trim() }),
+      });
+      if (!response.ok) throw new Error("Could not start analyzer job.");
+      const data = (await response.json()) as AnalyzeAcceptedResponse;
+      router.push(`/analyze?job=${encodeURIComponent(data.job_id)}`);
+    } catch (submissionError) {
+      setError(submissionError instanceof Error ? submissionError.message : "Submission failed.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      // In a real app, this would upload the file or create a local blob URL
-      // For the demo, we route to analysis with the filename
-      router.push(`/analyze?mode=upload&file=${encodeURIComponent(file.name)}`);
+    if (!file) return;
+
+    setError(null);
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const response = await fetch(`${API_BASE_URL}/api/analyze/upload`, {
+        method: "POST",
+        body: formData,
+      });
+      if (!response.ok) throw new Error("Could not upload video for analysis.");
+      const data = (await response.json()) as AnalyzeAcceptedResponse;
+      router.push(`/analyze?job=${encodeURIComponent(data.job_id)}`);
+    } catch (submissionError) {
+      setError(submissionError instanceof Error ? submissionError.message : "Upload failed.");
+    } finally {
+      setIsSubmitting(false);
+      if (fileInputRef.current) fileInputRef.current.value = "";
     }
   };
 
   const handleWebcam = () => {
-    // Live webcam analyzer is its own route with the realtime pipeline
     router.push("/live");
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
-      className="relative w-full max-w-3xl mx-auto mt-10"
+      className="relative mx-auto mt-10 w-full max-w-3xl"
     >
-      <form onSubmit={handleSubmit} className="relative flex items-center w-full rounded-full border border-slate-200 bg-white shadow-xl shadow-slate-200/50 p-2 overflow-hidden focus-within:ring-2 focus-within:ring-slate-400 focus-within:border-transparent transition-all">
-        <Search className="absolute left-6 text-slate-400 h-5 w-5" />
+      <form
+        onSubmit={handleSubmit}
+        className="relative flex w-full items-center overflow-hidden rounded-full border border-slate-200 bg-white p-2 shadow-xl shadow-slate-200/50 transition-all focus-within:border-transparent focus-within:ring-2 focus-within:ring-slate-400"
+      >
+        <Search className="absolute left-6 h-5 w-5 text-slate-400" />
         <input
           type="url"
           value={url}
@@ -50,29 +89,36 @@ export function AnalyzerInput() {
         />
         <button
           type="submit"
-          disabled={!url.trim()}
-          className="absolute right-2 top-2 bottom-2 flex items-center gap-2 rounded-full bg-slate-900 px-6 font-medium text-white transition-all hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={!url.trim() || isSubmitting}
+          className="absolute bottom-2 right-2 top-2 flex items-center gap-2 rounded-full bg-slate-900 px-6 font-medium text-white transition-all hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Analyze <ArrowRight className="h-4 w-4" />
+          {isSubmitting ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            <>
+              Analyze <ArrowRight className="h-4 w-4" />
+            </>
+          )}
         </button>
       </form>
-      
-      <div className="flex items-center justify-center gap-4 mt-6">
-        <div className="h-px w-12 bg-slate-200"></div>
-        <span className="text-xs text-slate-400 font-medium uppercase tracking-wider">Or</span>
-        <div className="h-px w-12 bg-slate-200"></div>
+
+      <div className="mt-6 flex items-center justify-center gap-4">
+        <div className="h-px w-12 bg-slate-200" />
+        <span className="text-xs font-medium uppercase tracking-wider text-slate-400">Or</span>
+        <div className="h-px w-12 bg-slate-200" />
       </div>
 
-      <div className="flex items-center justify-center gap-4 mt-4">
-        <button 
+      <div className="mt-4 flex items-center justify-center gap-4">
+        <button
           onClick={() => fileInputRef.current?.click()}
           type="button"
-          className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm"
+          disabled={isSubmitting}
+          className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-50"
         >
           <Upload className="h-4 w-4 text-slate-500" />
           Upload Video
         </button>
-        <button 
+        <button
           onClick={handleWebcam}
           type="button"
           className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50 hover:shadow-sm"
@@ -82,12 +128,18 @@ export function AnalyzerInput() {
         </button>
       </div>
 
-      <input 
-        type="file" 
-        ref={fileInputRef} 
-        className="hidden" 
-        accept="video/*" 
-        onChange={handleFileUpload} 
+      <p className="mt-4 text-center text-xs text-slate-500">
+        Analyzer jobs run asynchronously against the VERDICT backend and then stream into the review dashboard.
+      </p>
+
+      {error ? <p className="mt-3 text-center text-sm text-red-600">{error}</p> : null}
+
+      <input
+        type="file"
+        ref={fileInputRef}
+        className="hidden"
+        accept="video/*"
+        onChange={handleFileUpload}
       />
     </motion.div>
   );

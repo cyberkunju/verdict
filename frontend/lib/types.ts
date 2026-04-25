@@ -67,3 +67,53 @@ export interface Clip {
   similar_clips: string[];
   signal_quality: SignalQuality;
 }
+
+export interface SimilarArchiveMatch {
+  clip_id: string;
+  subject: string;
+  statement: string;
+  ground_truth: GroundTruth;
+  similarity: number;
+  scores: ClipScores;
+}
+
+export interface LiveAnalysisPayload {
+  subject: string;
+  statement: string;
+  year: number | null;
+  context: string;
+  video_url: string;
+  video_start_seconds: number;
+  video_end_seconds: number;
+  thumbnail_url: string;
+  signals: ClipSignals;
+  scores: ClipScores;
+  llm_report: ClipReport;
+  signal_quality: SignalQuality;
+  similar_archive_matches: SimilarArchiveMatch[];
+}
+
+export interface AnalyzeAcceptedResponse {
+  job_id: string;
+  status: string;
+  status_url: string;
+  result_url: string;
+}
+
+export interface JobStatusResponse {
+  job_id: string;
+  status: string;
+  input_type: string;
+  request: Record<string, unknown>;
+  created_at: string;
+  updated_at: string;
+  result_id?: string | null;
+  error?: string | null;
+}
+
+export interface AnalysisResultResponse {
+  result_id: string;
+  job_id: string;
+  status: "completed";
+  payload: LiveAnalysisPayload;
+}

@@ -203,12 +203,32 @@ Folder ownership rule **dissolved**. Both persons may edit `/frontend`, `/backen
 | B5 | Add `bias_notes` field per clip (e.g., "archival B&W footage degrades rPPG SNR") — schema bump required, both must sign | `CONTRACT.md` (S-gate), `schema.py`, `batch.py`, `frontend/lib/types.ts` | P2 | 30m |
 | B6 | Pytest harness: synthetic-input tests for `score.py`, schema validation, no-network smoke test | `backend/tests/` (new) | P3 | 45m |
 
-- [ ] B1 — timestamps + re-run pipeline
-- [ ] B2 — thumbnails
-- [ ] B3 — try py-feat --no-deps
-- [ ] B4 — similar_clips
+- [x] B1 — timestamps + re-run pipeline *(clip windows tightened and batch rerun completed in backend `.venv`; current run used fallback media path because YouTube raw download is bot-blocked in this environment)*
+- [x] B2 — thumbnails *(local `data/thumbnails/*.jpg` generated; falls back to public YouTube poster when raw mp4 is unavailable)*
+- [x] B3 — try py-feat --no-deps *(import fails in clean venv due missing transitive deps; documented in `backend/PY_FEAT_STATUS.md`)*
+- [x] B4 — similar_clips *(auto-computed from score-vector cosine similarity during batch write)*
 - [ ] B5 — bias_notes (schema bump)
-- [ ] B6 — pytest harness
+- [x] B6 — pytest harness *(4 tests passing in backend `.venv`)*
+
+Verification note:
+- Backend service/API layer is implemented.
+- Frontend uploader is wired to the backend analyzer (`AnalyzerInput` -> `/api/analyze/*` -> `/analyze?job=...` polling).
+- Heavy runtime deps were installed in backend `.venv` except spaCy, which remains optional because `linguistic.py` falls back to regex extraction on Python 3.14.
+- The remaining hard blocker for true raw-media processing is YouTube rate-limiting / bot-check on clip downloads in this environment; the archive batch still reruns successfully via the fallback path.
+
+### Backend Service Track (Additive to static JSON handoff)
+
+| # | Task | Files | Pri | Est |
+|---|------|-------|-----|-----|
+| API1 | Add FastAPI app skeleton with health/archive/calibration read endpoints | `backend/api/**`, `backend/services/archive_service.py`, `backend/services/calibration_service.py` | P0 | 45m |
+| API2 | Add filesystem-backed jobs/results store and background orchestration | `backend/services/result_store.py`, `backend/services/job_service.py`, `backend/verdict_pipeline/config.py` | P0 | 45m |
+| API3 | Add analyzer endpoints for YouTube URL + upload using existing pipeline modules | `backend/api/routes/analyze.py`, `backend/services/ingest_service.py`, `backend/services/analysis_service.py` | P0 | 60m |
+| API4 | Add result retrieval + archive similarity service for live analyses | `backend/api/routes/jobs.py`, `backend/services/similarity_service.py`, `backend/api/schemas.py` | P1 | 30m |
+
+- [x] API1 — FastAPI skeleton + archive/calibration routes
+- [x] API2 — file-backed jobs/results + background job lifecycle
+- [x] API3 — analyze URL/upload endpoints reusing pipeline modules
+- [x] API4 — result retrieval + archive similarity service
 
 ### Suggested Order — First 90 min
 

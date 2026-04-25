@@ -53,9 +53,9 @@ CLIPS: dict[str, ClipMeta] = {
             "Committee impeachment articles."
         ),
         video_url="https://www.youtube.com/watch?v=7Q6d-UYYBWU",
-        video_start_seconds=0.0,
-        video_end_seconds=15.0,
-        thumbnail_url="https://img.youtube.com/vi/7Q6d-UYYBWU/hqdefault.jpg",
+        video_start_seconds=3.0,
+        video_end_seconds=13.0,
+        thumbnail_url="data/thumbnails/nixon_1973.jpg",
         similar_clips=("clinton_1998", "armstrong_2005"),
     ),
     "clinton_1998": ClipMeta(
@@ -77,9 +77,9 @@ CLIPS: dict[str, ClipMeta] = {
             "perjury / obstruction-of-justice charges."
         ),
         video_url="https://www.youtube.com/watch?v=_aGbdni7QNs",
-        video_start_seconds=15.0,
-        video_end_seconds=30.0,
-        thumbnail_url="https://img.youtube.com/vi/_aGbdni7QNs/hqdefault.jpg",
+        video_start_seconds=17.0,
+        video_end_seconds=28.0,
+        thumbnail_url="data/thumbnails/clinton_1998.jpg",
         similar_clips=("nixon_1973", "armstrong_2005"),
     ),
     "armstrong_2005": ClipMeta(
@@ -98,9 +98,9 @@ CLIPS: dict[str, ClipMeta] = {
             "France titles by USADA."
         ),
         video_url="https://www.youtube.com/watch?v=0sR8Qrj12gE",
-        video_start_seconds=0.0,
-        video_end_seconds=18.0,
-        thumbnail_url="https://img.youtube.com/vi/0sR8Qrj12gE/hqdefault.jpg",
+        video_start_seconds=4.0,
+        video_end_seconds=15.0,
+        thumbnail_url="data/thumbnails/armstrong_2005.jpg",
         similar_clips=("clinton_1998", "holmes_2018"),
     ),
     "holmes_2018": ClipMeta(
@@ -121,9 +121,9 @@ CLIPS: dict[str, ClipMeta] = {
             "to 11 years 3 months in federal prison."
         ),
         video_url="https://www.youtube.com/watch?v=rGfaJZAdfNE",
-        video_start_seconds=10.0,
-        video_end_seconds=28.0,
-        thumbnail_url="https://img.youtube.com/vi/rGfaJZAdfNE/hqdefault.jpg",
+        video_start_seconds=12.0,
+        video_end_seconds=23.0,
+        thumbnail_url="data/thumbnails/holmes_2018.jpg",
         similar_clips=("sbf_2022", "armstrong_2005"),
     ),
     "sbf_2022": ClipMeta(
@@ -143,9 +143,9 @@ CLIPS: dict[str, ClipMeta] = {
             "November 2023; sentenced to 25 years in federal prison."
         ),
         video_url="https://www.youtube.com/watch?v=0sfsftGt-s4",
-        video_start_seconds=30.0,
-        video_end_seconds=48.0,
-        thumbnail_url="https://img.youtube.com/vi/0sfsftGt-s4/hqdefault.jpg",
+        video_start_seconds=33.0,
+        video_end_seconds=45.0,
+        thumbnail_url="data/thumbnails/sbf_2022.jpg",
         similar_clips=("holmes_2018", "armstrong_2005"),
     ),
     "haugen_2021": ClipMeta(
@@ -168,9 +168,9 @@ CLIPS: dict[str, ClipMeta] = {
             "Files'."
         ),
         video_url="https://www.youtube.com/watch?v=tLT1mq2u4h4",
-        video_start_seconds=5.0,
-        video_end_seconds=23.0,
-        thumbnail_url="https://img.youtube.com/vi/tLT1mq2u4h4/hqdefault.jpg",
+        video_start_seconds=8.0,
+        video_end_seconds=18.0,
+        thumbnail_url="data/thumbnails/haugen_2021.jpg",
         similar_clips=(),
     ),
 }

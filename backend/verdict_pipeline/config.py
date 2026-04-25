@@ -21,6 +21,10 @@ DATA_DIR: Path = ROOT_DIR / "data"
 RAW_CLIPS_DIR: Path = DATA_DIR / "raw_clips"
 PROCESSED_DIR: Path = DATA_DIR / "processed"
 REPORTS_DIR: Path = DATA_DIR / "reports"
+JOBS_DIR: Path = DATA_DIR / "jobs"
+RESULTS_DIR: Path = DATA_DIR / "results"
+UPLOADS_DIR: Path = DATA_DIR / "uploads"
+THUMBNAILS_DIR: Path = DATA_DIR / "thumbnails"
 
 # ---------------------------------------------------------------------------
 # Env loading
@@ -63,5 +67,5 @@ SCHEMA_VERSION: str = os.getenv("SCHEMA_VERSION", "1.0")
 
 def ensure_dirs() -> None:
     """Create writable data directories on demand. Called by entry points."""
-    for d in (RAW_CLIPS_DIR, PROCESSED_DIR, REPORTS_DIR):
+    for d in (RAW_CLIPS_DIR, PROCESSED_DIR, REPORTS_DIR, JOBS_DIR, RESULTS_DIR, UPLOADS_DIR, THUMBNAILS_DIR):
         d.mkdir(parents=True, exist_ok=True)

@@ -4,11 +4,15 @@ from __future__ import annotations
 
 import json
 import logging
+import shutil
 import time
 from pathlib import Path
 from typing import Any
 
-import imageio_ffmpeg
+try:
+    import imageio_ffmpeg
+except ImportError:  # pragma: no cover - optional runtime fallback
+    imageio_ffmpeg = None
 from rich.logging import RichHandler
 
 
@@ -68,7 +72,12 @@ def ffmpeg_binary() -> str:
 
     Avoids any system-wide ffmpeg install requirement.
     """
-    return imageio_ffmpeg.get_ffmpeg_exe()
+    if imageio_ffmpeg is not None:
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    system_ffmpeg = shutil.which("ffmpeg")
+    if system_ffmpeg:
+        return system_ffmpeg
+    raise RuntimeError("ffmpeg not available: install imageio-ffmpeg or system ffmpeg")
 
 
 # ---------------------------------------------------------------------------
