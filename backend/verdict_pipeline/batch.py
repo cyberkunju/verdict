@@ -180,6 +180,7 @@ def process_clip(clip_id: str, *, video_path: Path | None = None) -> dict[str, A
             "speech_rate_wpm": vf.speech_rate_wpm,
             "hedging_count": lf.hedging_count,
             "pronoun_drop_rate": lf.pronoun_drop_rate,
+            "text_deception_prior": lf.text_deception_prior,
             "transcript": tr.text,
             "timeline": [
                 {"t": p.t, "hr": p.hr, "f0": p.f0, "au15": p.au15, "deception": p.deception}

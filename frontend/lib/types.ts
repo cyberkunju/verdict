@@ -66,6 +66,7 @@ export interface Clip {
   llm_report: ClipReport;
   similar_clips: string[];
   signal_quality: SignalQuality;
+  text_prior?: TextPriorInference;
 }
 
 export interface SimilarArchiveMatch {
@@ -75,6 +76,15 @@ export interface SimilarArchiveMatch {
   ground_truth: GroundTruth;
   similarity: number;
   scores: ClipScores;
+}
+
+export interface TextPriorInference {
+  model_name: string;
+  statement_used: string;
+  statement_source: string;
+  probability_resolved_false: number | null;
+  label: "likely_false" | "uncertain" | "likely_true" | "unavailable";
+  confidence: number | null;
 }
 
 export interface LiveAnalysisPayload {
@@ -91,6 +101,7 @@ export interface LiveAnalysisPayload {
   llm_report: ClipReport;
   signal_quality: SignalQuality;
   similar_archive_matches: SimilarArchiveMatch[];
+  text_prior?: TextPriorInference | null;
 }
 
 export interface AnalyzeAcceptedResponse {

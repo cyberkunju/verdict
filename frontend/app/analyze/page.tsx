@@ -1,100 +1,151 @@
 "use client";
 
+import { Suspense, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, Suspense } from "react";
+import { ArrowLeft } from "lucide-react";
+
 import { LoadingPipeline } from "@/components/loading-pipeline";
 import { ResultDashboard } from "@/components/result-dashboard";
-import Link from "next/link";
-import { ArrowLeft, Loader2 } from "lucide-react";
+import type { AnalysisResultResponse, JobStatusResponse, LiveAnalysisPayload } from "@/lib/types";
 
-import type { AnalysisResultResponse, JobStatusResponse } from "@/lib/types";
+const POLL_MS = 2500;
+const MAX_POLLS = 480;
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
+type JobPhase =
+  | "queued"
+  | "downloading"
+  | "trimming"
+  | "extracting"
+  | "scoring"
+  | "synthesizing"
+  | "completed"
+  | "failed";
 
 function AnalyzeContent() {
   const searchParams = useSearchParams();
-  const jobId = searchParams?.get("job") || "";
-  const [job, setJob] = useState<JobStatusResponse | null>(null);
-  const [result, setResult] = useState<AnalysisResultResponse | null>(null);
+  const url = searchParams?.get("url") ?? "";
+  const existingJobId = searchParams?.get("job") ?? "";
+
+  const [resultPayload, setResultPayload] = useState<LiveAnalysisPayload | null>(null);
+  const [jobStatus, setJobStatus] = useState<JobPhase>("queued");
   const [error, setError] = useState<string | null>(null);
+  const [fallbackMode, setFallbackMode] = useState(false);
+  const pollCount = useRef(0);
+  const pollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    if (!jobId) return;
+    if (!url && !existingJobId) return;
+
     let cancelled = false;
-    let timeout: ReturnType<typeof setTimeout> | undefined;
 
-    async function pollJob() {
+    async function pollJob(jobId: string) {
+      if (cancelled) return;
+      if (pollCount.current >= MAX_POLLS) {
+        setError("Analysis timed out. The video may be too long or the backend is overloaded.");
+        return;
+      }
+      pollCount.current += 1;
+
       try {
-        const response = await fetch(`${API_BASE_URL}/api/jobs/${jobId}`, { cache: "no-store" });
-        if (!response.ok) throw new Error("Unable to fetch job status.");
-        const nextJob = (await response.json()) as JobStatusResponse;
-        if (cancelled) return;
-        setJob(nextJob);
+        const res = await fetch(`/api/jobs/${jobId}`, { cache: "no-store" });
+        if (!res.ok) throw new Error(`Poll failed: ${res.status}`);
+        const status = (await res.json()) as JobStatusResponse;
+        if (!cancelled) setJobStatus(status.status as JobPhase);
 
-        if (nextJob.status === "completed") {
-          const resultResponse = await fetch(`${API_BASE_URL}/api/jobs/${jobId}/result`, { cache: "no-store" });
-          if (!resultResponse.ok) throw new Error("Unable to fetch analysis result.");
-          const nextResult = (await resultResponse.json()) as AnalysisResultResponse;
-          if (!cancelled) setResult(nextResult);
+        if (status.status === "completed") {
+          const resultRes = await fetch(`/api/jobs/${jobId}/result`, { cache: "no-store" });
+          if (!resultRes.ok) throw new Error("Failed to fetch result");
+          const result = (await resultRes.json()) as AnalysisResultResponse;
+          if (!cancelled) setResultPayload(result.payload);
           return;
         }
 
-        if (nextJob.status === "failed") {
-          if (!cancelled) setError(nextJob.error || "Analyzer job failed.");
+        if (status.status === "failed") {
+          if (!cancelled) setError(status.error ?? "Analysis failed in backend.");
           return;
         }
 
-        timeout = setTimeout(pollJob, 1800);
-      } catch (pollError) {
-        if (!cancelled) setError(pollError instanceof Error ? pollError.message : "Polling failed.");
+        pollTimer.current = setTimeout(() => pollJob(jobId), POLL_MS);
+      } catch (err) {
+        if (!cancelled) {
+          console.error("Poll error:", err);
+          setError("Lost connection to backend during analysis.");
+        }
       }
     }
 
-    void pollJob();
+    async function startJobFromUrl() {
+      try {
+        const res = await fetch(`/api/analyze`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url }),
+        });
+        if (!res.ok) throw new Error(`Backend returned ${res.status}`);
+        const accepted = (await res.json()) as { job_id: string };
+        if (!cancelled) pollJob(accepted.job_id);
+      } catch (err) {
+        if (!cancelled) {
+          console.warn("Backend unreachable, using archive fallback:", err);
+          setFallbackMode(true);
+        }
+      }
+    }
+
+    if (existingJobId) {
+      void pollJob(existingJobId);
+    } else {
+      void startJobFromUrl();
+    }
 
     return () => {
       cancelled = true;
-      if (timeout) clearTimeout(timeout);
+      if (pollTimer.current) clearTimeout(pollTimer.current);
     };
-  }, [jobId]);
+  }, [existingJobId, url]);
 
-  if (!jobId) {
+  if (!url && !existingJobId) {
     return (
-      <div className="text-center py-20">
-        <h2 className="text-2xl font-serif mb-4 text-slate-900">No analysis job provided</h2>
-        <Link href="/" className="text-blue-500 hover:underline">Return home</Link>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="mx-auto max-w-2xl rounded-2xl border border-red-200 bg-red-50 p-8 text-center">
-        <h2 className="font-serif text-2xl text-red-900">Analysis failed</h2>
-        <p className="mt-3 text-sm text-red-700">{error}</p>
-        <Link href="/" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-red-800 hover:underline">
-          <ArrowLeft className="h-4 w-4" /> Back to analyzer
+      <div className="py-20 text-center">
+        <h2 className="mb-4 font-serif text-2xl text-slate-900">No input provided</h2>
+        <Link href="/" className="text-blue-500 hover:underline">
+          Return home
         </Link>
       </div>
     );
   }
 
+  const hasResult = !!resultPayload || fallbackMode;
+
   return (
     <>
-      {result && (
+      {hasResult && (
         <div className="mb-6">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 transition-colors">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm text-slate-500 transition-colors hover:text-slate-900"
+          >
             <ArrowLeft className="h-4 w-4" /> Analyze another video
           </Link>
         </div>
       )}
-      
-      {result ? (
-        <ResultDashboard payload={result.payload} />
+
+      {error && (
+        <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+          <strong>Error:</strong> {error}
+          <div className="mt-2">
+            <Link href="/" className="underline">
+              ← Try another video
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {!hasResult && !error ? (
+        <LoadingPipeline phase={jobStatus} onComplete={() => {}} />
       ) : (
-        <>
-          {job ? <LoadingPipeline status={job.status} /> : <div className="flex items-center justify-center gap-3 py-24 text-slate-500"><Loader2 className="h-5 w-5 animate-spin" /> Connecting to backend...</div>}
-        </>
+        <ResultDashboard url={url || resultPayload?.video_url || ""} livePayload={resultPayload ?? undefined} />
       )}
     </>
   );

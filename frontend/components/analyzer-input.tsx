@@ -7,56 +7,37 @@ import { ArrowRight, Loader2, Search, Upload, Video } from "lucide-react";
 
 import type { AnalyzeAcceptedResponse } from "@/lib/types";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
-
 export function AnalyzerInput() {
   const [url, setUrl] = useState("");
-  const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!url.trim()) return;
-    setError(null);
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/analyze/url`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url.trim() }),
-      });
-      if (!response.ok) throw new Error("Could not start analyzer job.");
-      const data = (await response.json()) as AnalyzeAcceptedResponse;
-      router.push(`/analyze?job=${encodeURIComponent(data.job_id)}`);
-    } catch (submissionError) {
-      setError(submissionError instanceof Error ? submissionError.message : "Submission failed.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    router.push(`/analyze?url=${encodeURIComponent(url)}`);
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-
     setError(null);
     setIsSubmitting(true);
 
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await fetch(`${API_BASE_URL}/api/analyze/upload`, {
+      const res = await fetch("/api/analyze/upload", {
         method: "POST",
         body: formData,
       });
-      if (!response.ok) throw new Error("Could not upload video for analysis.");
-      const data = (await response.json()) as AnalyzeAcceptedResponse;
-      router.push(`/analyze?job=${encodeURIComponent(data.job_id)}`);
-    } catch (submissionError) {
-      setError(submissionError instanceof Error ? submissionError.message : "Upload failed.");
+      if (!res.ok) throw new Error(`Upload failed (${res.status})`);
+      const accepted = (await res.json()) as AnalyzeAcceptedResponse;
+      router.push(`/analyze?job=${encodeURIComponent(accepted.job_id)}`);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Upload failed.");
     } finally {
       setIsSubmitting(false);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -129,7 +110,7 @@ export function AnalyzerInput() {
       </div>
 
       <p className="mt-4 text-center text-xs text-slate-500">
-        Analyzer jobs run asynchronously against the VERDICT backend and then stream into the review dashboard.
+        Video URL and upload modes both run through the same backend pipeline and include VerdictTextPrior-v1 statement scoring.
       </p>
 
       {error ? <p className="mt-3 text-center text-sm text-red-600">{error}</p> : null}

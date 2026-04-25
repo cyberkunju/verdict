@@ -162,7 +162,7 @@ def _text_deception_prior(transcript: str) -> float | None:
 # ---------------------------------------------------------------------------
 
 
-def extract(transcript: str) -> LinguisticFeatures:
+def extract(transcript: str, *, include_text_prior: bool = True) -> LinguisticFeatures:
     """Extract linguistic features from ``transcript``.
 
     Tries spaCy first; on failure falls back to a regex-based estimator that
@@ -175,12 +175,12 @@ def extract(transcript: str) -> LinguisticFeatures:
     if nlp is not None:
         try:
             features = _extract_spacy(transcript, nlp)
-            features.text_deception_prior = _text_deception_prior(transcript)
+            features.text_deception_prior = _text_deception_prior(transcript) if include_text_prior else None
             return features
         except Exception:  # pragma: no cover - defensive
             pass
     features = _extract_regex_fallback(transcript)
-    features.text_deception_prior = _text_deception_prior(transcript)
+    features.text_deception_prior = _text_deception_prior(transcript) if include_text_prior else None
     return features
 
 

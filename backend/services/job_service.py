@@ -13,23 +13,39 @@ def run_url_job(job_id: str) -> None:
         raise FileNotFoundError(f"Unknown job: {job_id}")
     req = job["request"]
     try:
+        start_seconds = req.get("start_seconds")
+        end_seconds = req.get("end_seconds")
+        if start_seconds is None and end_seconds is None:
+            # Fast default window for live URL analysis.
+            start_seconds = 0.0
+            end_seconds = 45.0
+
         result_store.update_job(job_id, status="downloading")
         video_path = ingest_service.download_external_video(
             job_id=job_id,
             url=req["url"],
-            start_seconds=req.get("start_seconds"),
-            end_seconds=req.get("end_seconds"),
+            start_seconds=start_seconds,
+            end_seconds=end_seconds,
         )
-        result_store.update_job(job_id, status="extracting", request={**req, "video_path": str(video_path)})
+        result_store.update_job(
+            job_id,
+            status="extracting",
+            request={**req, "start_seconds": start_seconds, "end_seconds": end_seconds, "video_path": str(video_path)},
+        )
+
+        def _progress(phase: str) -> None:
+            result_store.update_job(job_id, status=phase)
+
         payload = analysis_service.analyze_video(
             video_path=video_path,
             source_url=req["url"],
-            start_seconds=req.get("start_seconds"),
-            end_seconds=req.get("end_seconds"),
+            start_seconds=start_seconds,
+            end_seconds=end_seconds,
             subject=req.get("subject"),
             statement=req.get("statement"),
             context=req.get("context"),
             year=req.get("year"),
+            progress=_progress,
         )
         result_store.update_job(job_id, status="synthesizing")
         result = result_store.save_result(job_id, payload)
@@ -56,6 +72,10 @@ def run_upload_job(job_id: str) -> None:
                 end_seconds=float(req["end_seconds"]),
             )
         result_store.update_job(job_id, status="extracting")
+
+        def _progress(phase: str) -> None:
+            result_store.update_job(job_id, status=phase)
+
         payload = analysis_service.analyze_video(
             video_path=video_path,
             source_url="",
@@ -65,6 +85,7 @@ def run_upload_job(job_id: str) -> None:
             statement=req.get("statement"),
             context=req.get("context"),
             year=req.get("year"),
+            progress=_progress,
         )
         result_store.update_job(job_id, status="synthesizing")
         result = result_store.save_result(job_id, payload)

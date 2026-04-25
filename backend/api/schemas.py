@@ -72,6 +72,15 @@ class SimilarArchiveMatch(BaseModel):
     scores: ClipScores
 
 
+class TextPriorInference(BaseModel):
+    model_name: str
+    statement_used: str
+    statement_source: str
+    probability_resolved_false: float | None = None
+    label: Literal["likely_false", "uncertain", "likely_true", "unavailable"]
+    confidence: int | None = None
+
+
 class LiveAnalysisPayload(BaseModel):
     subject: str
     statement: str
@@ -86,6 +95,7 @@ class LiveAnalysisPayload(BaseModel):
     llm_report: ClipReport
     signal_quality: SignalQuality
     similar_archive_matches: list[SimilarArchiveMatch] = Field(default_factory=list)
+    text_prior: TextPriorInference | None = None
 
 
 class AnalysisResultResponse(BaseModel):
