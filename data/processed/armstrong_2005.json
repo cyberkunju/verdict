@@ -16,10 +16,10 @@
     "hr_peak_bpm": 87.8,
     "hr_delta_bpm": 20.2,
     "hrv_rmssd_ms": 225.1,
-    "au15_max_intensity": 2.4,
-    "au14_max_intensity": 1.5,
+    "au15_max_intensity": 1.02,
+    "au14_max_intensity": 0.12,
     "au6_present": false,
-    "au24_max_intensity": 2.1,
+    "au24_max_intensity": 2.81,
     "f0_baseline_hz": 85.3,
     "f0_peak_hz": 400.0,
     "f0_delta_hz": 314.7,
@@ -35,97 +35,97 @@
         "hr": 75.0,
         "f0": 85.3,
         "au15": 0.0,
-        "deception": 29.150000000000002
+        "deception": 4.95
       },
       {
         "t": 5.27,
         "hr": 75.0,
         "f0": 113.9090909090909,
-        "au15": 0.21818181818181817,
-        "deception": 31.31818181818182
+        "au15": 0.09272727272727273,
+        "deception": 5.318181818181818
       },
       {
         "t": 6.07,
         "hr": 75.7,
         "f0": 142.5181818181818,
-        "au15": 0.43636363636363634,
-        "deception": 33.486363636363635
+        "au15": 0.18545454545454546,
+        "deception": 5.6863636363636365
       },
       {
         "t": 6.88,
         "hr": 79.8,
         "f0": 171.12727272727273,
-        "au15": 0.6545454545454544,
-        "deception": 35.654545454545456
+        "au15": 0.27818181818181814,
+        "deception": 6.054545454545455
       },
       {
         "t": 7.69,
         "hr": 82.5,
         "f0": 199.73636363636365,
-        "au15": 0.8727272727272727,
-        "deception": 37.82272727272727
+        "au15": 0.3709090909090909,
+        "deception": 6.422727272727273
       },
       {
         "t": 8.5,
         "hr": 82.5,
         "f0": 228.34545454545452,
-        "au15": 1.0909090909090908,
-        "deception": 39.99090909090909
+        "au15": 0.4636363636363636,
+        "deception": 6.790909090909092
       },
       {
         "t": 9.3,
         "hr": 84.5,
         "f0": 256.95454545454544,
-        "au15": 1.3090909090909089,
-        "deception": 42.159090909090914
+        "au15": 0.5563636363636363,
+        "deception": 7.15909090909091
       },
       {
         "t": 10.11,
         "hr": 88.6,
         "f0": 285.56363636363636,
-        "au15": 1.5272727272727271,
-        "deception": 44.32727272727273
+        "au15": 0.649090909090909,
+        "deception": 7.527272727272727
       },
       {
         "t": 10.92,
         "hr": 79.1,
         "f0": 314.1727272727273,
-        "au15": 1.7454545454545454,
-        "deception": 46.49545454545455
+        "au15": 0.7418181818181818,
+        "deception": 7.8954545454545455
       },
       {
         "t": 11.73,
         "hr": 62.7,
         "f0": 342.7818181818182,
-        "au15": 1.9636363636363636,
-        "deception": 48.663636363636364
+        "au15": 0.8345454545454546,
+        "deception": 8.263636363636364
       },
       {
         "t": 12.53,
         "hr": 60.0,
         "f0": 371.3909090909091,
-        "au15": 2.1818181818181817,
-        "deception": 50.831818181818186
+        "au15": 0.9272727272727272,
+        "deception": 8.631818181818183
       },
       {
         "t": 13.34,
         "hr": 60.0,
         "f0": 400.0,
-        "au15": 2.4,
-        "deception": 53.0
+        "au15": 1.02,
+        "deception": 9.0
       }
     ]
   },
   "scores": {
-    "deception": 53,
-    "sincerity": 45,
-    "stress": 67,
-    "confidence": 62
+    "deception": 9,
+    "sincerity": 61,
+    "stress": 69,
+    "confidence": 59
   },
   "llm_report": {
-    "behavioral_summary": "During the statement, Lance Armstrong exhibited a heart rate increase from a baseline of 67.5 bpm to a peak of 87.8 bpm, indicating a delta of 20.2 bpm. His vocal pitch showed a significant rise, with a baseline of 85.3 Hz peaking at 400.0 Hz, resulting in a delta of 314.7 Hz. Facial action units showed moderate activation, with AU15 at 2.4 and AU24 at 2.1, while AU6 was not present. The speech rate was measured at 163.2 words per minute, with no hedging detected and a pronoun drop rate of 0.66. These signals are consistent with elevated stress levels, though this is not a truth determination.",
-    "comparative_profile": "The signal pattern observed in Armstrong's statement shows similarities to the 'clinton_1998' entry, where elevated physiological arousal was also noted during a public denial. Additionally, the 'holmes_2018' entry displayed comparable vocal pitch elevation and stress indicators during high-stakes public statements. These patterns suggest a common physiological response under scrutiny, though individual contexts differ.",
-    "qualifications": "Physiological arousal can reflect a variety of emotional states, including stress, fear, or anger, and is not solely indicative of deception. The signal quality for this analysis includes real-time pulse rate and voice data, with facial action units derived from fallback methods. As always, this analysis does not determine truth but highlights signal patterns for further consideration."
+    "behavioral_summary": "During Lance Armstrong's statement, his heart rate increased by 20.2 bpm from a baseline of 67.5 bpm to a peak of 87.8 bpm, indicating elevated physiological arousal. The F0, or fundamental frequency of his voice, showed a significant increase from a baseline of 85.3 Hz to a peak of 400.0 Hz, a delta of 314.7 Hz, which is notably high. Facial Action Units showed AU24 (lip press) at a maximum intensity of 2.81, suggesting tension, while AU15 (lip corner depressor) was at 1.02, and AU14 (dimpler) was low at 0.12. There was no hedging detected, and the pronoun drop rate was 0.66, which is relatively high.",
+    "comparative_profile": "The signal pattern observed in Armstrong's statement is similar to historical entries such as clinton_1998 and holmes_2018, where elevated physiological arousal and vocal stress indicators were also present. These cases showed high stress and tension, with significant voice pitch elevation and facial tension, consistent with the current analysis.",
+    "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and should not be interpreted as a direct indicator of deception. The signal quality was high, with real data across rPPG, facial action units, voice, and transcript, ensuring reliable measurements. This is not a truth determination, and the analysis only highlights patterns consistent with historical cases."
   },
   "similar_clips": [
     "clinton_1998",
@@ -133,7 +133,7 @@
   ],
   "signal_quality": {
     "rppg": "real",
-    "facial_au": "fallback",
+    "facial_au": "real",
     "voice": "real",
     "transcript": "real"
   }

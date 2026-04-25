@@ -1,0 +1,288 @@
+{
+  "catalog_version": "0.1",
+  "model": "VerdictFusion-v1",
+  "sources": [
+    {
+      "source_id": "real_life_trial_deception_umich",
+      "name": "Real-Life Deception Detection Dataset",
+      "category": "deception_multimodal",
+      "url": "https://lit.eecs.umich.edu/deceptiondetection/",
+      "access_url": "https://public.websites.umich.edu/~zmohamed/resources.html",
+      "license_status": "research_dataset_terms_required",
+      "priority": "P0",
+      "use_for": ["fusion_pretraining", "linguistic_model", "hard_eval"],
+      "notes": "121 real trial clips with truthful/deceptive labels and manual annotations."
+    },
+    {
+      "source_id": "perez_rosas_lrec_2014_multimodal",
+      "name": "A Multimodal Dataset for Deception Detection",
+      "category": "deception_physiological",
+      "url": "https://aclanthology.org/L14-1673/",
+      "license_status": "check_acl_and_dataset_terms",
+      "priority": "P1",
+      "use_for": ["physio_linguistic_pretraining", "fusion_pretraining"],
+      "notes": "Physiological, thermal, and visual deception scenarios."
+    },
+    {
+      "source_id": "ubfc_rppg",
+      "name": "UBFC-rPPG",
+      "category": "rppg",
+      "url": "https://paperswithcode.com/dataset/ubfc-rppg",
+      "license_status": "check_dataset_terms",
+      "priority": "P0",
+      "use_for": ["rppg_training", "rppg_eval"]
+    },
+    {
+      "source_id": "pure_rppg",
+      "name": "PURE rPPG Dataset",
+      "category": "rppg",
+      "url": "https://www.tu-ilmenau.de/en/neurob/data-sets-code/pulse-rate-detection-dataset-pure",
+      "license_status": "request_or_terms_required",
+      "priority": "P0",
+      "use_for": ["rppg_training", "cross_dataset_eval"]
+    },
+    {
+      "source_id": "ubfc_phys",
+      "name": "UBFC-Phys",
+      "category": "rppg_stress",
+      "url": "https://team.inria.fr/robotlearn/ubfc-phys/",
+      "backup_url": "https://teamofmis.github.io/IHSLab/dataset/ubfc-phys",
+      "license_status": "noncommercial_or_terms_required",
+      "priority": "P0",
+      "use_for": ["rppg_training", "stress_model", "contact_to_contactless_distillation"],
+      "notes": "Video + BVP + EDA during rest/speech/arithmetic stress tasks."
+    },
+    {
+      "source_id": "mmpd_rppg",
+      "name": "MMPD Multi-Domain Mobile Video Physiology Dataset",
+      "category": "rppg",
+      "url": "https://github.com/THU-CS-PI/MMPD_rPPG_dataset",
+      "paper_url": "https://arxiv.org/abs/2302.03840",
+      "license_status": "check_repo_terms",
+      "priority": "P1",
+      "use_for": ["rppg_robustness", "mobile_domain_eval"]
+    },
+    {
+      "source_id": "ravdess",
+      "name": "RAVDESS",
+      "category": "voice_face_emotion",
+      "url": "https://zenodo.org/records/1188976",
+      "license_status": "cc_by_nc_sa_4_0_research_only",
+      "priority": "P0",
+      "use_for": ["voice_arousal_training", "face_expression_training"]
+    },
+    {
+      "source_id": "iemocap",
+      "name": "IEMOCAP",
+      "category": "voice_multimodal_emotion",
+      "url": "https://sail.usc.edu/iemocap/",
+      "license_status": "access_agreement_required",
+      "priority": "P0",
+      "use_for": ["voice_arousal_training", "multimodal_emotion_eval"]
+    },
+    {
+      "source_id": "crema_d",
+      "name": "CREMA-D",
+      "category": "voice_face_emotion",
+      "url": "https://cheyneycomputerscience.github.io/CREMA-D/",
+      "license_status": "check_project_terms",
+      "priority": "P1",
+      "use_for": ["voice_arousal_training", "face_expression_training"]
+    },
+    {
+      "source_id": "msp_podcast",
+      "name": "MSP-Podcast",
+      "category": "naturalistic_voice_emotion",
+      "url": "https://www.lab-msp.com/MSP/MSP-Podcast.html",
+      "license_status": "request_or_terms_required",
+      "priority": "P0",
+      "use_for": ["voice_arousal_training", "naturalistic_voice_eval"]
+    },
+    {
+      "source_id": "disfa",
+      "name": "DISFA",
+      "category": "facial_action_units",
+      "url": "http://mohammadmahoor.com/disfa/",
+      "license_status": "request_required",
+      "priority": "P0",
+      "use_for": ["au_training", "au_eval"]
+    },
+    {
+      "source_id": "bp4d",
+      "name": "BP4D / BP4D+",
+      "category": "facial_action_units",
+      "url": "http://www.cs.binghamton.edu/~lijun/Research/3DFE/3DFE_Analysis.html",
+      "license_status": "request_required",
+      "priority": "P0",
+      "use_for": ["au_training", "au_eval", "contact_to_contactless_distillation"]
+    },
+    {
+      "source_id": "openface",
+      "name": "OpenFace",
+      "category": "facial_feature_extractor",
+      "url": "https://github.com/TadasBaltrusaitis/OpenFace",
+      "license_status": "tool_license_and_model_terms",
+      "priority": "P0",
+      "use_for": ["pseudo_labeling", "baseline_features", "au_extraction"]
+    },
+    {
+      "source_id": "faceforensicspp",
+      "name": "FaceForensics++",
+      "category": "integrity_deepfake",
+      "url": "https://github.com/ondyari/FaceForensics",
+      "license_status": "request_or_terms_required",
+      "priority": "P0",
+      "use_for": ["integrity_gate_training", "deepfake_eval"]
+    },
+    {
+      "source_id": "dfdc",
+      "name": "DeepFake Detection Challenge Dataset",
+      "category": "integrity_deepfake",
+      "url": "https://www.kaggle.com/c/deepfake-detection-challenge/data",
+      "paper_url": "https://arxiv.org/abs/2006.07397",
+      "license_status": "kaggle_terms_required",
+      "priority": "P1",
+      "use_for": ["integrity_gate_training", "deepfake_eval"]
+    },
+    {
+      "source_id": "celeb_df",
+      "name": "Celeb-DF",
+      "category": "integrity_deepfake",
+      "url": "https://github.com/yuezunli/celeb-deepfakeforensics",
+      "paper_url": "https://arxiv.org/abs/1909.12962",
+      "license_status": "request_or_terms_required",
+      "priority": "P1",
+      "use_for": ["deepfake_generalization_eval"]
+    },
+    {
+      "source_id": "gdelt_tv",
+      "name": "GDELT Television API / Internet Archive TV News",
+      "category": "public_claim_discovery",
+      "url": "https://blog.gdeltproject.org/gdelt-2-0-television-api-debuts/",
+      "api_url": "https://api.gdeltproject.org/api/v2/tv/tv",
+      "license_status": "metadata_api_terms_required",
+      "priority": "P0",
+      "use_for": ["claim_discovery", "public_video_search"]
+    },
+    {
+      "source_id": "internet_archive_tv",
+      "name": "Internet Archive TV News Archive",
+      "category": "public_claim_discovery",
+      "url": "https://archive.org/details/tv",
+      "license_status": "archive_terms_required",
+      "priority": "P0",
+      "use_for": ["claim_discovery", "caption_search", "video_locator"]
+    },
+    {
+      "source_id": "cspan_video_library",
+      "name": "C-SPAN Video Library",
+      "category": "public_claim_discovery",
+      "url": "https://www.c-span.org/",
+      "license_status": "terms_required",
+      "priority": "P0",
+      "use_for": ["hearings", "press_conferences", "baseline_mining"]
+    },
+    {
+      "source_id": "claimbuster",
+      "name": "ClaimBuster Dataset",
+      "category": "claim_detection",
+      "url": "https://idir.uta.edu/claimbuster/",
+      "paper_url": "https://arxiv.org/abs/2004.14425",
+      "license_status": "check_dataset_terms",
+      "priority": "P1",
+      "use_for": ["claim_segmenter_training", "claim_worthiness"]
+    },
+    {
+      "source_id": "politifact",
+      "name": "PolitiFact",
+      "category": "ground_truth_metadata",
+      "url": "https://www.politifact.com/",
+      "license_status": "metadata_citation_only_unless_licensed",
+      "priority": "P1",
+      "use_for": ["ground_truth_sources", "claim_metadata"]
+    },
+    {
+      "source_id": "wikidata",
+      "name": "Wikidata",
+      "category": "public_knowledge_graph",
+      "url": "https://www.wikidata.org/wiki/Wikidata:Main_Page",
+      "license_status": "cc0",
+      "priority": "P2",
+      "use_for": ["entity_resolution", "subject_metadata", "event_metadata"]
+    },
+    {
+      "source_id": "datacommons_factcheck",
+      "name": "Data Commons Fact Check ClaimReview Feed",
+      "category": "factcheck_metadata",
+      "url": "https://datacommons.org/factcheck/download",
+      "download_url": "https://storage.googleapis.com/datacommons-feeds/factcheck/latest/data.json",
+      "license_status": "cc_by_structured_claimreview_metadata_publisher_terms_apply",
+      "priority": "P0",
+      "use_for": ["factcheck_metadata", "linguistic_pretraining", "ground_truth_mining"]
+    },
+    {
+      "source_id": "global_claims_zenodo",
+      "name": "Global Claims Dataset",
+      "category": "factcheck_metadata",
+      "url": "https://zenodo.org/records/16942245",
+      "license_status": "cc_by_4_0",
+      "priority": "P0",
+      "use_for": ["multilingual_factcheck_metadata", "linguistic_pretraining"]
+    },
+    {
+      "source_id": "claimskg",
+      "name": "ClaimsKG",
+      "category": "factcheck_knowledge_graph",
+      "url": "https://data.gesis.org/claimskg/",
+      "license_status": "cc_by_nc_sa_4_0_research_only",
+      "priority": "P0",
+      "use_for": ["factcheck_metadata", "entity_linking", "rating_normalization"]
+    },
+    {
+      "source_id": "averitec",
+      "name": "AVeriTeC",
+      "category": "claim_verification",
+      "url": "https://github.com/MichSchli/AVeriTeC",
+      "license_status": "cc_by_nc_4_0",
+      "priority": "P0",
+      "use_for": ["claim_verification_pretraining", "evidence_retrieval"]
+    },
+    {
+      "source_id": "fever",
+      "name": "FEVER",
+      "category": "claim_verification",
+      "url": "https://fever.ai/dataset/fever.html",
+      "license_status": "wikipedia_derived_cc_by_sa_terms_apply",
+      "priority": "P1",
+      "use_for": ["claim_verification_pretraining", "evidence_retrieval"]
+    },
+    {
+      "source_id": "courtlistener_bulk",
+      "name": "CourtListener Bulk Data",
+      "category": "legal_public_record",
+      "url": "https://www.courtlistener.com/help/api/bulk-data/",
+      "license_status": "free_of_known_copyright_restrictions_verify_per_source",
+      "priority": "P0",
+      "use_for": ["legal_resolution_metadata", "court_language_corpus"]
+    },
+    {
+      "source_id": "doj_press_releases",
+      "name": "DOJ Press Releases API",
+      "category": "legal_resolution_metadata",
+      "url": "https://www.justice.gov/developer/api-documentation/api_v1",
+      "api_url": "https://www.justice.gov/api/v1/press_releases.json",
+      "license_status": "us_government_public_record_terms_apply",
+      "priority": "P0",
+      "use_for": ["resolution_candidate_mining", "ground_truth_sources"]
+    },
+    {
+      "source_id": "uk_hansard",
+      "name": "UK Hansard",
+      "category": "public_statement_baseline",
+      "url": "https://api.parliament.uk/historic-hansard/api",
+      "license_status": "open_parliament_licence_v3",
+      "priority": "P0",
+      "use_for": ["public_statement_baselines", "political_speech_corpus"]
+    }
+  ]
+}

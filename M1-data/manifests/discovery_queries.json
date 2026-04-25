@@ -1,0 +1,26 @@
+{
+  "version": "0.1",
+  "public_claim_queries": [
+    "\"I did not\" \"press conference\"",
+    "\"I have never\" \"interview\" \"confessed\"",
+    "\"not aware\" \"customer funds\"",
+    "\"we did not\" \"hearing\" \"convicted\"",
+    "\"under oath\" \"I did not\"",
+    "\"congressional hearing\" \"whistleblower\" testimony",
+    "\"SEC\" \"denied\" \"convicted\" interview",
+    "\"DOJ\" \"fraud\" \"public statements\" \"denied\""
+  ],
+  "baseline_queries": [
+    "\"{subject}\" interview weather",
+    "\"{subject}\" routine interview",
+    "\"{subject}\" commencement speech",
+    "\"{subject}\" book interview",
+    "\"{subject}\" non controversial interview"
+  ],
+  "source_apis": [
+    "gdelt_tv",
+    "internet_archive_tv",
+    "cspan_video_library",
+    "wikidata"
+  ]
+}

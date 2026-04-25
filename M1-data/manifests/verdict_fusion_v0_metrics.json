@@ -1,0 +1,166 @@
+{
+  "model_name": "VerdictFusion-v0",
+  "description": "L2-regularized logistic regression on 14 multimodal features. Text-prior stacked externally.",
+  "feature_names": [
+    "hr_baseline_bpm",
+    "hr_delta_bpm",
+    "hrv_rmssd_ms",
+    "f0_baseline_hz",
+    "f0_delta_hz",
+    "jitter_percent",
+    "shimmer_db",
+    "speech_rate_wpm",
+    "au14_max_intensity",
+    "au15_max_intensity",
+    "au24_max_intensity",
+    "au6_present_int",
+    "hedging_count_per_100w",
+    "pronoun_drop_rate",
+    "text_deception_prior",
+    "cross_modal_synchrony"
+  ],
+  "feature_importances": {
+    "hr_baseline_bpm": 0.04998781891517771,
+    "hr_delta_bpm": 0.15845818527851727,
+    "hrv_rmssd_ms": 0.03843868791507937,
+    "f0_baseline_hz": 0.05159062810451731,
+    "f0_delta_hz": 0.17771569022055997,
+    "jitter_percent": 0.01611571905613575,
+    "shimmer_db": 0.05403556965649519,
+    "speech_rate_wpm": 0.03619967237213601,
+    "au14_max_intensity": 0.12693438321393927,
+    "au15_max_intensity": 0.0721103245778517,
+    "au24_max_intensity": 0.08414077820813813,
+    "au6_present_int": 0.006116311937830757,
+    "hedging_count_per_100w": 0.07088878869960226,
+    "pronoun_drop_rate": 0.029427765750447584,
+    "text_deception_prior": 0.017230777128654295,
+    "cross_modal_synchrony": 0.010608898964917485
+  },
+  "feature_signs": {
+    "hr_baseline_bpm": 1,
+    "hr_delta_bpm": 1,
+    "hrv_rmssd_ms": 1,
+    "f0_baseline_hz": 1,
+    "f0_delta_hz": 1,
+    "jitter_percent": 1,
+    "shimmer_db": 1,
+    "speech_rate_wpm": -1,
+    "au14_max_intensity": 1,
+    "au15_max_intensity": 1,
+    "au24_max_intensity": 1,
+    "au6_present_int": -1,
+    "hedging_count_per_100w": -1,
+    "pronoun_drop_rate": -1,
+    "text_deception_prior": 1,
+    "cross_modal_synchrony": -1
+  },
+  "loso_cv": {
+    "accuracy": 0.4166666666666667,
+    "roc_auc": 0.34285714285714286,
+    "ece": 0.5879741029004938,
+    "per_subject": [
+      {
+        "held_subject": "Bill Clinton",
+        "n_test": 1,
+        "true_label": 1,
+        "predicted_prob": 0.10109617718395396,
+        "predicted_label": 0,
+        "correct": false
+      },
+      {
+        "held_subject": "Daniel Ellsberg",
+        "n_test": 1,
+        "true_label": 0,
+        "predicted_prob": 0.009290785170192025,
+        "predicted_label": 0,
+        "correct": true
+      },
+      {
+        "held_subject": "Edward Snowden",
+        "n_test": 1,
+        "true_label": 0,
+        "predicted_prob": 0.8826153026793077,
+        "predicted_label": 1,
+        "correct": false
+      },
+      {
+        "held_subject": "Elizabeth Holmes",
+        "n_test": 1,
+        "true_label": 1,
+        "predicted_prob": 0.9613960804918115,
+        "predicted_label": 1,
+        "correct": true
+      },
+      {
+        "held_subject": "Erika Cheung",
+        "n_test": 1,
+        "true_label": 0,
+        "predicted_prob": 0.012125950728586563,
+        "predicted_label": 0,
+        "correct": true
+      },
+      {
+        "held_subject": "Frances Haugen",
+        "n_test": 1,
+        "true_label": 0,
+        "predicted_prob": 0.0449761805132571,
+        "predicted_label": 0,
+        "correct": true
+      },
+      {
+        "held_subject": "Jeffrey Wigand",
+        "n_test": 1,
+        "true_label": 0,
+        "predicted_prob": 0.9473576240496441,
+        "predicted_label": 1,
+        "correct": false
+      },
+      {
+        "held_subject": "John Dean",
+        "n_test": 1,
+        "true_label": 0,
+        "predicted_prob": 0.4882105499538614,
+        "predicted_label": 0,
+        "correct": true
+      },
+      {
+        "held_subject": "Lance Armstrong",
+        "n_test": 1,
+        "true_label": 1,
+        "predicted_prob": 0.05021111206372167,
+        "predicted_label": 0,
+        "correct": false
+      },
+      {
+        "held_subject": "Richard Nixon",
+        "n_test": 1,
+        "true_label": 1,
+        "predicted_prob": 3.338279929084266e-05,
+        "predicted_label": 0,
+        "correct": false
+      },
+      {
+        "held_subject": "Sam Bankman-Fried",
+        "n_test": 1,
+        "true_label": 1,
+        "predicted_prob": 0.004459740289357637,
+        "predicted_label": 0,
+        "correct": false
+      },
+      {
+        "held_subject": "Tyler Shultz",
+        "n_test": 1,
+        "true_label": 0,
+        "predicted_prob": 0.9983030063796611,
+        "predicted_label": 1,
+        "correct": false
+      }
+    ]
+  },
+  "production_fit": {
+    "n_rows": 372,
+    "train_accuracy": 0.9704301075268817,
+    "train_roc_auc": 0.9953619741340866
+  }
+}

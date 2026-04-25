@@ -1,0 +1,130 @@
+{
+  "created_at_utc": "2026-04-25T10:58:40.770942+00:00",
+  "datasets": {
+    "UBFC-rPPG": [
+      {
+        "path": "M3-data\\raw\\public\\UBFC-rPPG",
+        "present": true,
+        "matches": {
+          "subject*/vid.avi": 0,
+          "subject*/ground_truth.txt": 0
+        }
+      },
+      {
+        "path": "M3-data\\raw\\restricted\\UBFC-rPPG",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\own-capture\\UBFC-rPPG",
+        "present": false,
+        "matches": {}
+      }
+    ],
+    "PURE": [
+      {
+        "path": "M3-data\\raw\\public\\PURE",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\restricted\\PURE",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\own-capture\\PURE",
+        "present": false,
+        "matches": {}
+      }
+    ],
+    "MMPD": [
+      {
+        "path": "M3-data\\raw\\public\\MMPD",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\restricted\\MMPD",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\own-capture\\MMPD",
+        "present": false,
+        "matches": {}
+      }
+    ],
+    "VitalVideo": [
+      {
+        "path": "M3-data\\raw\\public\\VitalVideo",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\restricted\\VitalVideo",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\own-capture\\VitalVideo",
+        "present": false,
+        "matches": {}
+      }
+    ],
+    "UBFC-Phys": [
+      {
+        "path": "M3-data\\raw\\public\\UBFC-Phys",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\restricted\\UBFC-Phys",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\own-capture\\UBFC-Phys",
+        "present": false,
+        "matches": {}
+      }
+    ],
+    "VIPL-HR-V2": [
+      {
+        "path": "M3-data\\raw\\public\\VIPL-HR-V2",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\restricted\\VIPL-HR-V2",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\own-capture\\VIPL-HR-V2",
+        "present": false,
+        "matches": {}
+      }
+    ],
+    "rPPG-10": [
+      {
+        "path": "M3-data\\raw\\public\\rPPG-10",
+        "present": true,
+        "matches": {
+          "dataset/Dataset_rPPG-10/Subject_*/*_ECG.npy": 27,
+          "dataset/Dataset_rPPG-10/Subject_*/*.avi": 81
+        }
+      },
+      {
+        "path": "M3-data\\raw\\restricted\\rPPG-10",
+        "present": false,
+        "matches": {}
+      },
+      {
+        "path": "M3-data\\raw\\own-capture\\rPPG-10",
+        "present": false,
+        "matches": {}
+      }
+    ]
+  }
+}

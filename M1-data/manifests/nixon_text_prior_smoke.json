@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "clip_id": "nixon_1973",
+  "subject": "Richard Nixon",
+  "statement": "I am not a crook.",
+  "year": 1973,
+  "context": "Press conference at Walt Disney World, Orlando, Florida, responding to questions about Watergate.",
+  "ground_truth": "false",
+  "ground_truth_source": "Resigned 9 August 1974 after release of the 'smoking gun' tape; Watergate cover-up confirmed by US House Judiciary Committee impeachment articles.",
+  "video_url": "https://www.youtube.com/watch?v=7Q6d-UYYBWU",
+  "video_start_seconds": 0.0,
+  "video_end_seconds": 15.0,
+  "thumbnail_url": "https://img.youtube.com/vi/7Q6d-UYYBWU/hqdefault.jpg",
+  "signals": {
+    "hr_baseline_bpm": 104.7,
+    "hr_peak_bpm": 130.9,
+    "hr_delta_bpm": 26.2,
+    "hrv_rmssd_ms": 258.6,
+    "au15_max_intensity": 2.6,
+    "au14_max_intensity": 1.4,
+    "au6_present": false,
+    "au24_max_intensity": 2.0,
+    "f0_baseline_hz": 143.2,
+    "f0_peak_hz": 268.7,
+    "f0_delta_hz": 125.4,
+    "jitter_percent": 1.85,
+    "shimmer_db": 1.06,
+    "speech_rate_wpm": 139.0,
+    "hedging_count": 0,
+    "pronoun_drop_rate": 0.21875,
+    "transcript": "On the 17th of November 1973, in Disney World, Orlando, Florida, US President Richard Nixon told 400 Associated Press Managing Editors, I am not a crook.",
+    "timeline": [
+      {
+        "t": 3.44,
+        "hr": 61.1,
+        "f0": 143.2,
+        "au15": 0.0,
+        "deception": 31.35
+      },
+      {
+        "t": 4.06,
+        "hr": 84.9,
+        "f0": 154.6090909090909,
+        "au15": 0.2363636363636364,
+        "deception": 33.68181818181819
+      },
+      {
+        "t": 4.67,
+        "hr": 104.7,
+        "f0": 166.0181818181818,
+        "au15": 0.4727272727272728,
+        "deception": 36.013636363636365
+      },
+      {
+        "t": 5.3,
+        "hr": 104.7,
+        "f0": 177.4272727272727,
+        "au15": 0.7090909090909091,
+        "deception": 38.345454545454544
+      },
+      {
+        "t": 5.92,
+        "hr": 109.5,
+        "f0": 188.83636363636361,
+        "au15": 0.9454545454545455,
+        "deception": 40.67727272727273
+      },
+      {
+        "t": 6.53,
+        "hr": 123.8,
+        "f0": 200.24545454545455,
+        "au15": 1.1818181818181819,
+        "deception": 43.009090909090915
+      },
+      {
+        "t": 7.15,
+        "hr": 130.9,
+        "f0": 211.65454545454543,
+        "au15": 1.4181818181818182,
+        "deception": 45.34090909090909
+      },
+      {
+        "t": 7.76,
+        "hr": 130.9,
+        "f0": 223.06363636363636,
+        "au15": 1.6545454545454545,
+        "deception": 47.67272727272728
+      },
+      {
+        "t": 8.38,
+        "hr": 130.9,
+        "f0": 234.47272727272727,
+        "au15": 1.890909090909091,
+        "deception": 50.00454545454546
+      },
+      {
+        "t": 9.01,
+        "hr": 130.9,
+        "f0": 245.88181818181818,
+        "au15": 2.1272727272727274,
+        "deception": 52.336363636363636
+      },
+      {
+        "t": 9.62,
+        "hr": 119.0,
+        "f0": 257.29090909090905,
+        "au15": 2.3636363636363638,
+        "deception": 54.66818181818182
+      },
+      {
+        "t": 10.24,
+        "hr": 104.7,
+        "f0": 268.7,
+        "au15": 2.6,
+        "deception": 57.0
+      }
+    ]
+  },
+  "scores": {
+    "deception": 57,
+    "sincerity": 63,
+    "stress": 68,
+    "confidence": 76
+  },
+  "llm_report": {
+    "behavioral_summary": "During the statement 'I am not a crook,' Richard Nixon exhibited a heart rate increase from a baseline of 104.7 bpm to a peak of 130.9 bpm, a delta of 26.2 bpm, indicating elevated physiological arousal. The fundamental frequency (F0) showed a significant increase from 143.2 Hz to 268.7 Hz, a delta of 125.4 Hz, which is often associated with heightened stress or emotional intensity. Facial Action Units (AUs) showed moderate activity with AU15 (lip corner depressor) at 2.6 and AU24 (lip pressor) at 2.0, while AU6 (cheek raiser) was absent, suggesting limited positive affect. The speech rate was measured at 139.0 words per minute, with no hedging detected and a pronoun drop rate of 0.22.",
+    "comparative_profile": "The physiological and vocal patterns observed in Nixon's statement bear resemblance to those in the 'clinton_1998' entry, where similar stress indicators were present during a high-stakes denial. Additionally, the 'armstrong_2005' entry showed comparable vocal stress markers, though with different facial expressions. These patterns are consistent with high-pressure public denials in historical contexts.",
+    "qualifications": "Physiological arousal can reflect various emotional states, including stress, fear, or anger, and is not solely indicative of deception. The signal quality for this analysis includes real data for heart rate and voice, but facial action units were derived from fallback methods, which may affect precision. This is not a truth determination."
+  },
+  "similar_clips": [
+    "clinton_1998",
+    "armstrong_2005"
+  ],
+  "signal_quality": {
+    "rppg": "real",
+    "facial_au": "fallback",
+    "voice": "real",
+    "transcript": "real"
+  }
+}

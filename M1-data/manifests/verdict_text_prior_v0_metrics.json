@@ -1,0 +1,50 @@
+{
+  "model_name": "VerdictTextPrior-v0",
+  "description": "Text-only resolved-false prior trained on fact-check corpora. Not a multimodal deception model.",
+  "positive_class": "resolved_false",
+  "negative_class": "resolved_true",
+  "stats": {
+    "resolved_false": 35000,
+    "resolved_true": 18907,
+    "dataset_counts_after_filter": {
+      "averitec": 2812,
+      "datacommons_factcheck": 29622,
+      "fakenewsnet_minimal": 17822,
+      "global_claims_factcheck": 39899,
+      "liar_ucsb": 5294
+    }
+  },
+  "metrics": {
+    "test_accuracy": 0.8663513262845484,
+    "test_roc_auc": 0.9356867492634282,
+    "classification_report": {
+      "resolved_true": {
+        "precision": 0.7844471445929526,
+        "recall": 0.8535166578529878,
+        "f1-score": 0.8175256426491072,
+        "support": 3782.0
+      },
+      "resolved_false": {
+        "precision": 0.9169041547922604,
+        "recall": 0.8732857142857143,
+        "f1-score": 0.8945635472305553,
+        "support": 7000.0
+      },
+      "accuracy": 0.8663513262845484,
+      "macro avg": {
+        "precision": 0.8506756496926065,
+        "recall": 0.8634011860693511,
+        "f1-score": 0.8560445949398312,
+        "support": 10782.0
+      },
+      "weighted avg": {
+        "precision": 0.870442235614577,
+        "recall": 0.8663513262845484,
+        "f1-score": 0.8675409767309229,
+        "support": 10782.0
+      }
+    },
+    "train_rows": 43125,
+    "test_rows": 10782
+  }
+}

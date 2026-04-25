@@ -173,6 +173,185 @@ CLIPS: dict[str, ClipMeta] = {
         thumbnail_url="data/thumbnails/haugen_2021.jpg",
         similar_clips=(),
     ),
+
+    # ------------------------------------------------------------------
+    # TRUTHFUL ARCHIVE EXPANSION (added 2026-04-25)
+    # Sourced from research-data/manifests/truthful_candidates.json.
+    # All six are sworn / on-the-record disclosures whose factual content
+    # was later vindicated by criminal conviction of the OPPOSING party,
+    # release of corroborating documents, or court ruling. Selection
+    # rationale documented in the manifest.
+    # ------------------------------------------------------------------
+
+    "dean_1973": ClipMeta(
+        clip_id="dean_1973",
+        subject="John Dean",
+        statement=(
+            "There is a cancer growing on the presidency, and if the "
+            "cancer is not removed, the President himself will be killed "
+            "by it."
+        ),
+        year=1973,
+        context=(
+            "United States Senate Watergate Committee testimony, "
+            "25 June 1973. Former White House Counsel describes the "
+            "cover-up directly to the Senate select committee."
+        ),
+        ground_truth="sincere",
+        ground_truth_source=(
+            "Corroborated by the Nixon White House tape of the 21 March "
+            "1973 'cancer' meeting; Nixon resigned 9 August 1974 and "
+            "every subsequent investigation vindicated Dean's account."
+        ),
+        video_url="https://www.youtube.com/watch?v=mZx7g74CvKc",
+        video_start_seconds=60.0,
+        video_end_seconds=90.0,
+        thumbnail_url="https://img.youtube.com/vi/mZx7g74CvKc/hqdefault.jpg",
+        similar_clips=("nixon_1973", "haugen_2021"),
+    ),
+
+    "cheung_2019": ClipMeta(
+        clip_id="cheung_2019",
+        subject="Erika Cheung",
+        statement=(
+            "I knew that Theranos was committing a fraud and I had a "
+            "moral obligation to do something about it."
+        ),
+        year=2019,
+        context=(
+            "TEDx Talk 'Theranos, whistleblowing and speaking truth to "
+            "power.' Cheung was the lab associate who reported Theranos "
+            "to the FDA and CMS in 2014."
+        ),
+        ground_truth="sincere",
+        ground_truth_source=(
+            "Elizabeth Holmes was convicted on 4 counts of wire fraud "
+            "(3 January 2022) directly based on the same patient harm "
+            "Cheung reported. Cheung's testimony was central to United "
+            "States v. Holmes and v. Balwani."
+        ),
+        video_url="https://www.youtube.com/watch?v=vMQlj9TZQfE",
+        video_start_seconds=30.0,
+        video_end_seconds=55.0,
+        thumbnail_url="https://img.youtube.com/vi/vMQlj9TZQfE/hqdefault.jpg",
+        similar_clips=("holmes_2018", "shultz_2019"),
+    ),
+
+    "shultz_2019": ClipMeta(
+        clip_id="shultz_2019",
+        subject="Tyler Shultz",
+        statement=(
+            "The data that Theranos was reporting was inaccurate. "
+            "Patients were getting test results that were just wrong."
+        ),
+        year=2019,
+        context=(
+            "60 Minutes interview. Shultz, grandson of Theranos board "
+            "member George Shultz, reported lab fraud despite intense "
+            "family pressure to recant."
+        ),
+        ground_truth="sincere",
+        ground_truth_source=(
+            "Validated by Holmes' criminal conviction (3 January 2022); "
+            "Shultz separately settled a harassment lawsuit against "
+            "Theranos. His original 2015 letter to the New York State "
+            "Department of Health is part of the public court record."
+        ),
+        video_url="https://www.youtube.com/watch?v=fu42enVXLWQ",
+        video_start_seconds=30.0,
+        video_end_seconds=55.0,
+        thumbnail_url="https://img.youtube.com/vi/fu42enVXLWQ/hqdefault.jpg",
+        similar_clips=("holmes_2018", "cheung_2019"),
+    ),
+
+    "wigand_1996": ClipMeta(
+        clip_id="wigand_1996",
+        subject="Jeffrey Wigand",
+        statement=(
+            "We are in the business of selling nicotine, an addictive drug."
+        ),
+        year=1996,
+        context=(
+            "60 Minutes interview with Mike Wallace, broadcast 4 February "
+            "1996. Former Brown & Williamson VP discloses internal "
+            "knowledge that nicotine was deliberately engineered to be "
+            "addictive."
+        ),
+        ground_truth="sincere",
+        ground_truth_source=(
+            "Wigand's claims were the basis of the 1998 Tobacco Master "
+            "Settlement Agreement (USD 206 billion). The seven tobacco "
+            "CEOs who told Congress that nicotine was not addictive "
+            "(7 April 1994) were proven to have committed perjury based "
+            "on internal documents Wigand identified."
+        ),
+        video_url="https://www.youtube.com/watch?v=1_-Vu8LrUDk",
+        video_start_seconds=30.0,
+        video_end_seconds=60.0,
+        thumbnail_url="https://img.youtube.com/vi/1_-Vu8LrUDk/hqdefault.jpg",
+        similar_clips=("haugen_2021", "armstrong_2005"),
+    ),
+
+    "snowden_2013": ClipMeta(
+        clip_id="snowden_2013",
+        subject="Edward Snowden",
+        statement=(
+            "I don't want to live in a society that does these sort of "
+            "things. I am not willing to live in a world where everything "
+            "I do and say is recorded."
+        ),
+        year=2013,
+        context=(
+            "First public interview, Hong Kong, 9 June 2013, conducted "
+            "by Glenn Greenwald and Laura Poitras for The Guardian. "
+            "Snowden identifies himself as the source of the NSA "
+            "surveillance disclosures."
+        ),
+        ground_truth="sincere",
+        ground_truth_source=(
+            "Every classified document Snowden released has been "
+            "authenticated. The disclosures led directly to the USA "
+            "FREEDOM Act (2 June 2015) ending bulk phone-record "
+            "collection, and a 2 September 2020 Ninth Circuit ruling "
+            "(United States v. Moalin) declared the program illegal."
+        ),
+        video_url="https://www.youtube.com/watch?v=0hLjuVyIIrs",
+        video_start_seconds=60.0,
+        video_end_seconds=90.0,
+        thumbnail_url="https://img.youtube.com/vi/0hLjuVyIIrs/hqdefault.jpg",
+        similar_clips=("haugen_2021", "ellsberg_1971"),
+    ),
+
+    "ellsberg_1971": ClipMeta(
+        clip_id="ellsberg_1971",
+        subject="Daniel Ellsberg",
+        statement=(
+            "I felt as an American citizen, as a responsible citizen, "
+            "I could no longer cooperate in concealing this information "
+            "from the American public."
+        ),
+        year=1971,
+        context=(
+            "Press conference in Boston, June 1971, after the Pentagon "
+            "Papers were published by The New York Times. Ellsberg "
+            "publicly confesses to leaking the classified Vietnam War "
+            "study while facing potential life imprisonment under the "
+            "Espionage Act."
+        ),
+        ground_truth="sincere",
+        ground_truth_source=(
+            "All 12 charges dismissed by Judge Byrne on 11 May 1973 due "
+            "to government misconduct (Plumbers' break-in at Ellsberg's "
+            "psychiatrist). Supreme Court 6-3 in NYT v. United States "
+            "(30 June 1971) upheld publication; Ellsberg's factual "
+            "claims have never been contested."
+        ),
+        video_url="https://www.youtube.com/watch?v=wYQ1EBqcO_Y",
+        video_start_seconds=30.0,
+        video_end_seconds=60.0,
+        thumbnail_url="https://img.youtube.com/vi/wYQ1EBqcO_Y/hqdefault.jpg",
+        similar_clips=("nixon_1973", "snowden_2013"),
+    ),
 }
 
 

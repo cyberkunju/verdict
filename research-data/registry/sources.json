@@ -1,0 +1,494 @@
+{
+  "schema_version": "1.0",
+  "generated_for": "VerdictFusion-v0 + rPPG accuracy + voice/face augmentation",
+  "notes": "Datasets are tagged by modality and access tier. Tier-0 = direct download, no auth. Tier-1 = HuggingFace Hub (free account). Tier-2 = Kaggle / Zenodo with click-through. Tier-3 = academic request form. Tier-4 = signed license / contract.",
+
+  "categories": {
+
+    "deception_text": [
+      {
+        "id": "diplomacy",
+        "name": "Diplomacy Game Deception",
+        "tier": 1,
+        "license": "MIT",
+        "size_mb": 50,
+        "modalities": ["text"],
+        "rows": 17289,
+        "labels": "intended_lie / actual_perceived_lie (self + receiver-reported)",
+        "url": "https://huggingface.co/datasets/convokit/diplomacy-corpus",
+        "fetch": "huggingface_hub.snapshot_download(repo_id='convokit/diplomacy-corpus', repo_type='dataset')",
+        "value_for_fusion": "high — high-volume natural-language deception, useful for distillation into Fusion text feature"
+      },
+      {
+        "id": "real_life_trials",
+        "name": "Real-Life Trial Lies (Pérez-Rosas et al. 2015)",
+        "tier": 3,
+        "license": "Research only",
+        "size_mb": 800,
+        "modalities": ["video", "audio", "text", "facial_aus"],
+        "rows": 121,
+        "labels": "court-verified deceptive vs truthful testimony",
+        "url": "https://lit.eecs.umich.edu/downloads.html",
+        "request": "Email Verónica Pérez-Rosas (vrncapr@umich.edu) with research statement",
+        "value_for_fusion": "EXCEPTIONAL — only court-verified multimodal deception corpus that exists. If you can get it, it's the ideal Fusion-v0 training set."
+      },
+      {
+        "id": "cornell_lies",
+        "name": "Cornell Hotel Reviews Deception (Ott et al. 2011)",
+        "tier": 0,
+        "license": "Research / Public",
+        "size_mb": 2,
+        "modalities": ["text"],
+        "rows": 1600,
+        "labels": "truthful / deceptive hotel reviews",
+        "url": "https://www.cs.cornell.edu/~myleott/op_spam/",
+        "fetch": "wget -r https://www.cs.cornell.edu/~myleott/op_spam/op_spam_v1.4.zip",
+        "value_for_fusion": "medium — synthetic but classic baseline"
+      },
+      {
+        "id": "box_of_lies",
+        "name": "Box of Lies (Soldner, Pérez-Rosas, Mihalcea 2019)",
+        "tier": 3,
+        "license": "Research only",
+        "size_mb": 200,
+        "modalities": ["video", "audio", "text"],
+        "rows": 25,
+        "labels": "deceptive / truthful Tonight Show segments",
+        "url": "https://lit.eecs.umich.edu/downloads.html",
+        "request": "Same author group as Real-Life Trials",
+        "value_for_fusion": "medium-high — natural multimodal context"
+      },
+      {
+        "id": "miami_university_deception",
+        "name": "Miami University Deception Detection",
+        "tier": 3,
+        "license": "Research only",
+        "size_mb": 1200,
+        "modalities": ["video", "audio", "physiological"],
+        "rows": 320,
+        "url": "https://miamioh.edu/cas/academics/centers/scrr/",
+        "value_for_fusion": "high — has GSR + heart-rate + thermal alongside video"
+      },
+      {
+        "id": "mu3d",
+        "name": "MU3D Multimodal Truthful and Deceptive (Lloyd et al. 2019)",
+        "tier": 3,
+        "license": "Free for research, request form",
+        "size_mb": 1500,
+        "modalities": ["video", "audio", "text"],
+        "rows": 320,
+        "labels": "truth/lie × positive/negative × ethnicity × gender (ethnically-balanced)",
+        "url": "https://sc.lib.miamioh.edu/handle/2374.MIA/6067",
+        "value_for_fusion": "EXCEPTIONAL for bias mitigation — explicitly demographically balanced (Black/White × M/F)"
+      },
+      {
+        "id": "open_domain_deception",
+        "name": "Open-Domain Deception (Pérez-Rosas, Mihalcea 2014)",
+        "tier": 0,
+        "license": "Public",
+        "size_mb": 1,
+        "modalities": ["text"],
+        "rows": 7000,
+        "url": "https://github.com/Mihalcea-NLPGroup",
+        "value_for_fusion": "low-medium — text-only short statements"
+      },
+      {
+        "id": "bag_of_lies",
+        "name": "Bag-of-Lies (Gupta et al. 2019)",
+        "tier": 3,
+        "license": "Research only",
+        "size_mb": 700,
+        "modalities": ["video", "audio", "eye_tracking", "eeg"],
+        "rows": 325,
+        "url": "http://iab-rubric.org/resources/BagLies.html",
+        "value_for_fusion": "very high — has EEG and gaze; one of the few multimodal sets with eye-tracking"
+      }
+    ],
+
+    "voice_emotion_arousal": [
+      {
+        "id": "ravdess",
+        "name": "RAVDESS — Ryerson Audio-Visual Database of Emotional Speech and Song",
+        "tier": 0,
+        "license": "CC-BY-NC-SA-4.0",
+        "size_mb": 207,
+        "modalities": ["audio", "video"],
+        "rows": 7356,
+        "labels": "8 emotions × 2 intensities × 24 actors",
+        "url": "https://zenodo.org/records/1188976",
+        "fetch_url": "https://zenodo.org/records/1188976/files/Audio_Speech_Actors_01-24.zip",
+        "value_for_fusion": "high — gold-standard for voice arousal pretraining"
+      },
+      {
+        "id": "crema_d",
+        "name": "CREMA-D — Crowd-sourced Emotional Multimodal Actors Dataset",
+        "tier": 0,
+        "license": "Open Database License",
+        "size_mb": 1300,
+        "modalities": ["audio", "video"],
+        "rows": 7442,
+        "labels": "6 emotions × 4 intensities × 91 actors (diverse ethnicity)",
+        "url": "https://github.com/CheyneyComputerScience/CREMA-D",
+        "fetch": "git clone https://github.com/CheyneyComputerScience/CREMA-D",
+        "value_for_fusion": "high — ethnically diverse, same use as RAVDESS"
+      },
+      {
+        "id": "tess",
+        "name": "TESS — Toronto Emotional Speech Set",
+        "tier": 0,
+        "license": "Public",
+        "size_mb": 432,
+        "modalities": ["audio"],
+        "rows": 2800,
+        "labels": "7 emotions × 2 actresses",
+        "url": "https://tspace.library.utoronto.ca/handle/1807/24487",
+        "value_for_fusion": "medium — small actor pool"
+      },
+      {
+        "id": "iemocap",
+        "name": "IEMOCAP — Interactive Emotional Dyadic Motion Capture",
+        "tier": 4,
+        "license": "License via USC, free for research",
+        "size_mb": 8000,
+        "modalities": ["audio", "video", "motion_capture", "text"],
+        "rows": 10039,
+        "url": "https://sail.usc.edu/iemocap/",
+        "request": "Sign academic license form on USC site",
+        "value_for_fusion": "EXCEPTIONAL — has continuous valence/arousal annotations"
+      },
+      {
+        "id": "msp_podcast",
+        "name": "MSP-Podcast — UTD Spontaneous Emotional Speech",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 60000,
+        "modalities": ["audio"],
+        "rows": 73000,
+        "url": "https://lab-msp.com/MSP-Podcast.html",
+        "value_for_fusion": "exceptional — natural spontaneous speech, large-scale"
+      },
+      {
+        "id": "savee",
+        "name": "SAVEE — Surrey Audio-Visual Expressed Emotion",
+        "tier": 0,
+        "license": "Free for research",
+        "size_mb": 800,
+        "modalities": ["audio", "video"],
+        "rows": 480,
+        "url": "http://kahlan.eps.surrey.ac.uk/savee/",
+        "value_for_fusion": "low-medium"
+      },
+      {
+        "id": "voxceleb1",
+        "name": "VoxCeleb 1 (speaker baselines, useful for population mean F0)",
+        "tier": 1,
+        "license": "Research",
+        "size_mb": 30000,
+        "modalities": ["audio"],
+        "rows": 153516,
+        "url": "https://huggingface.co/datasets/superb/superb",
+        "value_for_fusion": "low (huge, mostly for ASR/SID), but a tiny sample is great for population baseline F0"
+      },
+      {
+        "id": "audeering_wav2vec_emotion",
+        "name": "Pretrained wav2vec2 dimensional emotion (audeering)",
+        "tier": 1,
+        "license": "Apache-2.0",
+        "size_mb": 1300,
+        "type": "MODEL",
+        "url": "https://huggingface.co/audeering/wav2vec2-large-robust-12-ft-emotion-msp-dim",
+        "fetch": "huggingface_hub.snapshot_download(repo_id='audeering/wav2vec2-large-robust-12-ft-emotion-msp-dim')",
+        "value_for_fusion": "DROP-IN — already-trained valence/arousal/dominance regressor. Skip T2 entirely if this lands."
+      }
+    ],
+
+    "rppg_heart_rate": [
+      {
+        "id": "ubfc_rppg",
+        "name": "UBFC-rPPG — Université Bourgogne Franche-Comté",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 5500,
+        "modalities": ["video", "ppg_ground_truth"],
+        "rows": 42,
+        "url": "https://sites.google.com/view/ybenezeth/ubfcrppg",
+        "request": "Email Yannick Benezeth with research statement",
+        "value_for_fusion": "EXCEPTIONAL — gold-standard rPPG benchmark with contact-PPG ground truth"
+      },
+      {
+        "id": "pure",
+        "name": "PURE — Ilmenau",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 2500,
+        "modalities": ["video", "ppg_ground_truth"],
+        "rows": 60,
+        "url": "https://www.tu-ilmenau.de/en/university/departments/department-of-computer-science-and-automation/profile/institutes-and-groups/neuroinformatics-and-cognitive-robotics/data-sets-code/pulse-rate-detection-dataset-pure",
+        "value_for_fusion": "high — controlled head-motion conditions"
+      },
+      {
+        "id": "vipl_hr",
+        "name": "VIPL-HR — Chinese Academy of Sciences",
+        "tier": 4,
+        "license": "Research, signed license",
+        "size_mb": 50000,
+        "modalities": ["video", "ppg_ground_truth"],
+        "rows": 2378,
+        "url": "https://vipl.ict.ac.cn/resources/databases/201901/t20190104_34800.html",
+        "value_for_fusion": "high — diverse subjects, large-scale"
+      },
+      {
+        "id": "mahnob_hci",
+        "name": "MAHNOB-HCI — Imperial College",
+        "tier": 4,
+        "license": "Research, EULA",
+        "size_mb": 12000,
+        "modalities": ["video", "ecg", "eda", "respiration", "eye_tracking"],
+        "rows": 527,
+        "url": "https://mahnob-db.eu/hci-tagging/",
+        "value_for_fusion": "high — has ECG ground truth in addition to PPG"
+      },
+      {
+        "id": "cohface",
+        "name": "COHFACE — Idiap",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 1700,
+        "modalities": ["video", "ppg_ground_truth"],
+        "rows": 160,
+        "url": "https://www.idiap.ch/en/dataset/cohface",
+        "value_for_fusion": "high — compressed-video evaluation set"
+      },
+      {
+        "id": "ubfc_phys",
+        "name": "UBFC-Phys (multimodal stress)",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 22000,
+        "modalities": ["video", "ppg", "eda"],
+        "rows": 56,
+        "url": "https://sites.google.com/view/ybenezeth/ubfc-phys",
+        "value_for_fusion": "exceptional — combines rPPG with EDA stress markers"
+      },
+      {
+        "id": "scamps",
+        "name": "SCAMPS — Synthetic Cardiac Activity Multimodal Photoplethysmography Synthesis",
+        "tier": 1,
+        "license": "Microsoft research",
+        "size_mb": 600000,
+        "modalities": ["video", "ppg_synthetic"],
+        "rows": 2800,
+        "url": "https://github.com/danmcduff/scamps",
+        "value_for_fusion": "high for augmentation — synthetic but enormous"
+      },
+      {
+        "id": "mmpd",
+        "name": "MMPD — Mobile Multi-Domain Physiological Dataset",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 27000,
+        "modalities": ["video", "ppg"],
+        "rows": 660,
+        "url": "https://github.com/THU-CS-PI-LAB/MMPD_rPPG_dataset",
+        "value_for_fusion": "high — mobile/lighting variation matches our use case"
+      },
+      {
+        "id": "rppg_toolbox",
+        "name": "rPPG-Toolbox (UbiComp Lab) — codebase + pretrained checkpoints",
+        "tier": 0,
+        "license": "MIT (code) / various (data)",
+        "size_mb": 100,
+        "type": "CODE+MODELS",
+        "url": "https://github.com/ubicomplab/rPPG-Toolbox",
+        "fetch": "git clone --depth=1 https://github.com/ubicomplab/rPPG-Toolbox",
+        "value_for_fusion": "DROP-IN — provides PhysNet, DeepPhys, EfficientPhys, TS-CAN with pretrained weights and inference scripts. THIS IS THE FASTEST WAY TO BETTER HR ACCURACY."
+      },
+      {
+        "id": "physnet_pretrained",
+        "name": "PhysNet checkpoints (rPPG-Toolbox releases)",
+        "tier": 0,
+        "license": "Research",
+        "size_mb": 80,
+        "type": "MODEL",
+        "fetch_url": "https://github.com/ubicomplab/rPPG-Toolbox/releases",
+        "value_for_fusion": "DROP-IN replacement for POS algorithm in extract_rppg.py"
+      }
+    ],
+
+    "facial_au_emotion": [
+      {
+        "id": "disfa",
+        "name": "DISFA — Denver Intensity of Spontaneous Facial Action",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 5000,
+        "modalities": ["video", "au_intensity"],
+        "rows": 27,
+        "url": "http://mohammadmahoor.com/disfa/",
+        "value_for_fusion": "high — frame-level AU intensity, gold standard for AU"
+      },
+      {
+        "id": "bp4d",
+        "name": "BP4D / BP4D+ — Binghamton 3D Spontaneous Facial",
+        "tier": 4,
+        "license": "Signed EULA",
+        "size_mb": 100000,
+        "modalities": ["video", "3d_mesh", "au", "thermal", "physiological"],
+        "rows": 41,
+        "url": "https://www.cs.binghamton.edu/~lijun/Research/3DFE/3DFE_Analysis.html",
+        "value_for_fusion": "EXCEPTIONAL — has thermal + physiology"
+      },
+      {
+        "id": "aff_wild2",
+        "name": "Aff-Wild2 — In-the-wild emotion",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 80000,
+        "modalities": ["video", "au", "valence", "arousal"],
+        "rows": 564,
+        "url": "https://ibug.doc.ic.ac.uk/resources/aff-wild2/",
+        "value_for_fusion": "exceptional — natural in-the-wild AU + valence/arousal"
+      },
+      {
+        "id": "affectnet",
+        "name": "AffectNet — Mollahosseini et al.",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 122000,
+        "modalities": ["image", "valence", "arousal"],
+        "rows": 1000000,
+        "url": "http://mohammadmahoor.com/affectnet/",
+        "value_for_fusion": "exceptional but huge"
+      },
+      {
+        "id": "casme2",
+        "name": "CASME II — Chinese Academy of Sciences Micro-Expression",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 8000,
+        "modalities": ["video_200fps", "au"],
+        "rows": 247,
+        "url": "http://fu.psych.ac.cn/CASME/casme2-en.php",
+        "value_for_fusion": "very high for micro-expressions specifically"
+      },
+      {
+        "id": "samm",
+        "name": "SAMM — Spontaneous Actions and Micro-Movements (Manchester)",
+        "tier": 3,
+        "license": "Research request",
+        "size_mb": 9000,
+        "modalities": ["video_200fps", "au"],
+        "rows": 159,
+        "url": "https://helward.mmu.ac.uk/STAFF/M.Yap/dataset.php",
+        "value_for_fusion": "very high — multi-ethnic micro-expression set"
+      },
+      {
+        "id": "fer2013",
+        "name": "FER2013 — Kaggle facial expression",
+        "tier": 2,
+        "license": "Public via Kaggle",
+        "size_mb": 60,
+        "modalities": ["image"],
+        "rows": 35887,
+        "url": "https://www.kaggle.com/datasets/msambare/fer2013",
+        "value_for_fusion": "low — only 7 categorical emotions, low resolution"
+      },
+      {
+        "id": "pyfeat_models",
+        "name": "Py-Feat pretrained AU/emotion models",
+        "tier": 0,
+        "license": "MIT",
+        "size_mb": 500,
+        "type": "MODEL",
+        "url": "https://py-feat.org/",
+        "fetch": "pip install py-feat ; python -c 'from feat import Detector; Detector()'",
+        "value_for_fusion": "DROP-IN AU detector, more reliable than MediaPipe blendshapes"
+      }
+    ],
+
+    "factcheck_claims": [
+      {
+        "id": "fever",
+        "name": "FEVER — Fact Extraction and VERification",
+        "tier": 1,
+        "license": "CC-BY-SA-3.0",
+        "size_mb": 50,
+        "modalities": ["text"],
+        "rows": 185445,
+        "url": "https://huggingface.co/datasets/fever/fever",
+        "fetch": "datasets.load_dataset('fever', 'v1.0')",
+        "value_for_fusion": "high — Wikipedia-verified claim labels"
+      },
+      {
+        "id": "climate_fever",
+        "name": "Climate-FEVER",
+        "tier": 1,
+        "license": "CC-BY-SA-4.0",
+        "size_mb": 5,
+        "rows": 1535,
+        "url": "https://huggingface.co/datasets/climate_fever",
+        "value_for_fusion": "low (small)"
+      },
+      {
+        "id": "hover",
+        "name": "HoVer — Multi-hop fact verification",
+        "tier": 1,
+        "license": "CC-BY-SA-4.0",
+        "size_mb": 30,
+        "rows": 26171,
+        "url": "https://huggingface.co/datasets/hover",
+        "value_for_fusion": "medium"
+      },
+      {
+        "id": "scifact",
+        "name": "SciFact — Scientific claim verification",
+        "tier": 1,
+        "license": "CC-BY-NC-2.0",
+        "size_mb": 5,
+        "rows": 1409,
+        "url": "https://huggingface.co/datasets/allenai/scifact",
+        "value_for_fusion": "low (domain-specific)"
+      },
+      {
+        "id": "x_fact",
+        "name": "X-Fact — Multilingual fact-check",
+        "tier": 1,
+        "license": "Apache-2.0",
+        "size_mb": 250,
+        "rows": 31189,
+        "url": "https://huggingface.co/datasets/utahnlp/x-fact",
+        "value_for_fusion": "high — multilingual generalization"
+      },
+      {
+        "id": "claim_buster",
+        "name": "ClaimBuster — Political claim worthiness",
+        "tier": 0,
+        "license": "Research",
+        "size_mb": 12,
+        "rows": 23533,
+        "url": "https://zenodo.org/records/3836810",
+        "value_for_fusion": "high — labels claim-worthiness for political speech"
+      },
+      {
+        "id": "multifc",
+        "name": "MultiFC — 35-website fact-check",
+        "tier": 0,
+        "license": "Research",
+        "size_mb": 60,
+        "rows": 36534,
+        "url": "https://copenlu.github.io/publication/2019_emnlp_augenstein/",
+        "value_for_fusion": "high — diverse fact-check sources"
+      },
+      {
+        "id": "publichealth",
+        "name": "PUBHEALTH — Public-health fact-check",
+        "tier": 1,
+        "license": "MIT",
+        "size_mb": 8,
+        "rows": 11832,
+        "url": "https://huggingface.co/datasets/health_fact",
+        "value_for_fusion": "medium — health-domain claims"
+      }
+    ]
+  }
+}

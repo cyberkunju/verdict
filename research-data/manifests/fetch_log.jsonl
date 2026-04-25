@@ -1,0 +1,52 @@
+{"event": "fetch_run_start", "id": "-", "detail": "only=None skip_large=True", "ts": "2026-04-25 14:58:58"}
+{"event": "task_start", "id": "rppg_toolbox", "detail": "~80 MB priority=1", "ts": "2026-04-25 14:58:58"}
+{"event": "cloning", "id": "rppg_toolbox", "detail": "git clone --depth=1 https://github.com/ubicomplab/rPPG-Toolbox.git C:\\Users\\knava\\Downloads\\codexplan\\New folder\\research-data\\pretrained\\rppg_toolbox", "ts": "2026-04-25 14:58:58"}
+{"event": "cloned", "id": "rppg_toolbox", "detail": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\research-data\\pretrained\\rppg_toolbox", "ts": "2026-04-25 15:13:54"}
+{"event": "task_done", "id": "rppg_toolbox", "detail": "", "ts": "2026-04-25 15:13:54"}
+{"event": "task_start", "id": "diplomacy", "detail": "~50 MB priority=2", "ts": "2026-04-25 15:13:54"}
+{"event": "hf_dataset_failed", "id": "convokit/diplomacy-corpus", "detail": "RepositoryNotFoundError('401 Client Error. (Request ID: Root=1-69ec8cde-7d62b95a121de15840198c39;f89eb94d-4933-4bca-810b-2d3601a170ac)\\n\\nRepository Not Found for url: https://huggingface.co/api/datas", "ts": "2026-04-25 15:13:55"}
+{"event": "task_done", "id": "diplomacy", "detail": "", "ts": "2026-04-25 15:13:55"}
+{"event": "skip_priority", "id": "cornell_lies", "detail": "priority 3 > 2", "ts": "2026-04-25 15:13:55"}
+{"event": "task_start", "id": "fever", "detail": "~50 MB priority=2", "ts": "2026-04-25 15:13:55"}
+{"event": "downloaded_hf_dataset", "id": "fever/fever", "detail": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\research-data\\raw\\factcheck\\fever", "ts": "2026-04-25 15:13:58"}
+{"event": "task_done", "id": "fever", "detail": "", "ts": "2026-04-25 15:13:58"}
+{"event": "skip_priority", "id": "climate_fever", "detail": "priority 3 > 2", "ts": "2026-04-25 15:13:58"}
+{"event": "skip_priority", "id": "hover", "detail": "priority 3 > 2", "ts": "2026-04-25 15:13:58"}
+{"event": "skip_priority", "id": "scifact", "detail": "priority 4 > 2", "ts": "2026-04-25 15:13:58"}
+{"event": "skip_large", "id": "x_fact", "detail": "~250 MB", "ts": "2026-04-25 15:13:58"}
+{"event": "skip_priority", "id": "pubhealth", "detail": "priority 3 > 2", "ts": "2026-04-25 15:13:58"}
+{"event": "task_start", "id": "claim_buster", "detail": "~12 MB priority=2", "ts": "2026-04-25 15:13:58"}
+{"event": "claimbuster_failed", "id": "claim_buster", "detail": "HTTPError('404 Client Error: NOT FOUND for url: https://zenodo.org/records/3836810/files/groundtruth.zip')", "ts": "2026-04-25 15:14:00"}
+{"event": "task_done", "id": "claim_buster", "detail": "", "ts": "2026-04-25 15:14:00"}
+{"event": "task_start", "id": "ravdess", "detail": "~207 MB priority=2", "ts": "2026-04-25 15:14:00"}
+{"event": "fetch_run_start", "id": "-", "detail": "only=diplomacy skip_large=False", "ts": "2026-04-25 15:19:36"}
+{"event": "task_start", "id": "diplomacy", "detail": "~50 MB priority=2", "ts": "2026-04-25 15:19:36"}
+{"event": "downloaded", "id": "diplomacy.zip", "detail": "1.2 MB -> C:\\Users\\knava\\Downloads\\codexplan\\New folder\\research-data\\raw\\deception\\diplomacy.zip", "ts": "2026-04-25 15:19:41"}
+{"event": "extracted", "id": "diplomacy.zip", "detail": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\research-data\\raw\\deception\\diplomacy", "ts": "2026-04-25 15:19:41"}
+{"event": "task_done", "id": "diplomacy", "detail": "", "ts": "2026-04-25 15:19:41"}
+{"event": "fetch_run_end", "id": "-", "detail": "all tasks attempted", "ts": "2026-04-25 15:19:41"}
+{"event": "fetch_run_start", "id": "-", "detail": "only=cornell_lies skip_large=False", "ts": "2026-04-25 15:19:41"}
+{"event": "task_start", "id": "cornell_lies", "detail": "~2 MB priority=3", "ts": "2026-04-25 15:19:41"}
+{"event": "cornell_failed", "id": "cornell_lies", "detail": "HTTPError('404 Client Error: Not Found for url: https://www.cs.cornell.edu/~myleott/op_spam/op_spam_v1.4.zip')", "ts": "2026-04-25 15:19:43"}
+{"event": "task_done", "id": "cornell_lies", "detail": "", "ts": "2026-04-25 15:19:43"}
+{"event": "fetch_run_end", "id": "-", "detail": "all tasks attempted", "ts": "2026-04-25 15:19:43"}
+{"event": "fetch_run_start", "id": "-", "detail": "only=climate_fever skip_large=False", "ts": "2026-04-25 15:19:44"}
+{"event": "task_start", "id": "climate_fever", "detail": "~5 MB priority=3", "ts": "2026-04-25 15:19:44"}
+{"event": "downloaded_hf_dataset", "id": "tdiggelm/climate_fever", "detail": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\research-data\\raw\\factcheck\\climate_fever", "ts": "2026-04-25 15:19:50"}
+{"event": "task_done", "id": "climate_fever", "detail": "", "ts": "2026-04-25 15:19:50"}
+{"event": "fetch_run_end", "id": "-", "detail": "all tasks attempted", "ts": "2026-04-25 15:19:50"}
+{"event": "fetch_run_start", "id": "-", "detail": "only=hover skip_large=False", "ts": "2026-04-25 15:19:51"}
+{"event": "task_start", "id": "hover", "detail": "~30 MB priority=3", "ts": "2026-04-25 15:19:51"}
+{"event": "downloaded_hf_dataset", "id": "hover-nlp/hover", "detail": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\research-data\\raw\\factcheck\\hover", "ts": "2026-04-25 15:19:53"}
+{"event": "task_done", "id": "hover", "detail": "", "ts": "2026-04-25 15:19:53"}
+{"event": "fetch_run_end", "id": "-", "detail": "all tasks attempted", "ts": "2026-04-25 15:19:53"}
+{"event": "fetch_run_start", "id": "-", "detail": "only=pubhealth skip_large=False", "ts": "2026-04-25 15:19:53"}
+{"event": "task_start", "id": "pubhealth", "detail": "~8 MB priority=3", "ts": "2026-04-25 15:19:53"}
+{"event": "downloaded_hf_dataset", "id": "ImperialCollegeLondon/health_fact", "detail": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\research-data\\raw\\factcheck\\pubhealth", "ts": "2026-04-25 15:19:56"}
+{"event": "task_done", "id": "pubhealth", "detail": "", "ts": "2026-04-25 15:19:56"}
+{"event": "fetch_run_end", "id": "-", "detail": "all tasks attempted", "ts": "2026-04-25 15:19:56"}
+{"event": "fetch_run_start", "id": "-", "detail": "only=scifact skip_large=False", "ts": "2026-04-25 15:19:56"}
+{"event": "task_start", "id": "scifact", "detail": "~5 MB priority=4", "ts": "2026-04-25 15:19:56"}
+{"event": "downloaded_hf_dataset", "id": "allenai/scifact", "detail": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\research-data\\raw\\factcheck\\scifact", "ts": "2026-04-25 15:19:58"}
+{"event": "task_done", "id": "scifact", "detail": "", "ts": "2026-04-25 15:19:58"}
+{"event": "fetch_run_end", "id": "-", "detail": "all tasks attempted", "ts": "2026-04-25 15:19:58"}

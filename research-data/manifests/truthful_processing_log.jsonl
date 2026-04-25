@@ -1,0 +1,18 @@
+
+{"event": "run_start", "clip_id": "-", "detail": "processing 6 clips: ['dean_1973', 'cheung_2019', 'shultz_2019', 'wigand_1996', 'snowden_2013', 'ellsberg_1971']", "ts": "2026-04-25 15:58:59"}
+{"event": "clip_skip", "clip_id": "dean_1973", "detail": "(1/6) already processed -- pass --force to redo", "ts": "2026-04-25 15:58:59"}
+{"event": "clip_skip", "clip_id": "cheung_2019", "detail": "(2/6) already processed -- pass --force to redo", "ts": "2026-04-25 15:58:59"}
+{"event": "clip_skip", "clip_id": "shultz_2019", "detail": "(3/6) already processed -- pass --force to redo", "ts": "2026-04-25 15:58:59"}
+{"event": "clip_skip", "clip_id": "wigand_1996", "detail": "(4/6) already processed -- pass --force to redo", "ts": "2026-04-25 15:58:59"}
+{"event": "clip_start", "clip_id": "snowden_2013", "detail": "(5/6) starting download+pipeline", "ts": "2026-04-25 15:58:59"}
+{"event": "download_start", "clip_id": "snowden_2013", "detail": "C:\\Users\\knava\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m scripts.download_clip snowden_2013", "ts": "2026-04-25 15:58:59"}
+{"event": "download_ok", "clip_id": "snowden_2013", "detail": "", "ts": "2026-04-25 15:59:34"}
+{"event": "pipeline_start", "clip_id": "snowden_2013", "detail": "C:\\Users\\knava\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m verdict_pipeline.batch --only snowden_2013", "ts": "2026-04-25 15:59:34"}
+{"event": "pipeline_ok", "clip_id": "snowden_2013", "detail": "", "ts": "2026-04-25 16:00:25"}
+{"event": "verified", "clip_id": "snowden_2013", "detail": "3/3 critical features present, deception=63", "ts": "2026-04-25 16:00:25"}
+{"event": "clip_done", "clip_id": "snowden_2013", "detail": "progress 5/6 (5 OK)", "ts": "2026-04-25 16:00:25"}
+{"event": "clip_start", "clip_id": "ellsberg_1971", "detail": "(6/6) starting download+pipeline", "ts": "2026-04-25 16:00:25"}
+{"event": "download_start", "clip_id": "ellsberg_1971", "detail": "C:\\Users\\knava\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m scripts.download_clip ellsberg_1971", "ts": "2026-04-25 16:00:25"}
+{"event": "download_timeout", "clip_id": "ellsberg_1971", "detail": "after 300s", "ts": "2026-04-25 16:05:25"}
+{"event": "clip_done", "clip_id": "ellsberg_1971", "detail": "progress 6/6 (5 OK)", "ts": "2026-04-25 16:05:25"}
+{"event": "run_end", "clip_id": "-", "detail": "5/6 succeeded: dean_1973=OK, cheung_2019=OK, shultz_2019=OK, wigand_1996=OK, snowden_2013=OK, ellsberg_1971=FAIL", "ts": "2026-04-25 16:05:25"}

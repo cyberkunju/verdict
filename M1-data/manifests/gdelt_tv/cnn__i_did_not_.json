@@ -1,0 +1,6 @@
+{
+  "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+  "items": [],
+  "_query_url": "https://api.gdeltproject.org/api/v2/tv/tv?query=%22I+did+not%22+network%3ACNN&mode=clipgallery&format=json&maxrecords=10&sort=datedesc",
+  "_query": "\"I did not\" network:CNN"
+}

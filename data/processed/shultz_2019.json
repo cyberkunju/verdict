@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "clip_id": "shultz_2019",
+  "subject": "Tyler Shultz",
+  "statement": "The data that Theranos was reporting was inaccurate. Patients were getting test results that were just wrong.",
+  "year": 2019,
+  "context": "60 Minutes interview. Shultz, grandson of Theranos board member George Shultz, reported lab fraud despite intense family pressure to recant.",
+  "ground_truth": "sincere",
+  "ground_truth_source": "Validated by Holmes' criminal conviction (3 January 2022); Shultz separately settled a harassment lawsuit against Theranos. His original 2015 letter to the New York State Department of Health is part of the public court record.",
+  "video_url": "https://www.youtube.com/watch?v=fu42enVXLWQ",
+  "video_start_seconds": 30.0,
+  "video_end_seconds": 55.0,
+  "thumbnail_url": "https://img.youtube.com/vi/fu42enVXLWQ/hqdefault.jpg",
+  "signals": {
+    "hr_baseline_bpm": 74.1,
+    "hr_peak_bpm": 80.5,
+    "hr_delta_bpm": 6.4,
+    "hrv_rmssd_ms": 197.9,
+    "au15_max_intensity": 1.62,
+    "au14_max_intensity": 3.45,
+    "au6_present": false,
+    "au24_max_intensity": 2.42,
+    "f0_baseline_hz": 97.4,
+    "f0_peak_hz": 260.4,
+    "f0_delta_hz": 163.1,
+    "jitter_percent": 2.06,
+    "shimmer_db": 1.09,
+    "speech_rate_wpm": 177.6,
+    "hedging_count": 1,
+    "pronoun_drop_rate": 0.5495495495495495,
+    "transcript": "her technology could do with a single drop of blood and she could do it anywhere where you had access to power. So you could do this in helicopters and battlefields and patients' homes and doctors' offices and operating rooms. It just sounded like this technology had no limits. And I fell in love with the vision and I found Elizabeth to be extremely care-as-ma-",
+    "timeline": [
+      {
+        "t": 3.24,
+        "hr": 74.1,
+        "f0": 97.4,
+        "au15": 0.0,
+        "deception": 49.50000000000001
+      },
+      {
+        "t": 3.83,
+        "hr": 79.1,
+        "f0": 112.21818181818182,
+        "au15": 0.14727272727272728,
+        "deception": 53.18181818181819
+      },
+      {
+        "t": 4.42,
+        "hr": 82.5,
+        "f0": 127.03636363636363,
+        "au15": 0.29454545454545455,
+        "deception": 56.86363636363637
+      },
+      {
+        "t": 5.01,
+        "hr": 77.4,
+        "f0": 141.85454545454544,
+        "au15": 0.44181818181818183,
+        "deception": 60.54545454545455
+      },
+      {
+        "t": 5.6,
+        "hr": 74.1,
+        "f0": 156.6727272727273,
+        "au15": 0.5890909090909091,
+        "deception": 64.22727272727272
+      },
+      {
+        "t": 6.19,
+        "hr": 74.1,
+        "f0": 171.4909090909091,
+        "au15": 0.7363636363636364,
+        "deception": 67.90909090909092
+      },
+      {
+        "t": 6.77,
+        "hr": 74.1,
+        "f0": 186.3090909090909,
+        "au15": 0.8836363636363637,
+        "deception": 71.5909090909091
+      },
+      {
+        "t": 7.36,
+        "hr": 74.1,
+        "f0": 201.12727272727273,
+        "au15": 1.030909090909091,
+        "deception": 75.27272727272728
+      },
+      {
+        "t": 7.95,
+        "hr": 70.7,
+        "f0": 215.94545454545454,
+        "au15": 1.1781818181818182,
+        "deception": 78.95454545454545
+      },
+      {
+        "t": 8.54,
+        "hr": 65.6,
+        "f0": 230.76363636363635,
+        "au15": 1.3254545454545457,
+        "deception": 82.63636363636364
+      },
+      {
+        "t": 9.13,
+        "hr": 69.0,
+        "f0": 245.58181818181816,
+        "au15": 1.4727272727272729,
+        "deception": 86.31818181818181
+      },
+      {
+        "t": 9.72,
+        "hr": 74.1,
+        "f0": 260.4,
+        "au15": 1.62,
+        "deception": 90.0
+      }
+    ]
+  },
+  "scores": {
+    "deception": 90,
+    "sincerity": 22,
+    "stress": 42,
+    "confidence": 52
+  },
+  "llm_report": {
+    "behavioral_summary": "During the interview, Tyler Shultz exhibited a heart rate increase from a baseline of 74.1 bpm to a peak of 80.5 bpm, indicating a delta of 6.4 bpm. His vocal pitch (F0) showed a significant rise from 97.4 Hz to 260.4 Hz, with a delta of 163.1 Hz, which is often associated with heightened emotional arousal. Facial action units showed AU14 (Dimpler) at a maximum intensity of 3.45 and AU24 (Lip Pressor) at 2.42, suggesting tension. The speech rate was measured at 177.6 words per minute, with minimal hedging (count of 1) and a pronoun drop rate of 0.55, indicating a direct communication style. These signals are consistent with high stress levels, which can occur in sincere whistleblower testimonies.",
+    "comparative_profile": "The physiological and behavioral signals observed in Shultz's interview are similar to those seen in the 'cheung_2019' entry, where whistleblower Erika Cheung also reported high stress indicators while discussing Theranos. In contrast, 'holmes_2018' showed different patterns, with lower sincerity scores and higher deception indicators. Shultz's elevated stress and sincerity scores align with historical cases of individuals under pressure to reveal critical information.",
+    "qualifications": "Physiological arousal can reflect a variety of emotional states, including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis is high, with real-time photoplethysmography (rPPG), facial action units, voice, and transcript data all verified as real. This analysis does not determine truth but highlights patterns consistent with high-stress sincerity in whistleblower contexts."
+  },
+  "similar_clips": [
+    "holmes_2018",
+    "cheung_2019"
+  ],
+  "signal_quality": {
+    "rppg": "real",
+    "facial_au": "real",
+    "voice": "real",
+    "transcript": "real"
+  }
+}

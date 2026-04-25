@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "clip_id": "wigand_1996",
+  "subject": "Jeffrey Wigand",
+  "statement": "We are in the business of selling nicotine, an addictive drug.",
+  "year": 1996,
+  "context": "60 Minutes interview with Mike Wallace, broadcast 4 February 1996. Former Brown & Williamson VP discloses internal knowledge that nicotine was deliberately engineered to be addictive.",
+  "ground_truth": "sincere",
+  "ground_truth_source": "Wigand's claims were the basis of the 1998 Tobacco Master Settlement Agreement (USD 206 billion). The seven tobacco CEOs who told Congress that nicotine was not addictive (7 April 1994) were proven to have committed perjury based on internal documents Wigand identified.",
+  "video_url": "https://www.youtube.com/watch?v=1_-Vu8LrUDk",
+  "video_start_seconds": 30.0,
+  "video_end_seconds": 60.0,
+  "thumbnail_url": "https://img.youtube.com/vi/1_-Vu8LrUDk/hqdefault.jpg",
+  "signals": {
+    "hr_baseline_bpm": 60.2,
+    "hr_peak_bpm": 102.3,
+    "hr_delta_bpm": 42.1,
+    "hrv_rmssd_ms": 427.7,
+    "au15_max_intensity": 0.01,
+    "au14_max_intensity": 0.39,
+    "au6_present": false,
+    "au24_max_intensity": 1.76,
+    "f0_baseline_hz": 99.2,
+    "f0_peak_hz": 281.0,
+    "f0_delta_hz": 181.8,
+    "jitter_percent": 2.71,
+    "shimmer_db": 1.16,
+    "speech_rate_wpm": 191.9,
+    "hedging_count": 1,
+    "pronoun_drop_rate": 0.7395833333333333,
+    "transcript": "a year director of research. They employed prestigious law firms to sue him, a high-powered investigation firm to probe every nook and cranny of his life, and they hired a big-time public relations consultant to help them plant damaging stories about him in The Washington Post, The Wall Street Journal, and others. But the journal reported the story for what they thought it was. Scant evidence was just one of their comments. CBS Management wouldn't let us broadcast our original story and our",
+    "timeline": [
+      {
+        "t": 4.99,
+        "hr": 60.2,
+        "f0": 99.2,
+        "au15": 0.0,
+        "deception": 6.6000000000000005
+      },
+      {
+        "t": 6.79,
+        "hr": 60.2,
+        "f0": 115.72727272727273,
+        "au15": 0.0009090909090909091,
+        "deception": 7.090909090909092
+      },
+      {
+        "t": 8.58,
+        "hr": 60.2,
+        "f0": 132.25454545454545,
+        "au15": 0.0018181818181818182,
+        "deception": 7.581818181818182
+      },
+      {
+        "t": 10.38,
+        "hr": 62.9,
+        "f0": 148.78181818181818,
+        "au15": 0.002727272727272727,
+        "deception": 8.072727272727272
+      },
+      {
+        "t": 12.18,
+        "hr": 73.8,
+        "f0": 165.3090909090909,
+        "au15": 0.0036363636363636364,
+        "deception": 8.563636363636363
+      },
+      {
+        "t": 13.97,
+        "hr": 80.0,
+        "f0": 181.83636363636364,
+        "au15": 0.004545454545454545,
+        "deception": 9.054545454545455
+      },
+      {
+        "t": 15.76,
+        "hr": 91.0,
+        "f0": 198.36363636363637,
+        "au15": 0.005454545454545454,
+        "deception": 9.545454545454547
+      },
+      {
+        "t": 17.55,
+        "hr": 104.6,
+        "f0": 214.8909090909091,
+        "au15": 0.006363636363636364,
+        "deception": 10.036363636363637
+      },
+      {
+        "t": 19.35,
+        "hr": 99.2,
+        "f0": 231.41818181818184,
+        "au15": 0.007272727272727273,
+        "deception": 10.527272727272727
+      },
+      {
+        "t": 21.15,
+        "hr": 77.3,
+        "f0": 247.9454545454546,
+        "au15": 0.008181818181818182,
+        "deception": 11.01818181818182
+      },
+      {
+        "t": 22.94,
+        "hr": 62.2,
+        "f0": 264.4727272727273,
+        "au15": 0.00909090909090909,
+        "deception": 11.50909090909091
+      },
+      {
+        "t": 24.74,
+        "hr": 67.7,
+        "f0": 281.0,
+        "au15": 0.01,
+        "deception": 12.0
+      }
+    ]
+  },
+  "scores": {
+    "deception": 12,
+    "sincerity": 63,
+    "stress": 76,
+    "confidence": 70
+  },
+  "llm_report": {
+    "behavioral_summary": "During the statement, Jeffrey Wigand exhibited a heart rate increase from a baseline of 60.2 bpm to a peak of 102.3 bpm, indicating a delta of 42.1 bpm. His vocal pitch (F0) also showed a significant rise from 99.2 Hz to 281.0 Hz, with a delta of 181.8 Hz. Facial action units showed minimal AU15 (lip corner depressor) at 0.01, moderate AU14 (dimpler) at 0.39, and high AU24 (lip pressor) at 1.76, with no AU6 (cheek raiser) present. The speech rate was measured at 191.9 words per minute, with a low hedging count of 1 and a pronoun drop rate of 0.74.",
+    "comparative_profile": "The physiological and behavioral signals in Wigand's interview are similar to those observed in the haugen_2021 case, where high stress indicators coexisted with high sincerity scores. In contrast, the armstrong_2005 case showed elevated stress and deception scores, highlighting the variability in stress-related responses.",
+    "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and is not solely indicative of deception. The signal quality for this analysis is robust, with real-time photoplethysmography (rPPG), facial action units, voice analysis, and transcript data all verified as real. This is not a truth determination, but an analysis of physiological and behavioral signals."
+  },
+  "similar_clips": [
+    "haugen_2021",
+    "armstrong_2005"
+  ],
+  "signal_quality": {
+    "rppg": "real",
+    "facial_au": "real",
+    "voice": "real",
+    "transcript": "real"
+  }
+}

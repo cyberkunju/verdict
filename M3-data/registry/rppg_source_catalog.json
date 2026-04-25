@@ -1,0 +1,129 @@
+{
+  "created_at": "2026-04-25",
+  "model_program": "M3-rPPG Heart-Rate Specialist",
+  "sources": [
+    {
+      "id": "ubfc_rppg",
+      "name": "UBFC-rPPG",
+      "priority": "P0",
+      "status": "request_or_mirror_needed",
+      "access": "public/research; official complete video link historically available on request; mirrors may require account",
+      "official_url": "http://ilt.u-bourgogne.fr/benezeth/projects/UBFCRPPG/",
+      "known_mirror": "https://www.kaggle.com/datasets/malekdinarito/ubfc-rppg-dataset",
+      "expected_content": "RGB face videos, PPG waveform, heart-rate ground truth",
+      "why_needed": "standard benchmark; matches webcam rPPG deployment closely",
+      "notes": "Common structure is subject*/vid.avi plus ground_truth.txt."
+    },
+    {
+      "id": "pure",
+      "name": "PURE",
+      "priority": "P0",
+      "status": "request_needed",
+      "access": "request by email to TU Ilmenau dataset contact",
+      "official_url": "https://www.tu-ilmenau.de/en/university/departments/department-of-computer-science-and-automation/profile/institutes-and-groups/group-for-neuroinformatics-and-cognitive-robotics/data-sets-code/pulse-rate-detection-dataset-pure",
+      "expected_content": "face videos plus JSON physiological ground truth",
+      "why_needed": "core benchmark with controlled motion variations and strong rPPG-toolbox support",
+      "notes": "Common structure is recording folder plus matching JSON file."
+    },
+    {
+      "id": "lgi_ppgi",
+      "name": "LGI-PPGI Face Video Database",
+      "priority": "P1",
+      "status": "partial_large_download_links_available",
+      "access": "CC-BY-4.0; large session archives hosted externally, some sessions unavailable",
+      "official_url": "https://github.com/partofthestars/LGI-PPGI-DB",
+      "expected_content": "100 face video recordings from 25 users with synchronized CMS50E PPG",
+      "why_needed": "in-the-wild motion, exercise, and urban conversation conditions",
+      "notes": "Official README lists first six large download archives and notes bandwidth limitations."
+    },
+    {
+      "id": "mmpd",
+      "name": "MMPD: Multi-Domain Mobile Video Physiology Dataset",
+      "priority": "P0",
+      "status": "metadata_collected_access_agreement_required",
+      "access": "academic-only; signed release agreement required; commercial usage banned by dataset README",
+      "official_url": "https://github.com/McJackTang/MMPD_rPPG_dataset",
+      "local_metadata": "M3-data/sources/MMPD_rPPG_dataset",
+      "expected_content": "mobile videos in MAT files with GT_ppg, lighting, motion, exercise, skin_color, gender, glasses, hair, makeup labels",
+      "why_needed": "domain diversity: skin tone, lighting, motion, talking, walking, mobile camera",
+      "notes": "Full dataset listed as 370GB and mini dataset as 48GB by official README."
+    },
+    {
+      "id": "vitalvideos",
+      "name": "VitalVideos",
+      "priority": "P0",
+      "status": "license_required",
+      "access": "license/contact required",
+      "official_url": "https://vitalvideos.org/",
+      "expected_content": "large diverse rPPG videos with PPG/HR/SpO2/BP/RR/ECG variants depending on subset",
+      "why_needed": "largest and most diverse source for top quality and fairness across skin tones",
+      "notes": "VitalVideos-Worldwide advertises about 6500 participants and equal skin-tone representation."
+    },
+    {
+      "id": "ubfc_phys",
+      "name": "UBFC-Phys",
+      "priority": "P1",
+      "status": "access_contact_required",
+      "access": "CC BY-NC-SA; access via dat@UBFC contact",
+      "official_url": "https://search-data.ubfc.fr/FR-18008901306731-2022-05-05_UBFC-Phys-A-Multimodal-Dataset-For.html",
+      "expected_content": "video, BVP, EDA, social-stress protocol labels",
+      "why_needed": "speaking/stress tasks are close to VERDICT use cases",
+      "notes": "56 participants with rest, speech, arithmetic tasks."
+    },
+    {
+      "id": "vipl_hr_v2",
+      "name": "VIPL-HR-V2",
+      "priority": "P1",
+      "status": "academic_access_agreement_required",
+      "access": "universities/research institutes only; companies excluded by official page",
+      "official_url": "https://vipl.ict.ac.cn/en/resources/databases/202007/t20200714_32718.html",
+      "expected_content": "2500 RGB videos from 500 subjects under less-constrained conditions",
+      "why_needed": "large less-constrained face-video HR benchmark",
+      "notes": "Requires official email and signed release agreement."
+    },
+    {
+      "id": "scamps",
+      "name": "SCAMPS",
+      "priority": "P1",
+      "status": "locate_download_or_generate",
+      "access": "synthetic rPPG benchmark; supported by rPPG-Toolbox pretrained configs",
+      "official_url": "https://github.com/ubicomplab/rPPG-Toolbox",
+      "expected_content": "synthetic face videos/signals for pretraining and robustness",
+      "why_needed": "useful for pretraining and augmentation, not a replacement for real data",
+      "notes": "Must be labeled synthetic in all manifests."
+    },
+    {
+      "id": "cohface",
+      "name": "COHFACE",
+      "priority": "P2",
+      "status": "locate_access",
+      "access": "research dataset; access varies by host",
+      "official_url": "https://www.idiap.ch/en/scientific-research/data/cohface",
+      "expected_content": "face videos with physiological signals",
+      "why_needed": "cross-dataset robustness testing",
+      "notes": "Use mainly for eval unless access terms permit training."
+    },
+    {
+      "id": "mahnob_hci",
+      "name": "MAHNOB-HCI",
+      "priority": "P2",
+      "status": "license_required",
+      "access": "request/license required",
+      "official_url": "https://mahnob-db.eu/hci-tagging/",
+      "expected_content": "multimodal emotion/physiology data",
+      "why_needed": "cross-domain stress/emotion physiology evaluation",
+      "notes": "Not primarily rPPG HR, but useful for robustness."
+    },
+    {
+      "id": "own_capture",
+      "name": "VERDICT Own Capture",
+      "priority": "P0",
+      "status": "not_started",
+      "access": "internal consented data collection",
+      "official_url": null,
+      "expected_content": "camera video plus synchronized pulse oximeter/chest strap ground truth",
+      "why_needed": "public data alone will not deliver top performance on our target cameras/use cases",
+      "notes": "Must include consent, device metadata, lighting, motion, skin tone, camera, FPS, compression, and task labels."
+    }
+  ]
+}

@@ -146,7 +146,26 @@ def _load_text_prior():
 
 
 def _text_deception_prior(transcript: str) -> float | None:
-    """Predict resolved-false text prior from the local claim model."""
+    """Predict P(deceptive) for the transcript.
+
+    Preference order:
+      1. DeBERTa-v3 fine-tune (``backend/models/deberta_deception/``) - matches
+         first-person testimonial style.
+      2. TF-IDF + LogReg TextPrior-v0 (``backend/models/verdict_text_prior_v0.joblib``)
+         - news fact-check style only.
+
+    Returns None if both are unavailable.
+    """
+    # Tier 1: DeBERTa
+    try:
+        from . import deberta_text_prior
+        v = deberta_text_prior.predict(transcript)
+        if v is not None:
+            return v
+    except Exception:
+        pass
+
+    # Tier 2: legacy TF-IDF
     artifact = _load_text_prior()
     if artifact is None:
         return None

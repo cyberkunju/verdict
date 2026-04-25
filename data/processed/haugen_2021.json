@@ -16,10 +16,10 @@
     "hr_peak_bpm": 80.6,
     "hr_delta_bpm": 18.8,
     "hrv_rmssd_ms": 333.6,
-    "au15_max_intensity": 1.0,
-    "au14_max_intensity": 0.6,
-    "au6_present": true,
-    "au24_max_intensity": 0.8,
+    "au15_max_intensity": 0.1,
+    "au14_max_intensity": 0.58,
+    "au6_present": false,
+    "au24_max_intensity": 2.56,
     "f0_baseline_hz": 166.4,
     "f0_peak_hz": 269.4,
     "f0_delta_hz": 103.0,
@@ -35,102 +35,105 @@
         "hr": 67.5,
         "f0": 166.4,
         "au15": 0.0,
-        "deception": 25.3
+        "deception": 7.15
       },
       {
         "t": 5.18,
         "hr": 70.9,
         "f0": 175.76363636363638,
-        "au15": 0.09090909090909091,
-        "deception": 27.181818181818183
+        "au15": 0.009090909090909092,
+        "deception": 7.6818181818181825
       },
       {
         "t": 5.86,
         "hr": 74.3,
         "f0": 185.12727272727273,
-        "au15": 0.18181818181818182,
-        "deception": 29.063636363636363
+        "au15": 0.018181818181818184,
+        "deception": 8.213636363636365
       },
       {
         "t": 6.55,
         "hr": 75.0,
         "f0": 194.4909090909091,
-        "au15": 0.2727272727272727,
-        "deception": 30.945454545454545
+        "au15": 0.02727272727272727,
+        "deception": 8.745454545454546
       },
       {
         "t": 7.23,
         "hr": 75.0,
         "f0": 203.85454545454544,
-        "au15": 0.36363636363636365,
-        "deception": 32.82727272727273
+        "au15": 0.03636363636363637,
+        "deception": 9.277272727272727
       },
       {
         "t": 7.91,
         "hr": 77.0,
         "f0": 213.21818181818182,
-        "au15": 0.45454545454545453,
-        "deception": 34.70909090909091
+        "au15": 0.045454545454545456,
+        "deception": 9.80909090909091
       },
       {
         "t": 8.59,
         "hr": 80.5,
         "f0": 222.58181818181816,
-        "au15": 0.5454545454545454,
-        "deception": 36.59090909090909
+        "au15": 0.05454545454545454,
+        "deception": 10.340909090909092
       },
       {
         "t": 9.27,
         "hr": 78.4,
         "f0": 231.94545454545454,
-        "au15": 0.6363636363636364,
-        "deception": 38.472727272727276
+        "au15": 0.06363636363636364,
+        "deception": 10.872727272727273
       },
       {
         "t": 9.95,
         "hr": 68.2,
         "f0": 241.3090909090909,
-        "au15": 0.7272727272727273,
-        "deception": 40.35454545454546
+        "au15": 0.07272727272727274,
+        "deception": 11.404545454545454
       },
       {
         "t": 10.64,
         "hr": 60.0,
         "f0": 250.67272727272726,
-        "au15": 0.8181818181818182,
-        "deception": 42.236363636363635
+        "au15": 0.08181818181818183,
+        "deception": 11.936363636363637
       },
       {
         "t": 11.32,
         "hr": 60.0,
         "f0": 260.0363636363636,
-        "au15": 0.9090909090909091,
-        "deception": 44.11818181818182
+        "au15": 0.09090909090909091,
+        "deception": 12.468181818181819
       },
       {
         "t": 12.0,
         "hr": 60.0,
         "f0": 269.4,
-        "au15": 1.0,
-        "deception": 46.0
+        "au15": 0.1,
+        "deception": 13.0
       }
     ]
   },
   "scores": {
-    "deception": 46,
-    "sincerity": 80,
-    "stress": 58,
-    "confidence": 55
+    "deception": 13,
+    "sincerity": 66,
+    "stress": 63,
+    "confidence": 47
   },
   "llm_report": {
-    "behavioral_summary": "During Frances Haugen's testimony, her heart rate increased by 18.8 bpm from a baseline of 61.9 bpm to a peak of 80.6 bpm, indicating elevated physiological arousal. Her vocal pitch rose significantly, with a peak F0 of 269.4 Hz compared to a baseline of 166.4 Hz, a delta of 103.0 Hz. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 1.0, AU14 (dimpler) at 0.6, and AU24 (lip pressor) at 0.8, with AU6 (cheek raiser) present, suggesting a complex emotional state. The hedging count was low at 2, and there was no pronoun drop, indicating a structured and deliberate speech pattern.",
-    "comparative_profile": "This testimony does not have direct historical parallels in the archive, but the physiological and vocal patterns are consistent with high-stakes whistleblower disclosures. The elevated heart rate and vocal pitch, alongside a high sincerity composite score of 80, align with cases where individuals report significant personal or public risk.",
-    "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and should not be interpreted as a direct indicator of deception or sincerity. The signal quality was mixed, with real data for heart rate and voice, but fallback data for facial action units, which may affect the precision of the analysis."
+    "behavioral_summary": "During Frances Haugen's testimony, her heart rate increased from a baseline of 61.9 bpm to a peak of 80.6 bpm, showing a delta of 18.8 bpm, which is consistent with elevated physiological arousal. Her vocal pitch also rose significantly, with a baseline of 166.4 Hz peaking at 269.4 Hz, a delta of 103.0 Hz. Facial Action Units showed AU24 (lip press) at a maximum intensity of 2.56, indicating tension, while AU15 (lip corner depressor) was minimal at 0.1. The speech rate was measured at 186.6 words per minute with minimal hedging (count of 2) and no pronoun drop, suggesting a direct communication style. These signals are consistent with high stress but do not determine truthfulness.",
+    "comparative_profile": "The physiological and behavioral patterns observed in Haugen's testimony are similar to those seen in the 'dean_1973' and 'cheung_2019' cases, where individuals also exhibited elevated stress markers during high-stakes disclosures. In these cases, high stress coexisted with verified sincerity, as the disclosures were later substantiated by external evidence.",
+    "qualifications": "Physiological arousal can reflect a range of emotions, including stress, fear, or anger, and is not solely indicative of deception. The signal quality for this analysis is high, with real-time photoplethysmography (rPPG), facial action units, voice analysis, and transcript data all verified as real. This analysis does not determine the truthfulness of the statement but provides insight into the physiological and behavioral signals present during the testimony."
   },
-  "similar_clips": [],
+  "similar_clips": [
+    "dean_1973",
+    "cheung_2019"
+  ],
   "signal_quality": {
     "rppg": "real",
-    "facial_au": "fallback",
+    "facial_au": "real",
     "voice": "real",
     "transcript": "real"
   }

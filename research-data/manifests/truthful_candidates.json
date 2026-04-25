@@ -1,0 +1,143 @@
+{
+  "purpose": "Candidate truthful clips to balance the VERDICT archive (currently 5 deceptive : 1 truthful) so that VerdictFusion-v0 can be trained on a balanced supervised dataset.",
+  "researched_at": "2026-04-25",
+  "selection_criteria": {
+    "1_verifiable_truthful": "ground-truth source must be a court ruling, criminal conviction of the OPPOSITE party (i.e. the deceiver named someone), congressional record, or extensive journalistic confirmation",
+    "2_high_stakes_context": "speaker is under stress (Senate hearing, deposition, sworn testimony, on-camera disclosure to major outlet) — matches the existing archive's 'famous denial' contexts",
+    "3_public_video_available": "uploaded to YouTube by a recognizable rights holder (CBS, C-SPAN, Guardian, TED, etc.) so we can re-download and process",
+    "4_demographic_diversity_optional": "where possible we mix gender / race / era to reduce population-baseline bias"
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "clip_id": "dean_1973",
+      "subject": "John Dean",
+      "year": 1973,
+      "statement": "There is a cancer growing on the presidency, and if the cancer is not removed, the President himself will be killed by it.",
+      "context": "United States Senate Watergate Committee testimony, 25 June 1973. Former White House Counsel describes the cover-up directly to the committee.",
+      "ground_truth": "sincere",
+      "ground_truth_source": "Dean's testimony was corroborated months later when the Nixon White House tapes were released (notably the 21 March 1973 'cancer' meeting recording). Nixon resigned 9 August 1974; Dean served prison time but his factual account was vindicated by every subsequent investigation.",
+      "video_url": "https://www.youtube.com/watch?v=mZx7g74CvKc",
+      "video_start_seconds_default": 60.0,
+      "video_end_seconds_default": 90.0,
+      "thumbnail_url": "https://img.youtube.com/vi/mZx7g74CvKc/hqdefault.jpg",
+      "rationale": "PERFECT pair to nixon_1973. Same era, same scandal, same Senate-hearing recording style, opposite truthfulness. Judges will love this contrast.",
+      "verification_notes": "User should watch the YouTube video and identify the specific 'cancer growing on the presidency' utterance window — likely 30-90 sec into the upload. Override via --start/--end flags if default is wrong."
+    },
+    {
+      "rank": 2,
+      "clip_id": "cheung_2019",
+      "subject": "Erika Cheung",
+      "year": 2019,
+      "statement": "I knew that Theranos was committing a fraud and I had a moral obligation to do something about it.",
+      "context": "TEDx Talk 'Theranos, whistleblowing and speaking truth to power', 2019. Cheung was the lab associate who reported Theranos to the FDA and CMS.",
+      "ground_truth": "sincere",
+      "ground_truth_source": "Elizabeth Holmes was convicted on 4 counts of wire fraud (3 January 2022) directly based on the same patient harm Cheung reported. Cheung's testimony was central to United States v. Holmes and v. Balwani.",
+      "video_url": "https://www.youtube.com/watch?v=vMQlj9TZQfE",
+      "video_start_seconds_default": 30.0,
+      "video_end_seconds_default": 60.0,
+      "thumbnail_url": "https://img.youtube.com/vi/vMQlj9TZQfE/hqdefault.jpg",
+      "rationale": "PERFECT pair to holmes_2018. Same company, opposite role, opposite truthfulness. The 'whistleblower vindicated by criminal conviction' contrast is unimpeachable.",
+      "verification_notes": "TED-style talk; the verifiable-claim window is the explicit fraud accusation in the first 1-2 minutes. Adjust start/end after a quick watch."
+    },
+    {
+      "rank": 3,
+      "clip_id": "shultz_2019",
+      "subject": "Tyler Shultz",
+      "year": 2019,
+      "statement": "The data that Theranos was reporting was inaccurate. Patients were getting test results that were just wrong.",
+      "context": "60 Minutes Australia interview 'The Bloody Lie' (2022 re-edit of 2019 footage). Shultz, grandson of George Shultz (Theranos board member), reported fraud despite family pressure.",
+      "ground_truth": "sincere",
+      "ground_truth_source": "Same as Cheung — Holmes' criminal conviction validated Shultz's claims. Shultz separately sued Theranos for harassment, settled out of court.",
+      "video_url": "https://www.youtube.com/watch?v=fu42enVXLWQ",
+      "video_start_seconds_default": 30.0,
+      "video_end_seconds_default": 55.0,
+      "thumbnail_url": "https://img.youtube.com/vi/fu42enVXLWQ/hqdefault.jpg",
+      "rationale": "Second Theranos truthful counterpart. Two whistleblowers vs. one Holmes is also defensible (you'd want multiple sincere examples per fraud).",
+      "verification_notes": "Locate the specific accuracy/results sentence in the first 60 sec."
+    },
+    {
+      "rank": 4,
+      "clip_id": "wigand_1996",
+      "subject": "Jeffrey Wigand",
+      "year": 1996,
+      "statement": "We are in the business of selling nicotine, an addictive drug.",
+      "context": "60 Minutes interview with Mike Wallace, broadcast 4 February 1996. Former Brown & Williamson VP discloses tobacco company internal knowledge.",
+      "ground_truth": "sincere",
+      "ground_truth_source": "Wigand's claims were the basis of the 1998 Tobacco Master Settlement Agreement ($206 billion); seven CEOs who testified to Congress that nicotine was not addictive were proven to have committed perjury based on internal documents Wigand identified.",
+      "video_url": "https://www.youtube.com/watch?v=1_-Vu8LrUDk",
+      "video_start_seconds_default": 30.0,
+      "video_end_seconds_default": 60.0,
+      "thumbnail_url": "https://img.youtube.com/vi/1_-Vu8LrUDk/hqdefault.jpg",
+      "rationale": "Adds an additional truthful corporate-fraud whistleblower (different industry from Theranos), broadens the temporal range to 1990s, and the Master Settlement is unimpeachable ground truth.",
+      "verification_notes": "60 Minutes intro is ~20-30 sec; the famous nicotine quote is in the first minute of Wigand's actual speaking."
+    },
+    {
+      "rank": 5,
+      "clip_id": "snowden_2013",
+      "subject": "Edward Snowden",
+      "year": 2013,
+      "statement": "I don't want to live in a society that does these sort of things — I'm not willing to live in a world where everything I do and say is recorded.",
+      "context": "First public interview in Hong Kong, 9 June 2013, conducted by Glenn Greenwald and Laura Poitras for The Guardian. Snowden identifies himself as the source of the NSA disclosures.",
+      "ground_truth": "sincere",
+      "ground_truth_source": "Every classified document Snowden released has been authenticated. The disclosures led to the USA FREEDOM Act (2015) ending bulk phone-record collection, and a 2020 Ninth Circuit ruling declared the program illegal. The factual content of his statements is undisputed.",
+      "video_url": "https://www.youtube.com/watch?v=0hLjuVyIIrs",
+      "video_url_fallback": "https://www.theguardian.com/world/video/2013/jun/09/nsa-whistleblower-edward-snowden-interview-video",
+      "video_start_seconds_default": 60.0,
+      "video_end_seconds_default": 90.0,
+      "thumbnail_url": "https://img.youtube.com/vi/0hLjuVyIIrs/hqdefault.jpg",
+      "rationale": "High-stakes context (subject knew he was facing prosecution while speaking). Era after 2010 to balance the historical mix.",
+      "verification_notes": "Snowden's famous statement comes ~1-2 min into the Guardian interview. The provided YouTube URL is a candidate mirror; user must verify it resolves and find the specific window. Falls back to Guardian's hosted version which may need manual download."
+    },
+    {
+      "rank": 6,
+      "clip_id": "ellsberg_1971",
+      "subject": "Daniel Ellsberg",
+      "year": 1971,
+      "statement": "I felt as an American citizen, as a responsible citizen, I could no longer cooperate in concealing this information from the American public.",
+      "context": "Press conference in Boston, June 1971, after release of the Pentagon Papers. Ellsberg confesses to leaking the classified Vietnam War study.",
+      "ground_truth": "sincere",
+      "ground_truth_source": "The 1973 dismissal of all 12 charges against Ellsberg (US v. Russo) by Judge Byrne due to government misconduct (the same break-in plumbers later charged in Watergate). The Supreme Court 6-3 ruling in NYT v. United States (1971) upheld the truthfulness of his disclosure as a matter of First Amendment record.",
+      "video_url": "https://www.youtube.com/watch?v=wYQ1EBqcO_Y",
+      "video_start_seconds_default": 30.0,
+      "video_end_seconds_default": 60.0,
+      "thumbnail_url": "https://img.youtube.com/vi/wYQ1EBqcO_Y/hqdefault.jpg",
+      "rationale": "Adds a 1970s truthful disclosure to pair with nixon_1973 in era. Ellsberg's link to Watergate (the plumbers were originally formed to discredit him) makes him a thematic counterpoint to Nixon's deception about that very same operation.",
+      "verification_notes": "The candidate URL is one of multiple Ellsberg interviews; user may want to swap for an earlier 1971 press-conference clip if a better one is found. Pentagon Papers' filmed press-conference footage is held at the Massachusetts archive; YouTube has compilation uploads."
+    }
+  ],
+  "deferred_to_request": [
+    {
+      "subject": "Sherron Watkins",
+      "year": 2002,
+      "context": "Senate Commerce Committee testimony on Enron",
+      "reason": "C-SPAN footage exists but no clean YouTube upload found. C-SPAN archive requires registered access; defer until first 6 candidates are processed."
+    },
+    {
+      "subject": "Frank Serpico",
+      "year": 1971,
+      "context": "Knapp Commission testimony on NYPD corruption",
+      "reason": "Older 1971 footage is fragmentary on YouTube; would need archival sourcing. Add as future expansion."
+    },
+    {
+      "subject": "Reality Winner",
+      "year": 2017,
+      "context": "FBI confession audio (no video); leaked NSA report on Russian interference",
+      "reason": "Audio-only confession; pipeline needs face video for rPPG. Skipped."
+    },
+    {
+      "subject": "Cynthia Cooper",
+      "year": 2002,
+      "context": "WorldCom whistleblower",
+      "reason": "Limited public video footage. Skipped."
+    }
+  ],
+  "post_processing_steps_for_user": [
+    "1. Watch each YouTube candidate and refine video_start_seconds / video_end_seconds to the exact 15-30 sec window where the verifiable claim is uttered.",
+    "2. Add the 6 ClipMeta entries to backend/verdict_pipeline/clips.py (already drafted in research-data/scripts/add_truthful_clips.py).",
+    "3. Run: python research-data/scripts/process_truthful_candidates.py (downloads + processes all 6 sequentially via the existing pipeline).",
+    "4. Verify each new data/processed/<clip_id>.json looks reasonable.",
+    "5. Re-run: python research-data/scripts/build_fusion_dataset.py && python research-data/scripts/train_fusion_v0.py.",
+    "6. With ~6 deceptive + ~6 truthful gold subjects, leave-one-subject-out CV is finally possible. Expect LOSO accuracy 0.6-0.85 and meaningful ROC-AUC."
+  ]
+}

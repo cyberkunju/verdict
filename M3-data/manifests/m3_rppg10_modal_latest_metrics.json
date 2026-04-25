@@ -1,0 +1,970 @@
+{
+  "created_at_utc": "2026-04-25T11:29:47.264488+00:00",
+  "model_name": "m3_rppg10_quality_gated_ensemble_v1",
+  "data_root": "/mnt/verdict-m3-data/rPPG-10/Dataset_rPPG-10",
+  "method": "GREEN/POS/CHROM per ROI + ExtraTrees HR fusion + RandomForest expected-error quality gate",
+  "window_seconds": 30.0,
+  "hop_seconds": 10.0,
+  "subjects": [
+    "Subject_1",
+    "Subject_2",
+    "Subject_3",
+    "Subject_5",
+    "Subject_6",
+    "Subject_7",
+    "Subject_8",
+    "Subject_9",
+    "Subject_10",
+    "Subject_11",
+    "Subject_12",
+    "Subject_13",
+    "Subject_14",
+    "Subject_15",
+    "Subject_16",
+    "Subject_17",
+    "Subject_18",
+    "Subject_19",
+    "Subject_20",
+    "Subject_21",
+    "Subject_22",
+    "Subject_23",
+    "Subject_24",
+    "Subject_25",
+    "Subject_26",
+    "Subject_27"
+  ],
+  "splits": {
+    "train": [
+      "Subject_2",
+      "Subject_3",
+      "Subject_7",
+      "Subject_8",
+      "Subject_9",
+      "Subject_12",
+      "Subject_13",
+      "Subject_14",
+      "Subject_17",
+      "Subject_18",
+      "Subject_19",
+      "Subject_22",
+      "Subject_23",
+      "Subject_24",
+      "Subject_27"
+    ],
+    "validation": [
+      "Subject_5",
+      "Subject_10",
+      "Subject_15",
+      "Subject_20",
+      "Subject_25"
+    ],
+    "test": [
+      "Subject_1",
+      "Subject_6",
+      "Subject_11",
+      "Subject_16",
+      "Subject_21",
+      "Subject_26"
+    ]
+  },
+  "row_counts": {
+    "train": 869,
+    "validation": 290,
+    "test": 347
+  },
+  "feature_count": 60,
+  "quality_threshold_expected_abs_error_bpm": 0.41095404225547144,
+  "metrics": {
+    "train": {
+      "rows": 869,
+      "mae_bpm": 0.8236390110960884,
+      "rmse_bpm": 1.540298191075981,
+      "r2": 0.9977615173039123,
+      "within_3_bpm": 0.952819332566168,
+      "within_5_bpm": 0.9838895281933256,
+      "within_10_bpm": 0.997698504027618,
+      "median_abs_error_bpm": 0.4117108211653857,
+      "p90_abs_error_bpm": 1.934899996196408
+    },
+    "validation": {
+      "rows": 290,
+      "mae_bpm": 13.057609490042928,
+      "rmse_bpm": 24.037767667310156,
+      "r2": 0.4473084744191277,
+      "within_3_bpm": 0.23793103448275862,
+      "within_5_bpm": 0.4896551724137931,
+      "within_10_bpm": 0.7310344827586207,
+      "median_abs_error_bpm": 5.116703387649181,
+      "p90_abs_error_bpm": 36.14703870675403
+    },
+    "test": {
+      "rows": 347,
+      "mae_bpm": 13.500318842824063,
+      "rmse_bpm": 21.72923797921838,
+      "r2": 0.46411500859705257,
+      "within_3_bpm": 0.2881844380403458,
+      "within_5_bpm": 0.43804034582132567,
+      "within_10_bpm": 0.6253602305475504,
+      "median_abs_error_bpm": 6.136236074955434,
+      "p90_abs_error_bpm": 32.25995667443837
+    },
+    "validation_accepted": {
+      "threshold": 0.41095404225547144,
+      "coverage": 0.3,
+      "accepted_rows": 87,
+      "rows": 87,
+      "mae_bpm": 4.453472092271548,
+      "rmse_bpm": 5.079802538054864,
+      "r2": 0.09933353351204988,
+      "within_3_bpm": 0.27586206896551724,
+      "within_5_bpm": 0.6551724137931034,
+      "within_10_bpm": 0.9770114942528736,
+      "median_abs_error_bpm": 3.984104442798923,
+      "p90_abs_error_bpm": 8.252235318771902
+    },
+    "test_accepted": {
+      "threshold": 0.41095404225547144,
+      "coverage": 0.1239193083573487,
+      "accepted_rows": 43,
+      "rows": 43,
+      "mae_bpm": 3.688690388554825,
+      "rmse_bpm": 4.120572021576508,
+      "r2": -2.0822561678903053,
+      "within_3_bpm": 0.3488372093023256,
+      "within_5_bpm": 0.7674418604651163,
+      "within_10_bpm": 1.0,
+      "median_abs_error_bpm": 3.4820417988353682,
+      "p90_abs_error_bpm": 6.026486747419009
+    }
+  },
+  "baselines": {
+    "test_candidate_weighted": {
+      "rows": 347,
+      "mae_bpm": 42.483301695859915,
+      "rmse_bpm": 52.24654964188167,
+      "r2": -2.098117116092002,
+      "within_3_bpm": 0.11527377521613832,
+      "within_5_bpm": 0.15561959654178675,
+      "within_10_bpm": 0.2276657060518732,
+      "median_abs_error_bpm": 44.91360444078673,
+      "p90_abs_error_bpm": 77.50136679297964
+    },
+    "test_candidate_median": {
+      "rows": 347,
+      "mae_bpm": 43.02645064760594,
+      "rmse_bpm": 52.97517031174914,
+      "r2": -2.185131186529613,
+      "within_3_bpm": 0.10662824207492795,
+      "within_5_bpm": 0.1585014409221902,
+      "within_10_bpm": 0.2132564841498559,
+      "median_abs_error_bpm": 44.64953271028037,
+      "p90_abs_error_bpm": 78.01564880210498
+    }
+  },
+  "inventory": {
+    "subjects": [
+      {
+        "subject": "Subject_1",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_2",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_3",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_5",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_6",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_7",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_8",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_9",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_10",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_11",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_12",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_13",
+        "fps": 30.0,
+        "duration_seconds": 599.8666666666667,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.2222716159147,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 17996,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 599.8666666666667
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 17996,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 599.8666666666667
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 17996,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 599.8666666666667
+          }
+        }
+      },
+      {
+        "subject": "Subject_14",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_15",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_16",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_17",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_18",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_19",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_20",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_21",
+        "fps": 30.0,
+        "duration_seconds": 599.4333333333333,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.9453372629707,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 17983,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 599.4333333333333
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 17983,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 599.4333333333333
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 17983,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 599.4333333333333
+          }
+        }
+      },
+      {
+        "subject": "Subject_22",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_23",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_24",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_25",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_26",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      },
+      {
+        "subject": "Subject_27",
+        "fps": 30.0,
+        "duration_seconds": 600.0,
+        "ecg_samples": 600000,
+        "ecg_fs": 1000.0,
+        "video_info": {
+          "forehead": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek1": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          },
+          "cheek2": {
+            "fps": 30.0,
+            "frames": 18000,
+            "width": 64,
+            "height": 64,
+            "duration_seconds": 600.0
+          }
+        }
+      }
+    ],
+    "skipped_subjects": [
+      {
+        "subject": "Subject_4",
+        "reason": "cannot open video: /mnt/verdict-m3-data/rPPG-10/Dataset_rPPG-10/Subject_4/Subject_4_Forehead_.avi"
+      }
+    ]
+  },
+  "deployment_model": {
+    "trained_on": "all usable rPPG-10 windows",
+    "rows": 1506,
+    "subjects": 26,
+    "training_metrics_not_holdout": {
+      "rows": 1506,
+      "mae_bpm": 1.4287021815519547,
+      "rmse_bpm": 3.095115725946113,
+      "r2": 0.9908503354996797,
+      "within_3_bpm": 0.8904382470119522,
+      "within_5_bpm": 0.9389110225763613,
+      "within_10_bpm": 0.9661354581673307,
+      "median_abs_error_bpm": 0.5227598068824975,
+      "p90_abs_error_bpm": 3.283080347841242
+    }
+  }
+}

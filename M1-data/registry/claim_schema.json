@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VerdictFusion Claim Window",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "source_id",
+    "subject",
+    "claim_text",
+    "claim_start_seconds",
+    "claim_end_seconds",
+    "ground_truth_label",
+    "ground_truth_source_url",
+    "label_confidence",
+    "context_type",
+    "claim_type",
+    "train_eligible"
+  ],
+  "properties": {
+    "claim_id": { "type": "string", "pattern": "^[a-z0-9_\\-]+$" },
+    "source_id": { "type": "string" },
+    "subject": { "type": "string" },
+    "speaker_track_id": { "type": "string" },
+    "claim_text": { "type": "string", "minLength": 1 },
+    "claim_start_seconds": { "type": "number", "minimum": 0 },
+    "claim_end_seconds": { "type": "number", "exclusiveMinimum": 0 },
+    "ground_truth_label": {
+      "type": "string",
+      "enum": [
+        "resolved_false",
+        "resolved_true",
+        "sincere_disclosure",
+        "contested",
+        "unclear",
+        "exclude"
+      ]
+    },
+    "ground_truth_source_url": { "type": "string" },
+    "ground_truth_notes": { "type": "string" },
+    "resolution_date": { "type": "string" },
+    "label_confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+    "context_type": {
+      "type": "string",
+      "enum": [
+        "press_conference",
+        "hearing",
+        "trial",
+        "interview",
+        "deposition",
+        "debate",
+        "public_statement",
+        "other"
+      ]
+    },
+    "claim_type": {
+      "type": "string",
+      "enum": [
+        "denial",
+        "assertion",
+        "explanation",
+        "accusation",
+        "disclosure",
+        "apology",
+        "other"
+      ]
+    },
+    "quality": {
+      "type": "object",
+      "properties": {
+        "face_visibility": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "lighting": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "camera_stability": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "audio_clarity": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "transcript_alignment": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "speaker_isolation": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "edit_splice_risk": { "type": "integer", "minimum": 0, "maximum": 3 }
+      }
+    },
+    "train_eligible": { "type": "boolean" },
+    "reviewers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  }
+}

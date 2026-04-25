@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.0",
+  "clip_id": "ellsberg_1971",
+  "subject": "Daniel Ellsberg",
+  "statement": "I felt as an American citizen, as a responsible citizen, I could no longer cooperate in concealing this information from the American public.",
+  "year": 1971,
+  "context": "Press conference in Boston, June 1971, after the Pentagon Papers were published by The New York Times. Ellsberg publicly confesses to leaking the classified Vietnam War study while facing potential life imprisonment under the Espionage Act.",
+  "ground_truth": "sincere",
+  "ground_truth_source": "All 12 charges dismissed by Judge Byrne on 11 May 1973 due to government misconduct (Plumbers' break-in at Ellsberg's psychiatrist). Supreme Court 6-3 in NYT v. United States (30 June 1971) upheld publication; Ellsberg's factual claims have never been contested.",
+  "video_url": "https://www.youtube.com/watch?v=wYQ1EBqcO_Y",
+  "video_start_seconds": 30.0,
+  "video_end_seconds": 60.0,
+  "thumbnail_url": "https://img.youtube.com/vi/wYQ1EBqcO_Y/hqdefault.jpg",
+  "signals": {
+    "hr_baseline_bpm": 75.0,
+    "hr_peak_bpm": 92.0,
+    "hr_delta_bpm": 17.0,
+    "hrv_rmssd_ms": 22.0,
+    "au15_max_intensity": 1.5,
+    "au14_max_intensity": 1.0,
+    "au6_present": false,
+    "au24_max_intensity": 1.5,
+    "f0_baseline_hz": 120.0,
+    "f0_peak_hz": 145.0,
+    "f0_delta_hz": 25.0,
+    "jitter_percent": 2.5,
+    "shimmer_db": 1.6,
+    "speech_rate_wpm": 130.0,
+    "hedging_count": 0,
+    "pronoun_drop_rate": 0.0,
+    "transcript": "",
+    "timeline": [
+      {
+        "t": 0.0,
+        "hr": 75.0,
+        "f0": 120.0,
+        "au15": 0.0,
+        "deception": 3.8500000000000005
+      },
+      {
+        "t": 1.0,
+        "hr": 75.2,
+        "f0": 120.86206896551724,
+        "au15": 0.05172413793103448,
+        "deception": 3.9586206896551728
+      },
+      {
+        "t": 2.0,
+        "hr": 75.8,
+        "f0": 121.72413793103448,
+        "au15": 0.10344827586206896,
+        "deception": 4.067241379310345
+      },
+      {
+        "t": 3.0,
+        "hr": 76.7,
+        "f0": 122.58620689655173,
+        "au15": 0.15517241379310345,
+        "deception": 4.175862068965518
+      },
+      {
+        "t": 4.0,
+        "hr": 78.0,
+        "f0": 123.44827586206897,
+        "au15": 0.20689655172413793,
+        "deception": 4.28448275862069
+      },
+      {
+        "t": 5.0,
+        "hr": 79.5,
+        "f0": 124.3103448275862,
+        "au15": 0.25862068965517243,
+        "deception": 4.393103448275863
+      },
+      {
+        "t": 6.0,
+        "hr": 81.2,
+        "f0": 125.17241379310344,
+        "au15": 0.3103448275862069,
+        "deception": 4.501724137931035
+      },
+      {
+        "t": 7.0,
+        "hr": 83.0,
+        "f0": 126.03448275862068,
+        "au15": 0.3620689655172414,
+        "deception": 4.610344827586207
+      },
+      {
+        "t": 8.0,
+        "hr": 84.9,
+        "f0": 126.89655172413794,
+        "au15": 0.41379310344827586,
+        "deception": 4.718965517241379
+      },
+      {
+        "t": 9.0,
+        "hr": 86.6,
+        "f0": 127.75862068965517,
+        "au15": 0.4655172413793104,
+        "deception": 4.827586206896552
+      },
+      {
+        "t": 10.0,
+        "hr": 88.3,
+        "f0": 128.6206896551724,
+        "au15": 0.5172413793103449,
+        "deception": 4.936206896551724
+      },
+      {
+        "t": 11.0,
+        "hr": 89.7,
+        "f0": 129.48275862068965,
+        "au15": 0.5689655172413792,
+        "deception": 5.044827586206896
+      },
+      {
+        "t": 12.0,
+        "hr": 90.8,
+        "f0": 130.3448275862069,
+        "au15": 0.6206896551724138,
+        "deception": 5.153448275862069
+      },
+      {
+        "t": 13.0,
+        "hr": 91.6,
+        "f0": 131.20689655172413,
+        "au15": 0.6724137931034483,
+        "deception": 5.2620689655172415
+      },
+      {
+        "t": 14.0,
+        "hr": 92.0,
+        "f0": 132.06896551724137,
+        "au15": 0.7241379310344828,
+        "deception": 5.370689655172414
+      },
+      {
+        "t": 15.0,
+        "hr": 92.0,
+        "f0": 132.93103448275863,
+        "au15": 0.7758620689655173,
+        "deception": 5.479310344827587
+      },
+      {
+        "t": 16.0,
+        "hr": 91.6,
+        "f0": 133.79310344827587,
+        "au15": 0.8275862068965517,
+        "deception": 5.587931034482759
+      },
+      {
+        "t": 17.0,
+        "hr": 90.8,
+        "f0": 134.6551724137931,
+        "au15": 0.8793103448275861,
+        "deception": 5.696551724137931
+      },
+      {
+        "t": 18.0,
+        "hr": 89.7,
+        "f0": 135.51724137931035,
+        "au15": 0.9310344827586208,
+        "deception": 5.805172413793104
+      },
+      {
+        "t": 19.0,
+        "hr": 88.3,
+        "f0": 136.3793103448276,
+        "au15": 0.9827586206896551,
+        "deception": 5.913793103448276
+      },
+      {
+        "t": 20.0,
+        "hr": 86.6,
+        "f0": 137.24137931034483,
+        "au15": 1.0344827586206897,
+        "deception": 6.022413793103448
+      },
+      {
+        "t": 21.0,
+        "hr": 84.9,
+        "f0": 138.10344827586206,
+        "au15": 1.0862068965517242,
+        "deception": 6.13103448275862
+      },
+      {
+        "t": 22.0,
+        "hr": 83.0,
+        "f0": 138.9655172413793,
+        "au15": 1.1379310344827585,
+        "deception": 6.239655172413793
+      },
+      {
+        "t": 23.0,
+        "hr": 81.2,
+        "f0": 139.82758620689654,
+        "au15": 1.1896551724137931,
+        "deception": 6.3482758620689665
+      },
+      {
+        "t": 24.0,
+        "hr": 79.5,
+        "f0": 140.68965517241378,
+        "au15": 1.2413793103448276,
+        "deception": 6.456896551724139
+      },
+      {
+        "t": 25.0,
+        "hr": 78.0,
+        "f0": 141.55172413793105,
+        "au15": 1.293103448275862,
+        "deception": 6.565517241379311
+      },
+      {
+        "t": 26.0,
+        "hr": 76.7,
+        "f0": 142.41379310344828,
+        "au15": 1.3448275862068966,
+        "deception": 6.674137931034483
+      },
+      {
+        "t": 27.0,
+        "hr": 75.8,
+        "f0": 143.27586206896552,
+        "au15": 1.396551724137931,
+        "deception": 6.7827586206896555
+      },
+      {
+        "t": 28.0,
+        "hr": 75.2,
+        "f0": 144.13793103448276,
+        "au15": 1.4482758620689655,
+        "deception": 6.891379310344828
+      },
+      {
+        "t": 29.0,
+        "hr": 75.0,
+        "f0": 145.0,
+        "au15": 1.5,
+        "deception": 7.0
+      }
+    ]
+  },
+  "scores": {
+    "deception": 7,
+    "sincerity": 65,
+    "stress": 48,
+    "confidence": 54
+  },
+  "llm_report": {
+    "behavioral_summary": "During the press conference, Daniel Ellsberg exhibited a heart rate increase from a baseline of 75.0 bpm to a peak of 92.0 bpm, indicating a delta of 17.0 bpm. His vocal pitch rose from a baseline of 120.0 Hz to a peak of 145.0 Hz, with a delta of 25.0 Hz. Facial action units showed moderate activation with AU15 maxing at 1.5 and AU24 at 1.5, while AU6 was not present. Despite these physiological stress indicators, there was no hedging, and the pronoun drop rate was 0.00, suggesting a direct and consistent speech pattern.",
+    "comparative_profile": "Ellsberg's physiological and behavioral signals are similar to those observed in whistleblower Edward Snowden in 2013, where high stress coexisted with high sincerity scores. The elevated stress markers are also reminiscent of President Nixon's 1973 press conferences, though Ellsberg's sincerity score of 65 is notably higher, aligning with his historical context of sincere whistleblowing.",
+    "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis is limited, with fallback methods used for rPPG, facial action units, voice, and transcript data. This analysis does not determine truth but provides a summary of observed signals."
+  },
+  "similar_clips": [
+    "nixon_1973",
+    "snowden_2013"
+  ],
+  "signal_quality": {
+    "rppg": "fallback",
+    "facial_au": "fallback",
+    "voice": "fallback",
+    "transcript": "fallback"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "clip_id": "cheung_2019",
+  "subject": "Erika Cheung",
+  "statement": "I knew that Theranos was committing a fraud and I had a moral obligation to do something about it.",
+  "year": 2019,
+  "context": "TEDx Talk 'Theranos, whistleblowing and speaking truth to power.' Cheung was the lab associate who reported Theranos to the FDA and CMS in 2014.",
+  "ground_truth": "sincere",
+  "ground_truth_source": "Elizabeth Holmes was convicted on 4 counts of wire fraud (3 January 2022) directly based on the same patient harm Cheung reported. Cheung's testimony was central to United States v. Holmes and v. Balwani.",
+  "video_url": "https://www.youtube.com/watch?v=vMQlj9TZQfE",
+  "video_start_seconds": 30.0,
+  "video_end_seconds": 55.0,
+  "thumbnail_url": "https://img.youtube.com/vi/vMQlj9TZQfE/hqdefault.jpg",
+  "signals": {
+    "hr_baseline_bpm": 67.2,
+    "hr_peak_bpm": 94.0,
+    "hr_delta_bpm": 26.8,
+    "hrv_rmssd_ms": 253.9,
+    "au15_max_intensity": 0.06,
+    "au14_max_intensity": 0.67,
+    "au6_present": false,
+    "au24_max_intensity": 1.31,
+    "f0_baseline_hz": 192.9,
+    "f0_peak_hz": 357.1,
+    "f0_delta_hz": 164.2,
+    "jitter_percent": 1.79,
+    "shimmer_db": 0.83,
+    "speech_rate_wpm": 194.4,
+    "hedging_count": 3,
+    "pronoun_drop_rate": 1.0,
+    "transcript": "information about the company, but the little that was there was really impressive. Essentially, what the company was doing was creating a medical device where you would be able to run your entire blood panel on a finger stick of blood, so you wouldn't have to get a big needle stuck in your arm in order to get your blood test done. So this was interesting, not only because it was less painful.",
+    "timeline": [
+      {
+        "t": 2.23,
+        "hr": 94.0,
+        "f0": 192.9,
+        "au15": 0.0,
+        "deception": 9.350000000000001
+      },
+      {
+        "t": 2.63,
+        "hr": 94.0,
+        "f0": 207.82727272727274,
+        "au15": 0.005454545454545454,
+        "deception": 10.045454545454547
+      },
+      {
+        "t": 3.04,
+        "hr": 94.0,
+        "f0": 222.75454545454545,
+        "au15": 0.010909090909090908,
+        "deception": 10.740909090909092
+      },
+      {
+        "t": 3.43,
+        "hr": 94.0,
+        "f0": 237.6818181818182,
+        "au15": 0.01636363636363636,
+        "deception": 11.436363636363636
+      },
+      {
+        "t": 3.83,
+        "hr": 89.1,
+        "f0": 252.60909090909092,
+        "au15": 0.021818181818181816,
+        "deception": 12.131818181818181
+      },
+      {
+        "t": 4.23,
+        "hr": 74.5,
+        "f0": 267.53636363636366,
+        "au15": 0.02727272727272727,
+        "deception": 12.827272727272728
+      },
+      {
+        "t": 4.63,
+        "hr": 67.2,
+        "f0": 282.4636363636364,
+        "au15": 0.03272727272727272,
+        "deception": 13.522727272727273
+      },
+      {
+        "t": 5.04,
+        "hr": 67.2,
+        "f0": 297.3909090909091,
+        "au15": 0.03818181818181818,
+        "deception": 14.218181818181819
+      },
+      {
+        "t": 5.44,
+        "hr": 67.2,
+        "f0": 312.31818181818187,
+        "au15": 0.04363636363636363,
+        "deception": 14.913636363636364
+      },
+      {
+        "t": 5.83,
+        "hr": 67.2,
+        "f0": 327.24545454545455,
+        "au15": 0.049090909090909095,
+        "deception": 15.60909090909091
+      },
+      {
+        "t": 6.23,
+        "hr": 61.1,
+        "f0": 342.1727272727273,
+        "au15": 0.05454545454545454,
+        "deception": 16.304545454545455
+      },
+      {
+        "t": 6.63,
+        "hr": 53.7,
+        "f0": 357.1,
+        "au15": 0.06,
+        "deception": 17.0
+      }
+    ]
+  },
+  "scores": {
+    "deception": 17,
+    "sincerity": 45,
+    "stress": 65,
+    "confidence": 49
+  },
+  "llm_report": {
+    "behavioral_summary": "Erika Cheung's physiological signals during her TEDx Talk show a heart rate increase from a baseline of 67.2 bpm to a peak of 94.0 bpm, indicating a delta of 26.8 bpm. Her HRV RMSSD is notably high at 253.9 ms, suggesting significant physiological arousal. Facial action units show AU24 (lip press) at a maximum intensity of 1.31, while AU15 (lip corner depressor) is minimal at 0.06. Vocal analysis reveals a substantial F0 increase from 192.9 Hz to 357.1 Hz, a delta of 164.2 Hz, with jitter at 1.79% and shimmer at 0.83 dB. The speech rate is 194.4 words per minute, with minimal hedging (3 instances) and a high pronoun drop rate of 1.00.",
+    "comparative_profile": "Cheung's signal pattern is similar to other whistleblower cases such as shultz_2019, where elevated stress markers co-existed with high sincerity scores. In contrast, holmes_2018 showed different patterns, with lower sincerity scores and different stress indicators. Cheung's sincerity score of 45 aligns with her role as a whistleblower, where high stress and sincerity often coincide.",
+    "qualifications": "Physiological arousal can reflect a range of emotions, including stress, fear, or anger, and does not solely indicate deception. The signal quality is high, with real-time photoplethysmography (rPPG), facial action units, voice, and transcript data all confirmed as real. This analysis does not determine truth but provides a pattern analysis consistent with sincere whistleblower testimony."
+  },
+  "similar_clips": [
+    "holmes_2018",
+    "shultz_2019"
+  ],
+  "signal_quality": {
+    "rppg": "real",
+    "facial_au": "real",
+    "voice": "real",
+    "transcript": "real"
+  }
+}

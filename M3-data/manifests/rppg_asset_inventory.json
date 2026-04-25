@@ -1,0 +1,343 @@
+{
+  "created_at_utc": "2026-04-25T10:23:28.714947+00:00",
+  "toolbox_present": true,
+  "toolbox_path": "research-data\\pretrained\\rppg_toolbox",
+  "pretrained_checkpoints": [
+    {
+      "name": "BP4D_BigSmall_Multitask_Fold1.pth",
+      "dataset_hint": "BP4D",
+      "model_hint": "BigSmall_Multitask_Fold1",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\BP4D_BigSmall_Multitask_Fold1.pth",
+      "bytes": 8580229,
+      "sha256": "8789820ed61519337f86e5ae44abc2e099c66a3992fd5c103a995dd397a8143a"
+    },
+    {
+      "name": "BP4D_BigSmall_Multitask_Fold2.pth",
+      "dataset_hint": "BP4D",
+      "model_hint": "BigSmall_Multitask_Fold2",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\BP4D_BigSmall_Multitask_Fold2.pth",
+      "bytes": 8580229,
+      "sha256": "3110edac551c8516027f434ce753a243414f85fdcaaa8eed0c898bff11b24cf8"
+    },
+    {
+      "name": "BP4D_BigSmall_Multitask_Fold3.pth",
+      "dataset_hint": "BP4D",
+      "model_hint": "BigSmall_Multitask_Fold3",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\BP4D_BigSmall_Multitask_Fold3.pth",
+      "bytes": 8580229,
+      "sha256": "68fef0fa7a3c66a662353286f83594f7e13d033c1c5f857d5fbf25b360c54698"
+    },
+    {
+      "name": "BP4D_PseudoLabel_DeepPhys.pth",
+      "dataset_hint": "BP4D",
+      "model_hint": "PseudoLabel_DeepPhys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\BP4D_PseudoLabel_DeepPhys.pth",
+      "bytes": 8922461,
+      "sha256": "6fd6c5bc865a54a16d7e77938bc9ea92551660908cac2c34712dec707c17ee62"
+    },
+    {
+      "name": "BP4D_PseudoLabel_EfficientPhys.pth",
+      "dataset_hint": "BP4D",
+      "model_hint": "PseudoLabel_EfficientPhys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\BP4D_PseudoLabel_EfficientPhys.pth",
+      "bytes": 8659174,
+      "sha256": "0e159be056d9d1198761eec8149fe484eaee97e98b1de0ea510a843d5646b1a2"
+    },
+    {
+      "name": "BP4D_PseudoLabel_PhysNet_DiffNormalized.pth",
+      "dataset_hint": "BP4D",
+      "model_hint": "PseudoLabel_PhysNet_DiffNormalized",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\BP4D_PseudoLabel_PhysNet_DiffNormalized.pth",
+      "bytes": 3104568,
+      "sha256": "aa1bd7364a469bc085b20dbc9dbbcc0faeab0d630f492573ebf52c79fafc66b7"
+    },
+    {
+      "name": "BP4D_PseudoLabel_TSCAN.pth",
+      "dataset_hint": "BP4D",
+      "model_hint": "PseudoLabel_TSCAN",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\BP4D_PseudoLabel_TSCAN.pth",
+      "bytes": 8922589,
+      "sha256": "df491bf8f080b5270bdb84f8f2d1e0aa1fb064df19ee2c96b2a7f27651fc6292"
+    },
+    {
+      "name": "iBVP_EfficientPhys.pth",
+      "dataset_hint": "iBVP",
+      "model_hint": "EfficientPhys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\iBVP_EfficientPhys.pth",
+      "bytes": 8660417,
+      "sha256": "f0de839c875e02fbc6b6df3654f06c512ab45eb0e4722aa41f71063cff03fa1b"
+    },
+    {
+      "name": "iBVP_FactorizePhys_FSAM_Res.pth",
+      "dataset_hint": "iBVP",
+      "model_hint": "FactorizePhys_FSAM_Res",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\iBVP_FactorizePhys_FSAM_Res.pth",
+      "bytes": 219867,
+      "sha256": "21e20ea54498adcf4b4238cc49d407c807df08e2cf8c0e5cf8c6518ab463bf27"
+    },
+    {
+      "name": "MA-UBFC_deepphys.pth",
+      "dataset_hint": "MA-UBFC",
+      "model_hint": "deepphys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\MA-UBFC_deepphys.pth",
+      "bytes": 8922461,
+      "sha256": "2380a4148cca9e25eaf8b67b64dbaca94f568f6018deff0d8d8d8acd67e33420"
+    },
+    {
+      "name": "MA-UBFC_efficientphys.pth",
+      "dataset_hint": "MA-UBFC",
+      "model_hint": "efficientphys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\MA-UBFC_efficientphys.pth",
+      "bytes": 8659174,
+      "sha256": "597fb4e19eb278160f860d96f5570ef58879fb96f07d378ba3114b00f2c585dd"
+    },
+    {
+      "name": "MA-UBFC_physnet.pth",
+      "dataset_hint": "MA-UBFC",
+      "model_hint": "physnet",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\MA-UBFC_physnet.pth",
+      "bytes": 3104568,
+      "sha256": "670f313ce169e773fbdfc23ede578c6d14a7da9dced6596f3ad9de9677e01ce8"
+    },
+    {
+      "name": "MA-UBFC_tscan.pth",
+      "dataset_hint": "MA-UBFC",
+      "model_hint": "tscan",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\MA-UBFC_tscan.pth",
+      "bytes": 8922589,
+      "sha256": "f751d6fdd264dc75ee5d3e937a9a20fa651e4b83dfdd2dee875247a1f86c9adb"
+    },
+    {
+      "name": "PURE_DeepPhys.pth",
+      "dataset_hint": "PURE",
+      "model_hint": "DeepPhys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\PURE_DeepPhys.pth",
+      "bytes": 8922461,
+      "sha256": "f028daefdbd5adc44c7a6174e8301cb5f421d0c05d95cfea9776b9fbbe0f5a61"
+    },
+    {
+      "name": "PURE_EfficientPhys.pth",
+      "dataset_hint": "PURE",
+      "model_hint": "EfficientPhys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\PURE_EfficientPhys.pth",
+      "bytes": 8659174,
+      "sha256": "e65a962e07bcac32a668e6acb9f8ed43cdb1b01cfb97262654dc5b55c0cf3a49"
+    },
+    {
+      "name": "PURE_FactorizePhys_FSAM_Res.pth",
+      "dataset_hint": "PURE",
+      "model_hint": "FactorizePhys_FSAM_Res",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\PURE_FactorizePhys_FSAM_Res.pth",
+      "bytes": 219867,
+      "sha256": "00352947d39aee1853b5bff00577916876a89a6f81bf8e49216432f1c5bb9bbb"
+    },
+    {
+      "name": "PURE_iBVPNet.pth",
+      "dataset_hint": "PURE",
+      "model_hint": "iBVPNet",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\PURE_iBVPNet.pth",
+      "bytes": 5725307,
+      "sha256": "865c3e0ffd67e30af861a2d4695a03a8750ba1c7780f3c2e39d33802b0267678"
+    },
+    {
+      "name": "PURE_PhysFormer_DiffNormalized.pth",
+      "dataset_hint": "PURE",
+      "model_hint": "PhysFormer_DiffNormalized",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\PURE_PhysFormer_DiffNormalized.pth",
+      "bytes": 29772029,
+      "sha256": "d27eac3aba0bf7473e528154cbcf714a6384cd9b074ba8d641269e4cac5cb09e"
+    },
+    {
+      "name": "PURE_PhysMamba_DiffNormalized.pth",
+      "dataset_hint": "PURE",
+      "model_hint": "PhysMamba_DiffNormalized",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\PURE_PhysMamba_DiffNormalized.pth",
+      "bytes": 3013798,
+      "sha256": "2da6b9bc7e8728c20743c8f359eb43eefd2a96665098a29302fed2b09bc6b7d7"
+    },
+    {
+      "name": "PURE_PhysNet_DiffNormalized.pth",
+      "dataset_hint": "PURE",
+      "model_hint": "PhysNet_DiffNormalized",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\PURE_PhysNet_DiffNormalized.pth",
+      "bytes": 3104568,
+      "sha256": "cf295ff0b7a43ee638b9a8ce5a9c62801d5f196b360b3a589fdd5aa43ce623f8"
+    },
+    {
+      "name": "PURE_RhythmFormer.pth",
+      "dataset_hint": "PURE",
+      "model_hint": "RhythmFormer",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\PURE_RhythmFormer.pth",
+      "bytes": 13498094,
+      "sha256": "67f6e63fee41dbd73b82a4a43be5ee94e1cbf59130fc265ef881286b64b03341"
+    },
+    {
+      "name": "PURE_TSCAN.pth",
+      "dataset_hint": "PURE",
+      "model_hint": "TSCAN",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\PURE_TSCAN.pth",
+      "bytes": 8922589,
+      "sha256": "ba02d9c5866779d57923bfe0d6bf0b1652b4de5443193185ac0b74a492a1ae87"
+    },
+    {
+      "name": "SCAMPS_DeepPhys.pth",
+      "dataset_hint": "SCAMPS",
+      "model_hint": "DeepPhys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\SCAMPS_DeepPhys.pth",
+      "bytes": 8922461,
+      "sha256": "44a525c2d3c5b476b96df812cadb9976c3813190c59c8e1846505be7f6edfb69"
+    },
+    {
+      "name": "SCAMPS_EfficientPhys.pth",
+      "dataset_hint": "SCAMPS",
+      "model_hint": "EfficientPhys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\SCAMPS_EfficientPhys.pth",
+      "bytes": 8659174,
+      "sha256": "afc601303cc026b647495a9c127d5c2fe00dba7e85edfeedb6aba14dabb608cc"
+    },
+    {
+      "name": "SCAMPS_FactorizePhys_FSAM_Res.pth",
+      "dataset_hint": "SCAMPS",
+      "model_hint": "FactorizePhys_FSAM_Res",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\SCAMPS_FactorizePhys_FSAM_Res.pth",
+      "bytes": 219903,
+      "sha256": "fdf58efe1781c3e85194f3de9af2d945c8cef2c418005bd3f9a55a542e55cb45"
+    },
+    {
+      "name": "SCAMPS_PhysFormer_DiffNormalized.pth",
+      "dataset_hint": "SCAMPS",
+      "model_hint": "PhysFormer_DiffNormalized",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\SCAMPS_PhysFormer_DiffNormalized.pth",
+      "bytes": 29772026,
+      "sha256": "2b198b8c1c63688b05f2d7cc7a97ab4d8fdea16999be665afe5fbcccac03c1b7"
+    },
+    {
+      "name": "SCAMPS_PhysNet_DiffNormalized.pth",
+      "dataset_hint": "SCAMPS",
+      "model_hint": "PhysNet_DiffNormalized",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\SCAMPS_PhysNet_DiffNormalized.pth",
+      "bytes": 3104568,
+      "sha256": "3059a4b2cf0ab155f1b63cdb8b858785a61a502242307f6e82abf8a7d588ba79"
+    },
+    {
+      "name": "SCAMPS_TSCAN.pth",
+      "dataset_hint": "SCAMPS",
+      "model_hint": "TSCAN",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\SCAMPS_TSCAN.pth",
+      "bytes": 8922589,
+      "sha256": "9615b2211dc89aac7404e145754b59571877df587c1cc243f286cb0b637694f7"
+    },
+    {
+      "name": "UBFC-rPPG_DeepPhys.pth",
+      "dataset_hint": "UBFC-rPPG",
+      "model_hint": "DeepPhys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\UBFC-rPPG_DeepPhys.pth",
+      "bytes": 8922461,
+      "sha256": "1ed8b94e57fb1a12d18a426af5ac818223182f27cfbd48801ac8a529accc1159"
+    },
+    {
+      "name": "UBFC-rPPG_EfficientPhys.pth",
+      "dataset_hint": "UBFC-rPPG",
+      "model_hint": "EfficientPhys",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\UBFC-rPPG_EfficientPhys.pth",
+      "bytes": 8659174,
+      "sha256": "219b970e04b3580ee4c063554b7d9fe2a7a3ceb4e9e585980f15ac8313054cd6"
+    },
+    {
+      "name": "UBFC-rPPG_FactorizePhys_FSAM_Res.pth",
+      "dataset_hint": "UBFC-rPPG",
+      "model_hint": "FactorizePhys_FSAM_Res",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\UBFC-rPPG_FactorizePhys_FSAM_Res.pth",
+      "bytes": 220021,
+      "sha256": "03cb8590e0b1f0fe669534d9708520fed0b20e1fe28e1b57a56a2504b4a246f6"
+    },
+    {
+      "name": "UBFC-rPPG_PhysFormer_DiffNormalized.pth",
+      "dataset_hint": "UBFC-rPPG",
+      "model_hint": "PhysFormer_DiffNormalized",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\UBFC-rPPG_PhysFormer_DiffNormalized.pth",
+      "bytes": 29772024,
+      "sha256": "4f2b0ed8a270f1687b275ace05b6ca0ced8d91f227bd3c3f0d584d16d0d4b02e"
+    },
+    {
+      "name": "UBFC-rPPG_PhysMamba_DiffNormalized.pth",
+      "dataset_hint": "UBFC-rPPG",
+      "model_hint": "PhysMamba_DiffNormalized",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\UBFC-rPPG_PhysMamba_DiffNormalized.pth",
+      "bytes": 3013798,
+      "sha256": "fd18f227ff18f5140f471dc78e61426d9344ecc43677b35ec16b3199f1dccd19"
+    },
+    {
+      "name": "UBFC-rPPG_PhysNet_DiffNormalized.pth",
+      "dataset_hint": "UBFC-rPPG",
+      "model_hint": "PhysNet_DiffNormalized",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\UBFC-rPPG_PhysNet_DiffNormalized.pth",
+      "bytes": 3104568,
+      "sha256": "6c00db978d9db3566b8953a97cb7cfcd6deb9522b0cbc937c921bb1859a1cdd0"
+    },
+    {
+      "name": "UBFC-rPPG_RhythmFormer.pth",
+      "dataset_hint": "UBFC-rPPG",
+      "model_hint": "RhythmFormer",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\UBFC-rPPG_RhythmFormer.pth",
+      "bytes": 13498094,
+      "sha256": "9e1eb17e57487ccf1213b5459f980a6552b0e41ba814c07059dca4dfb01f985a"
+    },
+    {
+      "name": "UBFC-rPPG_TSCAN.pth",
+      "dataset_hint": "UBFC-rPPG",
+      "model_hint": "TSCAN",
+      "path": "research-data\\pretrained\\rppg_toolbox\\final_model_release\\UBFC-rPPG_TSCAN.pth",
+      "bytes": 8922589,
+      "sha256": "3c087279861a6312bbe770b348c7609f30cb5b5bb7ced7fa446caebf072196e3"
+    }
+  ],
+  "mmpd_metadata": {
+    "present": true,
+    "path": "M3-data\\sources\\MMPD_rPPG_dataset",
+    "metadata_rows": 660,
+    "light_values": [
+      "Incandescent",
+      "LED-high",
+      "LED-low",
+      "Nature"
+    ],
+    "motion_values": [
+      "Rotation",
+      "Stationary",
+      "Stationary (after exercise)",
+      "Talking",
+      "Walking"
+    ],
+    "exercise_values": [
+      "False",
+      "True"
+    ],
+    "skin_color_values": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "gender_values": [
+      "female",
+      "male"
+    ],
+    "MMPD_Release_Agreement.pdf": {
+      "present": true,
+      "bytes": 93512
+    },
+    "Data Usage Protocol.pdf": {
+      "present": true,
+      "bytes": 99649
+    },
+    "size_MMPD.csv": {
+      "present": true,
+      "bytes": 40310
+    },
+    "size_mini_MMPD.csv": {
+      "present": true,
+      "bytes": 38250
+    }
+  }
+}

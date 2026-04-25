@@ -1,0 +1,30 @@
+[
+  {
+    "dataset_id": "averitec_train",
+    "name": "AVeriTeC train",
+    "url": "https://raw.githubusercontent.com/MichSchli/AVeriTeC/main/data/train.json",
+    "license_status": "cc_by_nc_4_0",
+    "use_for": [
+      "claim_verification_pretraining",
+      "evidence_retrieval"
+    ],
+    "local_path": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\M1-data\\raw\\external\\text_claims\\averitec_train.json",
+    "status": "downloaded",
+    "error": "",
+    "bytes": 10184813
+  },
+  {
+    "dataset_id": "averitec_dev",
+    "name": "AVeriTeC dev",
+    "url": "https://raw.githubusercontent.com/MichSchli/AVeriTeC/main/data/dev.json",
+    "license_status": "cc_by_nc_4_0",
+    "use_for": [
+      "claim_verification_pretraining",
+      "evidence_retrieval"
+    ],
+    "local_path": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\M1-data\\raw\\external\\text_claims\\averitec_dev.json",
+    "status": "downloaded",
+    "error": "",
+    "bytes": 1785475
+  }
+]

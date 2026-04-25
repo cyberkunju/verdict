@@ -16,10 +16,10 @@
     "hr_peak_bpm": 130.9,
     "hr_delta_bpm": 26.2,
     "hrv_rmssd_ms": 258.6,
-    "au15_max_intensity": 2.6,
-    "au14_max_intensity": 1.4,
+    "au15_max_intensity": 3.25,
+    "au14_max_intensity": 0.45,
     "au6_present": false,
-    "au24_max_intensity": 2.0,
+    "au24_max_intensity": 2.31,
     "f0_baseline_hz": 143.2,
     "f0_peak_hz": 268.7,
     "f0_delta_hz": 125.4,
@@ -35,97 +35,97 @@
         "hr": 61.1,
         "f0": 143.2,
         "au15": 0.0,
-        "deception": 31.35
+        "deception": 48.95
       },
       {
         "t": 4.06,
         "hr": 84.9,
         "f0": 154.6090909090909,
-        "au15": 0.2363636363636364,
-        "deception": 33.68181818181819
+        "au15": 0.29545454545454547,
+        "deception": 52.59090909090909
       },
       {
         "t": 4.67,
         "hr": 104.7,
         "f0": 166.0181818181818,
-        "au15": 0.4727272727272728,
-        "deception": 36.013636363636365
+        "au15": 0.5909090909090909,
+        "deception": 56.231818181818184
       },
       {
         "t": 5.3,
         "hr": 104.7,
         "f0": 177.4272727272727,
-        "au15": 0.7090909090909091,
-        "deception": 38.345454545454544
+        "au15": 0.8863636363636362,
+        "deception": 59.872727272727275
       },
       {
         "t": 5.92,
         "hr": 109.5,
         "f0": 188.83636363636361,
-        "au15": 0.9454545454545455,
-        "deception": 40.67727272727273
+        "au15": 1.1818181818181819,
+        "deception": 63.513636363636365
       },
       {
         "t": 6.53,
         "hr": 123.8,
         "f0": 200.24545454545455,
-        "au15": 1.1818181818181819,
-        "deception": 43.009090909090915
+        "au15": 1.4772727272727273,
+        "deception": 67.15454545454546
       },
       {
         "t": 7.15,
         "hr": 130.9,
         "f0": 211.65454545454543,
-        "au15": 1.4181818181818182,
-        "deception": 45.34090909090909
+        "au15": 1.7727272727272725,
+        "deception": 70.79545454545455
       },
       {
         "t": 7.76,
         "hr": 130.9,
         "f0": 223.06363636363636,
-        "au15": 1.6545454545454545,
-        "deception": 47.67272727272728
+        "au15": 2.0681818181818183,
+        "deception": 74.43636363636364
       },
       {
         "t": 8.38,
         "hr": 130.9,
         "f0": 234.47272727272727,
-        "au15": 1.890909090909091,
-        "deception": 50.00454545454546
+        "au15": 2.3636363636363638,
+        "deception": 78.07727272727273
       },
       {
         "t": 9.01,
         "hr": 130.9,
         "f0": 245.88181818181818,
-        "au15": 2.1272727272727274,
-        "deception": 52.336363636363636
+        "au15": 2.659090909090909,
+        "deception": 81.71818181818182
       },
       {
         "t": 9.62,
         "hr": 119.0,
         "f0": 257.29090909090905,
-        "au15": 2.3636363636363638,
-        "deception": 54.66818181818182
+        "au15": 2.9545454545454546,
+        "deception": 85.35909090909091
       },
       {
         "t": 10.24,
         "hr": 104.7,
         "f0": 268.7,
-        "au15": 2.6,
-        "deception": 57.0
+        "au15": 3.25,
+        "deception": 89.0
       }
     ]
   },
   "scores": {
-    "deception": 57,
-    "sincerity": 63,
-    "stress": 68,
-    "confidence": 76
+    "deception": 89,
+    "sincerity": 50,
+    "stress": 69,
+    "confidence": 75
   },
   "llm_report": {
-    "behavioral_summary": "During the statement 'I am not a crook,' Richard Nixon exhibited a heart rate increase from a baseline of 104.7 bpm to a peak of 130.9 bpm, a delta of 26.2 bpm, indicating elevated physiological arousal. The F0 (fundamental frequency) rose significantly from 143.2 Hz to 268.7 Hz, a delta of 125.4 Hz, suggesting heightened vocal stress. Facial Action Units showed AU15 (lip corner depressor) at a max intensity of 2.6 and AU24 (lip pressor) at 2.0, which can be associated with negative emotions. No hedging was present, and the pronoun drop rate was 0.22, which is relatively low.",
-    "comparative_profile": "The physiological and behavioral patterns observed in Nixon's statement show similarities to those in the clinton_1998 and armstrong_2005 entries, where elevated stress markers were also present. In these cases, high stress levels were noted alongside public denials during periods of intense scrutiny.",
-    "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and should not be interpreted as definitive evidence of deception. The signal quality for this analysis includes real data for heart rate and voice, but facial action units were derived from fallback methods, which may affect precision."
+    "behavioral_summary": "During the statement, Richard Nixon's heart rate increased significantly from a baseline of 104.7 bpm to a peak of 130.9 bpm, showing a delta of 26.2 bpm. His vocal pitch (F0) also rose sharply from 143.2 Hz to 268.7 Hz, a delta of 125.4 Hz. Facial action units showed moderate activity, with AU15 (lip corner depressor) reaching a maximum intensity of 3.25 and AU24 (lip pressor) at 2.31, while AU6 (cheek raiser) was absent. The speech rate was measured at 139.0 words per minute, with no hedging detected and a pronoun drop rate of 0.22.",
+    "comparative_profile": "The physiological and behavioral signals in this clip are similar to those observed in the clinton_1998 and armstrong_2005 entries, where elevated heart rates and vocal pitch were also noted. These patterns are consistent with high-stress situations, which can occur in both deceptive and high-pressure truthful contexts.",
+    "qualifications": "Physiological arousal, such as increased heart rate and vocal pitch, can reflect stress, fear, anger, fatigue, or other causes, and do not solely indicate deception. The signal quality for this analysis is high, with real-time photoplethysmography, facial action units, vocal analysis, and transcript data all confirmed as real."
   },
   "similar_clips": [
     "clinton_1998",
@@ -133,7 +133,7 @@
   ],
   "signal_quality": {
     "rppg": "real",
-    "facial_au": "fallback",
+    "facial_au": "real",
     "voice": "real",
     "transcript": "real"
   }

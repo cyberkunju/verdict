@@ -1,0 +1,152 @@
+{
+  "model_name": "VerdictTextPrior-v1",
+  "description": "Transformer text-only resolved-false prior trained on M1 fact-check claims. Not a multimodal deception model.",
+  "run_name": "verdict-text-prior-v1-microsoft-deberta-v3-base-20260425T090809Z",
+  "modal_app": "verdict-text-prior-training",
+  "modal_model_volume": "verdict-m1-models",
+  "modal_model_path": "/runs/verdict-text-prior-v1-microsoft-deberta-v3-base-20260425T090809Z/final",
+  "config": {
+    "model_name": "microsoft/deberta-v3-base",
+    "max_length": 256,
+    "max_true": 50000,
+    "false_multiplier": 2.0,
+    "seed": 42,
+    "epochs": 3.0,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "train_batch_size": 16,
+    "eval_batch_size": 32,
+    "gradient_accumulation_steps": 2,
+    "warmup_ratio": 0.06,
+    "eval_steps": 250,
+    "save_steps": 250,
+    "early_stopping_patience": 3
+  },
+  "dataset_manifest": {
+    "run_name": "verdict-text-prior-v1-microsoft-deberta-v3-base-20260425T090809Z",
+    "config": {
+      "model_name": "microsoft/deberta-v3-base",
+      "max_length": 256,
+      "max_true": 50000,
+      "false_multiplier": 2.0,
+      "seed": 42,
+      "epochs": 3.0,
+      "learning_rate": 2e-05,
+      "weight_decay": 0.01,
+      "train_batch_size": 16,
+      "eval_batch_size": 32,
+      "gradient_accumulation_steps": 2,
+      "warmup_ratio": 0.06,
+      "eval_steps": 250,
+      "save_steps": 250,
+      "early_stopping_patience": 3
+    },
+    "source_stats": {
+      "input_dir": "/mnt/verdict-data/text_claims",
+      "files": [
+        {
+          "name": "averitec_claims.jsonl",
+          "raw_rows": 3567
+        },
+        {
+          "name": "datacommons_factcheck_claims.jsonl",
+          "raw_rows": 98151
+        },
+        {
+          "name": "fakenewsnet_minimal_claims.jsonl",
+          "raw_rows": 23196
+        },
+        {
+          "name": "global_claims_factcheck_claims.jsonl",
+          "raw_rows": 72700
+        },
+        {
+          "name": "liar_ucsb_claims.jsonl",
+          "raw_rows": 12789
+        }
+      ],
+      "raw_rows": 210403,
+      "kept_rows": 80281,
+      "dedupe_drops": 15168,
+      "label_drops": 66272,
+      "language_drops": 17109,
+      "english_filter_drops": 31573,
+      "dataset_counts": {
+        "averitec": 2752,
+        "datacommons_factcheck": 29164,
+        "fakenewsnet_minimal": 16803,
+        "global_claims_factcheck": 26282,
+        "liar_ucsb": 5280
+      },
+      "label_counts": {
+        "resolved_true": 17668,
+        "resolved_false": 62613
+      }
+    },
+    "sampled_rows": 53004,
+    "split_counts": {
+      "train": {
+        "resolved_false": 28270,
+        "resolved_true": 14136
+      },
+      "validation": {
+        "resolved_false": 3533,
+        "resolved_true": 1766
+      },
+      "test": {
+        "resolved_false": 3533,
+        "resolved_true": 1766
+      }
+    }
+  },
+  "validation_metrics": {
+    "test_loss": 0.2978276014328003,
+    "test_accuracy": 0.9071522928854501,
+    "test_roc_auc": 0.9653881426665072,
+    "test_precision_false": 0.9470743898853279,
+    "test_recall_false": 0.9116897820549108,
+    "test_f1_false": 0.9290452841072974,
+    "test_macro_f1": 0.8973829040623823,
+    "test_runtime": 3.4118,
+    "test_samples_per_second": 1553.144,
+    "test_steps_per_second": 48.655
+  },
+  "test_metrics": {
+    "accuracy_at_0_5": 0.9011134176259672,
+    "roc_auc": 0.9606808672413698,
+    "brier_score": 0.07406304031610489,
+    "ece_15_bin": 0.03677110540799923,
+    "temperature": 1.6645945310592651,
+    "best_threshold_on_test": {
+      "threshold": 0.3999999999999999,
+      "macro_f1": 0.8934964080556029
+    },
+    "classification_report_at_0_5": {
+      "resolved_true": {
+        "precision": 0.8338709677419355,
+        "recall": 0.8782559456398641,
+        "f1-score": 0.8554881412024269,
+        "support": 1766.0
+      },
+      "resolved_false": {
+        "precision": 0.937481826112242,
+        "recall": 0.9125389187659213,
+        "f1-score": 0.9248422260470454,
+        "support": 3533.0
+      },
+      "accuracy": 0.9011134176259672,
+      "macro avg": {
+        "precision": 0.8856763969270887,
+        "recall": 0.8953974322028927,
+        "f1-score": 0.8901651836247362,
+        "support": 5299.0
+      },
+      "weighted avg": {
+        "precision": 0.9029513909580692,
+        "recall": 0.9011134176259672,
+        "f1-score": 0.9017285604807883,
+        "support": 5299.0
+      }
+    }
+  }
+}

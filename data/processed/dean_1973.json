@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "clip_id": "dean_1973",
+  "subject": "John Dean",
+  "statement": "There is a cancer growing on the presidency, and if the cancer is not removed, the President himself will be killed by it.",
+  "year": 1973,
+  "context": "United States Senate Watergate Committee testimony, 25 June 1973. Former White House Counsel describes the cover-up directly to the Senate select committee.",
+  "ground_truth": "sincere",
+  "ground_truth_source": "Corroborated by the Nixon White House tape of the 21 March 1973 'cancer' meeting; Nixon resigned 9 August 1974 and every subsequent investigation vindicated Dean's account.",
+  "video_url": "https://www.youtube.com/watch?v=mZx7g74CvKc",
+  "video_start_seconds": 60.0,
+  "video_end_seconds": 90.0,
+  "thumbnail_url": "https://img.youtube.com/vi/mZx7g74CvKc/hqdefault.jpg",
+  "signals": {
+    "hr_baseline_bpm": 60.0,
+    "hr_peak_bpm": 60.0,
+    "hr_delta_bpm": 0.0,
+    "hrv_rmssd_ms": 22.0,
+    "au15_max_intensity": 0.77,
+    "au14_max_intensity": 0.1,
+    "au6_present": false,
+    "au24_max_intensity": 0.19,
+    "f0_baseline_hz": 88.8,
+    "f0_peak_hz": 400.0,
+    "f0_delta_hz": 311.2,
+    "jitter_percent": 6.34,
+    "shimmer_db": 1.8,
+    "speech_rate_wpm": 107.9,
+    "hedging_count": 1,
+    "pronoun_drop_rate": 0.691358024691358,
+    "transcript": "And I don't think he does it to harm you anyway, sir. That's why he thinks he'll be confirmed because he thinks he's being his own man. He's being forthright honest. He's turned over too much and so it's a conscious decision.",
+    "timeline": [
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 88.8,
+        "au15": 0.0,
+        "deception": 8.8
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 117.0909090909091,
+        "au15": 0.07,
+        "deception": 9.454545454545455
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 145.38181818181818,
+        "au15": 0.14,
+        "deception": 10.10909090909091
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 173.67272727272726,
+        "au15": 0.21,
+        "deception": 10.763636363636364
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 201.96363636363634,
+        "au15": 0.28,
+        "deception": 11.418181818181818
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 230.25454545454545,
+        "au15": 0.35,
+        "deception": 12.072727272727274
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 258.5454545454545,
+        "au15": 0.42,
+        "deception": 12.727272727272728
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 286.8363636363636,
+        "au15": 0.49,
+        "deception": 13.381818181818183
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 315.1272727272727,
+        "au15": 0.56,
+        "deception": 14.036363636363637
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 343.41818181818184,
+        "au15": 0.63,
+        "deception": 14.690909090909091
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 371.7090909090909,
+        "au15": 0.7,
+        "deception": 15.345454545454546
+      },
+      {
+        "t": 1.5,
+        "hr": 60.0,
+        "f0": 400.0,
+        "au15": 0.77,
+        "deception": 16.0
+      }
+    ]
+  },
+  "scores": {
+    "deception": 16,
+    "sincerity": 41,
+    "stress": 48,
+    "confidence": 45
+  },
+  "llm_report": {
+    "behavioral_summary": "During John Dean's testimony, his heart rate remained stable at 60.0 bpm, showing no change from baseline, which is unusual given the context. Facial action units indicated moderate lip corner depression (AU15 max: 0.77) and low levels of lip corner puller (AU14 max: 0.1) and lip pressor (AU24 max: 0.19), with no cheek raiser (AU6) present. His vocal pitch showed a significant increase, with a peak F0 of 400.0 Hz from a baseline of 88.8 Hz, a delta of 311.2 Hz, suggesting heightened arousal. The speech rate was measured at 107.9 words per minute, with minimal hedging (count: 1) and a high pronoun drop rate of 0.69.",
+    "comparative_profile": "The physiological and vocal patterns observed in Dean's testimony show similarities to other high-stakes whistleblower testimonies, such as Frances Haugen in 2021, where elevated stress indicators coexisted with high sincerity scores. The lack of heart rate variability and significant vocal pitch increase are also reminiscent of Richard Nixon's 1973 press conferences, although with different sincerity implications.",
+    "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis is robust, with all data sources confirmed as real. This analysis does not determine truth but highlights patterns consistent with high-stress, high-stakes testimony."
+  },
+  "similar_clips": [
+    "nixon_1973",
+    "haugen_2021"
+  ],
+  "signal_quality": {
+    "rppg": "real",
+    "facial_au": "real",
+    "voice": "real",
+    "transcript": "real"
+  }
+}

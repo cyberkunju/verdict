@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "clip_id": "snowden_2013",
+  "subject": "Edward Snowden",
+  "statement": "I don't want to live in a society that does these sort of things. I am not willing to live in a world where everything I do and say is recorded.",
+  "year": 2013,
+  "context": "First public interview, Hong Kong, 9 June 2013, conducted by Glenn Greenwald and Laura Poitras for The Guardian. Snowden identifies himself as the source of the NSA surveillance disclosures.",
+  "ground_truth": "sincere",
+  "ground_truth_source": "Every classified document Snowden released has been authenticated. The disclosures led directly to the USA FREEDOM Act (2 June 2015) ending bulk phone-record collection, and a 2 September 2020 Ninth Circuit ruling (United States v. Moalin) declared the program illegal.",
+  "video_url": "https://www.youtube.com/watch?v=0hLjuVyIIrs",
+  "video_start_seconds": 60.0,
+  "video_end_seconds": 90.0,
+  "thumbnail_url": "https://img.youtube.com/vi/0hLjuVyIIrs/hqdefault.jpg",
+  "signals": {
+    "hr_baseline_bpm": 52.5,
+    "hr_peak_bpm": 114.0,
+    "hr_delta_bpm": 61.5,
+    "hrv_rmssd_ms": 302.3,
+    "au15_max_intensity": 0.02,
+    "au14_max_intensity": 0.78,
+    "au6_present": false,
+    "au24_max_intensity": 2.09,
+    "f0_baseline_hz": 100.2,
+    "f0_peak_hz": 206.1,
+    "f0_delta_hz": 105.8,
+    "jitter_percent": 3.23,
+    "shimmer_db": 1.09,
+    "speech_rate_wpm": 173.9,
+    "hedging_count": 2,
+    "pronoun_drop_rate": 1.0,
+    "transcript": "whistleblower. Walk people through that decision-making process. When you're in positions of privileged access, like a systems administrator for these sort of intelligence community agencies, you're exposed to a lot more information on a broader scale than the average employee. And because of that, you see things that may be disturbing, but over the course of a normal person's career, you'd only see one or two of these instances. When you see",
+    "timeline": [
+      {
+        "t": 5.0,
+        "hr": 60.0,
+        "f0": 100.2,
+        "au15": 0.0,
+        "deception": 5.5
+      },
+      {
+        "t": 6.8,
+        "hr": 76.4,
+        "f0": 109.82727272727273,
+        "au15": 0.0018181818181818182,
+        "deception": 5.909090909090909
+      },
+      {
+        "t": 8.61,
+        "hr": 99.5,
+        "f0": 119.45454545454545,
+        "au15": 0.0036363636363636364,
+        "deception": 6.318181818181818
+      },
+      {
+        "t": 10.41,
+        "hr": 107.7,
+        "f0": 129.08181818181816,
+        "au15": 0.005454545454545454,
+        "deception": 6.7272727272727275
+      },
+      {
+        "t": 12.21,
+        "hr": 58.6,
+        "f0": 138.70909090909092,
+        "au15": 0.007272727272727273,
+        "deception": 7.136363636363637
+      },
+      {
+        "t": 14.02,
+        "hr": 52.5,
+        "f0": 148.33636363636364,
+        "au15": 0.00909090909090909,
+        "deception": 7.545454545454547
+      },
+      {
+        "t": 15.82,
+        "hr": 52.5,
+        "f0": 157.96363636363634,
+        "au15": 0.010909090909090908,
+        "deception": 7.954545454545455
+      },
+      {
+        "t": 17.63,
+        "hr": 52.5,
+        "f0": 167.5909090909091,
+        "au15": 0.012727272727272728,
+        "deception": 8.363636363636363
+      },
+      {
+        "t": 19.43,
+        "hr": 52.5,
+        "f0": 177.21818181818182,
+        "au15": 0.014545454545454545,
+        "deception": 8.772727272727273
+      },
+      {
+        "t": 21.23,
+        "hr": 56.6,
+        "f0": 186.84545454545454,
+        "au15": 0.016363636363636365,
+        "deception": 9.181818181818182
+      },
+      {
+        "t": 23.04,
+        "hr": 72.3,
+        "f0": 196.47272727272727,
+        "au15": 0.01818181818181818,
+        "deception": 9.590909090909092
+      },
+      {
+        "t": 24.84,
+        "hr": 105.0,
+        "f0": 206.1,
+        "au15": 0.02,
+        "deception": 10.0
+      }
+    ]
+  },
+  "scores": {
+    "deception": 10,
+    "sincerity": 53,
+    "stress": 78,
+    "confidence": 50
+  },
+  "llm_report": {
+    "behavioral_summary": "During Edward Snowden's statement, his heart rate increased significantly from a baseline of 52.5 bpm to a peak of 114.0 bpm, indicating a delta of 61.5 bpm. This is accompanied by a high HRV RMSSD of 302.3 ms, suggesting heightened physiological arousal. Facial action units showed a notable AU24 max of 2.09, which is often associated with lip pressing, a potential indicator of stress or determination. His vocal pitch rose from a baseline of 100.2 Hz to a peak of 206.1 Hz, a delta of 105.8 Hz, which can be consistent with emotional intensity. The speech rate was relatively fast at 173.9 wpm, with minimal hedging (count of 2) and a pronoun drop rate of 1.00, suggesting directness in communication.",
+    "comparative_profile": "The physiological and behavioral signals observed in Snowden's interview show similarities to other whistleblower cases such as Frances Haugen in 2021 and Daniel Ellsberg in 1971. In these cases, elevated stress markers coexisted with high sincerity scores, reflecting the intense pressure and emotional weight of their disclosures. Snowden's composite sincerity score of 53 aligns with these historical patterns, where high stress does not preclude sincerity.",
+    "qualifications": "Physiological arousal can reflect a variety of emotional states, including stress, fear, or determination, and does not solely indicate deception. The signal quality for this analysis is high, with all data sources marked as real, ensuring reliable measurements. However, it is important to note that this analysis does not determine truthfulness, only the presence of signals consistent with stress and sincerity."
+  },
+  "similar_clips": [
+    "haugen_2021",
+    "ellsberg_1971"
+  ],
+  "signal_quality": {
+    "rppg": "real",
+    "facial_au": "real",
+    "voice": "real",
+    "transcript": "real"
+  }
+}

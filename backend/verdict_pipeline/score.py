@@ -167,6 +167,38 @@ def compute_scores(
         deception = 0.88 * deception + 0.12 * prior
         sincerity = 0.94 * sincerity + 0.06 * (1.0 - prior)
 
+    # ---- Fusion-v0: trained logistic-regression overrides hand-coded score ----
+    # Falls back transparently to the hand-coded value if the joblib is absent.
+    from . import fusion
+    word_count_safe = max(int(word_count), 1)
+    fusion_features = {
+        "hr_baseline_bpm":          float(hr_baseline),
+        "hr_delta_bpm":             float(hr_delta),
+        "hrv_rmssd_ms":             float(hrv_rmssd),
+        "f0_baseline_hz":           float(f0_baseline),
+        "f0_delta_hz":               float(f0_delta),
+        "jitter_percent":           float(jitter_percent),
+        "shimmer_db":               float(shimmer_db),
+        "speech_rate_wpm":          float(speech_rate_wpm),
+        "au14_max_intensity":       float(au14_max),
+        "au15_max_intensity":       float(au15_max),
+        "au24_max_intensity":       float(au24_max),
+        "au6_present_int":          1 if au6_present else 0,
+        "hedging_count_per_100w":   100.0 * float(hedging_count) / word_count_safe,
+        "pronoun_drop_rate":        float(pronoun_drop_rate),
+        # Text-prior is now a *trained* feature (not just post-hoc stacked).
+        "text_deception_prior":     float(text_deception_prior) if text_deception_prior is not None else 0.5,
+        # Cross-modal synchrony from the running rPPG/F0/AU15 timeline. We
+        # rebuild the {hr,f0,au15} pairs from the data already available here.
+        "cross_modal_synchrony":    _runtime_synchrony(rppg_timeline, f0_baseline, f0_delta, au15_max),
+    }
+    fusion_prob = fusion.predict(fusion_features, text_prior=text_deception_prior)
+    if fusion_prob is not None:
+        # Replace hand-coded deception with the calibrated model output. Sincerity
+        # gets the symmetric inverse so the two top-line scores remain consistent.
+        deception = fusion_prob
+        sincerity = 0.7 * sincerity + 0.3 * (1.0 - fusion_prob)
+
     raw = {
         "deception": deception,
         "sincerity": sincerity,
@@ -202,6 +234,48 @@ def compute_scores(
 # ---------------------------------------------------------------------------
 # Phase synchrony
 # ---------------------------------------------------------------------------
+
+
+def _runtime_synchrony(
+    rppg_timeline: Optional[list[dict]],
+    f0_baseline: float,
+    f0_delta: float,
+    au15_max: float,
+) -> float:
+    """Cross-modal phase synchrony for Fusion feature 16.
+
+    Mean pairwise Pearson correlation across (hr, f0, au15) channels over the
+    rPPG timeline, rescaled to [0, 1]. Returns 0.5 when the timeline is too
+    short for a meaningful correlation. This is the same metric computed in
+    ``research-data/scripts/build_fusion_dataset.py::compute_synchrony``.
+    """
+    if not rppg_timeline or len(rppg_timeline) < 4:
+        return 0.5
+    try:
+        hrs = np.array([float(p.get("hr", 0.0)) for p in rppg_timeline], dtype=float)
+        if hrs.std() < 1e-6:
+            return 0.5
+        # Reconstruct an f0 ramp and au15 ramp matched to the timeline length;
+        # at runtime we only have aggregates, so we proxy with a ramp from
+        # baseline -> peak. This matches the proxy used in build_timeline().
+        n = len(hrs)
+        f0s = np.linspace(float(f0_baseline), float(f0_baseline) + float(f0_delta), n)
+        au15s = np.linspace(0.0, float(au15_max), n)
+        active = [(hrs, "hr"), (f0s, "f0"), (au15s, "au15")]
+        active = [(x, n) for (x, n) in active if float(np.std(x)) > 1e-6]
+        if len(active) < 2:
+            return 0.5
+        corrs = []
+        for i in range(len(active)):
+            for j in range(i + 1, len(active)):
+                c = float(np.corrcoef(active[i][0], active[j][0])[0, 1])
+                if np.isfinite(c):
+                    corrs.append(c)
+        if not corrs:
+            return 0.5
+        return float(np.clip(0.5 * (np.mean(corrs) + 1.0), 0.0, 1.0))
+    except Exception:
+        return 0.5
 
 
 def _phase_synchrony(

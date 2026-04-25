@@ -17,10 +17,10 @@
       "hr_peak_bpm": 130.9,
       "hr_delta_bpm": 26.2,
       "hrv_rmssd_ms": 258.6,
-      "au15_max_intensity": 2.6,
-      "au14_max_intensity": 1.4,
+      "au15_max_intensity": 3.25,
+      "au14_max_intensity": 0.45,
       "au6_present": false,
-      "au24_max_intensity": 2.0,
+      "au24_max_intensity": 2.31,
       "f0_baseline_hz": 143.2,
       "f0_peak_hz": 268.7,
       "f0_delta_hz": 125.4,
@@ -36,97 +36,97 @@
           "hr": 61.1,
           "f0": 143.2,
           "au15": 0.0,
-          "deception": 31.35
+          "deception": 48.95
         },
         {
           "t": 4.06,
           "hr": 84.9,
           "f0": 154.6090909090909,
-          "au15": 0.2363636363636364,
-          "deception": 33.68181818181819
+          "au15": 0.29545454545454547,
+          "deception": 52.59090909090909
         },
         {
           "t": 4.67,
           "hr": 104.7,
           "f0": 166.0181818181818,
-          "au15": 0.4727272727272728,
-          "deception": 36.013636363636365
+          "au15": 0.5909090909090909,
+          "deception": 56.231818181818184
         },
         {
           "t": 5.3,
           "hr": 104.7,
           "f0": 177.4272727272727,
-          "au15": 0.7090909090909091,
-          "deception": 38.345454545454544
+          "au15": 0.8863636363636362,
+          "deception": 59.872727272727275
         },
         {
           "t": 5.92,
           "hr": 109.5,
           "f0": 188.83636363636361,
-          "au15": 0.9454545454545455,
-          "deception": 40.67727272727273
+          "au15": 1.1818181818181819,
+          "deception": 63.513636363636365
         },
         {
           "t": 6.53,
           "hr": 123.8,
           "f0": 200.24545454545455,
-          "au15": 1.1818181818181819,
-          "deception": 43.009090909090915
+          "au15": 1.4772727272727273,
+          "deception": 67.15454545454546
         },
         {
           "t": 7.15,
           "hr": 130.9,
           "f0": 211.65454545454543,
-          "au15": 1.4181818181818182,
-          "deception": 45.34090909090909
+          "au15": 1.7727272727272725,
+          "deception": 70.79545454545455
         },
         {
           "t": 7.76,
           "hr": 130.9,
           "f0": 223.06363636363636,
-          "au15": 1.6545454545454545,
-          "deception": 47.67272727272728
+          "au15": 2.0681818181818183,
+          "deception": 74.43636363636364
         },
         {
           "t": 8.38,
           "hr": 130.9,
           "f0": 234.47272727272727,
-          "au15": 1.890909090909091,
-          "deception": 50.00454545454546
+          "au15": 2.3636363636363638,
+          "deception": 78.07727272727273
         },
         {
           "t": 9.01,
           "hr": 130.9,
           "f0": 245.88181818181818,
-          "au15": 2.1272727272727274,
-          "deception": 52.336363636363636
+          "au15": 2.659090909090909,
+          "deception": 81.71818181818182
         },
         {
           "t": 9.62,
           "hr": 119.0,
           "f0": 257.29090909090905,
-          "au15": 2.3636363636363638,
-          "deception": 54.66818181818182
+          "au15": 2.9545454545454546,
+          "deception": 85.35909090909091
         },
         {
           "t": 10.24,
           "hr": 104.7,
           "f0": 268.7,
-          "au15": 2.6,
-          "deception": 57.0
+          "au15": 3.25,
+          "deception": 89.0
         }
       ]
     },
     "scores": {
-      "deception": 57,
-      "sincerity": 63,
-      "stress": 68,
-      "confidence": 76
+      "deception": 89,
+      "sincerity": 50,
+      "stress": 69,
+      "confidence": 75
     },
     "llm_report": {
-      "behavioral_summary": "During the statement 'I am not a crook,' Richard Nixon exhibited a heart rate increase from a baseline of 104.7 bpm to a peak of 130.9 bpm, a delta of 26.2 bpm, indicating elevated physiological arousal. The F0 (fundamental frequency) rose significantly from 143.2 Hz to 268.7 Hz, a delta of 125.4 Hz, suggesting heightened vocal stress. Facial Action Units showed AU15 (lip corner depressor) at a max intensity of 2.6 and AU24 (lip pressor) at 2.0, which can be associated with negative emotions. No hedging was present, and the pronoun drop rate was 0.22, which is relatively low.",
-      "comparative_profile": "The physiological and behavioral patterns observed in Nixon's statement show similarities to those in the clinton_1998 and armstrong_2005 entries, where elevated stress markers were also present. In these cases, high stress levels were noted alongside public denials during periods of intense scrutiny.",
-      "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and should not be interpreted as definitive evidence of deception. The signal quality for this analysis includes real data for heart rate and voice, but facial action units were derived from fallback methods, which may affect precision."
+      "behavioral_summary": "During the statement, Richard Nixon's heart rate increased significantly from a baseline of 104.7 bpm to a peak of 130.9 bpm, showing a delta of 26.2 bpm. His vocal pitch (F0) also rose sharply from 143.2 Hz to 268.7 Hz, a delta of 125.4 Hz. Facial action units showed moderate activity, with AU15 (lip corner depressor) reaching a maximum intensity of 3.25 and AU24 (lip pressor) at 2.31, while AU6 (cheek raiser) was absent. The speech rate was measured at 139.0 words per minute, with no hedging detected and a pronoun drop rate of 0.22.",
+      "comparative_profile": "The physiological and behavioral signals in this clip are similar to those observed in the clinton_1998 and armstrong_2005 entries, where elevated heart rates and vocal pitch were also noted. These patterns are consistent with high-stress situations, which can occur in both deceptive and high-pressure truthful contexts.",
+      "qualifications": "Physiological arousal, such as increased heart rate and vocal pitch, can reflect stress, fear, anger, fatigue, or other causes, and do not solely indicate deception. The signal quality for this analysis is high, with real-time photoplethysmography, facial action units, vocal analysis, and transcript data all confirmed as real."
     },
     "similar_clips": [
       "clinton_1998",
@@ -134,7 +134,7 @@
     ],
     "signal_quality": {
       "rppg": "real",
-      "facial_au": "fallback",
+      "facial_au": "real",
       "voice": "real",
       "transcript": "real"
     }
@@ -157,10 +157,10 @@
       "hr_peak_bpm": 110.8,
       "hr_delta_bpm": 49.2,
       "hrv_rmssd_ms": 264.1,
-      "au15_max_intensity": 2.9,
-      "au14_max_intensity": 1.8,
+      "au15_max_intensity": 0.15,
+      "au14_max_intensity": 3.65,
       "au6_present": false,
-      "au24_max_intensity": 2.4,
+      "au24_max_intensity": 1.48,
       "f0_baseline_hz": 121.8,
       "f0_peak_hz": 269.6,
       "f0_delta_hz": 147.8,
@@ -176,97 +176,97 @@
           "hr": 110.8,
           "f0": 121.8,
           "au15": 0.0,
-          "deception": 37.95
+          "deception": 50.050000000000004
         },
         {
           "t": 2.88,
           "hr": 84.0,
           "f0": 135.23636363636365,
-          "au15": 0.2636363636363636,
-          "deception": 40.77272727272727
+          "au15": 0.013636363636363636,
+          "deception": 53.77272727272727
         },
         {
           "t": 3.31,
           "hr": 66.1,
           "f0": 148.6727272727273,
-          "au15": 0.5272727272727272,
-          "deception": 43.595454545454544
+          "au15": 0.02727272727272727,
+          "deception": 57.49545454545455
         },
         {
           "t": 3.75,
           "hr": 92.9,
           "f0": 162.10909090909092,
-          "au15": 0.7909090909090908,
-          "deception": 46.41818181818182
+          "au15": 0.0409090909090909,
+          "deception": 61.21818181818182
         },
         {
           "t": 4.19,
           "hr": 110.8,
           "f0": 175.54545454545456,
-          "au15": 1.0545454545454545,
-          "deception": 49.24090909090909
+          "au15": 0.05454545454545454,
+          "deception": 64.94090909090909
         },
         {
           "t": 4.62,
           "hr": 110.8,
           "f0": 188.9818181818182,
-          "au15": 1.3181818181818181,
-          "deception": 52.06363636363637
+          "au15": 0.06818181818181818,
+          "deception": 68.66363636363637
         },
         {
           "t": 5.06,
           "hr": 97.4,
           "f0": 202.41818181818184,
-          "au15": 1.5818181818181816,
-          "deception": 54.88636363636364
+          "au15": 0.0818181818181818,
+          "deception": 72.38636363636364
         },
         {
           "t": 5.49,
           "hr": 70.5,
           "f0": 215.85454545454547,
-          "au15": 1.8454545454545455,
-          "deception": 57.70909090909091
+          "au15": 0.09545454545454544,
+          "deception": 76.10909090909091
         },
         {
           "t": 5.93,
           "hr": 61.6,
           "f0": 229.2909090909091,
-          "au15": 2.109090909090909,
-          "deception": 60.53181818181818
+          "au15": 0.10909090909090909,
+          "deception": 79.83181818181819
         },
         {
           "t": 6.37,
           "hr": 61.6,
           "f0": 242.72727272727275,
-          "au15": 2.372727272727273,
-          "deception": 63.35454545454546
+          "au15": 0.12272727272727273,
+          "deception": 83.55454545454546
         },
         {
           "t": 6.8,
           "hr": 61.6,
           "f0": 256.1636363636364,
-          "au15": 2.6363636363636362,
-          "deception": 66.17727272727272
+          "au15": 0.13636363636363635,
+          "deception": 87.27727272727273
         },
         {
           "t": 7.24,
           "hr": 61.6,
           "f0": 269.6,
-          "au15": 2.9,
-          "deception": 69.0
+          "au15": 0.15,
+          "deception": 91.0
         }
       ]
     },
     "scores": {
-      "deception": 69,
-      "sincerity": 49,
-      "stress": 76,
-      "confidence": 73
+      "deception": 91,
+      "sincerity": 32,
+      "stress": 73,
+      "confidence": 77
     },
     "llm_report": {
-      "behavioral_summary": "During the statement, Bill Clinton exhibited a significant heart rate increase from a baseline of 61.6 bpm to a peak of 110.8 bpm, a delta of 49.2 bpm, indicating elevated physiological arousal. The F0 (fundamental frequency) of his voice rose sharply from a baseline of 121.8 Hz to a peak of 269.6 Hz, a delta of 147.8 Hz, suggesting heightened vocal tension. Facial action units showed moderate activation with AU15 (lip corner depressor) peaking at 2.9 and AU24 (lip pressor) at 2.4, while AU6 (cheek raiser) was absent. No hedging was present, and the pronoun drop rate was relatively high at 0.81, which can sometimes indicate distancing language.",
-      "comparative_profile": "The physiological and behavioral signals observed in this statement are similar to those recorded in the 'nixon_1973' entry, where Richard Nixon also displayed elevated stress markers during a press conference. Additionally, the vocal tension and facial expressions bear resemblance to the 'armstrong_2005' entry, where Lance Armstrong exhibited similar stress-related signals during a public denial.",
-      "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, or anger, and does not necessarily indicate deception. The signal quality for this analysis includes real-time photoplethysmography (rPPG) for heart rate, fallback for facial action units, and real voice and transcript data. These factors should be considered when interpreting the results, as this is not a truth determination."
+      "behavioral_summary": "During the statement, Bill Clinton's heart rate increased significantly from a baseline of 61.6 bpm to a peak of 110.8 bpm, indicating a delta of 49.2 bpm. His vocal pitch (F0) also showed a substantial rise from 121.8 Hz to 269.6 Hz, with a delta of 147.8 Hz. Facial Action Units (AUs) showed a notable intensity in AU14 (Dimpler) at 3.65, while AU15 (Lip Corner Depressor) was minimal at 0.15. There was no hedging detected, and the pronoun drop rate was high at 0.81. These signals are consistent with elevated stress and confidence levels, as reflected in the composite scores: stress=73 and confidence=77.",
+      "comparative_profile": "The physiological and behavioral patterns observed in this statement are similar to those recorded in the 'nixon_1973' entry, where high stress and confidence levels were also noted during a denial of wrongdoing. Additionally, the 'armstrong_2005' entry showed comparable vocal pitch elevation and stress indicators during a public denial of doping allegations. These cases suggest a pattern where high stress and confidence can co-occur in high-stakes denials.",
+      "qualifications": "Physiological arousal can reflect a range of emotions, including stress, fear, anger, or fatigue, and is not solely indicative of deception. The signal quality for this analysis is high, with all data sources (rppg, facial AU, voice, transcript) confirmed as real. This is not a truth determination, but an analysis of signals consistent with elevated stress and confidence."
     },
     "similar_clips": [
       "nixon_1973",
@@ -274,7 +274,7 @@
     ],
     "signal_quality": {
       "rppg": "real",
-      "facial_au": "fallback",
+      "facial_au": "real",
       "voice": "real",
       "transcript": "real"
     }
@@ -297,10 +297,10 @@
       "hr_peak_bpm": 87.8,
       "hr_delta_bpm": 20.2,
       "hrv_rmssd_ms": 225.1,
-      "au15_max_intensity": 2.4,
-      "au14_max_intensity": 1.5,
+      "au15_max_intensity": 1.02,
+      "au14_max_intensity": 0.12,
       "au6_present": false,
-      "au24_max_intensity": 2.1,
+      "au24_max_intensity": 2.81,
       "f0_baseline_hz": 85.3,
       "f0_peak_hz": 400.0,
       "f0_delta_hz": 314.7,
@@ -316,97 +316,97 @@
           "hr": 75.0,
           "f0": 85.3,
           "au15": 0.0,
-          "deception": 29.150000000000002
+          "deception": 4.95
         },
         {
           "t": 5.27,
           "hr": 75.0,
           "f0": 113.9090909090909,
-          "au15": 0.21818181818181817,
-          "deception": 31.31818181818182
+          "au15": 0.09272727272727273,
+          "deception": 5.318181818181818
         },
         {
           "t": 6.07,
           "hr": 75.7,
           "f0": 142.5181818181818,
-          "au15": 0.43636363636363634,
-          "deception": 33.486363636363635
+          "au15": 0.18545454545454546,
+          "deception": 5.6863636363636365
         },
         {
           "t": 6.88,
           "hr": 79.8,
           "f0": 171.12727272727273,
-          "au15": 0.6545454545454544,
-          "deception": 35.654545454545456
+          "au15": 0.27818181818181814,
+          "deception": 6.054545454545455
         },
         {
           "t": 7.69,
           "hr": 82.5,
           "f0": 199.73636363636365,
-          "au15": 0.8727272727272727,
-          "deception": 37.82272727272727
+          "au15": 0.3709090909090909,
+          "deception": 6.422727272727273
         },
         {
           "t": 8.5,
           "hr": 82.5,
           "f0": 228.34545454545452,
-          "au15": 1.0909090909090908,
-          "deception": 39.99090909090909
+          "au15": 0.4636363636363636,
+          "deception": 6.790909090909092
         },
         {
           "t": 9.3,
           "hr": 84.5,
           "f0": 256.95454545454544,
-          "au15": 1.3090909090909089,
-          "deception": 42.159090909090914
+          "au15": 0.5563636363636363,
+          "deception": 7.15909090909091
         },
         {
           "t": 10.11,
           "hr": 88.6,
           "f0": 285.56363636363636,
-          "au15": 1.5272727272727271,
-          "deception": 44.32727272727273
+          "au15": 0.649090909090909,
+          "deception": 7.527272727272727
         },
         {
           "t": 10.92,
           "hr": 79.1,
           "f0": 314.1727272727273,
-          "au15": 1.7454545454545454,
-          "deception": 46.49545454545455
+          "au15": 0.7418181818181818,
+          "deception": 7.8954545454545455
         },
         {
           "t": 11.73,
           "hr": 62.7,
           "f0": 342.7818181818182,
-          "au15": 1.9636363636363636,
-          "deception": 48.663636363636364
+          "au15": 0.8345454545454546,
+          "deception": 8.263636363636364
         },
         {
           "t": 12.53,
           "hr": 60.0,
           "f0": 371.3909090909091,
-          "au15": 2.1818181818181817,
-          "deception": 50.831818181818186
+          "au15": 0.9272727272727272,
+          "deception": 8.631818181818183
         },
         {
           "t": 13.34,
           "hr": 60.0,
           "f0": 400.0,
-          "au15": 2.4,
-          "deception": 53.0
+          "au15": 1.02,
+          "deception": 9.0
         }
       ]
     },
     "scores": {
-      "deception": 53,
-      "sincerity": 45,
-      "stress": 67,
-      "confidence": 62
+      "deception": 9,
+      "sincerity": 61,
+      "stress": 69,
+      "confidence": 59
     },
     "llm_report": {
-      "behavioral_summary": "During the statement, Lance Armstrong exhibited a heart rate increase from a baseline of 67.5 bpm to a peak of 87.8 bpm, indicating a delta of 20.2 bpm. His vocal pitch showed a significant rise, with a baseline of 85.3 Hz peaking at 400.0 Hz, resulting in a delta of 314.7 Hz. Facial action units showed moderate activation, with AU15 at 2.4 and AU24 at 2.1, while AU6 was not present. The speech rate was measured at 163.2 words per minute, with no hedging detected and a pronoun drop rate of 0.66. These signals are consistent with elevated stress levels, though this is not a truth determination.",
-      "comparative_profile": "The signal pattern observed in Armstrong's statement shows similarities to the 'clinton_1998' entry, where elevated physiological arousal was also noted during a public denial. Additionally, the 'holmes_2018' entry displayed comparable vocal pitch elevation and stress indicators during high-stakes public statements. These patterns suggest a common physiological response under scrutiny, though individual contexts differ.",
-      "qualifications": "Physiological arousal can reflect a variety of emotional states, including stress, fear, or anger, and is not solely indicative of deception. The signal quality for this analysis includes real-time pulse rate and voice data, with facial action units derived from fallback methods. As always, this analysis does not determine truth but highlights signal patterns for further consideration."
+      "behavioral_summary": "During Lance Armstrong's statement, his heart rate increased by 20.2 bpm from a baseline of 67.5 bpm to a peak of 87.8 bpm, indicating elevated physiological arousal. The F0, or fundamental frequency of his voice, showed a significant increase from a baseline of 85.3 Hz to a peak of 400.0 Hz, a delta of 314.7 Hz, which is notably high. Facial Action Units showed AU24 (lip press) at a maximum intensity of 2.81, suggesting tension, while AU15 (lip corner depressor) was at 1.02, and AU14 (dimpler) was low at 0.12. There was no hedging detected, and the pronoun drop rate was 0.66, which is relatively high.",
+      "comparative_profile": "The signal pattern observed in Armstrong's statement is similar to historical entries such as clinton_1998 and holmes_2018, where elevated physiological arousal and vocal stress indicators were also present. These cases showed high stress and tension, with significant voice pitch elevation and facial tension, consistent with the current analysis.",
+      "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and should not be interpreted as a direct indicator of deception. The signal quality was high, with real data across rPPG, facial action units, voice, and transcript, ensuring reliable measurements. This is not a truth determination, and the analysis only highlights patterns consistent with historical cases."
     },
     "similar_clips": [
       "clinton_1998",
@@ -414,7 +414,7 @@
     ],
     "signal_quality": {
       "rppg": "real",
-      "facial_au": "fallback",
+      "facial_au": "real",
       "voice": "real",
       "transcript": "real"
     }
@@ -437,10 +437,10 @@
       "hr_peak_bpm": 112.9,
       "hr_delta_bpm": 41.4,
       "hrv_rmssd_ms": 287.8,
-      "au15_max_intensity": 2.2,
-      "au14_max_intensity": 1.6,
+      "au15_max_intensity": 0.09,
+      "au14_max_intensity": 4.94,
       "au6_present": false,
-      "au24_max_intensity": 1.9,
+      "au24_max_intensity": 1.91,
       "f0_baseline_hz": 133.1,
       "f0_peak_hz": 346.5,
       "f0_delta_hz": 213.4,
@@ -456,97 +456,97 @@
           "hr": 60.2,
           "f0": 133.1,
           "au15": 0.0,
-          "deception": 37.400000000000006
+          "deception": 52.800000000000004
         },
         {
           "t": 5.25,
           "hr": 60.2,
           "f0": 152.5,
-          "au15": 0.2,
-          "deception": 40.18181818181819
+          "au15": 0.008181818181818182,
+          "deception": 56.727272727272734
         },
         {
           "t": 6.05,
           "hr": 65.0,
           "f0": 171.9,
-          "au15": 0.4,
-          "deception": 42.96363636363637
+          "au15": 0.016363636363636365,
+          "deception": 60.654545454545456
         },
         {
           "t": 6.86,
           "hr": 93.7,
           "f0": 191.29999999999998,
-          "au15": 0.6,
-          "deception": 45.74545454545454
+          "au15": 0.024545454545454544,
+          "deception": 64.58181818181818
         },
         {
           "t": 7.66,
           "hr": 112.9,
           "f0": 210.7,
-          "au15": 0.8,
-          "deception": 48.527272727272724
+          "au15": 0.03272727272727273,
+          "deception": 68.5090909090909
         },
         {
           "t": 8.46,
           "hr": 112.9,
           "f0": 230.1,
-          "au15": 1.0,
-          "deception": 51.30909090909091
+          "au15": 0.04090909090909091,
+          "deception": 72.43636363636364
         },
         {
           "t": 9.26,
           "hr": 112.9,
           "f0": 249.5,
-          "au15": 1.2,
-          "deception": 54.09090909090909
+          "au15": 0.04909090909090909,
+          "deception": 76.36363636363637
         },
         {
           "t": 10.06,
           "hr": 112.9,
           "f0": 268.9,
-          "au15": 1.4000000000000001,
-          "deception": 56.872727272727275
+          "au15": 0.05727272727272727,
+          "deception": 80.2909090909091
         },
         {
           "t": 10.86,
           "hr": 102.0,
           "f0": 288.3,
-          "au15": 1.6,
-          "deception": 59.654545454545456
+          "au15": 0.06545454545454546,
+          "deception": 84.21818181818182
         },
         {
           "t": 11.67,
           "hr": 85.5,
           "f0": 307.70000000000005,
-          "au15": 1.8000000000000003,
-          "deception": 62.43636363636364
+          "au15": 0.07363636363636364,
+          "deception": 88.14545454545456
         },
         {
           "t": 12.46,
           "hr": 96.5,
           "f0": 327.1,
-          "au15": 2.0,
-          "deception": 65.21818181818182
+          "au15": 0.08181818181818182,
+          "deception": 92.07272727272728
         },
         {
           "t": 13.26,
           "hr": 112.9,
           "f0": 346.5,
-          "au15": 2.2,
-          "deception": 68.0
+          "au15": 0.09,
+          "deception": 96.0
         }
       ]
     },
     "scores": {
-      "deception": 68,
-      "sincerity": 31,
+      "deception": 96,
+      "sincerity": 16,
       "stress": 76,
       "confidence": 52
     },
     "llm_report": {
-      "behavioral_summary": "During the statement, Elizabeth Holmes exhibited a significant heart rate increase from a baseline of 71.5 bpm to a peak of 112.9 bpm, indicating a delta of 41.4 bpm. Her vocal pitch also showed a substantial rise, with a baseline of 133.1 Hz peaking at 346.5 Hz, resulting in a delta of 213.4 Hz. Facial action units showed moderate activation, with AU15 reaching a maximum intensity of 2.2. The speech rate was relatively fast at 206.6 words per minute, and there was minimal hedging with a count of 1. The composite scores indicated a higher deception score of 68 and a lower sincerity score of 31, with stress levels at 76.",
-      "comparative_profile": "The physiological and vocal patterns observed in this clip are similar to those in the 'sbf_2022' entry, where elevated heart rate and vocal pitch were also noted. Additionally, the 'armstrong_2005' case showed comparable stress indicators, with high stress and low sincerity scores. These patterns suggest a consistency with high-stress responses seen in other high-profile public defenses.",
-      "qualifications": "Physiological arousal can reflect a range of emotions such as stress, fear, or anger, and does not solely indicate deception. The signal quality was mixed, with real data for rPPG, voice, and transcript, but fallback data for facial action units, which may affect the accuracy of facial expression analysis."
+      "behavioral_summary": "During the statement, Elizabeth Holmes exhibited a heart rate increase from a baseline of 71.5 bpm to a peak of 112.9 bpm, indicating a delta of 41.4 bpm. Her vocal pitch (F0) rose significantly from a baseline of 133.1 Hz to a peak of 346.5 Hz, with a delta of 213.4 Hz. Facial Action Units showed a notable intensity in AU14 (dimpler) at 4.94, while AU15 (lip corner depressor) was minimal at 0.09. The speech rate was relatively high at 206.6 words per minute, with only one instance of hedging and a pronoun drop rate of 0.73. These signals suggest elevated physiological arousal and stress levels, which are consistent with high-stakes situations.",
+      "comparative_profile": "The signal pattern observed in Holmes's statement is similar to that of 'sbf_2022' and 'armstrong_2005', where elevated stress markers and vocal pitch were noted. In both cases, the individuals were under scrutiny for financial misrepresentations, showing comparable physiological responses. The composite scores in this instance, with a high deception score of 96 and low sincerity score of 16, align with these historical entries.",
+      "qualifications": "Physiological arousal can reflect various emotional states, including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis is high, with all data sources (rppg, facial AU, voice, transcript) confirmed as real. This is not a truth determination, and the analysis should be considered within the context of potential stressors unrelated to the statement's veracity."
     },
     "similar_clips": [
       "sbf_2022",
@@ -554,7 +554,7 @@
     ],
     "signal_quality": {
       "rppg": "real",
-      "facial_au": "fallback",
+      "facial_au": "real",
       "voice": "real",
       "transcript": "real"
     }
@@ -577,10 +577,10 @@
       "hr_peak_bpm": 95.2,
       "hr_delta_bpm": 35.2,
       "hrv_rmssd_ms": 357.1,
-      "au15_max_intensity": 2.7,
-      "au14_max_intensity": 1.9,
+      "au15_max_intensity": 0.03,
+      "au14_max_intensity": 2.81,
       "au6_present": false,
-      "au24_max_intensity": 2.3,
+      "au24_max_intensity": 2.34,
       "f0_baseline_hz": 94.9,
       "f0_peak_hz": 349.1,
       "f0_delta_hz": 254.2,
@@ -596,97 +596,97 @@
           "hr": 60.0,
           "f0": 94.9,
           "au15": 0.0,
-          "deception": 40.7
+          "deception": 47.300000000000004
         },
         {
           "t": 5.28,
           "hr": 64.1,
           "f0": 118.00909090909092,
-          "au15": 0.24545454545454548,
-          "deception": 43.72727272727273
+          "au15": 0.002727272727272727,
+          "deception": 50.81818181818182
         },
         {
           "t": 6.08,
           "hr": 69.5,
           "f0": 141.11818181818182,
-          "au15": 0.49090909090909096,
-          "deception": 46.75454545454546
+          "au15": 0.005454545454545454,
+          "deception": 54.336363636363636
         },
         {
           "t": 6.89,
           "hr": 81.8,
           "f0": 164.22727272727275,
-          "au15": 0.7363636363636363,
-          "deception": 49.78181818181818
+          "au15": 0.00818181818181818,
+          "deception": 57.85454545454545
         },
         {
           "t": 7.69,
           "hr": 91.4,
           "f0": 187.33636363636367,
-          "au15": 0.9818181818181819,
-          "deception": 52.809090909090905
+          "au15": 0.010909090909090908,
+          "deception": 61.372727272727275
         },
         {
           "t": 8.48,
           "hr": 95.5,
           "f0": 210.44545454545454,
-          "au15": 1.2272727272727273,
-          "deception": 55.83636363636364
+          "au15": 0.013636363636363636,
+          "deception": 64.8909090909091
         },
         {
           "t": 9.28,
           "hr": 87.3,
           "f0": 233.55454545454546,
-          "au15": 1.4727272727272727,
-          "deception": 58.86363636363637
+          "au15": 0.01636363636363636,
+          "deception": 68.40909090909092
         },
         {
           "t": 10.08,
           "hr": 66.8,
           "f0": 256.6636363636364,
-          "au15": 1.7181818181818183,
-          "deception": 61.8909090909091
+          "au15": 0.01909090909090909,
+          "deception": 71.92727272727274
         },
         {
           "t": 10.88,
           "hr": 60.0,
           "f0": 279.7727272727273,
-          "au15": 1.9636363636363638,
-          "deception": 64.91818181818182
+          "au15": 0.021818181818181816,
+          "deception": 75.44545454545455
         },
         {
           "t": 11.69,
           "hr": 60.0,
           "f0": 302.8818181818182,
-          "au15": 2.2090909090909094,
-          "deception": 67.94545454545455
+          "au15": 0.024545454545454547,
+          "deception": 78.96363636363637
         },
         {
           "t": 12.48,
           "hr": 60.0,
           "f0": 325.9909090909091,
-          "au15": 2.4545454545454546,
-          "deception": 70.97272727272727
+          "au15": 0.02727272727272727,
+          "deception": 82.48181818181818
         },
         {
           "t": 13.28,
           "hr": 60.0,
           "f0": 349.1,
-          "au15": 2.7,
-          "deception": 74.0
+          "au15": 0.03,
+          "deception": 86.0
         }
       ]
     },
     "scores": {
-      "deception": 74,
-      "sincerity": 35,
+      "deception": 86,
+      "sincerity": 26,
       "stress": 81,
       "confidence": 44
     },
     "llm_report": {
-      "behavioral_summary": "During the statement, Sam Bankman-Fried exhibited a heart rate increase from a baseline of 60.0 bpm to a peak of 95.2 bpm, indicating a delta of 35.2 bpm. The heart rate variability (HRV) RMSSD was measured at 357.1 ms. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 2.7, AU14 (dimpler) at 1.9, and AU24 (lip pressor) at 2.3, with no presence of AU6 (cheek raiser). The fundamental frequency (F0) spiked from a baseline of 94.9 Hz to 349.1 Hz, a delta of 254.2 Hz. Speech analysis revealed a jitter of 3.14%, shimmer of 1.6 dB, and a speech rate of 203.3 words per minute. There were 3 instances of hedging, and a pronoun drop rate of 0.59.",
-      "comparative_profile": "The signal pattern observed in this case is similar to the 'holmes_2018' entry, where elevated physiological arousal and vocal stress markers were present during public statements. Additionally, the 'armstrong_2005' entry showed comparable stress indicators, with high deltas in heart rate and vocal pitch during critical questioning. These patterns suggest a high-stress response, which can occur in various contexts.",
-      "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and does not exclusively indicate deception. The signal quality for this analysis includes real-time photoplethysmography (rPPG) and voice data, with fallback for facial action units. This is not a truth determination, and the signals should be interpreted within the broader context of the situation."
+      "behavioral_summary": "During the statement, Sam Bankman-Fried exhibited a heart rate increase from a baseline of 60.0 bpm to a peak of 95.2 bpm, a delta of 35.2 bpm, indicating elevated physiological arousal. The fundamental frequency (F0) of his voice spiked from a baseline of 94.9 Hz to 349.1 Hz, a significant delta of 254.2 Hz, which is often associated with stress or heightened emotional states. Facial action units showed AU14 (Dimpler) at a maximum intensity of 2.81 and AU24 (Lip Pressor) at 2.34, both suggesting tension. The speech rate was relatively fast at 203.3 words per minute, with a moderate hedging count of 3. These signals are consistent with high stress and low confidence levels.",
+      "comparative_profile": "The signal pattern observed in this clip is similar to the 'holmes_2018' entry, where Elizabeth Holmes exhibited elevated stress markers during public statements about Theranos' technology. Another comparable case is 'armstrong_2005', where Lance Armstrong displayed similar physiological and vocal stress indicators during doping allegations. These historical cases also showed high stress and low sincerity scores in contexts later confirmed as deceptive.",
+      "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and does not inherently indicate deception. The signal quality for this analysis is robust, with real-time photoplethysmography (rPPG), facial action units, voice analysis, and transcript data all confirmed as real. This is not a truth determination, but an analysis of signals consistent with stress and low sincerity."
     },
     "similar_clips": [
       "holmes_2018",
@@ -694,7 +694,7 @@
     ],
     "signal_quality": {
       "rppg": "real",
-      "facial_au": "fallback",
+      "facial_au": "real",
       "voice": "real",
       "transcript": "real"
     }
@@ -717,10 +717,10 @@
       "hr_peak_bpm": 80.6,
       "hr_delta_bpm": 18.8,
       "hrv_rmssd_ms": 333.6,
-      "au15_max_intensity": 1.0,
-      "au14_max_intensity": 0.6,
-      "au6_present": true,
-      "au24_max_intensity": 0.8,
+      "au15_max_intensity": 0.1,
+      "au14_max_intensity": 0.58,
+      "au6_present": false,
+      "au24_max_intensity": 2.56,
       "f0_baseline_hz": 166.4,
       "f0_peak_hz": 269.4,
       "f0_delta_hz": 103.0,
@@ -736,104 +736,1073 @@
           "hr": 67.5,
           "f0": 166.4,
           "au15": 0.0,
-          "deception": 25.3
+          "deception": 7.15
         },
         {
           "t": 5.18,
           "hr": 70.9,
           "f0": 175.76363636363638,
-          "au15": 0.09090909090909091,
-          "deception": 27.181818181818183
+          "au15": 0.009090909090909092,
+          "deception": 7.6818181818181825
         },
         {
           "t": 5.86,
           "hr": 74.3,
           "f0": 185.12727272727273,
-          "au15": 0.18181818181818182,
-          "deception": 29.063636363636363
+          "au15": 0.018181818181818184,
+          "deception": 8.213636363636365
         },
         {
           "t": 6.55,
           "hr": 75.0,
           "f0": 194.4909090909091,
-          "au15": 0.2727272727272727,
-          "deception": 30.945454545454545
+          "au15": 0.02727272727272727,
+          "deception": 8.745454545454546
         },
         {
           "t": 7.23,
           "hr": 75.0,
           "f0": 203.85454545454544,
-          "au15": 0.36363636363636365,
-          "deception": 32.82727272727273
+          "au15": 0.03636363636363637,
+          "deception": 9.277272727272727
         },
         {
           "t": 7.91,
           "hr": 77.0,
           "f0": 213.21818181818182,
-          "au15": 0.45454545454545453,
-          "deception": 34.70909090909091
+          "au15": 0.045454545454545456,
+          "deception": 9.80909090909091
         },
         {
           "t": 8.59,
           "hr": 80.5,
           "f0": 222.58181818181816,
-          "au15": 0.5454545454545454,
-          "deception": 36.59090909090909
+          "au15": 0.05454545454545454,
+          "deception": 10.340909090909092
         },
         {
           "t": 9.27,
           "hr": 78.4,
           "f0": 231.94545454545454,
-          "au15": 0.6363636363636364,
-          "deception": 38.472727272727276
+          "au15": 0.06363636363636364,
+          "deception": 10.872727272727273
         },
         {
           "t": 9.95,
           "hr": 68.2,
           "f0": 241.3090909090909,
-          "au15": 0.7272727272727273,
-          "deception": 40.35454545454546
+          "au15": 0.07272727272727274,
+          "deception": 11.404545454545454
         },
         {
           "t": 10.64,
           "hr": 60.0,
           "f0": 250.67272727272726,
-          "au15": 0.8181818181818182,
-          "deception": 42.236363636363635
+          "au15": 0.08181818181818183,
+          "deception": 11.936363636363637
         },
         {
           "t": 11.32,
           "hr": 60.0,
           "f0": 260.0363636363636,
-          "au15": 0.9090909090909091,
-          "deception": 44.11818181818182
+          "au15": 0.09090909090909091,
+          "deception": 12.468181818181819
         },
         {
           "t": 12.0,
           "hr": 60.0,
           "f0": 269.4,
-          "au15": 1.0,
-          "deception": 46.0
+          "au15": 0.1,
+          "deception": 13.0
         }
       ]
     },
     "scores": {
-      "deception": 46,
-      "sincerity": 80,
-      "stress": 58,
-      "confidence": 55
+      "deception": 13,
+      "sincerity": 66,
+      "stress": 63,
+      "confidence": 47
     },
     "llm_report": {
-      "behavioral_summary": "During Frances Haugen's testimony, her heart rate increased by 18.8 bpm from a baseline of 61.9 bpm to a peak of 80.6 bpm, indicating elevated physiological arousal. Her vocal pitch rose significantly, with a peak F0 of 269.4 Hz compared to a baseline of 166.4 Hz, a delta of 103.0 Hz. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 1.0, AU14 (dimpler) at 0.6, and AU24 (lip pressor) at 0.8, with AU6 (cheek raiser) present, suggesting a complex emotional state. The hedging count was low at 2, and there was no pronoun drop, indicating a structured and deliberate speech pattern.",
-      "comparative_profile": "This testimony does not have direct historical parallels in the archive, but the physiological and vocal patterns are consistent with high-stakes whistleblower disclosures. The elevated heart rate and vocal pitch, alongside a high sincerity composite score of 80, align with cases where individuals report significant personal or public risk.",
-      "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and should not be interpreted as a direct indicator of deception or sincerity. The signal quality was mixed, with real data for heart rate and voice, but fallback data for facial action units, which may affect the precision of the analysis."
+      "behavioral_summary": "During Frances Haugen's testimony, her heart rate increased from a baseline of 61.9 bpm to a peak of 80.6 bpm, showing a delta of 18.8 bpm, which is consistent with elevated physiological arousal. Her vocal pitch also rose significantly, with a baseline of 166.4 Hz peaking at 269.4 Hz, a delta of 103.0 Hz. Facial Action Units showed AU24 (lip press) at a maximum intensity of 2.56, indicating tension, while AU15 (lip corner depressor) was minimal at 0.1. The speech rate was measured at 186.6 words per minute with minimal hedging (count of 2) and no pronoun drop, suggesting a direct communication style. These signals are consistent with high stress but do not determine truthfulness.",
+      "comparative_profile": "The physiological and behavioral patterns observed in Haugen's testimony are similar to those seen in the 'dean_1973' and 'cheung_2019' cases, where individuals also exhibited elevated stress markers during high-stakes disclosures. In these cases, high stress coexisted with verified sincerity, as the disclosures were later substantiated by external evidence.",
+      "qualifications": "Physiological arousal can reflect a range of emotions, including stress, fear, or anger, and is not solely indicative of deception. The signal quality for this analysis is high, with real-time photoplethysmography (rPPG), facial action units, voice analysis, and transcript data all verified as real. This analysis does not determine the truthfulness of the statement but provides insight into the physiological and behavioral signals present during the testimony."
     },
-    "similar_clips": [],
+    "similar_clips": [
+      "dean_1973",
+      "cheung_2019"
+    ],
     "signal_quality": {
       "rppg": "real",
-      "facial_au": "fallback",
+      "facial_au": "real",
       "voice": "real",
       "transcript": "real"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "clip_id": "dean_1973",
+    "subject": "John Dean",
+    "statement": "There is a cancer growing on the presidency, and if the cancer is not removed, the President himself will be killed by it.",
+    "year": 1973,
+    "context": "United States Senate Watergate Committee testimony, 25 June 1973. Former White House Counsel describes the cover-up directly to the Senate select committee.",
+    "ground_truth": "sincere",
+    "ground_truth_source": "Corroborated by the Nixon White House tape of the 21 March 1973 'cancer' meeting; Nixon resigned 9 August 1974 and every subsequent investigation vindicated Dean's account.",
+    "video_url": "https://www.youtube.com/watch?v=mZx7g74CvKc",
+    "video_start_seconds": 60.0,
+    "video_end_seconds": 90.0,
+    "thumbnail_url": "https://img.youtube.com/vi/mZx7g74CvKc/hqdefault.jpg",
+    "signals": {
+      "hr_baseline_bpm": 60.0,
+      "hr_peak_bpm": 60.0,
+      "hr_delta_bpm": 0.0,
+      "hrv_rmssd_ms": 22.0,
+      "au15_max_intensity": 0.77,
+      "au14_max_intensity": 0.1,
+      "au6_present": false,
+      "au24_max_intensity": 0.19,
+      "f0_baseline_hz": 88.8,
+      "f0_peak_hz": 400.0,
+      "f0_delta_hz": 311.2,
+      "jitter_percent": 6.34,
+      "shimmer_db": 1.8,
+      "speech_rate_wpm": 107.9,
+      "hedging_count": 1,
+      "pronoun_drop_rate": 0.691358024691358,
+      "transcript": "And I don't think he does it to harm you anyway, sir. That's why he thinks he'll be confirmed because he thinks he's being his own man. He's being forthright honest. He's turned over too much and so it's a conscious decision.",
+      "timeline": [
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 88.8,
+          "au15": 0.0,
+          "deception": 8.8
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 117.0909090909091,
+          "au15": 0.07,
+          "deception": 9.454545454545455
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 145.38181818181818,
+          "au15": 0.14,
+          "deception": 10.10909090909091
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 173.67272727272726,
+          "au15": 0.21,
+          "deception": 10.763636363636364
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 201.96363636363634,
+          "au15": 0.28,
+          "deception": 11.418181818181818
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 230.25454545454545,
+          "au15": 0.35,
+          "deception": 12.072727272727274
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 258.5454545454545,
+          "au15": 0.42,
+          "deception": 12.727272727272728
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 286.8363636363636,
+          "au15": 0.49,
+          "deception": 13.381818181818183
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 315.1272727272727,
+          "au15": 0.56,
+          "deception": 14.036363636363637
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 343.41818181818184,
+          "au15": 0.63,
+          "deception": 14.690909090909091
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 371.7090909090909,
+          "au15": 0.7,
+          "deception": 15.345454545454546
+        },
+        {
+          "t": 1.5,
+          "hr": 60.0,
+          "f0": 400.0,
+          "au15": 0.77,
+          "deception": 16.0
+        }
+      ]
+    },
+    "scores": {
+      "deception": 16,
+      "sincerity": 41,
+      "stress": 48,
+      "confidence": 45
+    },
+    "llm_report": {
+      "behavioral_summary": "During John Dean's testimony, his heart rate remained stable at 60.0 bpm, showing no change from baseline, which is unusual given the context. Facial action units indicated moderate lip corner depression (AU15 max: 0.77) and low levels of lip corner puller (AU14 max: 0.1) and lip pressor (AU24 max: 0.19), with no cheek raiser (AU6) present. His vocal pitch showed a significant increase, with a peak F0 of 400.0 Hz from a baseline of 88.8 Hz, a delta of 311.2 Hz, suggesting heightened arousal. The speech rate was measured at 107.9 words per minute, with minimal hedging (count: 1) and a high pronoun drop rate of 0.69.",
+      "comparative_profile": "The physiological and vocal patterns observed in Dean's testimony show similarities to other high-stakes whistleblower testimonies, such as Frances Haugen in 2021, where elevated stress indicators coexisted with high sincerity scores. The lack of heart rate variability and significant vocal pitch increase are also reminiscent of Richard Nixon's 1973 press conferences, although with different sincerity implications.",
+      "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis is robust, with all data sources confirmed as real. This analysis does not determine truth but highlights patterns consistent with high-stress, high-stakes testimony."
+    },
+    "similar_clips": [
+      "nixon_1973",
+      "haugen_2021"
+    ],
+    "signal_quality": {
+      "rppg": "real",
+      "facial_au": "real",
+      "voice": "real",
+      "transcript": "real"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "clip_id": "cheung_2019",
+    "subject": "Erika Cheung",
+    "statement": "I knew that Theranos was committing a fraud and I had a moral obligation to do something about it.",
+    "year": 2019,
+    "context": "TEDx Talk 'Theranos, whistleblowing and speaking truth to power.' Cheung was the lab associate who reported Theranos to the FDA and CMS in 2014.",
+    "ground_truth": "sincere",
+    "ground_truth_source": "Elizabeth Holmes was convicted on 4 counts of wire fraud (3 January 2022) directly based on the same patient harm Cheung reported. Cheung's testimony was central to United States v. Holmes and v. Balwani.",
+    "video_url": "https://www.youtube.com/watch?v=vMQlj9TZQfE",
+    "video_start_seconds": 30.0,
+    "video_end_seconds": 55.0,
+    "thumbnail_url": "https://img.youtube.com/vi/vMQlj9TZQfE/hqdefault.jpg",
+    "signals": {
+      "hr_baseline_bpm": 67.2,
+      "hr_peak_bpm": 94.0,
+      "hr_delta_bpm": 26.8,
+      "hrv_rmssd_ms": 253.9,
+      "au15_max_intensity": 0.06,
+      "au14_max_intensity": 0.67,
+      "au6_present": false,
+      "au24_max_intensity": 1.31,
+      "f0_baseline_hz": 192.9,
+      "f0_peak_hz": 357.1,
+      "f0_delta_hz": 164.2,
+      "jitter_percent": 1.79,
+      "shimmer_db": 0.83,
+      "speech_rate_wpm": 194.4,
+      "hedging_count": 3,
+      "pronoun_drop_rate": 1.0,
+      "transcript": "information about the company, but the little that was there was really impressive. Essentially, what the company was doing was creating a medical device where you would be able to run your entire blood panel on a finger stick of blood, so you wouldn't have to get a big needle stuck in your arm in order to get your blood test done. So this was interesting, not only because it was less painful.",
+      "timeline": [
+        {
+          "t": 2.23,
+          "hr": 94.0,
+          "f0": 192.9,
+          "au15": 0.0,
+          "deception": 9.350000000000001
+        },
+        {
+          "t": 2.63,
+          "hr": 94.0,
+          "f0": 207.82727272727274,
+          "au15": 0.005454545454545454,
+          "deception": 10.045454545454547
+        },
+        {
+          "t": 3.04,
+          "hr": 94.0,
+          "f0": 222.75454545454545,
+          "au15": 0.010909090909090908,
+          "deception": 10.740909090909092
+        },
+        {
+          "t": 3.43,
+          "hr": 94.0,
+          "f0": 237.6818181818182,
+          "au15": 0.01636363636363636,
+          "deception": 11.436363636363636
+        },
+        {
+          "t": 3.83,
+          "hr": 89.1,
+          "f0": 252.60909090909092,
+          "au15": 0.021818181818181816,
+          "deception": 12.131818181818181
+        },
+        {
+          "t": 4.23,
+          "hr": 74.5,
+          "f0": 267.53636363636366,
+          "au15": 0.02727272727272727,
+          "deception": 12.827272727272728
+        },
+        {
+          "t": 4.63,
+          "hr": 67.2,
+          "f0": 282.4636363636364,
+          "au15": 0.03272727272727272,
+          "deception": 13.522727272727273
+        },
+        {
+          "t": 5.04,
+          "hr": 67.2,
+          "f0": 297.3909090909091,
+          "au15": 0.03818181818181818,
+          "deception": 14.218181818181819
+        },
+        {
+          "t": 5.44,
+          "hr": 67.2,
+          "f0": 312.31818181818187,
+          "au15": 0.04363636363636363,
+          "deception": 14.913636363636364
+        },
+        {
+          "t": 5.83,
+          "hr": 67.2,
+          "f0": 327.24545454545455,
+          "au15": 0.049090909090909095,
+          "deception": 15.60909090909091
+        },
+        {
+          "t": 6.23,
+          "hr": 61.1,
+          "f0": 342.1727272727273,
+          "au15": 0.05454545454545454,
+          "deception": 16.304545454545455
+        },
+        {
+          "t": 6.63,
+          "hr": 53.7,
+          "f0": 357.1,
+          "au15": 0.06,
+          "deception": 17.0
+        }
+      ]
+    },
+    "scores": {
+      "deception": 17,
+      "sincerity": 45,
+      "stress": 65,
+      "confidence": 49
+    },
+    "llm_report": {
+      "behavioral_summary": "Erika Cheung's physiological signals during her TEDx Talk show a heart rate increase from a baseline of 67.2 bpm to a peak of 94.0 bpm, indicating a delta of 26.8 bpm. Her HRV RMSSD is notably high at 253.9 ms, suggesting significant physiological arousal. Facial action units show AU24 (lip press) at a maximum intensity of 1.31, while AU15 (lip corner depressor) is minimal at 0.06. Vocal analysis reveals a substantial F0 increase from 192.9 Hz to 357.1 Hz, a delta of 164.2 Hz, with jitter at 1.79% and shimmer at 0.83 dB. The speech rate is 194.4 words per minute, with minimal hedging (3 instances) and a high pronoun drop rate of 1.00.",
+      "comparative_profile": "Cheung's signal pattern is similar to other whistleblower cases such as shultz_2019, where elevated stress markers co-existed with high sincerity scores. In contrast, holmes_2018 showed different patterns, with lower sincerity scores and different stress indicators. Cheung's sincerity score of 45 aligns with her role as a whistleblower, where high stress and sincerity often coincide.",
+      "qualifications": "Physiological arousal can reflect a range of emotions, including stress, fear, or anger, and does not solely indicate deception. The signal quality is high, with real-time photoplethysmography (rPPG), facial action units, voice, and transcript data all confirmed as real. This analysis does not determine truth but provides a pattern analysis consistent with sincere whistleblower testimony."
+    },
+    "similar_clips": [
+      "holmes_2018",
+      "shultz_2019"
+    ],
+    "signal_quality": {
+      "rppg": "real",
+      "facial_au": "real",
+      "voice": "real",
+      "transcript": "real"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "clip_id": "shultz_2019",
+    "subject": "Tyler Shultz",
+    "statement": "The data that Theranos was reporting was inaccurate. Patients were getting test results that were just wrong.",
+    "year": 2019,
+    "context": "60 Minutes interview. Shultz, grandson of Theranos board member George Shultz, reported lab fraud despite intense family pressure to recant.",
+    "ground_truth": "sincere",
+    "ground_truth_source": "Validated by Holmes' criminal conviction (3 January 2022); Shultz separately settled a harassment lawsuit against Theranos. His original 2015 letter to the New York State Department of Health is part of the public court record.",
+    "video_url": "https://www.youtube.com/watch?v=fu42enVXLWQ",
+    "video_start_seconds": 30.0,
+    "video_end_seconds": 55.0,
+    "thumbnail_url": "https://img.youtube.com/vi/fu42enVXLWQ/hqdefault.jpg",
+    "signals": {
+      "hr_baseline_bpm": 74.1,
+      "hr_peak_bpm": 80.5,
+      "hr_delta_bpm": 6.4,
+      "hrv_rmssd_ms": 197.9,
+      "au15_max_intensity": 1.62,
+      "au14_max_intensity": 3.45,
+      "au6_present": false,
+      "au24_max_intensity": 2.42,
+      "f0_baseline_hz": 97.4,
+      "f0_peak_hz": 260.4,
+      "f0_delta_hz": 163.1,
+      "jitter_percent": 2.06,
+      "shimmer_db": 1.09,
+      "speech_rate_wpm": 177.6,
+      "hedging_count": 1,
+      "pronoun_drop_rate": 0.5495495495495495,
+      "transcript": "her technology could do with a single drop of blood and she could do it anywhere where you had access to power. So you could do this in helicopters and battlefields and patients' homes and doctors' offices and operating rooms. It just sounded like this technology had no limits. And I fell in love with the vision and I found Elizabeth to be extremely care-as-ma-",
+      "timeline": [
+        {
+          "t": 3.24,
+          "hr": 74.1,
+          "f0": 97.4,
+          "au15": 0.0,
+          "deception": 49.50000000000001
+        },
+        {
+          "t": 3.83,
+          "hr": 79.1,
+          "f0": 112.21818181818182,
+          "au15": 0.14727272727272728,
+          "deception": 53.18181818181819
+        },
+        {
+          "t": 4.42,
+          "hr": 82.5,
+          "f0": 127.03636363636363,
+          "au15": 0.29454545454545455,
+          "deception": 56.86363636363637
+        },
+        {
+          "t": 5.01,
+          "hr": 77.4,
+          "f0": 141.85454545454544,
+          "au15": 0.44181818181818183,
+          "deception": 60.54545454545455
+        },
+        {
+          "t": 5.6,
+          "hr": 74.1,
+          "f0": 156.6727272727273,
+          "au15": 0.5890909090909091,
+          "deception": 64.22727272727272
+        },
+        {
+          "t": 6.19,
+          "hr": 74.1,
+          "f0": 171.4909090909091,
+          "au15": 0.7363636363636364,
+          "deception": 67.90909090909092
+        },
+        {
+          "t": 6.77,
+          "hr": 74.1,
+          "f0": 186.3090909090909,
+          "au15": 0.8836363636363637,
+          "deception": 71.5909090909091
+        },
+        {
+          "t": 7.36,
+          "hr": 74.1,
+          "f0": 201.12727272727273,
+          "au15": 1.030909090909091,
+          "deception": 75.27272727272728
+        },
+        {
+          "t": 7.95,
+          "hr": 70.7,
+          "f0": 215.94545454545454,
+          "au15": 1.1781818181818182,
+          "deception": 78.95454545454545
+        },
+        {
+          "t": 8.54,
+          "hr": 65.6,
+          "f0": 230.76363636363635,
+          "au15": 1.3254545454545457,
+          "deception": 82.63636363636364
+        },
+        {
+          "t": 9.13,
+          "hr": 69.0,
+          "f0": 245.58181818181816,
+          "au15": 1.4727272727272729,
+          "deception": 86.31818181818181
+        },
+        {
+          "t": 9.72,
+          "hr": 74.1,
+          "f0": 260.4,
+          "au15": 1.62,
+          "deception": 90.0
+        }
+      ]
+    },
+    "scores": {
+      "deception": 90,
+      "sincerity": 22,
+      "stress": 42,
+      "confidence": 52
+    },
+    "llm_report": {
+      "behavioral_summary": "During the interview, Tyler Shultz exhibited a heart rate increase from a baseline of 74.1 bpm to a peak of 80.5 bpm, indicating a delta of 6.4 bpm. His vocal pitch (F0) showed a significant rise from 97.4 Hz to 260.4 Hz, with a delta of 163.1 Hz, which is often associated with heightened emotional arousal. Facial action units showed AU14 (Dimpler) at a maximum intensity of 3.45 and AU24 (Lip Pressor) at 2.42, suggesting tension. The speech rate was measured at 177.6 words per minute, with minimal hedging (count of 1) and a pronoun drop rate of 0.55, indicating a direct communication style. These signals are consistent with high stress levels, which can occur in sincere whistleblower testimonies.",
+      "comparative_profile": "The physiological and behavioral signals observed in Shultz's interview are similar to those seen in the 'cheung_2019' entry, where whistleblower Erika Cheung also reported high stress indicators while discussing Theranos. In contrast, 'holmes_2018' showed different patterns, with lower sincerity scores and higher deception indicators. Shultz's elevated stress and sincerity scores align with historical cases of individuals under pressure to reveal critical information.",
+      "qualifications": "Physiological arousal can reflect a variety of emotional states, including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis is high, with real-time photoplethysmography (rPPG), facial action units, voice, and transcript data all verified as real. This analysis does not determine truth but highlights patterns consistent with high-stress sincerity in whistleblower contexts."
+    },
+    "similar_clips": [
+      "holmes_2018",
+      "cheung_2019"
+    ],
+    "signal_quality": {
+      "rppg": "real",
+      "facial_au": "real",
+      "voice": "real",
+      "transcript": "real"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "clip_id": "wigand_1996",
+    "subject": "Jeffrey Wigand",
+    "statement": "We are in the business of selling nicotine, an addictive drug.",
+    "year": 1996,
+    "context": "60 Minutes interview with Mike Wallace, broadcast 4 February 1996. Former Brown & Williamson VP discloses internal knowledge that nicotine was deliberately engineered to be addictive.",
+    "ground_truth": "sincere",
+    "ground_truth_source": "Wigand's claims were the basis of the 1998 Tobacco Master Settlement Agreement (USD 206 billion). The seven tobacco CEOs who told Congress that nicotine was not addictive (7 April 1994) were proven to have committed perjury based on internal documents Wigand identified.",
+    "video_url": "https://www.youtube.com/watch?v=1_-Vu8LrUDk",
+    "video_start_seconds": 30.0,
+    "video_end_seconds": 60.0,
+    "thumbnail_url": "https://img.youtube.com/vi/1_-Vu8LrUDk/hqdefault.jpg",
+    "signals": {
+      "hr_baseline_bpm": 60.2,
+      "hr_peak_bpm": 102.3,
+      "hr_delta_bpm": 42.1,
+      "hrv_rmssd_ms": 427.7,
+      "au15_max_intensity": 0.01,
+      "au14_max_intensity": 0.39,
+      "au6_present": false,
+      "au24_max_intensity": 1.76,
+      "f0_baseline_hz": 99.2,
+      "f0_peak_hz": 281.0,
+      "f0_delta_hz": 181.8,
+      "jitter_percent": 2.71,
+      "shimmer_db": 1.16,
+      "speech_rate_wpm": 191.9,
+      "hedging_count": 1,
+      "pronoun_drop_rate": 0.7395833333333333,
+      "transcript": "a year director of research. They employed prestigious law firms to sue him, a high-powered investigation firm to probe every nook and cranny of his life, and they hired a big-time public relations consultant to help them plant damaging stories about him in The Washington Post, The Wall Street Journal, and others. But the journal reported the story for what they thought it was. Scant evidence was just one of their comments. CBS Management wouldn't let us broadcast our original story and our",
+      "timeline": [
+        {
+          "t": 4.99,
+          "hr": 60.2,
+          "f0": 99.2,
+          "au15": 0.0,
+          "deception": 6.6000000000000005
+        },
+        {
+          "t": 6.79,
+          "hr": 60.2,
+          "f0": 115.72727272727273,
+          "au15": 0.0009090909090909091,
+          "deception": 7.090909090909092
+        },
+        {
+          "t": 8.58,
+          "hr": 60.2,
+          "f0": 132.25454545454545,
+          "au15": 0.0018181818181818182,
+          "deception": 7.581818181818182
+        },
+        {
+          "t": 10.38,
+          "hr": 62.9,
+          "f0": 148.78181818181818,
+          "au15": 0.002727272727272727,
+          "deception": 8.072727272727272
+        },
+        {
+          "t": 12.18,
+          "hr": 73.8,
+          "f0": 165.3090909090909,
+          "au15": 0.0036363636363636364,
+          "deception": 8.563636363636363
+        },
+        {
+          "t": 13.97,
+          "hr": 80.0,
+          "f0": 181.83636363636364,
+          "au15": 0.004545454545454545,
+          "deception": 9.054545454545455
+        },
+        {
+          "t": 15.76,
+          "hr": 91.0,
+          "f0": 198.36363636363637,
+          "au15": 0.005454545454545454,
+          "deception": 9.545454545454547
+        },
+        {
+          "t": 17.55,
+          "hr": 104.6,
+          "f0": 214.8909090909091,
+          "au15": 0.006363636363636364,
+          "deception": 10.036363636363637
+        },
+        {
+          "t": 19.35,
+          "hr": 99.2,
+          "f0": 231.41818181818184,
+          "au15": 0.007272727272727273,
+          "deception": 10.527272727272727
+        },
+        {
+          "t": 21.15,
+          "hr": 77.3,
+          "f0": 247.9454545454546,
+          "au15": 0.008181818181818182,
+          "deception": 11.01818181818182
+        },
+        {
+          "t": 22.94,
+          "hr": 62.2,
+          "f0": 264.4727272727273,
+          "au15": 0.00909090909090909,
+          "deception": 11.50909090909091
+        },
+        {
+          "t": 24.74,
+          "hr": 67.7,
+          "f0": 281.0,
+          "au15": 0.01,
+          "deception": 12.0
+        }
+      ]
+    },
+    "scores": {
+      "deception": 12,
+      "sincerity": 63,
+      "stress": 76,
+      "confidence": 70
+    },
+    "llm_report": {
+      "behavioral_summary": "During the statement, Jeffrey Wigand exhibited a heart rate increase from a baseline of 60.2 bpm to a peak of 102.3 bpm, indicating a delta of 42.1 bpm. His vocal pitch (F0) also showed a significant rise from 99.2 Hz to 281.0 Hz, with a delta of 181.8 Hz. Facial action units showed minimal AU15 (lip corner depressor) at 0.01, moderate AU14 (dimpler) at 0.39, and high AU24 (lip pressor) at 1.76, with no AU6 (cheek raiser) present. The speech rate was measured at 191.9 words per minute, with a low hedging count of 1 and a pronoun drop rate of 0.74.",
+      "comparative_profile": "The physiological and behavioral signals in Wigand's interview are similar to those observed in the haugen_2021 case, where high stress indicators coexisted with high sincerity scores. In contrast, the armstrong_2005 case showed elevated stress and deception scores, highlighting the variability in stress-related responses.",
+      "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and is not solely indicative of deception. The signal quality for this analysis is robust, with real-time photoplethysmography (rPPG), facial action units, voice analysis, and transcript data all verified as real. This is not a truth determination, but an analysis of physiological and behavioral signals."
+    },
+    "similar_clips": [
+      "haugen_2021",
+      "armstrong_2005"
+    ],
+    "signal_quality": {
+      "rppg": "real",
+      "facial_au": "real",
+      "voice": "real",
+      "transcript": "real"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "clip_id": "snowden_2013",
+    "subject": "Edward Snowden",
+    "statement": "I don't want to live in a society that does these sort of things. I am not willing to live in a world where everything I do and say is recorded.",
+    "year": 2013,
+    "context": "First public interview, Hong Kong, 9 June 2013, conducted by Glenn Greenwald and Laura Poitras for The Guardian. Snowden identifies himself as the source of the NSA surveillance disclosures.",
+    "ground_truth": "sincere",
+    "ground_truth_source": "Every classified document Snowden released has been authenticated. The disclosures led directly to the USA FREEDOM Act (2 June 2015) ending bulk phone-record collection, and a 2 September 2020 Ninth Circuit ruling (United States v. Moalin) declared the program illegal.",
+    "video_url": "https://www.youtube.com/watch?v=0hLjuVyIIrs",
+    "video_start_seconds": 60.0,
+    "video_end_seconds": 90.0,
+    "thumbnail_url": "https://img.youtube.com/vi/0hLjuVyIIrs/hqdefault.jpg",
+    "signals": {
+      "hr_baseline_bpm": 52.5,
+      "hr_peak_bpm": 114.0,
+      "hr_delta_bpm": 61.5,
+      "hrv_rmssd_ms": 302.3,
+      "au15_max_intensity": 0.02,
+      "au14_max_intensity": 0.78,
+      "au6_present": false,
+      "au24_max_intensity": 2.09,
+      "f0_baseline_hz": 100.2,
+      "f0_peak_hz": 206.1,
+      "f0_delta_hz": 105.8,
+      "jitter_percent": 3.23,
+      "shimmer_db": 1.09,
+      "speech_rate_wpm": 173.9,
+      "hedging_count": 2,
+      "pronoun_drop_rate": 1.0,
+      "transcript": "whistleblower. Walk people through that decision-making process. When you're in positions of privileged access, like a systems administrator for these sort of intelligence community agencies, you're exposed to a lot more information on a broader scale than the average employee. And because of that, you see things that may be disturbing, but over the course of a normal person's career, you'd only see one or two of these instances. When you see",
+      "timeline": [
+        {
+          "t": 5.0,
+          "hr": 60.0,
+          "f0": 100.2,
+          "au15": 0.0,
+          "deception": 5.5
+        },
+        {
+          "t": 6.8,
+          "hr": 76.4,
+          "f0": 109.82727272727273,
+          "au15": 0.0018181818181818182,
+          "deception": 5.909090909090909
+        },
+        {
+          "t": 8.61,
+          "hr": 99.5,
+          "f0": 119.45454545454545,
+          "au15": 0.0036363636363636364,
+          "deception": 6.318181818181818
+        },
+        {
+          "t": 10.41,
+          "hr": 107.7,
+          "f0": 129.08181818181816,
+          "au15": 0.005454545454545454,
+          "deception": 6.7272727272727275
+        },
+        {
+          "t": 12.21,
+          "hr": 58.6,
+          "f0": 138.70909090909092,
+          "au15": 0.007272727272727273,
+          "deception": 7.136363636363637
+        },
+        {
+          "t": 14.02,
+          "hr": 52.5,
+          "f0": 148.33636363636364,
+          "au15": 0.00909090909090909,
+          "deception": 7.545454545454547
+        },
+        {
+          "t": 15.82,
+          "hr": 52.5,
+          "f0": 157.96363636363634,
+          "au15": 0.010909090909090908,
+          "deception": 7.954545454545455
+        },
+        {
+          "t": 17.63,
+          "hr": 52.5,
+          "f0": 167.5909090909091,
+          "au15": 0.012727272727272728,
+          "deception": 8.363636363636363
+        },
+        {
+          "t": 19.43,
+          "hr": 52.5,
+          "f0": 177.21818181818182,
+          "au15": 0.014545454545454545,
+          "deception": 8.772727272727273
+        },
+        {
+          "t": 21.23,
+          "hr": 56.6,
+          "f0": 186.84545454545454,
+          "au15": 0.016363636363636365,
+          "deception": 9.181818181818182
+        },
+        {
+          "t": 23.04,
+          "hr": 72.3,
+          "f0": 196.47272727272727,
+          "au15": 0.01818181818181818,
+          "deception": 9.590909090909092
+        },
+        {
+          "t": 24.84,
+          "hr": 105.0,
+          "f0": 206.1,
+          "au15": 0.02,
+          "deception": 10.0
+        }
+      ]
+    },
+    "scores": {
+      "deception": 10,
+      "sincerity": 53,
+      "stress": 78,
+      "confidence": 50
+    },
+    "llm_report": {
+      "behavioral_summary": "During Edward Snowden's statement, his heart rate increased significantly from a baseline of 52.5 bpm to a peak of 114.0 bpm, indicating a delta of 61.5 bpm. This is accompanied by a high HRV RMSSD of 302.3 ms, suggesting heightened physiological arousal. Facial action units showed a notable AU24 max of 2.09, which is often associated with lip pressing, a potential indicator of stress or determination. His vocal pitch rose from a baseline of 100.2 Hz to a peak of 206.1 Hz, a delta of 105.8 Hz, which can be consistent with emotional intensity. The speech rate was relatively fast at 173.9 wpm, with minimal hedging (count of 2) and a pronoun drop rate of 1.00, suggesting directness in communication.",
+      "comparative_profile": "The physiological and behavioral signals observed in Snowden's interview show similarities to other whistleblower cases such as Frances Haugen in 2021 and Daniel Ellsberg in 1971. In these cases, elevated stress markers coexisted with high sincerity scores, reflecting the intense pressure and emotional weight of their disclosures. Snowden's composite sincerity score of 53 aligns with these historical patterns, where high stress does not preclude sincerity.",
+      "qualifications": "Physiological arousal can reflect a variety of emotional states, including stress, fear, or determination, and does not solely indicate deception. The signal quality for this analysis is high, with all data sources marked as real, ensuring reliable measurements. However, it is important to note that this analysis does not determine truthfulness, only the presence of signals consistent with stress and sincerity."
+    },
+    "similar_clips": [
+      "haugen_2021",
+      "ellsberg_1971"
+    ],
+    "signal_quality": {
+      "rppg": "real",
+      "facial_au": "real",
+      "voice": "real",
+      "transcript": "real"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "clip_id": "ellsberg_1971",
+    "subject": "Daniel Ellsberg",
+    "statement": "I felt as an American citizen, as a responsible citizen, I could no longer cooperate in concealing this information from the American public.",
+    "year": 1971,
+    "context": "Press conference in Boston, June 1971, after the Pentagon Papers were published by The New York Times. Ellsberg publicly confesses to leaking the classified Vietnam War study while facing potential life imprisonment under the Espionage Act.",
+    "ground_truth": "sincere",
+    "ground_truth_source": "All 12 charges dismissed by Judge Byrne on 11 May 1973 due to government misconduct (Plumbers' break-in at Ellsberg's psychiatrist). Supreme Court 6-3 in NYT v. United States (30 June 1971) upheld publication; Ellsberg's factual claims have never been contested.",
+    "video_url": "https://www.youtube.com/watch?v=wYQ1EBqcO_Y",
+    "video_start_seconds": 30.0,
+    "video_end_seconds": 60.0,
+    "thumbnail_url": "https://img.youtube.com/vi/wYQ1EBqcO_Y/hqdefault.jpg",
+    "signals": {
+      "hr_baseline_bpm": 75.0,
+      "hr_peak_bpm": 92.0,
+      "hr_delta_bpm": 17.0,
+      "hrv_rmssd_ms": 22.0,
+      "au15_max_intensity": 1.5,
+      "au14_max_intensity": 1.0,
+      "au6_present": false,
+      "au24_max_intensity": 1.5,
+      "f0_baseline_hz": 120.0,
+      "f0_peak_hz": 145.0,
+      "f0_delta_hz": 25.0,
+      "jitter_percent": 2.5,
+      "shimmer_db": 1.6,
+      "speech_rate_wpm": 130.0,
+      "hedging_count": 0,
+      "pronoun_drop_rate": 0.0,
+      "transcript": "",
+      "timeline": [
+        {
+          "t": 0.0,
+          "hr": 75.0,
+          "f0": 120.0,
+          "au15": 0.0,
+          "deception": 3.8500000000000005
+        },
+        {
+          "t": 1.0,
+          "hr": 75.2,
+          "f0": 120.86206896551724,
+          "au15": 0.05172413793103448,
+          "deception": 3.9586206896551728
+        },
+        {
+          "t": 2.0,
+          "hr": 75.8,
+          "f0": 121.72413793103448,
+          "au15": 0.10344827586206896,
+          "deception": 4.067241379310345
+        },
+        {
+          "t": 3.0,
+          "hr": 76.7,
+          "f0": 122.58620689655173,
+          "au15": 0.15517241379310345,
+          "deception": 4.175862068965518
+        },
+        {
+          "t": 4.0,
+          "hr": 78.0,
+          "f0": 123.44827586206897,
+          "au15": 0.20689655172413793,
+          "deception": 4.28448275862069
+        },
+        {
+          "t": 5.0,
+          "hr": 79.5,
+          "f0": 124.3103448275862,
+          "au15": 0.25862068965517243,
+          "deception": 4.393103448275863
+        },
+        {
+          "t": 6.0,
+          "hr": 81.2,
+          "f0": 125.17241379310344,
+          "au15": 0.3103448275862069,
+          "deception": 4.501724137931035
+        },
+        {
+          "t": 7.0,
+          "hr": 83.0,
+          "f0": 126.03448275862068,
+          "au15": 0.3620689655172414,
+          "deception": 4.610344827586207
+        },
+        {
+          "t": 8.0,
+          "hr": 84.9,
+          "f0": 126.89655172413794,
+          "au15": 0.41379310344827586,
+          "deception": 4.718965517241379
+        },
+        {
+          "t": 9.0,
+          "hr": 86.6,
+          "f0": 127.75862068965517,
+          "au15": 0.4655172413793104,
+          "deception": 4.827586206896552
+        },
+        {
+          "t": 10.0,
+          "hr": 88.3,
+          "f0": 128.6206896551724,
+          "au15": 0.5172413793103449,
+          "deception": 4.936206896551724
+        },
+        {
+          "t": 11.0,
+          "hr": 89.7,
+          "f0": 129.48275862068965,
+          "au15": 0.5689655172413792,
+          "deception": 5.044827586206896
+        },
+        {
+          "t": 12.0,
+          "hr": 90.8,
+          "f0": 130.3448275862069,
+          "au15": 0.6206896551724138,
+          "deception": 5.153448275862069
+        },
+        {
+          "t": 13.0,
+          "hr": 91.6,
+          "f0": 131.20689655172413,
+          "au15": 0.6724137931034483,
+          "deception": 5.2620689655172415
+        },
+        {
+          "t": 14.0,
+          "hr": 92.0,
+          "f0": 132.06896551724137,
+          "au15": 0.7241379310344828,
+          "deception": 5.370689655172414
+        },
+        {
+          "t": 15.0,
+          "hr": 92.0,
+          "f0": 132.93103448275863,
+          "au15": 0.7758620689655173,
+          "deception": 5.479310344827587
+        },
+        {
+          "t": 16.0,
+          "hr": 91.6,
+          "f0": 133.79310344827587,
+          "au15": 0.8275862068965517,
+          "deception": 5.587931034482759
+        },
+        {
+          "t": 17.0,
+          "hr": 90.8,
+          "f0": 134.6551724137931,
+          "au15": 0.8793103448275861,
+          "deception": 5.696551724137931
+        },
+        {
+          "t": 18.0,
+          "hr": 89.7,
+          "f0": 135.51724137931035,
+          "au15": 0.9310344827586208,
+          "deception": 5.805172413793104
+        },
+        {
+          "t": 19.0,
+          "hr": 88.3,
+          "f0": 136.3793103448276,
+          "au15": 0.9827586206896551,
+          "deception": 5.913793103448276
+        },
+        {
+          "t": 20.0,
+          "hr": 86.6,
+          "f0": 137.24137931034483,
+          "au15": 1.0344827586206897,
+          "deception": 6.022413793103448
+        },
+        {
+          "t": 21.0,
+          "hr": 84.9,
+          "f0": 138.10344827586206,
+          "au15": 1.0862068965517242,
+          "deception": 6.13103448275862
+        },
+        {
+          "t": 22.0,
+          "hr": 83.0,
+          "f0": 138.9655172413793,
+          "au15": 1.1379310344827585,
+          "deception": 6.239655172413793
+        },
+        {
+          "t": 23.0,
+          "hr": 81.2,
+          "f0": 139.82758620689654,
+          "au15": 1.1896551724137931,
+          "deception": 6.3482758620689665
+        },
+        {
+          "t": 24.0,
+          "hr": 79.5,
+          "f0": 140.68965517241378,
+          "au15": 1.2413793103448276,
+          "deception": 6.456896551724139
+        },
+        {
+          "t": 25.0,
+          "hr": 78.0,
+          "f0": 141.55172413793105,
+          "au15": 1.293103448275862,
+          "deception": 6.565517241379311
+        },
+        {
+          "t": 26.0,
+          "hr": 76.7,
+          "f0": 142.41379310344828,
+          "au15": 1.3448275862068966,
+          "deception": 6.674137931034483
+        },
+        {
+          "t": 27.0,
+          "hr": 75.8,
+          "f0": 143.27586206896552,
+          "au15": 1.396551724137931,
+          "deception": 6.7827586206896555
+        },
+        {
+          "t": 28.0,
+          "hr": 75.2,
+          "f0": 144.13793103448276,
+          "au15": 1.4482758620689655,
+          "deception": 6.891379310344828
+        },
+        {
+          "t": 29.0,
+          "hr": 75.0,
+          "f0": 145.0,
+          "au15": 1.5,
+          "deception": 7.0
+        }
+      ]
+    },
+    "scores": {
+      "deception": 7,
+      "sincerity": 65,
+      "stress": 48,
+      "confidence": 54
+    },
+    "llm_report": {
+      "behavioral_summary": "During the press conference, Daniel Ellsberg exhibited a heart rate increase from a baseline of 75.0 bpm to a peak of 92.0 bpm, indicating a delta of 17.0 bpm. His vocal pitch rose from a baseline of 120.0 Hz to a peak of 145.0 Hz, with a delta of 25.0 Hz. Facial action units showed moderate activation with AU15 maxing at 1.5 and AU24 at 1.5, while AU6 was not present. Despite these physiological stress indicators, there was no hedging, and the pronoun drop rate was 0.00, suggesting a direct and consistent speech pattern.",
+      "comparative_profile": "Ellsberg's physiological and behavioral signals are similar to those observed in whistleblower Edward Snowden in 2013, where high stress coexisted with high sincerity scores. The elevated stress markers are also reminiscent of President Nixon's 1973 press conferences, though Ellsberg's sincerity score of 65 is notably higher, aligning with his historical context of sincere whistleblowing.",
+      "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis is limited, with fallback methods used for rPPG, facial action units, voice, and transcript data. This analysis does not determine truth but provides a summary of observed signals."
+    },
+    "similar_clips": [
+      "nixon_1973",
+      "snowden_2013"
+    ],
+    "signal_quality": {
+      "rppg": "fallback",
+      "facial_au": "fallback",
+      "voice": "fallback",
+      "transcript": "fallback"
     }
   }
 ]

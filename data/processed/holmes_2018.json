@@ -16,10 +16,10 @@
     "hr_peak_bpm": 112.9,
     "hr_delta_bpm": 41.4,
     "hrv_rmssd_ms": 287.8,
-    "au15_max_intensity": 2.2,
-    "au14_max_intensity": 1.6,
+    "au15_max_intensity": 0.09,
+    "au14_max_intensity": 4.94,
     "au6_present": false,
-    "au24_max_intensity": 1.9,
+    "au24_max_intensity": 1.91,
     "f0_baseline_hz": 133.1,
     "f0_peak_hz": 346.5,
     "f0_delta_hz": 213.4,
@@ -35,97 +35,97 @@
         "hr": 60.2,
         "f0": 133.1,
         "au15": 0.0,
-        "deception": 37.400000000000006
+        "deception": 52.800000000000004
       },
       {
         "t": 5.25,
         "hr": 60.2,
         "f0": 152.5,
-        "au15": 0.2,
-        "deception": 40.18181818181819
+        "au15": 0.008181818181818182,
+        "deception": 56.727272727272734
       },
       {
         "t": 6.05,
         "hr": 65.0,
         "f0": 171.9,
-        "au15": 0.4,
-        "deception": 42.96363636363637
+        "au15": 0.016363636363636365,
+        "deception": 60.654545454545456
       },
       {
         "t": 6.86,
         "hr": 93.7,
         "f0": 191.29999999999998,
-        "au15": 0.6,
-        "deception": 45.74545454545454
+        "au15": 0.024545454545454544,
+        "deception": 64.58181818181818
       },
       {
         "t": 7.66,
         "hr": 112.9,
         "f0": 210.7,
-        "au15": 0.8,
-        "deception": 48.527272727272724
+        "au15": 0.03272727272727273,
+        "deception": 68.5090909090909
       },
       {
         "t": 8.46,
         "hr": 112.9,
         "f0": 230.1,
-        "au15": 1.0,
-        "deception": 51.30909090909091
+        "au15": 0.04090909090909091,
+        "deception": 72.43636363636364
       },
       {
         "t": 9.26,
         "hr": 112.9,
         "f0": 249.5,
-        "au15": 1.2,
-        "deception": 54.09090909090909
+        "au15": 0.04909090909090909,
+        "deception": 76.36363636363637
       },
       {
         "t": 10.06,
         "hr": 112.9,
         "f0": 268.9,
-        "au15": 1.4000000000000001,
-        "deception": 56.872727272727275
+        "au15": 0.05727272727272727,
+        "deception": 80.2909090909091
       },
       {
         "t": 10.86,
         "hr": 102.0,
         "f0": 288.3,
-        "au15": 1.6,
-        "deception": 59.654545454545456
+        "au15": 0.06545454545454546,
+        "deception": 84.21818181818182
       },
       {
         "t": 11.67,
         "hr": 85.5,
         "f0": 307.70000000000005,
-        "au15": 1.8000000000000003,
-        "deception": 62.43636363636364
+        "au15": 0.07363636363636364,
+        "deception": 88.14545454545456
       },
       {
         "t": 12.46,
         "hr": 96.5,
         "f0": 327.1,
-        "au15": 2.0,
-        "deception": 65.21818181818182
+        "au15": 0.08181818181818182,
+        "deception": 92.07272727272728
       },
       {
         "t": 13.26,
         "hr": 112.9,
         "f0": 346.5,
-        "au15": 2.2,
-        "deception": 68.0
+        "au15": 0.09,
+        "deception": 96.0
       }
     ]
   },
   "scores": {
-    "deception": 68,
-    "sincerity": 31,
+    "deception": 96,
+    "sincerity": 16,
     "stress": 76,
     "confidence": 52
   },
   "llm_report": {
-    "behavioral_summary": "During the statement, Elizabeth Holmes exhibited a significant heart rate increase from a baseline of 71.5 bpm to a peak of 112.9 bpm, indicating a delta of 41.4 bpm. Her vocal pitch also showed a substantial rise, with a baseline of 133.1 Hz peaking at 346.5 Hz, resulting in a delta of 213.4 Hz. Facial action units showed moderate activation, with AU15 reaching a maximum intensity of 2.2. The speech rate was relatively fast at 206.6 words per minute, and there was minimal hedging with a count of 1. The composite scores indicated a higher deception score of 68 and a lower sincerity score of 31, with stress levels at 76.",
-    "comparative_profile": "The physiological and vocal patterns observed in this clip are similar to those in the 'sbf_2022' entry, where elevated heart rate and vocal pitch were also noted. Additionally, the 'armstrong_2005' case showed comparable stress indicators, with high stress and low sincerity scores. These patterns suggest a consistency with high-stress responses seen in other high-profile public defenses.",
-    "qualifications": "Physiological arousal can reflect a range of emotions such as stress, fear, or anger, and does not solely indicate deception. The signal quality was mixed, with real data for rPPG, voice, and transcript, but fallback data for facial action units, which may affect the accuracy of facial expression analysis."
+    "behavioral_summary": "During the statement, Elizabeth Holmes exhibited a heart rate increase from a baseline of 71.5 bpm to a peak of 112.9 bpm, indicating a delta of 41.4 bpm. Her vocal pitch (F0) rose significantly from a baseline of 133.1 Hz to a peak of 346.5 Hz, with a delta of 213.4 Hz. Facial Action Units showed a notable intensity in AU14 (dimpler) at 4.94, while AU15 (lip corner depressor) was minimal at 0.09. The speech rate was relatively high at 206.6 words per minute, with only one instance of hedging and a pronoun drop rate of 0.73. These signals suggest elevated physiological arousal and stress levels, which are consistent with high-stakes situations.",
+    "comparative_profile": "The signal pattern observed in Holmes's statement is similar to that of 'sbf_2022' and 'armstrong_2005', where elevated stress markers and vocal pitch were noted. In both cases, the individuals were under scrutiny for financial misrepresentations, showing comparable physiological responses. The composite scores in this instance, with a high deception score of 96 and low sincerity score of 16, align with these historical entries.",
+    "qualifications": "Physiological arousal can reflect various emotional states, including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis is high, with all data sources (rppg, facial AU, voice, transcript) confirmed as real. This is not a truth determination, and the analysis should be considered within the context of potential stressors unrelated to the statement's veracity."
   },
   "similar_clips": [
     "sbf_2022",
@@ -133,7 +133,7 @@
   ],
   "signal_quality": {
     "rppg": "real",
-    "facial_au": "fallback",
+    "facial_au": "real",
     "voice": "real",
     "transcript": "real"
   }
