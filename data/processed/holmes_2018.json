@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "clip_id": "holmes_2018",
+  "subject": "Elizabeth Holmes",
+  "statement": "Our technology works, and the test results we have provided patients are accurate.",
+  "year": 2018,
+  "context": "Defending Theranos's Edison blood-testing device against Wall Street Journal reporting on falsified results.",
+  "ground_truth": "false",
+  "ground_truth_source": "Convicted on four counts of fraud in January 2022; sentenced to 11 years 3 months in federal prison.",
+  "video_url": "https://www.youtube.com/watch?v=rGfaJZAdfNE",
+  "video_start_seconds": 10.0,
+  "video_end_seconds": 28.0,
+  "thumbnail_url": "https://img.youtube.com/vi/rGfaJZAdfNE/hqdefault.jpg",
+  "signals": {
+    "hr_baseline_bpm": 71.5,
+    "hr_peak_bpm": 112.9,
+    "hr_delta_bpm": 41.4,
+    "hrv_rmssd_ms": 287.8,
+    "au15_max_intensity": 2.2,
+    "au14_max_intensity": 1.6,
+    "au6_present": false,
+    "au24_max_intensity": 1.9,
+    "f0_baseline_hz": 133.1,
+    "f0_peak_hz": 346.5,
+    "f0_delta_hz": 213.4,
+    "jitter_percent": 2.94,
+    "shimmer_db": 1.02,
+    "speech_rate_wpm": 206.6,
+    "hedging_count": 1,
+    "pronoun_drop_rate": 0.7311827956989247,
+    "transcript": "and Silicon Valley has come under fire. I'm talking about Theranos. That's the diagnostics company with the ultra-fast fingerprint blood testing technology that's aiming to upend the entire traditional healthcare establishment by making it easier, less expensive, and much less uncomfortable for you to get tested for a whole range of conditions.",
+    "timeline": [
+      {
+        "t": 4.45,
+        "hr": 60.2,
+        "f0": 133.1,
+        "au15": 0.0,
+        "deception": 36.85
+      },
+      {
+        "t": 5.25,
+        "hr": 60.2,
+        "f0": 152.5,
+        "au15": 0.2,
+        "deception": 39.59090909090909
+      },
+      {
+        "t": 6.05,
+        "hr": 65.0,
+        "f0": 171.9,
+        "au15": 0.4,
+        "deception": 42.331818181818186
+      },
+      {
+        "t": 6.86,
+        "hr": 93.7,
+        "f0": 191.29999999999998,
+        "au15": 0.6,
+        "deception": 45.07272727272727
+      },
+      {
+        "t": 7.66,
+        "hr": 112.9,
+        "f0": 210.7,
+        "au15": 0.8,
+        "deception": 47.81363636363636
+      },
+      {
+        "t": 8.46,
+        "hr": 112.9,
+        "f0": 230.1,
+        "au15": 1.0,
+        "deception": 50.55454545454546
+      },
+      {
+        "t": 9.26,
+        "hr": 112.9,
+        "f0": 249.5,
+        "au15": 1.2,
+        "deception": 53.29545454545455
+      },
+      {
+        "t": 10.06,
+        "hr": 112.9,
+        "f0": 268.9,
+        "au15": 1.4000000000000001,
+        "deception": 56.03636363636364
+      },
+      {
+        "t": 10.86,
+        "hr": 102.0,
+        "f0": 288.3,
+        "au15": 1.6,
+        "deception": 58.77727272727273
+      },
+      {
+        "t": 11.67,
+        "hr": 85.5,
+        "f0": 307.70000000000005,
+        "au15": 1.8000000000000003,
+        "deception": 61.51818181818182
+      },
+      {
+        "t": 12.46,
+        "hr": 96.5,
+        "f0": 327.1,
+        "au15": 2.0,
+        "deception": 64.25909090909092
+      },
+      {
+        "t": 13.26,
+        "hr": 112.9,
+        "f0": 346.5,
+        "au15": 2.2,
+        "deception": 67.0
+      }
+    ]
+  },
+  "scores": {
+    "deception": 67,
+    "sincerity": 32,
+    "stress": 76,
+    "confidence": 52
+  },
+  "llm_report": {
+    "behavioral_summary": "Elizabeth Holmes's denial shows a heart-rate delta of 41.4 bpm and an F0 delta of 213.4 Hz, both elevated relative to a neutral baseline. AU15 lip-suppression peaked at 2.2; hedging language appeared 1 time(s) in the 207 wpm utterance. The composite pattern is consistent with patterns observed in historically resolved false denials.",
+    "comparative_profile": "Among archive entries with confirmed false-denial outcomes, this clip's deception score sits in the upper range. The pattern resembles cases later resolved against the speaker on the public record.",
+    "qualifications": "This is not a truth determination. Physiological arousal can reflect stress, fear, anger, fatigue, or other causes. Some signals on this clip were extracted using fallback estimators where the source video did not permit clean rPPG / AU extraction; treat the report as a research-grade prototype, not a forensic verdict."
+  },
+  "similar_clips": [
+    "sbf_2022",
+    "armstrong_2005"
+  ],
+  "signal_quality": {
+    "rppg": "real",
+    "facial_au": "fallback",
+    "voice": "real",
+    "transcript": "real"
+  }
+}

@@ -283,19 +283,33 @@ def _build_timeline(
             for i in range(min_points)
         ]
 
-    n = max(len(rppg_timeline), min_points)
     pts: list[TimelinePoint] = []
-    for idx, entry in enumerate(rppg_timeline):
-        progress = idx / max(n - 1, 1)
+    rppg = list(rppg_timeline)
+    src_n = len(rppg)
+    target_n = max(src_n, min_points)
+    src_hrs = np.array([p.get("hr", 72.0) for p in rppg], dtype=float)
+    src_ts = np.array([p.get("t", i) for i, p in enumerate(rppg)], dtype=float)
+
+    if target_n == src_n:
+        ts = src_ts
+        hrs = src_hrs
+    else:
+        # Linearly resample HR + time onto target_n grid so the schema's
+        # min_length=10 is always satisfied even on very short clips.
+        idx_src = np.linspace(0.0, 1.0, src_n)
+        idx_tgt = np.linspace(0.0, 1.0, target_n)
+        hrs = np.interp(idx_tgt, idx_src, src_hrs)
+        ts = np.interp(idx_tgt, idx_src, src_ts)
+
+    for idx in range(target_n):
+        progress = idx / max(target_n - 1, 1)
         pts.append(
             TimelinePoint(
-                t=float(entry.get("t", idx)),
-                hr=float(entry.get("hr", 72.0)),
+                t=float(round(ts[idx], 2)),
+                hr=float(round(hrs[idx], 1)),
                 f0=float(f0_baseline + (f0_peak - f0_baseline) * progress),
                 au15=float(au15_max * progress),
-                deception=float(
-                    deception_score * (0.55 + 0.45 * progress)
-                ),
+                deception=float(deception_score * (0.55 + 0.45 * progress)),
             )
         )
     return pts

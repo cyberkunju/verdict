@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "clip_id": "haugen_2021",
+  "subject": "Frances Haugen",
+  "statement": "Facebook's own research shows their products harm children and weaken democracy.",
+  "year": 2021,
+  "context": "United States Senate Subcommittee testimony, 5 October 2021, on Facebook's internal research disclosures.",
+  "ground_truth": "sincere",
+  "ground_truth_source": "Whistleblower disclosure verified by tens of thousands of internal Facebook documents released to the SEC and reported by The Wall Street Journal as 'The Facebook Files'.",
+  "video_url": "https://www.youtube.com/watch?v=tLT1mq2u4h4",
+  "video_start_seconds": 5.0,
+  "video_end_seconds": 23.0,
+  "thumbnail_url": "https://img.youtube.com/vi/tLT1mq2u4h4/hqdefault.jpg",
+  "signals": {
+    "hr_baseline_bpm": 61.9,
+    "hr_peak_bpm": 80.6,
+    "hr_delta_bpm": 18.8,
+    "hrv_rmssd_ms": 333.6,
+    "au15_max_intensity": 1.0,
+    "au14_max_intensity": 0.6,
+    "au6_present": true,
+    "au24_max_intensity": 0.8,
+    "f0_baseline_hz": 166.4,
+    "f0_peak_hz": 269.4,
+    "f0_delta_hz": 103.0,
+    "jitter_percent": 2.56,
+    "shimmer_db": 1.29,
+    "speech_rate_wpm": 186.6,
+    "hedging_count": 2,
+    "pronoun_drop_rate": 0.0,
+    "transcript": "Facebook because I think Facebook has the potential to bring out the best in us. But I'm here today because I believe Facebook's products harm children, stoke division, and weaken our democracy. The company's leadership knows how to make Facebook and Instagram saver, but won't make the",
+    "timeline": [
+      {
+        "t": 4.5,
+        "hr": 67.5,
+        "f0": 166.4,
+        "au15": 0.0,
+        "deception": 24.200000000000003
+      },
+      {
+        "t": 5.18,
+        "hr": 70.9,
+        "f0": 175.76363636363638,
+        "au15": 0.09090909090909091,
+        "deception": 26.0
+      },
+      {
+        "t": 5.86,
+        "hr": 74.3,
+        "f0": 185.12727272727273,
+        "au15": 0.18181818181818182,
+        "deception": 27.8
+      },
+      {
+        "t": 6.55,
+        "hr": 75.0,
+        "f0": 194.4909090909091,
+        "au15": 0.2727272727272727,
+        "deception": 29.6
+      },
+      {
+        "t": 7.23,
+        "hr": 75.0,
+        "f0": 203.85454545454544,
+        "au15": 0.36363636363636365,
+        "deception": 31.4
+      },
+      {
+        "t": 7.91,
+        "hr": 77.0,
+        "f0": 213.21818181818182,
+        "au15": 0.45454545454545453,
+        "deception": 33.2
+      },
+      {
+        "t": 8.59,
+        "hr": 80.5,
+        "f0": 222.58181818181816,
+        "au15": 0.5454545454545454,
+        "deception": 35.0
+      },
+      {
+        "t": 9.27,
+        "hr": 78.4,
+        "f0": 231.94545454545454,
+        "au15": 0.6363636363636364,
+        "deception": 36.800000000000004
+      },
+      {
+        "t": 9.95,
+        "hr": 68.2,
+        "f0": 241.3090909090909,
+        "au15": 0.7272727272727273,
+        "deception": 38.6
+      },
+      {
+        "t": 10.64,
+        "hr": 60.0,
+        "f0": 250.67272727272726,
+        "au15": 0.8181818181818182,
+        "deception": 40.4
+      },
+      {
+        "t": 11.32,
+        "hr": 60.0,
+        "f0": 260.0363636363636,
+        "au15": 0.9090909090909091,
+        "deception": 42.2
+      },
+      {
+        "t": 12.0,
+        "hr": 60.0,
+        "f0": 269.4,
+        "au15": 1.0,
+        "deception": 44.0
+      }
+    ]
+  },
+  "scores": {
+    "deception": 44,
+    "sincerity": 83,
+    "stress": 58,
+    "confidence": 55
+  },
+  "llm_report": {
+    "behavioral_summary": "Frances Haugen's testimony shows a heart-rate delta of 18.8 bpm and an F0 delta of 103.0 Hz consistent with elevated arousal under public scrutiny. AU6 (Duchenne) was detected; AU15 lip-suppression peaked at 1.0, well below the typical denial range. Hedging language was minimal (2). The signal pattern is consistent with high-conviction whistleblower testimony.",
+    "comparative_profile": "Across the archive, this profile is structurally distinct from deceptive denials: arousal is high, but sincerity markers (AU6, specificity, low hedging) co-occur. Treat this as a sincerity counter-example rather than a deception case.",
+    "qualifications": "This is not a truth determination. Physiological arousal can reflect stress, fear, anger, fatigue, or other causes. Some signals on this clip were extracted using fallback estimators where the source video did not permit clean rPPG / AU extraction; treat the report as a research-grade prototype, not a forensic verdict."
+  },
+  "similar_clips": [],
+  "signal_quality": {
+    "rppg": "real",
+    "facial_au": "fallback",
+    "voice": "real",
+    "transcript": "real"
+  }
+}

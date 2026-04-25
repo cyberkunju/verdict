@@ -22,7 +22,7 @@ from typing import Optional
 
 import numpy as np
 
-from .config import RPPG_FPS, RPPG_HIGH_HZ, RPPG_LOW_HZ, RPPG_WINDOW_SECONDS
+from .config import BACKEND_DIR, RPPG_FPS, RPPG_HIGH_HZ, RPPG_LOW_HZ, RPPG_WINDOW_SECONDS
 from .utils import get_logger
 
 log = get_logger("rppg")
@@ -243,35 +243,40 @@ def _bbox_to_rois(
 def _make_face_detector():
     """Returns ``detect(frame_rgb) -> bbox(x,y,w,h) | None``.
 
-    Tries MediaPipe FaceMesh first (most accurate); falls back to OpenCV
-    Haar cascade if MediaPipe is unavailable.
+    Tries MediaPipe Tasks FaceDetector (BlazeFace, downloaded once);
+    falls back to OpenCV Haar cascade if unavailable.
     """
     try:
         import mediapipe as mp  # type: ignore
+        from mediapipe.tasks.python import BaseOptions  # type: ignore
+        from mediapipe.tasks.python import vision  # type: ignore
 
-        mesh = mp.solutions.face_mesh.FaceMesh(
-            static_image_mode=False,
-            max_num_faces=1,
-            refine_landmarks=False,
+        model_path = _ensure_face_detector_model()
+        if model_path is None:
+            raise RuntimeError("face detector model not available")
+
+        options = vision.FaceDetectorOptions(
+            base_options=BaseOptions(model_asset_path=str(model_path)),
+            running_mode=vision.RunningMode.IMAGE,
             min_detection_confidence=0.5,
-            min_tracking_confidence=0.5,
         )
+        detector = vision.FaceDetector.create_from_options(options)
 
         def detect(frame_rgb: np.ndarray):
-            res = mesh.process(frame_rgb)
-            if not res.multi_face_landmarks:
+            mp_img = mp.Image(image_format=mp.ImageFormat.SRGB, data=frame_rgb)
+            result = detector.detect(mp_img)
+            if not result.detections:
                 return None
-            lms = res.multi_face_landmarks[0].landmark
-            H, W = frame_rgb.shape[:2]
-            xs = [lm.x * W for lm in lms]
-            ys = [lm.y * H for lm in lms]
-            x0, y0 = int(max(min(xs), 0)), int(max(min(ys), 0))
-            x1, y1 = int(min(max(xs), W)), int(min(max(ys), H))
-            return (x0, y0, x1 - x0, y1 - y0)
+            bb = result.detections[0].bounding_box
+            return (int(bb.origin_x), int(bb.origin_y), int(bb.width), int(bb.height))
 
+        log.info("rPPG using MediaPipe Tasks FaceDetector (BlazeFace).")
         return detect
-    except Exception:  # pragma: no cover
-        log.info("MediaPipe unavailable; using OpenCV Haar fallback for face detection.")
+    except Exception as exc:  # pragma: no cover
+        log.info(
+            "MediaPipe FaceDetector unavailable (%s); falling back to OpenCV Haar.",
+            exc,
+        )
 
     import cv2
 
@@ -286,6 +291,32 @@ def _make_face_detector():
         return tuple(int(v) for v in faces[0])
 
     return detect
+
+
+def _ensure_face_detector_model():
+    """Cache the BlazeFace short-range model on first use; return its path.
+
+    Returns ``None`` if download fails (caller should fall back to Haar).
+    """
+    cache_dir = BACKEND_DIR / "models" / "mediapipe"
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    model_path = cache_dir / "blaze_face_short_range.tflite"
+    if model_path.exists():
+        return model_path
+
+    import urllib.request
+
+    url = (
+        "https://storage.googleapis.com/mediapipe-models/face_detector/"
+        "blaze_face_short_range/float16/1/blaze_face_short_range.tflite"
+    )
+    try:
+        log.info("downloading MediaPipe face detector model -> %s", model_path)
+        urllib.request.urlretrieve(url, model_path)
+        return model_path
+    except Exception as exc:
+        log.warning("face detector model download failed: %s", exc)
+        return None
 
 
 # ---------------------------------------------------------------------------
@@ -354,15 +385,27 @@ def _windowed_hr(
     low_hz: float,
     high_hz: float,
     window_seconds: int,
+    target_samples: int = 12,
 ) -> list[HRSample]:
-    """Estimate HR (bpm) per overlapping window via Welch PSD peak."""
+    """Estimate HR (bpm) per overlapping window via Welch PSD peak.
+
+    Window and hop are scaled to the clip duration so we always emit
+    approximately ``target_samples`` HR points (the schema requires >= 10).
+    """
     from scipy.signal import welch
 
-    win = max(int(window_seconds * fps), int(4 * fps))
-    hop = max(win // 2, int(fps))
+    duration = len(signal) / max(fps, 1)
+    hop_s = max(duration / target_samples, 0.5)
+    win_s = max(min(window_seconds, duration / 2), 2.5 * hop_s, 4.0)
+    win = max(int(win_s * fps), int(2 * fps))
+    win = min(win, len(signal))
+    hop = max(int(hop_s * fps), int(0.25 * fps))
+
     samples: list[HRSample] = []
-    for start in range(0, len(signal) - win, hop):
+    for start in range(0, max(len(signal) - win, 1), hop):
         seg = signal[start : start + win]
+        if len(seg) < int(2 * fps):
+            break
         f, pxx = welch(seg, fs=fps, nperseg=min(len(seg), int(fps * 8)))
         mask = (f >= low_hz) & (f <= high_hz)
         if not mask.any():

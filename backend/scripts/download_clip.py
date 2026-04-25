@@ -59,6 +59,7 @@ def download(clip_id: str, url: str | None, start: float | None, end: float | No
         "-o", str(raw_path),
         "--merge-output-format", "mp4",
         "--no-playlist",
+        "--ffmpeg-location", ffmpeg_binary(),
         url,
     ])
 

@@ -3,8 +3,8 @@
 
 # --- Core scientific stack ---
 numpy>=1.26,<2.1
-scipy>=1.11,<1.14
-opencv-python>=4.9,<4.11
+scipy>=1.11
+opencv-python>=4.9              # mediapipe pulls opencv-contrib-python; let resolver pick latest matching
 
 # --- Video / audio I/O ---
 yt-dlp>=2024.4.9
@@ -20,7 +20,13 @@ faster-whisper>=1.0.3
 ctranslate2>=4.4               # backend for faster-whisper
 
 # --- Facial expression / Action Units ---
-py-feat>=0.6.2                 # FACS AUs (AU15/14/6/24...) + emotions
+# py-feat is intentionally left to a separate install step because its
+# transitive dep on nltools (brain imaging) sends pip resolver into
+# backtracking hell with modern numpy/scipy. Install with:
+#   pip install --no-deps py-feat
+#   pip install pandas seaborn matplotlib torch torchvision pillow scikit-learn
+# The pipeline falls back to deterministic AU profiles when py-feat is absent.
+# py-feat>=0.6.2
 mediapipe>=0.10.14             # FaceMesh for ROI definition (face only — pose forbidden)
 
 # --- Linguistic analysis ---

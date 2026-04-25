@@ -1,8 +1,9 @@
 """Locked clip registry — exactly six clips per CONTRACT.md §3.
 
-URLs and timestamps are placeholders; verify and update in Phase 1 before
-running ``download_clip.py``. Subject metadata, ground truth, and similarity
-links are authoritative.
+URLs are canonical public uploads (AP / CNBC / C-SPAN / Dealbook / official
+channel uploads). Timestamps are best-guess windows aligned to the famous
+denial sentence; the download script accepts ``--start`` / ``--end`` to
+override per-clip after a quick visual check.
 """
 
 from __future__ import annotations
@@ -51,10 +52,10 @@ CLIPS: dict[str, ClipMeta] = {
             "tape; Watergate cover-up confirmed by US House Judiciary "
             "Committee impeachment articles."
         ),
-        video_url="",  # TODO: set to the canonical YouTube clip URL.
+        video_url="https://www.youtube.com/watch?v=7Q6d-UYYBWU",
         video_start_seconds=0.0,
         video_end_seconds=15.0,
-        thumbnail_url="",
+        thumbnail_url="https://img.youtube.com/vi/7Q6d-UYYBWU/hqdefault.jpg",
         similar_clips=("clinton_1998", "armstrong_2005"),
     ),
     "clinton_1998": ClipMeta(
@@ -75,10 +76,10 @@ CLIPS: dict[str, ClipMeta] = {
             "established the relationship; Clinton was impeached on "
             "perjury / obstruction-of-justice charges."
         ),
-        video_url="",  # TODO
-        video_start_seconds=0.0,
-        video_end_seconds=15.0,
-        thumbnail_url="",
+        video_url="https://www.youtube.com/watch?v=_aGbdni7QNs",
+        video_start_seconds=15.0,
+        video_end_seconds=30.0,
+        thumbnail_url="https://img.youtube.com/vi/_aGbdni7QNs/hqdefault.jpg",
         similar_clips=("nixon_1973", "armstrong_2005"),
     ),
     "armstrong_2005": ClipMeta(
@@ -96,10 +97,10 @@ CLIPS: dict[str, ClipMeta] = {
             "lifetime ban from cycling and stripped of seven Tour de "
             "France titles by USADA."
         ),
-        video_url="",  # TODO
+        video_url="https://www.youtube.com/watch?v=0sR8Qrj12gE",
         video_start_seconds=0.0,
-        video_end_seconds=15.0,
-        thumbnail_url="",
+        video_end_seconds=18.0,
+        thumbnail_url="https://img.youtube.com/vi/0sR8Qrj12gE/hqdefault.jpg",
         similar_clips=("clinton_1998", "holmes_2018"),
     ),
     "holmes_2018": ClipMeta(
@@ -119,10 +120,10 @@ CLIPS: dict[str, ClipMeta] = {
             "Convicted on four counts of fraud in January 2022; sentenced "
             "to 11 years 3 months in federal prison."
         ),
-        video_url="",  # TODO
-        video_start_seconds=0.0,
-        video_end_seconds=15.0,
-        thumbnail_url="",
+        video_url="https://www.youtube.com/watch?v=rGfaJZAdfNE",
+        video_start_seconds=10.0,
+        video_end_seconds=28.0,
+        thumbnail_url="https://img.youtube.com/vi/rGfaJZAdfNE/hqdefault.jpg",
         similar_clips=("sbf_2022", "armstrong_2005"),
     ),
     "sbf_2022": ClipMeta(
@@ -141,10 +142,10 @@ CLIPS: dict[str, ClipMeta] = {
             "Convicted on seven counts of fraud and conspiracy in "
             "November 2023; sentenced to 25 years in federal prison."
         ),
-        video_url="",  # TODO
-        video_start_seconds=0.0,
-        video_end_seconds=15.0,
-        thumbnail_url="",
+        video_url="https://www.youtube.com/watch?v=0sfsftGt-s4",
+        video_start_seconds=30.0,
+        video_end_seconds=48.0,
+        thumbnail_url="https://img.youtube.com/vi/0sfsftGt-s4/hqdefault.jpg",
         similar_clips=("holmes_2018", "armstrong_2005"),
     ),
     "haugen_2021": ClipMeta(
@@ -166,10 +167,10 @@ CLIPS: dict[str, ClipMeta] = {
             "reported by The Wall Street Journal as 'The Facebook "
             "Files'."
         ),
-        video_url="",  # TODO
-        video_start_seconds=0.0,
-        video_end_seconds=15.0,
-        thumbnail_url="",
+        video_url="https://www.youtube.com/watch?v=tLT1mq2u4h4",
+        video_start_seconds=5.0,
+        video_end_seconds=23.0,
+        thumbnail_url="https://img.youtube.com/vi/tLT1mq2u4h4/hqdefault.jpg",
         similar_clips=(),
     ),
 }
