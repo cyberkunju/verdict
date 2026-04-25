@@ -48,3 +48,6 @@ tqdm>=4.66                     # progress bars
 
 # --- Dev tooling ---
 ruff>=0.4.0
+
+# --- Modal (remote GPU inference + training) ---
+modal>=1.4

@@ -103,7 +103,6 @@ class LinguisticFeatures:
 
 
 _SPACY_NLP = None  # cached pipeline
-_TEXT_PRIOR = None  # cached joblib artifact; False means unavailable
 
 
 def _load_spacy():
@@ -117,42 +116,22 @@ def _load_spacy():
         try:
             _SPACY_NLP = spacy.load("en_core_web_sm")
         except OSError:
-            # Model not installed; fall back.
             return None
         return _SPACY_NLP
     except ImportError:
         return None
 
 
-def _load_text_prior():
-    """Return cached VerdictTextPrior-v0 artifact or ``None`` if unavailable."""
-    global _TEXT_PRIOR
-    if _TEXT_PRIOR is False:
-        return None
-    if _TEXT_PRIOR is not None:
-        return _TEXT_PRIOR
-    model_path = BACKEND_DIR / "models" / "verdict_text_prior_v0.joblib"
-    if not model_path.exists():
-        _TEXT_PRIOR = False
-        return None
-    try:
-        import joblib
-
-        _TEXT_PRIOR = joblib.load(model_path)
-        return _TEXT_PRIOR
-    except Exception:
-        _TEXT_PRIOR = False
-        return None
-
-
 def _text_deception_prior(transcript: str) -> float | None:
-    """Predict resolved-false text prior from the local claim model."""
-    artifact = _load_text_prior()
-    if artifact is None:
-        return None
+    """Return P(resolved_false | transcript) from VerdictTextPrior-v1 via Modal.
+
+    Calls the Modal inference service which loads the trained DeBERTa-v3-base
+    model from verdict-m1-models volume. Returns None gracefully if Modal is
+    unavailable so the rest of the pipeline is unaffected.
+    """
     try:
-        model = artifact["model"]
-        return float(model.predict_proba([transcript])[0][1])
+        from services.text_prior_service import score_transcript
+        return score_transcript(transcript)
     except Exception:
         return None
 
