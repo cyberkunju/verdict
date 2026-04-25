@@ -137,7 +137,7 @@ declare global {
 export function LiveAnalyzer() {
   /* ─── State (low-frequency UI) ─────────────────────────────── */
   const [phase, setPhase] = useState<Phase>("idle");
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [errorInfo, setErrorInfo] = useState<{ step: string; name: string; message: string } | null>(null);
   const [hasMedia, setHasMedia] = useState({ video: false, audio: false });
 
   const [hrBpm, setHrBpm] = useState<number | null>(null);
@@ -208,56 +208,79 @@ export function LiveAnalyzer() {
 
   const archive = useMemo(() => getAllClips(), []);
 
-  /* ─── 1) Open webcam + audio ───────────────────────────────── */
+  /* ─── 1) Open webcam + audio ────────────────────────────────── */
   const startMedia = useCallback(async () => {
-    setErrorMsg(null);
+    setErrorInfo(null);
     setPhase("starting");
+
+    /** Run a labeled step; if it throws, capture step name + error type and rethrow. */
+    const step = async <T,>(name: string, fn: () => Promise<T> | T): Promise<T> => {
+      try {
+        return await fn();
+      } catch (err) {
+        console.error(`[live] step "${name}" failed:`, err);
+        const e = err as { name?: string; message?: string; toString?: () => string };
+        const errName = e?.name ?? (err instanceof Error ? "Error" : typeof err);
+        const errMsg =
+          e?.message ??
+          (typeof err === "string" ? err : err && typeof err === "object" ? JSON.stringify(err).slice(0, 200) : String(err));
+        setErrorInfo({ step: name, name: String(errName), message: String(errMsg) });
+        throw err;
+      }
+    };
+
     try {
       if (typeof navigator === "undefined" || !navigator.mediaDevices?.getUserMedia) {
-        throw new Error("Your browser does not expose getUserMedia.");
+        throw new Error("Your browser does not expose getUserMedia. Use Chrome, Edge, or Firefox.");
       }
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { width: { ideal: 640 }, height: { ideal: 480 }, frameRate: { ideal: 30 } },
-        audio: true,
-      });
+
+      const stream = await step("camera + microphone", () =>
+        navigator.mediaDevices.getUserMedia({
+          video: { width: { ideal: 640 }, height: { ideal: 480 }, frameRate: { ideal: 30 } },
+          audio: true,
+        }),
+      );
       streamRef.current = stream;
       setHasMedia({
         video: stream.getVideoTracks().length > 0,
         audio: stream.getAudioTracks().length > 0,
       });
-      const video = videoRef.current;
-      if (!video) throw new Error("Video element missing");
-      video.srcObject = stream;
-      await video.play();
-      // Once metadata is loaded the natural size is set; size the offscreen canvas to match
-      const w = video.videoWidth || 640;
-      const h = video.videoHeight || 480;
-      const sampleCanvas = document.createElement("canvas");
-      sampleCanvas.width = w;
-      sampleCanvas.height = h;
-      sampleCanvasRef.current = sampleCanvas;
-      const overlay = overlayCanvasRef.current;
-      if (overlay) {
-        overlay.width = w;
-        overlay.height = h;
-      }
 
-      // Audio pipeline
-      const AudioCtx: typeof AudioContext =
-        (window.AudioContext as typeof AudioContext) ||
-        ((window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext);
-      const ctx = new AudioCtx();
-      audioCtxRef.current = ctx;
-      const src = ctx.createMediaStreamSource(stream);
-      const analyser = ctx.createAnalyser();
-      analyser.fftSize = 2048;
-      analyser.smoothingTimeConstant = 0.0;
-      src.connect(analyser);
-      analyserRef.current = analyser;
-      audioBufRef.current = new Float32Array(analyser.fftSize);
-      sourceNodeRef.current = src;
+      await step("video element", async () => {
+        const video = videoRef.current;
+        if (!video) throw new Error("Video element missing from DOM.");
+        video.srcObject = stream;
+        await video.play();
+        const w = video.videoWidth || 640;
+        const h = video.videoHeight || 480;
+        const sampleCanvas = document.createElement("canvas");
+        sampleCanvas.width = w;
+        sampleCanvas.height = h;
+        sampleCanvasRef.current = sampleCanvas;
+        const overlay = overlayCanvasRef.current;
+        if (overlay) {
+          overlay.width = w;
+          overlay.height = h;
+        }
+      });
 
-      // Speech recognition (best-effort)
+      await step("audio pipeline", () => {
+        const AudioCtx: typeof AudioContext =
+          (window.AudioContext as typeof AudioContext) ||
+          ((window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext);
+        const ctx = new AudioCtx();
+        audioCtxRef.current = ctx;
+        const src = ctx.createMediaStreamSource(stream);
+        const analyser = ctx.createAnalyser();
+        analyser.fftSize = 2048;
+        analyser.smoothingTimeConstant = 0.0;
+        src.connect(analyser);
+        analyserRef.current = analyser;
+        audioBufRef.current = new Float32Array(analyser.fftSize);
+        sourceNodeRef.current = src;
+      });
+
+      // Speech recognition is best-effort and never fatal
       const SR = window.SpeechRecognition ?? window.webkitSpeechRecognition;
       if (SR) {
         const rec = new SR();
@@ -277,11 +300,7 @@ export function LiveAnalyzer() {
           transcriptRef.current = (finalTranscriptRef.current + " " + interim).trim();
         };
         rec.onend = () => {
-          // restart automatically while running
-          if (
-            phaseRef.current === "running" ||
-            phaseRef.current === "recording"
-          ) {
+          if (phaseRef.current === "running" || phaseRef.current === "recording") {
             try {
               rec.start();
             } catch {
@@ -300,15 +319,12 @@ export function LiveAnalyzer() {
         }
       }
 
-      // Load MediaPipe lazily
-      await loadLandmarker();
+      await step("face model", () => loadLandmarker());
       calibStartRef.current = performance.now();
       setPhase("running");
       runLoop();
-    } catch (err) {
-      console.error(err);
-      const msg = err instanceof Error ? err.message : "Unable to access camera or microphone.";
-      setErrorMsg(msg);
+    } catch {
+      // step() already populated errorInfo; just clean up
       setPhase("error");
       cleanupMedia();
     }
@@ -319,8 +335,11 @@ export function LiveAnalyzer() {
   const loadLandmarker = useCallback(async () => {
     if (landmarkerRef.current) return;
     const { FilesetResolver, FaceLandmarker: FL } = await import("@mediapipe/tasks-vision");
+    // The WASM runtime version MUST match the npm-installed JS wrapper version.
+    // Pin to 0.10.34 (currently in package-lock.json). If you bump the npm pkg,
+    // bump this URL too.
     const fileset = await FilesetResolver.forVisionTasks(
-      "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22/wasm",
+      "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.34/wasm",
     );
     const lm = await FL.createFromOptions(fileset, {
       baseOptions: {
@@ -793,16 +812,57 @@ export function LiveAnalyzer() {
 
       {/* Error state */}
       {phase === "error" && (
-        <div className="rounded-2xl border border-red-200 bg-red-50 p-6 text-center text-sm text-red-800">
-          <p className="font-semibold">Could not start session</p>
-          <p className="mt-1">{errorMsg}</p>
-          <button
-            type="button"
-            onClick={() => setPhase("idle")}
-            className="mt-4 inline-flex items-center gap-2 rounded-full border border-red-300 bg-white px-5 py-2 text-sm font-medium text-red-700 transition hover:bg-red-100"
-          >
-            <RotateCcw className="h-4 w-4" /> Try again
-          </button>
+        <div className="rounded-2xl border border-red-200 bg-red-50 p-6 text-left text-sm text-red-800">
+          <p className="text-center font-semibold">Could not start session</p>
+          {errorInfo ? (
+            <div className="mx-auto mt-4 max-w-xl space-y-2">
+              <p className="text-center">
+                The <span className="font-mono text-xs">{errorInfo.step}</span> step failed.
+              </p>
+              <pre className="overflow-auto rounded-lg border border-red-200 bg-white p-3 text-[11px] leading-relaxed text-red-900">
+                <code>
+                  {errorInfo.name}: {errorInfo.message}
+                </code>
+              </pre>
+              <details className="text-[11px] text-red-700/80">
+                <summary className="cursor-pointer">Common fixes</summary>
+                <ul className="ml-4 mt-2 list-disc space-y-1">
+                  <li>
+                    Open this page directly at{" "}
+                    <span className="font-mono">http://localhost:3000/live</span> in a regular
+                    Chrome or Edge tab. Some embedded browsers (including IDE preview proxies)
+                    block <span className="font-mono">getUserMedia</span>.
+                  </li>
+                  <li>
+                    Check the camera + microphone padlock icon in the browser address bar and
+                    confirm both are set to <strong>Allow</strong>.
+                  </li>
+                  <li>
+                    If the failure was on <span className="font-mono">face model</span>, try a hard
+                    reload to clear any cached, broken WASM. The model and WASM must come from{" "}
+                    <span className="font-mono">cdn.jsdelivr.net</span> and{" "}
+                    <span className="font-mono">storage.googleapis.com</span> — corporate
+                    firewalls sometimes block those domains.
+                  </li>
+                  <li>Run the open-camera test once on another site to make sure the OS camera works (no other app is holding it).</li>
+                </ul>
+              </details>
+            </div>
+          ) : (
+            <p className="mt-1 text-center">An unknown error occurred.</p>
+          )}
+          <div className="mt-5 text-center">
+            <button
+              type="button"
+              onClick={() => {
+                setErrorInfo(null);
+                setPhase("idle");
+              }}
+              className="inline-flex items-center gap-2 rounded-full border border-red-300 bg-white px-5 py-2 text-sm font-medium text-red-700 transition hover:bg-red-100"
+            >
+              <RotateCcw className="h-4 w-4" /> Try again
+            </button>
+          </div>
         </div>
       )}
 
