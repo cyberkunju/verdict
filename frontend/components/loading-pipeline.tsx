@@ -14,23 +14,46 @@ const STAGES = [
   "LLM synthesizing behavioral profile..."
 ];
 
-export function LoadingPipeline({ onComplete }: { onComplete: () => void }) {
-  const [currentStage, setCurrentStage] = useState(0);
+// Map backend job phases to visual stage indices
+const PHASE_TO_STAGE: Record<string, number> = {
+  queued: 0,
+  downloading: 1,
+  extracting: 2,
+  scoring: 4,
+  synthesizing: 6,
+  completed: 7,
+  failed: 7,
+};
 
+export function LoadingPipeline({
+  phase,
+  onComplete,
+}: {
+  phase?: string;
+  onComplete: () => void;
+}) {
+  const externalStage = phase ? (PHASE_TO_STAGE[phase] ?? 0) : undefined;
+  const [currentStage, setCurrentStage] = useState(externalStage ?? 0);
+
+  // If we have a real backend phase, use it; otherwise animate through stages
   useEffect(() => {
+    if (externalStage !== undefined) {
+      setCurrentStage(externalStage);
+      return;
+    }
     if (currentStage >= STAGES.length) {
       setTimeout(onComplete, 800);
       return;
     }
-
-    // Fake variable processing times for realism
     const delay = Math.random() * 800 + 600;
-    const timer = setTimeout(() => {
-      setCurrentStage((prev) => prev + 1);
-    }, delay);
-
+    const timer = setTimeout(() => setCurrentStage((prev) => prev + 1), delay);
     return () => clearTimeout(timer);
-  }, [currentStage, onComplete]);
+  }, [currentStage, externalStage, onComplete]);
+
+  // Sync external stage changes
+  useEffect(() => {
+    if (externalStage !== undefined) setCurrentStage(externalStage);
+  }, [externalStage]);
 
   return (
     <div className="mx-auto max-w-2xl py-12">

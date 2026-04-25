@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { AlertTriangle, ArrowRight, CheckCircle2 } from "lucide-react";
+import { AlertTriangle, ArrowRight, CheckCircle2, Zap } from "lucide-react";
 import { AnalystReport } from "@/components/analyst-report";
 import { GroundTruthPanel } from "@/components/ground-truth-panel";
 import { ScoreCard } from "@/components/score-card";
@@ -31,11 +31,15 @@ function fmt(n: number, digits = 1): string {
   return Number.isFinite(n) ? n.toFixed(digits) : "—";
 }
 
-export function ResultDashboard({ url }: { url: string }) {
+export function ResultDashboard({ url, livePayload }: { url: string; livePayload?: Record<string, unknown> }) {
   const clips = getAllClips();
   const matched = findClipByUrl(url, clips);
-  const clip = matched ?? pickFallback(clips);
-  const embedId = youtubeId(clip.video_url);
+  // Priority: live backend result > exact archive match > fallback archive clip
+  const isLive = !!livePayload;
+  const clip: Clip = isLive
+    ? (livePayload as unknown as Clip)
+    : (matched ?? pickFallback(clips));
+  const embedId = youtubeId(isLive ? url : clip.video_url);
 
   return (
     <motion.div
@@ -45,18 +49,32 @@ export function ResultDashboard({ url }: { url: string }) {
       className="space-y-8"
     >
       {/* Match status banner */}
-      {matched ? (
+      {isLive ? (
         <div
           role="status"
           className="flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4"
         >
-          <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" aria-hidden />
+          <Zap className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" aria-hidden />
           <div>
-            <p className="font-semibold text-emerald-900">Matched to archive entry</p>
+            <p className="font-semibold text-emerald-900">Live analysis — real signals extracted</p>
             <p className="mt-0.5 text-sm text-emerald-800">
-              This URL is in the locked dataset (<span className="font-mono">{clip.clip_id}</span>). All numbers below
-              are real backend output: rPPG via multi-ROI POS, voice via Praat, transcript via Whisper, and a cautious
-              GPT-4o synthesis.
+              This is a live result from the VERDICT pipeline: rPPG heart rate via multi-ROI POS, voice via Praat,
+              transcript via Whisper, linguistic prior via VerdictTextPrior-v1 (DeBERTa), and a GPT-4o analyst
+              synthesis. All numbers are real.
+            </p>
+          </div>
+        </div>
+      ) : matched ? (
+        <div
+          role="status"
+          className="flex items-start gap-3 rounded-2xl border border-blue-200 bg-blue-50 p-4"
+        >
+          <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-600" aria-hidden />
+          <div>
+            <p className="font-semibold text-blue-900">Matched to archive entry</p>
+            <p className="mt-0.5 text-sm text-blue-800">
+              This URL is in the locked dataset (<span className="font-mono">{clip.clip_id}</span>). Numbers are real
+              backend output: rPPG, voice via Praat, transcript via Whisper, GPT-4o synthesis.
             </p>
           </div>
         </div>
@@ -69,9 +87,9 @@ export function ResultDashboard({ url }: { url: string }) {
           <div>
             <p className="font-semibold text-amber-900">No archive match — preview mode</p>
             <p className="mt-0.5 text-sm text-amber-800">
-              Live signal extraction needs the Python backend running. For this preview we are showing the closest
-              comparable case from the locked archive: <strong>{clip.subject}</strong> ({clip.year}). Submit a URL from
-              the archive to see exact match data.
+              Backend is offline or unreachable. Showing the closest comparable archive case:{" "}
+              <strong>{clip.subject}</strong> ({clip.year}). Start the Python backend to get live analysis on any
+              YouTube URL.
             </p>
           </div>
         </div>
