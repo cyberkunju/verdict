@@ -55,12 +55,12 @@ Both persons must check before next phase starts.
 - [x] Create stub files for all pipeline modules. *(Went beyond stubs — fully implemented.)*
 
 ### Person 2
-- [ ] Confirm Node 18+ available: `node -v`.
-- [ ] `npx create-next-app@14 frontend` with TypeScript, Tailwind, App Router, no src/ dir.
-- [ ] Initialize shadcn/ui: `npx shadcn@latest init` with neutral/dark base color.
-- [ ] Install Recharts and Lucide: `npm i recharts lucide-react`.
-- [ ] Create `frontend/.env.example`.
-- [ ] Confirm dev server boots on port 3000: `npm run dev`.
+- [x] Confirm Node 18+ available: `node -v`.
+- [x] `npx create-next-app@14 frontend` with TypeScript, Tailwind, App Router, no src/ dir.
+- [x] Initialize shadcn/ui: `npx shadcn@latest init` with neutral/dark base color.
+- [x] Install Recharts and Lucide: `npm i recharts lucide-react`.
+- [x] Create `frontend/.env.example`.
+- [x] Confirm dev server boots on port 3000: `npm run dev`.
 
 ---
 
@@ -77,13 +77,13 @@ Both persons must check before next phase starts.
 - [ ] Decision gate: Nixon HR plausible? If no, swap clip per `PERSON1_PIPELINE.md` H1 rule.
 
 ### Person 2
-- [ ] Create `frontend/lib/types.ts` (paste from `CONTRACT.md` §11 verbatim).
-- [ ] Create `frontend/lib/mock-clips.ts` with all 6 clips matching `Clip` type, plausible values.
-- [ ] Create `frontend/lib/clips.ts` with the single import surface from `CONTRACT.md` §10.
-- [ ] Create `frontend/scripts/sync-data.mjs` (one-line copy from `../data/processed/all_clips.json`).
-- [ ] Add `"sync-data": "node scripts/sync-data.mjs"` to `frontend/package.json` scripts.
-- [ ] Create empty route files: `app/page.tsx`, `app/archive/page.tsx`, `app/archive/[clip_id]/page.tsx`, `app/calibration/page.tsx`.
-- [ ] Verify all 4 routes render placeholder text without errors.
+- [x] Create `frontend/lib/types.ts` (paste from `CONTRACT.md` §11 verbatim).
+- [x] Create `frontend/lib/mock-clips.ts` with all 6 clips matching `Clip` type, plausible values.
+- [x] Create `frontend/lib/clips.ts` with the single import surface from `CONTRACT.md` §10.
+- [x] Create `frontend/scripts/sync-data.mjs` (one-line copy from `../data/processed/all_clips.json`).
+- [x] Add `"sync-data": "node scripts/sync-data.mjs"` to `frontend/package.json` scripts.
+- [x] Create empty route files: `app/page.tsx`, `app/archive/page.tsx`, `app/archive/[clip_id]/page.tsx`, `app/calibration/page.tsx`.
+- [x] Verify all 4 routes render placeholder text without errors.
 
 ---
 
@@ -103,16 +103,16 @@ Both persons must check before next phase starts.
 - [ ] Eyeball the JSON: scores plausible, report cautious, no banned phrases.
 
 ### Person 2
-- [ ] Build `components/clip-card.tsx`: thumbnail, subject, year, statement, deception/sincerity bars, ground-truth badge.
-- [ ] Build `app/page.tsx` (home): hero headline + subhead + CTA buttons + 6 clip cards from mock.
-- [ ] Build `components/score-card.tsx`: large number + label + accent color (red/blue/amber/green).
-- [ ] Build `components/signal-chart.tsx` using Recharts LineChart on `signals.timeline`.
-- [ ] Build `components/analyst-report.tsx`: three sections in dark glass panel.
-- [ ] Build `app/archive/[clip_id]/page.tsx`: video embed (YouTube iframe), 4 score cards, signals summary, signal chart, transcript, analyst report.
-- [ ] Build `app/calibration/page.tsx`: big accuracy metric, scatter plot (Recharts), confusion matrix, clip list, disclaimer.
-- [ ] Build `app/archive/page.tsx`: dense grid of all 6 clip cards.
-- [ ] Add minimal top nav: Archive · Calibration · Method.
-- [ ] Visual pass on dark theme: black/charcoal background, serif headlines, accent colors per `PERSON2_FRONTEND_PRODUCT.md` style guide.
+- [x] Build `components/clip-card.tsx`: thumbnail, subject, year, statement, deception/sincerity bars, ground-truth badge.
+- [x] Build `app/page.tsx` (home): hero headline + subhead + CTA buttons + 6 clip cards from mock.
+- [x] Build `components/score-card.tsx`: large number + label + accent color (red/blue/amber/green).
+- [x] Build `components/signal-chart.tsx` using Recharts LineChart on `signals.timeline`.
+- [x] Build `components/analyst-report.tsx`: three sections in dark glass panel.
+- [x] Build `app/archive/[clip_id]/page.tsx`: video embed (YouTube iframe), 4 score cards, signals summary, signal chart, transcript, analyst report.
+- [x] Build `app/calibration/page.tsx`: big accuracy metric, scatter plot (Recharts), confusion matrix, clip list, disclaimer.
+- [x] Build `app/archive/page.tsx`: dense grid of all 6 clip cards.
+- [x] Add minimal top nav: Archive · Calibration · Method.
+- [x] Visual pass on dark theme: black/charcoal background, serif headlines, accent colors per `PERSON2_FRONTEND_PRODUCT.md` style guide.
 
 ---
 
@@ -240,7 +240,7 @@ Dependencies added to `CONTRACT.md` §6 beyond the original lock list.
 Append blockers as they appear. Format: `[timestamp] OWNER → <message>`.
 
 ```
-(empty)
+[2026-04-25T05:48:08Z] P2 → Waiting for Person 1 handoff file `data/processed/all_clips.json` to run `npm run sync-data` and flip `USE_MOCK = false` in `frontend/lib/clips.ts`.
 ```
 
 ---
