@@ -348,6 +348,19 @@ export function LiveAnalyzer() {
       });
 
       await step("audio pipeline", async () => {
+        // Sanity-check the audio tracks. If the OS or browser muted the track we'd
+        // otherwise silently process zeros forever; surface that as a hard error.
+        const audioTracks = stream.getAudioTracks();
+        if (audioTracks.length === 0) {
+          throw new Error("MediaStream has no audio track");
+        }
+        for (const t of audioTracks) {
+          t.enabled = true;
+          console.log(
+            `[live] audio track "${t.label}" enabled=${t.enabled} muted=${t.muted} state=${t.readyState}`,
+          );
+        }
+
         const AudioCtx: typeof AudioContext =
           (window.AudioContext as typeof AudioContext) ||
           ((window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext);
@@ -359,11 +372,24 @@ export function LiveAnalyzer() {
         if (ctx.state === "suspended") {
           await ctx.resume();
         }
+        console.log(`[live] AudioContext state=${ctx.state} sampleRate=${ctx.sampleRate}`);
+
         const src = ctx.createMediaStreamSource(stream);
         const analyser = ctx.createAnalyser();
         analyser.fftSize = 2048;
         analyser.smoothingTimeConstant = 0.0;
+
+        // CRITICAL: Chrome only pulls audio through MediaStreamSource when the graph
+        // has a path to ctx.destination. AnalyserNode by itself does NOT count as a
+        // sink — without a destination connection, the analyser receives silence.
+        // We route src -> analyser -> zeroGain -> destination so audio flows but the
+        // user doesn't hear themselves echoed back (which would cause feedback).
+        const zeroGain = ctx.createGain();
+        zeroGain.gain.value = 0;
         src.connect(analyser);
+        analyser.connect(zeroGain);
+        zeroGain.connect(ctx.destination);
+
         analyserRef.current = analyser;
         audioBufRef.current = new Float32Array(analyser.fftSize);
         sourceNodeRef.current = src;
