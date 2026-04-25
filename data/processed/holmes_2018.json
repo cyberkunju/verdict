@@ -35,97 +35,97 @@
         "hr": 60.2,
         "f0": 133.1,
         "au15": 0.0,
-        "deception": 36.85
+        "deception": 37.400000000000006
       },
       {
         "t": 5.25,
         "hr": 60.2,
         "f0": 152.5,
         "au15": 0.2,
-        "deception": 39.59090909090909
+        "deception": 40.18181818181819
       },
       {
         "t": 6.05,
         "hr": 65.0,
         "f0": 171.9,
         "au15": 0.4,
-        "deception": 42.331818181818186
+        "deception": 42.96363636363637
       },
       {
         "t": 6.86,
         "hr": 93.7,
         "f0": 191.29999999999998,
         "au15": 0.6,
-        "deception": 45.07272727272727
+        "deception": 45.74545454545454
       },
       {
         "t": 7.66,
         "hr": 112.9,
         "f0": 210.7,
         "au15": 0.8,
-        "deception": 47.81363636363636
+        "deception": 48.527272727272724
       },
       {
         "t": 8.46,
         "hr": 112.9,
         "f0": 230.1,
         "au15": 1.0,
-        "deception": 50.55454545454546
+        "deception": 51.30909090909091
       },
       {
         "t": 9.26,
         "hr": 112.9,
         "f0": 249.5,
         "au15": 1.2,
-        "deception": 53.29545454545455
+        "deception": 54.09090909090909
       },
       {
         "t": 10.06,
         "hr": 112.9,
         "f0": 268.9,
         "au15": 1.4000000000000001,
-        "deception": 56.03636363636364
+        "deception": 56.872727272727275
       },
       {
         "t": 10.86,
         "hr": 102.0,
         "f0": 288.3,
         "au15": 1.6,
-        "deception": 58.77727272727273
+        "deception": 59.654545454545456
       },
       {
         "t": 11.67,
         "hr": 85.5,
         "f0": 307.70000000000005,
         "au15": 1.8000000000000003,
-        "deception": 61.51818181818182
+        "deception": 62.43636363636364
       },
       {
         "t": 12.46,
         "hr": 96.5,
         "f0": 327.1,
         "au15": 2.0,
-        "deception": 64.25909090909092
+        "deception": 65.21818181818182
       },
       {
         "t": 13.26,
         "hr": 112.9,
         "f0": 346.5,
         "au15": 2.2,
-        "deception": 67.0
+        "deception": 68.0
       }
     ]
   },
   "scores": {
-    "deception": 67,
-    "sincerity": 32,
+    "deception": 68,
+    "sincerity": 31,
     "stress": 76,
     "confidence": 52
   },
   "llm_report": {
-    "behavioral_summary": "During the statement, Elizabeth Holmes exhibited a significant heart rate increase from a baseline of 71.5 bpm to a peak of 112.9 bpm, indicating a delta of 41.4 bpm. Her vocal pitch also rose sharply, with an F0 baseline of 133.1 Hz peaking at 346.5 Hz, resulting in a 213.4 Hz delta. Facial action units showed moderate activation with AU15 maxing at 2.2 and AU14 at 1.6, while AU6 was not present. The speech rate was relatively fast at 206.6 words per minute, with minimal hedging (count of 1) and a pronoun drop rate of 0.73. These signals are consistent with elevated stress levels.",
-    "comparative_profile": "The physiological and vocal patterns observed in Holmes's statement show similarities to the 'sbf_2022' entry, where elevated stress markers were also present. Additionally, the 'armstrong_2005' case displayed a comparable increase in vocal pitch and heart rate under scrutiny. Both historical cases involved high-stakes public defenses.",
-    "qualifications": "Physiological arousal can reflect a range of emotions, including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis includes real data for rPPG and voice, with fallback data for facial action units. This is not a truth determination."
+    "behavioral_summary": "During the statement, Elizabeth Holmes exhibited a significant heart rate increase from a baseline of 71.5 bpm to a peak of 112.9 bpm, indicating a delta of 41.4 bpm. Her vocal pitch also showed a substantial rise, with a baseline of 133.1 Hz peaking at 346.5 Hz, resulting in a delta of 213.4 Hz. Facial action units showed moderate activation, with AU15 reaching a maximum intensity of 2.2. The speech rate was relatively fast at 206.6 words per minute, and there was minimal hedging with a count of 1. The composite scores indicated a higher deception score of 68 and a lower sincerity score of 31, with stress levels at 76.",
+    "comparative_profile": "The physiological and vocal patterns observed in this clip are similar to those in the 'sbf_2022' entry, where elevated heart rate and vocal pitch were also noted. Additionally, the 'armstrong_2005' case showed comparable stress indicators, with high stress and low sincerity scores. These patterns suggest a consistency with high-stress responses seen in other high-profile public defenses.",
+    "qualifications": "Physiological arousal can reflect a range of emotions such as stress, fear, or anger, and does not solely indicate deception. The signal quality was mixed, with real data for rPPG, voice, and transcript, but fallback data for facial action units, which may affect the accuracy of facial expression analysis."
   },
   "similar_clips": [
     "sbf_2022",

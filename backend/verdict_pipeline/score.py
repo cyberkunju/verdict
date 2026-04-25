@@ -95,6 +95,7 @@ def compute_scores(
     certainty_count: int = 0,
     specificity_score: float = 0.0,
     affect_negative: int = 0,
+    text_deception_prior: float | None = None,
     rppg_timeline: Optional[list[dict]] = None,
     seed: int = 42,
     n_bootstrap: int = 200,
@@ -160,6 +161,11 @@ def compute_scores(
         + 0.15 * (1.0 - n_au24)
         + 0.10 * n_certainty
     )
+
+    if text_deception_prior is not None:
+        prior = float(np.clip(text_deception_prior, 0.0, 1.0))
+        deception = 0.88 * deception + 0.12 * prior
+        sincerity = 0.94 * sincerity + 0.06 * (1.0 - prior)
 
     raw = {
         "deception": deception,

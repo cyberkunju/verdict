@@ -119,14 +119,14 @@
     },
     "scores": {
       "deception": 57,
-      "sincerity": 64,
+      "sincerity": 63,
       "stress": 68,
       "confidence": 76
     },
     "llm_report": {
-      "behavioral_summary": "During the statement 'I am not a crook,' Richard Nixon exhibited a heart rate increase from a baseline of 104.7 bpm to a peak of 130.9 bpm, a delta of 26.2 bpm, indicating elevated physiological arousal. The fundamental frequency (F0) of his voice rose significantly from a baseline of 143.2 Hz to a peak of 268.7 Hz, a delta of 125.4 Hz, suggesting vocal stress. Facial Action Units showed moderate activation with AU15 (lip corner depressor) peaking at 2.6 and AU24 (lip pressor) at 2.0, while AU6 (cheek raiser) was absent, indicating limited positive affect. No hedging was observed, and the pronoun drop rate was 0.22, which is relatively low.",
-      "comparative_profile": "The physiological and vocal patterns observed in Nixon's statement are similar to those seen in the clinton_1998 entry, where elevated stress markers were noted during a denial of misconduct. Additionally, the armstrong_2005 entry also showed comparable stress indicators during a public denial of doping allegations. These cases illustrate how high stress levels can accompany public denials in high-stakes situations.",
-      "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis includes real data for heart rate and voice, but facial action units were derived from fallback methods, which may affect precision. This analysis does not determine truth but highlights patterns consistent with elevated stress."
+      "behavioral_summary": "During the statement 'I am not a crook,' Richard Nixon exhibited a heart rate increase from a baseline of 104.7 bpm to a peak of 130.9 bpm, a delta of 26.2 bpm, indicating elevated physiological arousal. The F0 (fundamental frequency) rose significantly from 143.2 Hz to 268.7 Hz, a delta of 125.4 Hz, suggesting heightened vocal stress. Facial Action Units showed AU15 (lip corner depressor) at a max intensity of 2.6 and AU24 (lip pressor) at 2.0, which can be associated with negative emotions. No hedging was present, and the pronoun drop rate was 0.22, which is relatively low.",
+      "comparative_profile": "The physiological and behavioral patterns observed in Nixon's statement show similarities to those in the clinton_1998 and armstrong_2005 entries, where elevated stress markers were also present. In these cases, high stress levels were noted alongside public denials during periods of intense scrutiny.",
+      "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and should not be interpreted as definitive evidence of deception. The signal quality for this analysis includes real data for heart rate and voice, but facial action units were derived from fallback methods, which may affect precision."
     },
     "similar_clips": [
       "clinton_1998",
@@ -176,97 +176,97 @@
           "hr": 110.8,
           "f0": 121.8,
           "au15": 0.0,
-          "deception": 38.5
+          "deception": 37.95
         },
         {
           "t": 2.88,
           "hr": 84.0,
           "f0": 135.23636363636365,
           "au15": 0.2636363636363636,
-          "deception": 41.36363636363637
+          "deception": 40.77272727272727
         },
         {
           "t": 3.31,
           "hr": 66.1,
           "f0": 148.6727272727273,
           "au15": 0.5272727272727272,
-          "deception": 44.22727272727273
+          "deception": 43.595454545454544
         },
         {
           "t": 3.75,
           "hr": 92.9,
           "f0": 162.10909090909092,
           "au15": 0.7909090909090908,
-          "deception": 47.09090909090909
+          "deception": 46.41818181818182
         },
         {
           "t": 4.19,
           "hr": 110.8,
           "f0": 175.54545454545456,
           "au15": 1.0545454545454545,
-          "deception": 49.95454545454545
+          "deception": 49.24090909090909
         },
         {
           "t": 4.62,
           "hr": 110.8,
           "f0": 188.9818181818182,
           "au15": 1.3181818181818181,
-          "deception": 52.81818181818183
+          "deception": 52.06363636363637
         },
         {
           "t": 5.06,
           "hr": 97.4,
           "f0": 202.41818181818184,
           "au15": 1.5818181818181816,
-          "deception": 55.68181818181819
+          "deception": 54.88636363636364
         },
         {
           "t": 5.49,
           "hr": 70.5,
           "f0": 215.85454545454547,
           "au15": 1.8454545454545455,
-          "deception": 58.54545454545455
+          "deception": 57.70909090909091
         },
         {
           "t": 5.93,
           "hr": 61.6,
           "f0": 229.2909090909091,
           "au15": 2.109090909090909,
-          "deception": 61.409090909090914
+          "deception": 60.53181818181818
         },
         {
           "t": 6.37,
           "hr": 61.6,
           "f0": 242.72727272727275,
           "au15": 2.372727272727273,
-          "deception": 64.27272727272728
+          "deception": 63.35454545454546
         },
         {
           "t": 6.8,
           "hr": 61.6,
           "f0": 256.1636363636364,
           "au15": 2.6363636363636362,
-          "deception": 67.13636363636364
+          "deception": 66.17727272727272
         },
         {
           "t": 7.24,
           "hr": 61.6,
           "f0": 269.6,
           "au15": 2.9,
-          "deception": 70.0
+          "deception": 69.0
         }
       ]
     },
     "scores": {
-      "deception": 70,
+      "deception": 69,
       "sincerity": 49,
       "stress": 76,
       "confidence": 73
     },
     "llm_report": {
-      "behavioral_summary": "During the statement, Bill Clinton exhibited a heart rate increase from a baseline of 61.6 bpm to a peak of 110.8 bpm, indicating a delta of 49.2 bpm. The F0 (fundamental frequency) showed a significant rise from 121.8 Hz to 269.6 Hz, with a delta of 147.8 Hz. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 2.9 and AU24 (lip pressor) at 2.4, while AU6 (cheek raiser) was absent. The speech rate was measured at 171.8 words per minute, with a pronoun drop rate of 0.81, and no hedging was detected. These signals are consistent with elevated stress and emotional arousal during the statement.",
-      "comparative_profile": "The physiological and behavioral patterns observed in this clip are similar to those in the 'nixon_1973' entry, where elevated stress markers were also present during a high-stakes denial. Additionally, the 'armstrong_2005' entry showed comparable vocal stress indicators during a public denial of doping allegations. Both cases exhibited high stress and arousal levels, similar to Clinton's profile.",
-      "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, anger, or fatigue, and does not solely indicate deception. The signal quality for this analysis includes real-time photoplethysmography (rPPG) and voice data, with facial action units derived from fallback methods. This analysis does not determine truth but highlights patterns consistent with high stress and emotional arousal."
+      "behavioral_summary": "During the statement, Bill Clinton exhibited a significant heart rate increase from a baseline of 61.6 bpm to a peak of 110.8 bpm, a delta of 49.2 bpm, indicating elevated physiological arousal. The F0 (fundamental frequency) of his voice rose sharply from a baseline of 121.8 Hz to a peak of 269.6 Hz, a delta of 147.8 Hz, suggesting heightened vocal tension. Facial action units showed moderate activation with AU15 (lip corner depressor) peaking at 2.9 and AU24 (lip pressor) at 2.4, while AU6 (cheek raiser) was absent. No hedging was present, and the pronoun drop rate was relatively high at 0.81, which can sometimes indicate distancing language.",
+      "comparative_profile": "The physiological and behavioral signals observed in this statement are similar to those recorded in the 'nixon_1973' entry, where Richard Nixon also displayed elevated stress markers during a press conference. Additionally, the vocal tension and facial expressions bear resemblance to the 'armstrong_2005' entry, where Lance Armstrong exhibited similar stress-related signals during a public denial.",
+      "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, or anger, and does not necessarily indicate deception. The signal quality for this analysis includes real-time photoplethysmography (rPPG) for heart rate, fallback for facial action units, and real voice and transcript data. These factors should be considered when interpreting the results, as this is not a truth determination."
     },
     "similar_clips": [
       "nixon_1973",
@@ -316,97 +316,97 @@
           "hr": 75.0,
           "f0": 85.3,
           "au15": 0.0,
-          "deception": 30.800000000000004
+          "deception": 29.150000000000002
         },
         {
           "t": 5.27,
           "hr": 75.0,
           "f0": 113.9090909090909,
           "au15": 0.21818181818181817,
-          "deception": 33.09090909090909
+          "deception": 31.31818181818182
         },
         {
           "t": 6.07,
           "hr": 75.7,
           "f0": 142.5181818181818,
           "au15": 0.43636363636363634,
-          "deception": 35.38181818181818
+          "deception": 33.486363636363635
         },
         {
           "t": 6.88,
           "hr": 79.8,
           "f0": 171.12727272727273,
           "au15": 0.6545454545454544,
-          "deception": 37.67272727272727
+          "deception": 35.654545454545456
         },
         {
           "t": 7.69,
           "hr": 82.5,
           "f0": 199.73636363636365,
           "au15": 0.8727272727272727,
-          "deception": 39.96363636363636
+          "deception": 37.82272727272727
         },
         {
           "t": 8.5,
           "hr": 82.5,
           "f0": 228.34545454545452,
           "au15": 1.0909090909090908,
-          "deception": 42.25454545454546
+          "deception": 39.99090909090909
         },
         {
           "t": 9.3,
           "hr": 84.5,
           "f0": 256.95454545454544,
           "au15": 1.3090909090909089,
-          "deception": 44.54545454545455
+          "deception": 42.159090909090914
         },
         {
           "t": 10.11,
           "hr": 88.6,
           "f0": 285.56363636363636,
           "au15": 1.5272727272727271,
-          "deception": 46.83636363636364
+          "deception": 44.32727272727273
         },
         {
           "t": 10.92,
           "hr": 79.1,
           "f0": 314.1727272727273,
           "au15": 1.7454545454545454,
-          "deception": 49.12727272727273
+          "deception": 46.49545454545455
         },
         {
           "t": 11.73,
           "hr": 62.7,
           "f0": 342.7818181818182,
           "au15": 1.9636363636363636,
-          "deception": 51.41818181818182
+          "deception": 48.663636363636364
         },
         {
           "t": 12.53,
           "hr": 60.0,
           "f0": 371.3909090909091,
           "au15": 2.1818181818181817,
-          "deception": 53.70909090909091
+          "deception": 50.831818181818186
         },
         {
           "t": 13.34,
           "hr": 60.0,
           "f0": 400.0,
           "au15": 2.4,
-          "deception": 56.0
+          "deception": 53.0
         }
       ]
     },
     "scores": {
-      "deception": 56,
-      "sincerity": 43,
+      "deception": 53,
+      "sincerity": 45,
       "stress": 67,
       "confidence": 62
     },
     "llm_report": {
-      "behavioral_summary": "During the statement, Lance Armstrong exhibited a heart rate increase from a baseline of 67.5 bpm to a peak of 87.8 bpm, indicating a delta of 20.2 bpm. The fundamental frequency (F0) showed a significant rise from 85.3 Hz to 400.0 Hz, a delta of 314.7 Hz, which is notably high. Facial action units (AUs) recorded AU15 at a maximum intensity of 2.4, AU14 at 1.5, and AU24 at 2.1, with AU6 absent. The speech rate was measured at 163.2 words per minute, with no hedging and a pronoun drop rate of 0.66. These signals are consistent with elevated stress levels.",
-      "comparative_profile": "The signal pattern observed in Armstrong's statement shares similarities with the 'clinton_1998' and 'holmes_2018' entries, where elevated physiological arousal and vocal stress markers were also present. In these cases, high stress levels were noted alongside public denials of allegations.",
-      "qualifications": "Physiological arousal can reflect a variety of emotional states such as stress, fear, anger, or fatigue, and does not solely indicate deception. The signal quality was affected by the use of fallback methods for facial action unit analysis, though heart rate and voice data were reliable. This analysis is not a determination of truth."
+      "behavioral_summary": "During the statement, Lance Armstrong exhibited a heart rate increase from a baseline of 67.5 bpm to a peak of 87.8 bpm, indicating a delta of 20.2 bpm. His vocal pitch showed a significant rise, with a baseline of 85.3 Hz peaking at 400.0 Hz, resulting in a delta of 314.7 Hz. Facial action units showed moderate activation, with AU15 at 2.4 and AU24 at 2.1, while AU6 was not present. The speech rate was measured at 163.2 words per minute, with no hedging detected and a pronoun drop rate of 0.66. These signals are consistent with elevated stress levels, though this is not a truth determination.",
+      "comparative_profile": "The signal pattern observed in Armstrong's statement shows similarities to the 'clinton_1998' entry, where elevated physiological arousal was also noted during a public denial. Additionally, the 'holmes_2018' entry displayed comparable vocal pitch elevation and stress indicators during high-stakes public statements. These patterns suggest a common physiological response under scrutiny, though individual contexts differ.",
+      "qualifications": "Physiological arousal can reflect a variety of emotional states, including stress, fear, or anger, and is not solely indicative of deception. The signal quality for this analysis includes real-time pulse rate and voice data, with facial action units derived from fallback methods. As always, this analysis does not determine truth but highlights signal patterns for further consideration."
     },
     "similar_clips": [
       "clinton_1998",
@@ -456,97 +456,97 @@
           "hr": 60.2,
           "f0": 133.1,
           "au15": 0.0,
-          "deception": 36.85
+          "deception": 37.400000000000006
         },
         {
           "t": 5.25,
           "hr": 60.2,
           "f0": 152.5,
           "au15": 0.2,
-          "deception": 39.59090909090909
+          "deception": 40.18181818181819
         },
         {
           "t": 6.05,
           "hr": 65.0,
           "f0": 171.9,
           "au15": 0.4,
-          "deception": 42.331818181818186
+          "deception": 42.96363636363637
         },
         {
           "t": 6.86,
           "hr": 93.7,
           "f0": 191.29999999999998,
           "au15": 0.6,
-          "deception": 45.07272727272727
+          "deception": 45.74545454545454
         },
         {
           "t": 7.66,
           "hr": 112.9,
           "f0": 210.7,
           "au15": 0.8,
-          "deception": 47.81363636363636
+          "deception": 48.527272727272724
         },
         {
           "t": 8.46,
           "hr": 112.9,
           "f0": 230.1,
           "au15": 1.0,
-          "deception": 50.55454545454546
+          "deception": 51.30909090909091
         },
         {
           "t": 9.26,
           "hr": 112.9,
           "f0": 249.5,
           "au15": 1.2,
-          "deception": 53.29545454545455
+          "deception": 54.09090909090909
         },
         {
           "t": 10.06,
           "hr": 112.9,
           "f0": 268.9,
           "au15": 1.4000000000000001,
-          "deception": 56.03636363636364
+          "deception": 56.872727272727275
         },
         {
           "t": 10.86,
           "hr": 102.0,
           "f0": 288.3,
           "au15": 1.6,
-          "deception": 58.77727272727273
+          "deception": 59.654545454545456
         },
         {
           "t": 11.67,
           "hr": 85.5,
           "f0": 307.70000000000005,
           "au15": 1.8000000000000003,
-          "deception": 61.51818181818182
+          "deception": 62.43636363636364
         },
         {
           "t": 12.46,
           "hr": 96.5,
           "f0": 327.1,
           "au15": 2.0,
-          "deception": 64.25909090909092
+          "deception": 65.21818181818182
         },
         {
           "t": 13.26,
           "hr": 112.9,
           "f0": 346.5,
           "au15": 2.2,
-          "deception": 67.0
+          "deception": 68.0
         }
       ]
     },
     "scores": {
-      "deception": 67,
-      "sincerity": 32,
+      "deception": 68,
+      "sincerity": 31,
       "stress": 76,
       "confidence": 52
     },
     "llm_report": {
-      "behavioral_summary": "During the statement, Elizabeth Holmes exhibited a significant heart rate increase from a baseline of 71.5 bpm to a peak of 112.9 bpm, indicating a delta of 41.4 bpm. Her vocal pitch also rose sharply, with an F0 baseline of 133.1 Hz peaking at 346.5 Hz, resulting in a 213.4 Hz delta. Facial action units showed moderate activation with AU15 maxing at 2.2 and AU14 at 1.6, while AU6 was not present. The speech rate was relatively fast at 206.6 words per minute, with minimal hedging (count of 1) and a pronoun drop rate of 0.73. These signals are consistent with elevated stress levels.",
-      "comparative_profile": "The physiological and vocal patterns observed in Holmes's statement show similarities to the 'sbf_2022' entry, where elevated stress markers were also present. Additionally, the 'armstrong_2005' case displayed a comparable increase in vocal pitch and heart rate under scrutiny. Both historical cases involved high-stakes public defenses.",
-      "qualifications": "Physiological arousal can reflect a range of emotions, including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis includes real data for rPPG and voice, with fallback data for facial action units. This is not a truth determination."
+      "behavioral_summary": "During the statement, Elizabeth Holmes exhibited a significant heart rate increase from a baseline of 71.5 bpm to a peak of 112.9 bpm, indicating a delta of 41.4 bpm. Her vocal pitch also showed a substantial rise, with a baseline of 133.1 Hz peaking at 346.5 Hz, resulting in a delta of 213.4 Hz. Facial action units showed moderate activation, with AU15 reaching a maximum intensity of 2.2. The speech rate was relatively fast at 206.6 words per minute, and there was minimal hedging with a count of 1. The composite scores indicated a higher deception score of 68 and a lower sincerity score of 31, with stress levels at 76.",
+      "comparative_profile": "The physiological and vocal patterns observed in this clip are similar to those in the 'sbf_2022' entry, where elevated heart rate and vocal pitch were also noted. Additionally, the 'armstrong_2005' case showed comparable stress indicators, with high stress and low sincerity scores. These patterns suggest a consistency with high-stress responses seen in other high-profile public defenses.",
+      "qualifications": "Physiological arousal can reflect a range of emotions such as stress, fear, or anger, and does not solely indicate deception. The signal quality was mixed, with real data for rPPG, voice, and transcript, but fallback data for facial action units, which may affect the accuracy of facial expression analysis."
     },
     "similar_clips": [
       "sbf_2022",
@@ -596,97 +596,97 @@
           "hr": 60.0,
           "f0": 94.9,
           "au15": 0.0,
-          "deception": 41.25
+          "deception": 40.7
         },
         {
           "t": 5.28,
           "hr": 64.1,
           "f0": 118.00909090909092,
           "au15": 0.24545454545454548,
-          "deception": 44.31818181818182
+          "deception": 43.72727272727273
         },
         {
           "t": 6.08,
           "hr": 69.5,
           "f0": 141.11818181818182,
           "au15": 0.49090909090909096,
-          "deception": 47.38636363636364
+          "deception": 46.75454545454546
         },
         {
           "t": 6.89,
           "hr": 81.8,
           "f0": 164.22727272727275,
           "au15": 0.7363636363636363,
-          "deception": 50.45454545454545
+          "deception": 49.78181818181818
         },
         {
           "t": 7.69,
           "hr": 91.4,
           "f0": 187.33636363636367,
           "au15": 0.9818181818181819,
-          "deception": 53.52272727272727
+          "deception": 52.809090909090905
         },
         {
           "t": 8.48,
           "hr": 95.5,
           "f0": 210.44545454545454,
           "au15": 1.2272727272727273,
-          "deception": 56.5909090909091
+          "deception": 55.83636363636364
         },
         {
           "t": 9.28,
           "hr": 87.3,
           "f0": 233.55454545454546,
           "au15": 1.4727272727272727,
-          "deception": 59.659090909090914
+          "deception": 58.86363636363637
         },
         {
           "t": 10.08,
           "hr": 66.8,
           "f0": 256.6636363636364,
           "au15": 1.7181818181818183,
-          "deception": 62.727272727272734
+          "deception": 61.8909090909091
         },
         {
           "t": 10.88,
           "hr": 60.0,
           "f0": 279.7727272727273,
           "au15": 1.9636363636363638,
-          "deception": 65.79545454545455
+          "deception": 64.91818181818182
         },
         {
           "t": 11.69,
           "hr": 60.0,
           "f0": 302.8818181818182,
           "au15": 2.2090909090909094,
-          "deception": 68.86363636363636
+          "deception": 67.94545454545455
         },
         {
           "t": 12.48,
           "hr": 60.0,
           "f0": 325.9909090909091,
           "au15": 2.4545454545454546,
-          "deception": 71.93181818181819
+          "deception": 70.97272727272727
         },
         {
           "t": 13.28,
           "hr": 60.0,
           "f0": 349.1,
           "au15": 2.7,
-          "deception": 75.0
+          "deception": 74.0
         }
       ]
     },
     "scores": {
-      "deception": 75,
-      "sincerity": 34,
+      "deception": 74,
+      "sincerity": 35,
       "stress": 81,
       "confidence": 44
     },
     "llm_report": {
-      "behavioral_summary": "During the statement, Sam Bankman-Fried exhibited a heart rate increase from a baseline of 60.0 bpm to a peak of 95.2 bpm, indicating a delta of 35.2 bpm. His vocal pitch rose significantly, with an F0 delta of 254.2 Hz from a baseline of 94.9 Hz. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 2.7, AU14 (dimpler) at 1.9, and AU24 (lip pressor) at 2.3, with no presence of AU6 (cheek raiser). The speech rate was relatively fast at 203.3 words per minute, with a hedging count of 3 and a pronoun drop rate of 0.59. These signals are consistent with elevated stress levels, though this is not a truth determination.",
-      "comparative_profile": "The physiological and behavioral signals observed in this clip are similar to those recorded in the 'holmes_2018' and 'armstrong_2005' cases, where individuals also exhibited high stress indicators during public statements. In these cases, elevated heart rate and vocal pitch were noted alongside facial tension, suggesting a pattern of stress response under scrutiny.",
-      "qualifications": "Physiological arousal can reflect a variety of emotional states, including stress, fear, anger, or fatigue, and does not necessarily indicate deception. The signal quality for this analysis includes real data for heart rate and voice, but facial action units were assessed using fallback methods, which may affect precision."
+      "behavioral_summary": "During the statement, Sam Bankman-Fried exhibited a heart rate increase from a baseline of 60.0 bpm to a peak of 95.2 bpm, indicating a delta of 35.2 bpm. The heart rate variability (HRV) RMSSD was measured at 357.1 ms. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 2.7, AU14 (dimpler) at 1.9, and AU24 (lip pressor) at 2.3, with no presence of AU6 (cheek raiser). The fundamental frequency (F0) spiked from a baseline of 94.9 Hz to 349.1 Hz, a delta of 254.2 Hz. Speech analysis revealed a jitter of 3.14%, shimmer of 1.6 dB, and a speech rate of 203.3 words per minute. There were 3 instances of hedging, and a pronoun drop rate of 0.59.",
+      "comparative_profile": "The signal pattern observed in this case is similar to the 'holmes_2018' entry, where elevated physiological arousal and vocal stress markers were present during public statements. Additionally, the 'armstrong_2005' entry showed comparable stress indicators, with high deltas in heart rate and vocal pitch during critical questioning. These patterns suggest a high-stress response, which can occur in various contexts.",
+      "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and does not exclusively indicate deception. The signal quality for this analysis includes real-time photoplethysmography (rPPG) and voice data, with fallback for facial action units. This is not a truth determination, and the signals should be interpreted within the broader context of the situation."
     },
     "similar_clips": [
       "holmes_2018",
@@ -736,97 +736,97 @@
           "hr": 67.5,
           "f0": 166.4,
           "au15": 0.0,
-          "deception": 24.200000000000003
+          "deception": 25.3
         },
         {
           "t": 5.18,
           "hr": 70.9,
           "f0": 175.76363636363638,
           "au15": 0.09090909090909091,
-          "deception": 26.0
+          "deception": 27.181818181818183
         },
         {
           "t": 5.86,
           "hr": 74.3,
           "f0": 185.12727272727273,
           "au15": 0.18181818181818182,
-          "deception": 27.8
+          "deception": 29.063636363636363
         },
         {
           "t": 6.55,
           "hr": 75.0,
           "f0": 194.4909090909091,
           "au15": 0.2727272727272727,
-          "deception": 29.6
+          "deception": 30.945454545454545
         },
         {
           "t": 7.23,
           "hr": 75.0,
           "f0": 203.85454545454544,
           "au15": 0.36363636363636365,
-          "deception": 31.4
+          "deception": 32.82727272727273
         },
         {
           "t": 7.91,
           "hr": 77.0,
           "f0": 213.21818181818182,
           "au15": 0.45454545454545453,
-          "deception": 33.2
+          "deception": 34.70909090909091
         },
         {
           "t": 8.59,
           "hr": 80.5,
           "f0": 222.58181818181816,
           "au15": 0.5454545454545454,
-          "deception": 35.0
+          "deception": 36.59090909090909
         },
         {
           "t": 9.27,
           "hr": 78.4,
           "f0": 231.94545454545454,
           "au15": 0.6363636363636364,
-          "deception": 36.800000000000004
+          "deception": 38.472727272727276
         },
         {
           "t": 9.95,
           "hr": 68.2,
           "f0": 241.3090909090909,
           "au15": 0.7272727272727273,
-          "deception": 38.6
+          "deception": 40.35454545454546
         },
         {
           "t": 10.64,
           "hr": 60.0,
           "f0": 250.67272727272726,
           "au15": 0.8181818181818182,
-          "deception": 40.4
+          "deception": 42.236363636363635
         },
         {
           "t": 11.32,
           "hr": 60.0,
           "f0": 260.0363636363636,
           "au15": 0.9090909090909091,
-          "deception": 42.2
+          "deception": 44.11818181818182
         },
         {
           "t": 12.0,
           "hr": 60.0,
           "f0": 269.4,
           "au15": 1.0,
-          "deception": 44.0
+          "deception": 46.0
         }
       ]
     },
     "scores": {
-      "deception": 44,
-      "sincerity": 83,
+      "deception": 46,
+      "sincerity": 80,
       "stress": 58,
       "confidence": 55
     },
     "llm_report": {
-      "behavioral_summary": "During Frances Haugen's testimony, her heart rate increased by 18.8 bpm from a baseline of 61.9 bpm to a peak of 80.6 bpm, indicating elevated physiological arousal. Her vocal pitch showed a significant increase, with a peak frequency of 269.4 Hz compared to a baseline of 166.4 Hz, resulting in a delta of 103.0 Hz. Facial action units showed moderate activation, with AU15 reaching a maximum intensity of 1.0 and AU24 at 0.8, while AU6 was present, suggesting a mix of emotions. The speech rate was measured at 186.6 words per minute, with minimal hedging (count of 2) and no pronoun drop, indicating a structured and direct communication style.",
-      "comparative_profile": "This testimony does not have direct historical comparisons in the archive. However, the physiological and vocal patterns, such as the significant heart rate and pitch increases, are consistent with other whistleblower testimonies where high stress levels co-exist with high sincerity scores. The sincerity composite score of 83 aligns with verified whistleblower disclosures.",
-      "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and is not solely indicative of deception or sincerity. The signal quality flags indicate that the facial action unit data was derived from fallback methods, which may affect precision. Other signals, including heart rate and voice, were captured with real data sources, providing a robust basis for analysis."
+      "behavioral_summary": "During Frances Haugen's testimony, her heart rate increased by 18.8 bpm from a baseline of 61.9 bpm to a peak of 80.6 bpm, indicating elevated physiological arousal. Her vocal pitch rose significantly, with a peak F0 of 269.4 Hz compared to a baseline of 166.4 Hz, a delta of 103.0 Hz. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 1.0, AU14 (dimpler) at 0.6, and AU24 (lip pressor) at 0.8, with AU6 (cheek raiser) present, suggesting a complex emotional state. The hedging count was low at 2, and there was no pronoun drop, indicating a structured and deliberate speech pattern.",
+      "comparative_profile": "This testimony does not have direct historical parallels in the archive, but the physiological and vocal patterns are consistent with high-stakes whistleblower disclosures. The elevated heart rate and vocal pitch, alongside a high sincerity composite score of 80, align with cases where individuals report significant personal or public risk.",
+      "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and should not be interpreted as a direct indicator of deception or sincerity. The signal quality was mixed, with real data for heart rate and voice, but fallback data for facial action units, which may affect the precision of the analysis."
     },
     "similar_clips": [],
     "signal_quality": {

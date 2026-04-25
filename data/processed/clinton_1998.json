@@ -35,97 +35,97 @@
         "hr": 110.8,
         "f0": 121.8,
         "au15": 0.0,
-        "deception": 38.5
+        "deception": 37.95
       },
       {
         "t": 2.88,
         "hr": 84.0,
         "f0": 135.23636363636365,
         "au15": 0.2636363636363636,
-        "deception": 41.36363636363637
+        "deception": 40.77272727272727
       },
       {
         "t": 3.31,
         "hr": 66.1,
         "f0": 148.6727272727273,
         "au15": 0.5272727272727272,
-        "deception": 44.22727272727273
+        "deception": 43.595454545454544
       },
       {
         "t": 3.75,
         "hr": 92.9,
         "f0": 162.10909090909092,
         "au15": 0.7909090909090908,
-        "deception": 47.09090909090909
+        "deception": 46.41818181818182
       },
       {
         "t": 4.19,
         "hr": 110.8,
         "f0": 175.54545454545456,
         "au15": 1.0545454545454545,
-        "deception": 49.95454545454545
+        "deception": 49.24090909090909
       },
       {
         "t": 4.62,
         "hr": 110.8,
         "f0": 188.9818181818182,
         "au15": 1.3181818181818181,
-        "deception": 52.81818181818183
+        "deception": 52.06363636363637
       },
       {
         "t": 5.06,
         "hr": 97.4,
         "f0": 202.41818181818184,
         "au15": 1.5818181818181816,
-        "deception": 55.68181818181819
+        "deception": 54.88636363636364
       },
       {
         "t": 5.49,
         "hr": 70.5,
         "f0": 215.85454545454547,
         "au15": 1.8454545454545455,
-        "deception": 58.54545454545455
+        "deception": 57.70909090909091
       },
       {
         "t": 5.93,
         "hr": 61.6,
         "f0": 229.2909090909091,
         "au15": 2.109090909090909,
-        "deception": 61.409090909090914
+        "deception": 60.53181818181818
       },
       {
         "t": 6.37,
         "hr": 61.6,
         "f0": 242.72727272727275,
         "au15": 2.372727272727273,
-        "deception": 64.27272727272728
+        "deception": 63.35454545454546
       },
       {
         "t": 6.8,
         "hr": 61.6,
         "f0": 256.1636363636364,
         "au15": 2.6363636363636362,
-        "deception": 67.13636363636364
+        "deception": 66.17727272727272
       },
       {
         "t": 7.24,
         "hr": 61.6,
         "f0": 269.6,
         "au15": 2.9,
-        "deception": 70.0
+        "deception": 69.0
       }
     ]
   },
   "scores": {
-    "deception": 70,
+    "deception": 69,
     "sincerity": 49,
     "stress": 76,
     "confidence": 73
   },
   "llm_report": {
-    "behavioral_summary": "During the statement, Bill Clinton exhibited a heart rate increase from a baseline of 61.6 bpm to a peak of 110.8 bpm, indicating a delta of 49.2 bpm. The F0 (fundamental frequency) showed a significant rise from 121.8 Hz to 269.6 Hz, with a delta of 147.8 Hz. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 2.9 and AU24 (lip pressor) at 2.4, while AU6 (cheek raiser) was absent. The speech rate was measured at 171.8 words per minute, with a pronoun drop rate of 0.81, and no hedging was detected. These signals are consistent with elevated stress and emotional arousal during the statement.",
-    "comparative_profile": "The physiological and behavioral patterns observed in this clip are similar to those in the 'nixon_1973' entry, where elevated stress markers were also present during a high-stakes denial. Additionally, the 'armstrong_2005' entry showed comparable vocal stress indicators during a public denial of doping allegations. Both cases exhibited high stress and arousal levels, similar to Clinton's profile.",
-    "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, anger, or fatigue, and does not solely indicate deception. The signal quality for this analysis includes real-time photoplethysmography (rPPG) and voice data, with facial action units derived from fallback methods. This analysis does not determine truth but highlights patterns consistent with high stress and emotional arousal."
+    "behavioral_summary": "During the statement, Bill Clinton exhibited a significant heart rate increase from a baseline of 61.6 bpm to a peak of 110.8 bpm, a delta of 49.2 bpm, indicating elevated physiological arousal. The F0 (fundamental frequency) of his voice rose sharply from a baseline of 121.8 Hz to a peak of 269.6 Hz, a delta of 147.8 Hz, suggesting heightened vocal tension. Facial action units showed moderate activation with AU15 (lip corner depressor) peaking at 2.9 and AU24 (lip pressor) at 2.4, while AU6 (cheek raiser) was absent. No hedging was present, and the pronoun drop rate was relatively high at 0.81, which can sometimes indicate distancing language.",
+    "comparative_profile": "The physiological and behavioral signals observed in this statement are similar to those recorded in the 'nixon_1973' entry, where Richard Nixon also displayed elevated stress markers during a press conference. Additionally, the vocal tension and facial expressions bear resemblance to the 'armstrong_2005' entry, where Lance Armstrong exhibited similar stress-related signals during a public denial.",
+    "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, or anger, and does not necessarily indicate deception. The signal quality for this analysis includes real-time photoplethysmography (rPPG) for heart rate, fallback for facial action units, and real voice and transcript data. These factors should be considered when interpreting the results, as this is not a truth determination."
   },
   "similar_clips": [
     "nixon_1973",

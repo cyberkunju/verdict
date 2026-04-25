@@ -118,14 +118,14 @@
   },
   "scores": {
     "deception": 57,
-    "sincerity": 64,
+    "sincerity": 63,
     "stress": 68,
     "confidence": 76
   },
   "llm_report": {
-    "behavioral_summary": "During the statement 'I am not a crook,' Richard Nixon exhibited a heart rate increase from a baseline of 104.7 bpm to a peak of 130.9 bpm, a delta of 26.2 bpm, indicating elevated physiological arousal. The fundamental frequency (F0) of his voice rose significantly from a baseline of 143.2 Hz to a peak of 268.7 Hz, a delta of 125.4 Hz, suggesting vocal stress. Facial Action Units showed moderate activation with AU15 (lip corner depressor) peaking at 2.6 and AU24 (lip pressor) at 2.0, while AU6 (cheek raiser) was absent, indicating limited positive affect. No hedging was observed, and the pronoun drop rate was 0.22, which is relatively low.",
-    "comparative_profile": "The physiological and vocal patterns observed in Nixon's statement are similar to those seen in the clinton_1998 entry, where elevated stress markers were noted during a denial of misconduct. Additionally, the armstrong_2005 entry also showed comparable stress indicators during a public denial of doping allegations. These cases illustrate how high stress levels can accompany public denials in high-stakes situations.",
-    "qualifications": "Physiological arousal can reflect a range of emotions including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis includes real data for heart rate and voice, but facial action units were derived from fallback methods, which may affect precision. This analysis does not determine truth but highlights patterns consistent with elevated stress."
+    "behavioral_summary": "During the statement 'I am not a crook,' Richard Nixon exhibited a heart rate increase from a baseline of 104.7 bpm to a peak of 130.9 bpm, a delta of 26.2 bpm, indicating elevated physiological arousal. The F0 (fundamental frequency) rose significantly from 143.2 Hz to 268.7 Hz, a delta of 125.4 Hz, suggesting heightened vocal stress. Facial Action Units showed AU15 (lip corner depressor) at a max intensity of 2.6 and AU24 (lip pressor) at 2.0, which can be associated with negative emotions. No hedging was present, and the pronoun drop rate was 0.22, which is relatively low.",
+    "comparative_profile": "The physiological and behavioral patterns observed in Nixon's statement show similarities to those in the clinton_1998 and armstrong_2005 entries, where elevated stress markers were also present. In these cases, high stress levels were noted alongside public denials during periods of intense scrutiny.",
+    "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and should not be interpreted as definitive evidence of deception. The signal quality for this analysis includes real data for heart rate and voice, but facial action units were derived from fallback methods, which may affect precision."
   },
   "similar_clips": [
     "clinton_1998",

@@ -35,97 +35,97 @@
         "hr": 67.5,
         "f0": 166.4,
         "au15": 0.0,
-        "deception": 24.200000000000003
+        "deception": 25.3
       },
       {
         "t": 5.18,
         "hr": 70.9,
         "f0": 175.76363636363638,
         "au15": 0.09090909090909091,
-        "deception": 26.0
+        "deception": 27.181818181818183
       },
       {
         "t": 5.86,
         "hr": 74.3,
         "f0": 185.12727272727273,
         "au15": 0.18181818181818182,
-        "deception": 27.8
+        "deception": 29.063636363636363
       },
       {
         "t": 6.55,
         "hr": 75.0,
         "f0": 194.4909090909091,
         "au15": 0.2727272727272727,
-        "deception": 29.6
+        "deception": 30.945454545454545
       },
       {
         "t": 7.23,
         "hr": 75.0,
         "f0": 203.85454545454544,
         "au15": 0.36363636363636365,
-        "deception": 31.4
+        "deception": 32.82727272727273
       },
       {
         "t": 7.91,
         "hr": 77.0,
         "f0": 213.21818181818182,
         "au15": 0.45454545454545453,
-        "deception": 33.2
+        "deception": 34.70909090909091
       },
       {
         "t": 8.59,
         "hr": 80.5,
         "f0": 222.58181818181816,
         "au15": 0.5454545454545454,
-        "deception": 35.0
+        "deception": 36.59090909090909
       },
       {
         "t": 9.27,
         "hr": 78.4,
         "f0": 231.94545454545454,
         "au15": 0.6363636363636364,
-        "deception": 36.800000000000004
+        "deception": 38.472727272727276
       },
       {
         "t": 9.95,
         "hr": 68.2,
         "f0": 241.3090909090909,
         "au15": 0.7272727272727273,
-        "deception": 38.6
+        "deception": 40.35454545454546
       },
       {
         "t": 10.64,
         "hr": 60.0,
         "f0": 250.67272727272726,
         "au15": 0.8181818181818182,
-        "deception": 40.4
+        "deception": 42.236363636363635
       },
       {
         "t": 11.32,
         "hr": 60.0,
         "f0": 260.0363636363636,
         "au15": 0.9090909090909091,
-        "deception": 42.2
+        "deception": 44.11818181818182
       },
       {
         "t": 12.0,
         "hr": 60.0,
         "f0": 269.4,
         "au15": 1.0,
-        "deception": 44.0
+        "deception": 46.0
       }
     ]
   },
   "scores": {
-    "deception": 44,
-    "sincerity": 83,
+    "deception": 46,
+    "sincerity": 80,
     "stress": 58,
     "confidence": 55
   },
   "llm_report": {
-    "behavioral_summary": "During Frances Haugen's testimony, her heart rate increased by 18.8 bpm from a baseline of 61.9 bpm to a peak of 80.6 bpm, indicating elevated physiological arousal. Her vocal pitch showed a significant increase, with a peak frequency of 269.4 Hz compared to a baseline of 166.4 Hz, resulting in a delta of 103.0 Hz. Facial action units showed moderate activation, with AU15 reaching a maximum intensity of 1.0 and AU24 at 0.8, while AU6 was present, suggesting a mix of emotions. The speech rate was measured at 186.6 words per minute, with minimal hedging (count of 2) and no pronoun drop, indicating a structured and direct communication style.",
-    "comparative_profile": "This testimony does not have direct historical comparisons in the archive. However, the physiological and vocal patterns, such as the significant heart rate and pitch increases, are consistent with other whistleblower testimonies where high stress levels co-exist with high sincerity scores. The sincerity composite score of 83 aligns with verified whistleblower disclosures.",
-    "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and is not solely indicative of deception or sincerity. The signal quality flags indicate that the facial action unit data was derived from fallback methods, which may affect precision. Other signals, including heart rate and voice, were captured with real data sources, providing a robust basis for analysis."
+    "behavioral_summary": "During Frances Haugen's testimony, her heart rate increased by 18.8 bpm from a baseline of 61.9 bpm to a peak of 80.6 bpm, indicating elevated physiological arousal. Her vocal pitch rose significantly, with a peak F0 of 269.4 Hz compared to a baseline of 166.4 Hz, a delta of 103.0 Hz. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 1.0, AU14 (dimpler) at 0.6, and AU24 (lip pressor) at 0.8, with AU6 (cheek raiser) present, suggesting a complex emotional state. The hedging count was low at 2, and there was no pronoun drop, indicating a structured and deliberate speech pattern.",
+    "comparative_profile": "This testimony does not have direct historical parallels in the archive, but the physiological and vocal patterns are consistent with high-stakes whistleblower disclosures. The elevated heart rate and vocal pitch, alongside a high sincerity composite score of 80, align with cases where individuals report significant personal or public risk.",
+    "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and should not be interpreted as a direct indicator of deception or sincerity. The signal quality was mixed, with real data for heart rate and voice, but fallback data for facial action units, which may affect the precision of the analysis."
   },
   "similar_clips": [],
   "signal_quality": {

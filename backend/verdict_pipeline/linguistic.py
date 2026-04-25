@@ -21,7 +21,8 @@ from __future__ import annotations
 
 import re
 from dataclasses import asdict, dataclass
-from typing import Optional
+
+from .config import BACKEND_DIR
 
 # ---------------------------------------------------------------------------
 # Lexicons
@@ -89,6 +90,7 @@ class LinguisticFeatures:
     affect_negative: int
     avg_sentence_length: float
     word_count: int
+    text_deception_prior: float | None
     quality: str  # "real" | "fallback"
 
     def to_dict(self) -> dict:
@@ -101,6 +103,7 @@ class LinguisticFeatures:
 
 
 _SPACY_NLP = None  # cached pipeline
+_TEXT_PRIOR = None  # cached joblib artifact; False means unavailable
 
 
 def _load_spacy():
@@ -121,6 +124,39 @@ def _load_spacy():
         return None
 
 
+def _load_text_prior():
+    """Return cached VerdictTextPrior-v0 artifact or ``None`` if unavailable."""
+    global _TEXT_PRIOR
+    if _TEXT_PRIOR is False:
+        return None
+    if _TEXT_PRIOR is not None:
+        return _TEXT_PRIOR
+    model_path = BACKEND_DIR / "models" / "verdict_text_prior_v0.joblib"
+    if not model_path.exists():
+        _TEXT_PRIOR = False
+        return None
+    try:
+        import joblib
+
+        _TEXT_PRIOR = joblib.load(model_path)
+        return _TEXT_PRIOR
+    except Exception:
+        _TEXT_PRIOR = False
+        return None
+
+
+def _text_deception_prior(transcript: str) -> float | None:
+    """Predict resolved-false text prior from the local claim model."""
+    artifact = _load_text_prior()
+    if artifact is None:
+        return None
+    try:
+        model = artifact["model"]
+        return float(model.predict_proba([transcript])[0][1])
+    except Exception:
+        return None
+
+
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
@@ -138,10 +174,14 @@ def extract(transcript: str) -> LinguisticFeatures:
     nlp = _load_spacy()
     if nlp is not None:
         try:
-            return _extract_spacy(transcript, nlp)
+            features = _extract_spacy(transcript, nlp)
+            features.text_deception_prior = _text_deception_prior(transcript)
+            return features
         except Exception:  # pragma: no cover - defensive
             pass
-    return _extract_regex_fallback(transcript)
+    features = _extract_regex_fallback(transcript)
+    features.text_deception_prior = _text_deception_prior(transcript)
+    return features
 
 
 # ---------------------------------------------------------------------------
@@ -205,6 +245,7 @@ def _extract_spacy(transcript: str, nlp) -> LinguisticFeatures:
         affect_negative=affect_neg,
         avg_sentence_length=avg_sent_len,
         word_count=word_count,
+        text_deception_prior=None,
         quality="real",
     )
 
@@ -265,6 +306,7 @@ def _extract_regex_fallback(transcript: str) -> LinguisticFeatures:
         affect_negative=affect_neg,
         avg_sentence_length=avg_sent_len,
         word_count=word_count,
+        text_deception_prior=None,
         quality="fallback",
     )
 
@@ -297,5 +339,6 @@ def _empty_features() -> LinguisticFeatures:
         affect_negative=0,
         avg_sentence_length=0.0,
         word_count=0,
+        text_deception_prior=None,
         quality="fallback",
     )

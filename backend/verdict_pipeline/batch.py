@@ -9,7 +9,7 @@ from typing import Any
 from . import SCHEMA_VERSION, clips as clip_registry
 from . import extract_facial, extract_rppg, extract_voice, linguistic, score, synthesize, transcribe
 from .config import PROCESSED_DIR, RAW_CLIPS_DIR, ensure_dirs
-from .schema import Clip, validate_clip
+from .schema import validate_clip
 from .utils import Timer, get_logger, setup_logging, write_json
 
 log = get_logger("batch")
@@ -89,6 +89,7 @@ def process_clip(clip_id: str, *, video_path: Path | None = None) -> dict[str, A
         certainty_count=lf.certainty_count,
         specificity_score=lf.specificity_score,
         affect_negative=lf.affect_negative,
+        text_deception_prior=lf.text_deception_prior,
         rppg_timeline=rppg_timeline_dicts,
     )
 

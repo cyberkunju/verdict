@@ -35,97 +35,97 @@
         "hr": 60.0,
         "f0": 94.9,
         "au15": 0.0,
-        "deception": 41.25
+        "deception": 40.7
       },
       {
         "t": 5.28,
         "hr": 64.1,
         "f0": 118.00909090909092,
         "au15": 0.24545454545454548,
-        "deception": 44.31818181818182
+        "deception": 43.72727272727273
       },
       {
         "t": 6.08,
         "hr": 69.5,
         "f0": 141.11818181818182,
         "au15": 0.49090909090909096,
-        "deception": 47.38636363636364
+        "deception": 46.75454545454546
       },
       {
         "t": 6.89,
         "hr": 81.8,
         "f0": 164.22727272727275,
         "au15": 0.7363636363636363,
-        "deception": 50.45454545454545
+        "deception": 49.78181818181818
       },
       {
         "t": 7.69,
         "hr": 91.4,
         "f0": 187.33636363636367,
         "au15": 0.9818181818181819,
-        "deception": 53.52272727272727
+        "deception": 52.809090909090905
       },
       {
         "t": 8.48,
         "hr": 95.5,
         "f0": 210.44545454545454,
         "au15": 1.2272727272727273,
-        "deception": 56.5909090909091
+        "deception": 55.83636363636364
       },
       {
         "t": 9.28,
         "hr": 87.3,
         "f0": 233.55454545454546,
         "au15": 1.4727272727272727,
-        "deception": 59.659090909090914
+        "deception": 58.86363636363637
       },
       {
         "t": 10.08,
         "hr": 66.8,
         "f0": 256.6636363636364,
         "au15": 1.7181818181818183,
-        "deception": 62.727272727272734
+        "deception": 61.8909090909091
       },
       {
         "t": 10.88,
         "hr": 60.0,
         "f0": 279.7727272727273,
         "au15": 1.9636363636363638,
-        "deception": 65.79545454545455
+        "deception": 64.91818181818182
       },
       {
         "t": 11.69,
         "hr": 60.0,
         "f0": 302.8818181818182,
         "au15": 2.2090909090909094,
-        "deception": 68.86363636363636
+        "deception": 67.94545454545455
       },
       {
         "t": 12.48,
         "hr": 60.0,
         "f0": 325.9909090909091,
         "au15": 2.4545454545454546,
-        "deception": 71.93181818181819
+        "deception": 70.97272727272727
       },
       {
         "t": 13.28,
         "hr": 60.0,
         "f0": 349.1,
         "au15": 2.7,
-        "deception": 75.0
+        "deception": 74.0
       }
     ]
   },
   "scores": {
-    "deception": 75,
-    "sincerity": 34,
+    "deception": 74,
+    "sincerity": 35,
     "stress": 81,
     "confidence": 44
   },
   "llm_report": {
-    "behavioral_summary": "During the statement, Sam Bankman-Fried exhibited a heart rate increase from a baseline of 60.0 bpm to a peak of 95.2 bpm, indicating a delta of 35.2 bpm. His vocal pitch rose significantly, with an F0 delta of 254.2 Hz from a baseline of 94.9 Hz. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 2.7, AU14 (dimpler) at 1.9, and AU24 (lip pressor) at 2.3, with no presence of AU6 (cheek raiser). The speech rate was relatively fast at 203.3 words per minute, with a hedging count of 3 and a pronoun drop rate of 0.59. These signals are consistent with elevated stress levels, though this is not a truth determination.",
-    "comparative_profile": "The physiological and behavioral signals observed in this clip are similar to those recorded in the 'holmes_2018' and 'armstrong_2005' cases, where individuals also exhibited high stress indicators during public statements. In these cases, elevated heart rate and vocal pitch were noted alongside facial tension, suggesting a pattern of stress response under scrutiny.",
-    "qualifications": "Physiological arousal can reflect a variety of emotional states, including stress, fear, anger, or fatigue, and does not necessarily indicate deception. The signal quality for this analysis includes real data for heart rate and voice, but facial action units were assessed using fallback methods, which may affect precision."
+    "behavioral_summary": "During the statement, Sam Bankman-Fried exhibited a heart rate increase from a baseline of 60.0 bpm to a peak of 95.2 bpm, indicating a delta of 35.2 bpm. The heart rate variability (HRV) RMSSD was measured at 357.1 ms. Facial action units showed AU15 (lip corner depressor) at a maximum intensity of 2.7, AU14 (dimpler) at 1.9, and AU24 (lip pressor) at 2.3, with no presence of AU6 (cheek raiser). The fundamental frequency (F0) spiked from a baseline of 94.9 Hz to 349.1 Hz, a delta of 254.2 Hz. Speech analysis revealed a jitter of 3.14%, shimmer of 1.6 dB, and a speech rate of 203.3 words per minute. There were 3 instances of hedging, and a pronoun drop rate of 0.59.",
+    "comparative_profile": "The signal pattern observed in this case is similar to the 'holmes_2018' entry, where elevated physiological arousal and vocal stress markers were present during public statements. Additionally, the 'armstrong_2005' entry showed comparable stress indicators, with high deltas in heart rate and vocal pitch during critical questioning. These patterns suggest a high-stress response, which can occur in various contexts.",
+    "qualifications": "Physiological arousal can reflect stress, fear, anger, fatigue, or other causes, and does not exclusively indicate deception. The signal quality for this analysis includes real-time photoplethysmography (rPPG) and voice data, with fallback for facial action units. This is not a truth determination, and the signals should be interpreted within the broader context of the situation."
   },
   "similar_clips": [
     "holmes_2018",

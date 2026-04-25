@@ -18,7 +18,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
 
 import numpy as np
 
@@ -217,7 +216,7 @@ def _bbox_to_rois(
     """
     x, y, w, h = bbox
     H, W = shape
-    cx, cy = x + w // 2, y + h // 2
+    cx = x + w // 2
 
     # Forehead: upper 22% of face, central 60% wide.
     fh_y0 = max(y + int(0.05 * h), 0)
