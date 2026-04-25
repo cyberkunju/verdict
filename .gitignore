@@ -1,0 +1,78 @@
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# --- Secrets ---
+.env
+.env.local
+.env.*.local
+*.env
+backend/.env
+frontend/.env.local
+
+# --- Python (backend) ---
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+pip-wheel-metadata/
+
+# --- Node / Next.js (frontend) ---
+node_modules/
+.next/
+.vercel/
+out/
+.turbo/
+.cache/
+*.tsbuildinfo
+next-env.d.ts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Media (raw clips never committed) ---
+data/raw_clips/
+data/reports/
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.wav
+*.mp3
+*.m4a
+
+# --- Whisper / model caches ---
+.cache/
+~/.cache/
+models/
+*.ckpt
+*.pt
+*.bin
+*.safetensors
+*.onnx
+
+# --- Misc ---
+*.log
+coverage/
+.nyc_output/
+tmp/
+temp/
