@@ -71,7 +71,7 @@ const mock: Clip[] = [
     video_url: "https://www.youtube.com/watch?v=KI6nNa5hA8Q",
     video_start_seconds: 8,
     video_end_seconds: 20,
-    thumbnail_url: "https://img.youtube.com/vi/KI6nNa5hA8Q/hqdefault.jpg",
+    thumbnail_url: "https://images.unsplash.com/photo-1541872703864-f971f11c79a4?w=800&q=80",
     signals: {
       hr_baseline_bpm: 72,
       hr_peak_bpm: 92,
@@ -114,7 +114,7 @@ const mock: Clip[] = [
     video_url: "https://www.youtube.com/watch?v=YbM7nB2vs7w",
     video_start_seconds: 5,
     video_end_seconds: 18,
-    thumbnail_url: "https://img.youtube.com/vi/YbM7nB2vs7w/hqdefault.jpg",
+    thumbnail_url: "https://images.unsplash.com/photo-1585829065080-4b332b005126?w=800&q=80",
     signals: {
       hr_baseline_bpm: 70,
       hr_peak_bpm: 88,
@@ -156,7 +156,7 @@ const mock: Clip[] = [
     video_url: "https://www.youtube.com/watch?v=7z4x9R8k9dA",
     video_start_seconds: 11,
     video_end_seconds: 24,
-    thumbnail_url: "https://img.youtube.com/vi/7z4x9R8k9dA/hqdefault.jpg",
+    thumbnail_url: "https://images.unsplash.com/photo-1495020632542-ed24d3148166?w=800&q=80",
     signals: {
       hr_baseline_bpm: 76,
       hr_peak_bpm: 96,
@@ -198,7 +198,7 @@ const mock: Clip[] = [
     video_url: "https://www.youtube.com/watch?v=0YV8g4f8j5k",
     video_start_seconds: 17,
     video_end_seconds: 29,
-    thumbnail_url: "https://img.youtube.com/vi/0YV8g4f8j5k/hqdefault.jpg",
+    thumbnail_url: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&q=80",
     signals: {
       hr_baseline_bpm: 79,
       hr_peak_bpm: 101,

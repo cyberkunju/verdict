@@ -1,66 +1,77 @@
-import Link from "next/link";
+"use client";
 import { ArchiveGrid } from "@/components/archive-grid";
+import { AnalyzerInput } from "@/components/analyzer-input";
 import { getAllClips } from "@/lib/clips";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   const clips = getAllClips();
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
-    <div className="space-y-12">
-      <section className="rounded-2xl border border-neutral-800 bg-gradient-to-b from-neutral-900 to-neutral-950 p-8 shadow-[0_0_60px_-20px_rgba(220,38,38,0.45)] sm:p-10">
-        <p className="mb-3 text-xs uppercase tracking-[0.2em] text-neutral-400">Physiological Archive</p>
-        <h1 className="max-w-4xl font-serif text-4xl leading-tight text-neutral-50 sm:text-5xl">
-          Every lie has a body. Every body has a pulse.
+    <motion.div variants={container} initial="hidden" animate="show" className="space-y-24">
+      <motion.section variants={item} className="relative pt-12 pb-20 text-center">
+        <p className="mb-6 text-sm font-bold uppercase tracking-[0.25em] text-slate-400">The Physiological History of Denial</p>
+        <h1 className="mx-auto max-w-5xl font-serif text-5xl leading-[1.1] text-slate-900 md:text-7xl tracking-tight">
+          Every lie has a body. <br className="hidden sm:block" /><span className="text-slate-500">We finally asked the body.</span>
         </h1>
-        <p className="mt-6 max-w-3xl text-sm text-neutral-300 sm:text-base">
-          VERDICT is a public physiological archive of historical denials, calibrated against
-          outcomes history already resolved.
+        <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-slate-600">
+          VERDICT extracts seven layers of involuntary signals from any public video to produce a multi-dimensional behavioral profile. Calibrated against history.
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/archive"
-            className="rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-red-500"
-          >
-            Explore Archive
-          </Link>
-          <Link
-            href="/calibration"
-            className="rounded-md border border-neutral-700 bg-neutral-900 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500"
-          >
-            View Calibration
-          </Link>
-        </div>
-      </section>
+        <AnalyzerInput />
+        
+      </motion.section>
 
-      <section>
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="font-serif text-2xl text-neutral-100">Archive Preview</h2>
-          <span className="text-xs uppercase tracking-[0.16em] text-neutral-500">6 Clips</span>
+      <motion.section variants={item}>
+        <div className="mb-6 flex items-end justify-between">
+          <div>
+            <h2 className="font-serif text-3xl font-medium text-slate-900">Archive Preview</h2>
+            <p className="mt-1 text-sm text-slate-500">Latest processed historical statements</p>
+          </div>
+          <span className="hidden sm:block text-xs font-medium uppercase tracking-[0.16em] text-slate-400 bg-slate-100 px-3 py-1 rounded-full">6 Clips</span>
         </div>
         <ArchiveGrid clips={clips.slice(0, 6)} />
-      </section>
+      </motion.section>
 
-      <section id="method" className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6">
-        <h3 className="mb-4 font-serif text-2xl text-neutral-100">Method</h3>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+      <motion.section variants={item} id="method" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h3 className="mb-6 font-serif text-3xl font-medium text-slate-900">Methodology</h3>
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {[
             ["rPPG", "Heart-rate shift from facial color micro-variation over time."],
             ["Facial AUs", "AU15, AU14, AU6, and AU24 intensity extracted per frame."],
             ["Voice", "Pitch dynamics, jitter, shimmer, and speech-rate signatures."],
             ["Linguistic + LLM", "Hedging, pronoun usage, and constrained analyst narrative."],
           ].map(([title, copy]) => (
-            <article key={title} className="rounded-xl border border-neutral-800 bg-neutral-950/80 p-4">
-              <h4 className="mb-2 text-sm font-semibold text-neutral-100">{title}</h4>
-              <p className="text-sm text-neutral-400">{copy}</p>
-            </article>
+            <motion.article 
+              key={title} 
+              whileHover={{ y: -5 }}
+              className="rounded-2xl border border-slate-100 bg-slate-50 p-5 transition-colors hover:bg-white hover:shadow-md"
+            >
+              <h4 className="mb-2 text-sm font-bold text-slate-900">{title}</h4>
+              <p className="text-sm leading-relaxed text-slate-600">{copy}</p>
+            </motion.article>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6">
-        <h3 className="mb-3 font-serif text-2xl text-neutral-100">Roadmap</h3>
-        <div className="flex flex-wrap gap-2">
+      <motion.section variants={item} className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h3 className="mb-4 font-serif text-2xl font-medium text-slate-900">Roadmap</h3>
+        <div className="flex flex-wrap gap-3">
           {[
             "Baseline Engine",
             "Deepfake Gate",
@@ -68,13 +79,13 @@ export default function HomePage() {
           ].map((item) => (
             <span
               key={item}
-              className="rounded-full border border-neutral-700 bg-neutral-950 px-3 py-1 text-xs text-neutral-300"
+              className="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-medium text-slate-600 transition-colors hover:border-slate-300"
             >
-              {item} · Coming
+              {item} <span className="opacity-50 ml-1">· Coming</span>
             </span>
           ))}
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 }
