@@ -183,9 +183,9 @@ Folder ownership rule **dissolved**. Both persons may edit `/frontend`, `/backen
 | F6 | OpenGraph + Twitter card metadata; replace boilerplate `frontend/README.md` | `frontend/app/layout.tsx`, `frontend/README.md`, `frontend/public/og.png` | P2 | 20m |
 | F7 | Deploy to Vercel; verify production URL on phone | Vercel dashboard, possibly `vercel.json` | P0 | 20m |
 
-- [~] **F1 — sync-data + USE_MOCK flip** *(in progress, Round 4)*
-- [ ] F2 — detail page polish
-- [ ] F3 — calibration logic
+- [x] **F1 — sync-data + USE_MOCK flip** *(Round 4 — done)*
+- [x] **F2 — detail page polish** *(Round 5 — done; ground-truth panel + signal-quality badges + dual-axis charts; SSG prerendered)*
+- [x] **F3 — calibration logic** *(Round 5 — 3-class predictor with sincere path + colored scatter)*
 - [ ] F4 — `/method` page
 - [ ] F5 — mobile + a11y
 - [ ] F6 — OG metadata + README
@@ -321,4 +321,17 @@ When a phase finishes, drop a one-line note here for retrospective.
             New file-level task split: P1 owns frontend (F1–F7), P2 owns
             backend polish (B1–B6). Schema stays locked. P1 starting on F1
             (sync-data + USE_MOCK flip).
+
+2026-04-25  Round 5: Person 2 shipped 10c5744 — complete UI/UX redesign with
+            light theme, framer-motion animations, /analyze flow with webcam
+            +upload inputs, and a fake-progress LoadingPipeline. P1 pulled and
+            migrated everything to match: detail page, calibration page,
+            minimal page, score-card, analyst-report, signal-chart (now
+            dual-pane with proper dual axes), calibration-visuals (colored
+            scatter), and ground-truth-panel + signal-quality-badge components
+            into the light theme. Added 3-class predictor (false/true/sincere)
+            on calibration page so Haugen's whistleblower path actually
+            registers. ClipCard now has gradient+initials fallback when
+            thumbnail_url is empty. F2 + F3 done; build prerenders all 6
+            detail pages as SSG.
 ```
