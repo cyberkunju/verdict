@@ -186,6 +186,7 @@ Folder ownership rule **dissolved**. Both persons may edit `/frontend`, `/backen
 - [x] **F1 — sync-data + USE_MOCK flip** *(Round 4 — done)*
 - [x] **F2 — detail page polish** *(Round 5 — done; ground-truth panel + signal-quality badges + dual-axis charts; SSG prerendered)*
 - [x] **F3 — calibration logic** *(Round 5 — 3-class predictor with sincere path + colored scatter)*
+- [x] **F8 — Live webcam analyzer** *(Round 6 — bonus: in-browser rPPG + MediaPipe blendshapes + voice F0 + Web Speech transcript + composite scoring + post-record summary with closest-archive match. Privacy-first: nothing leaves the device.)*
 - [ ] F4 — `/method` page
 - [ ] F5 — mobile + a11y
 - [ ] F6 — OG metadata + README
@@ -321,6 +322,19 @@ When a phase finishes, drop a one-line note here for retrospective.
             New file-level task split: P1 owns frontend (F1–F7), P2 owns
             backend polish (B1–B6). Schema stays locked. P1 starting on F1
             (sync-data + USE_MOCK flip).
+
+2026-04-25  Round 6: P1 added F8, the live webcam analyzer at /live. Full
+            in-browser pipeline: MediaPipe FaceLandmarker (52 ARKit blendshapes
+            mapped to 14 Action Units + 6-class affect), rPPG heart rate via
+            Plane-Orthogonal-to-Skin against a forehead ROI, voice F0 via
+            normalized squared-difference autocorrelation, RMS energy + jitter,
+            Web Speech API live transcript, composite scoring at 1 Hz with a
+            12-second baseline calibration. Recording via MediaRecorder; on
+            stop we compute mean AUs/emotions, find the archive clip whose
+            score-profile is closest in 4-D Euclidean space, and render a deep
+            synthesis card. Privacy: zero network calls beyond the one-time
+            MediaPipe WASM/model download from CDN. Uses dynamic({ssr:false})
+            so the heavy module is split into its own chunk.
 
 2026-04-25  Round 5: Person 2 shipped 10c5744 — complete UI/UX redesign with
             light theme, framer-motion animations, /analyze flow with webcam

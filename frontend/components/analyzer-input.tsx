@@ -27,8 +27,8 @@ export function AnalyzerInput() {
   };
 
   const handleWebcam = () => {
-    // Route to the analysis page triggering webcam mode
-    router.push(`/analyze?mode=webcam`);
+    // Live webcam analyzer is its own route with the realtime pipeline
+    router.push("/live");
   };
 
   return (

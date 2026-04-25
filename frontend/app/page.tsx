@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { ArchiveGrid } from "@/components/archive-grid";
 import { AnalyzerInput } from "@/components/analyzer-input";
 import { getAllClips } from "@/lib/clips";
@@ -69,21 +70,56 @@ export default function HomePage() {
         </div>
       </motion.section>
 
-      <motion.section variants={item} className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-        <h3 className="mb-4 font-serif text-2xl font-medium text-slate-900">Roadmap</h3>
-        <div className="flex flex-wrap gap-3">
-          {[
-            "Baseline Engine",
-            "Deepfake Gate",
-            "Temporal Replay",
-          ].map((item) => (
-            <span
-              key={item}
-              className="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-medium text-slate-600 transition-colors hover:border-slate-300"
-            >
-              {item} <span className="opacity-50 ml-1">· Coming</span>
+      <motion.section
+        variants={item}
+        className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-10 text-white shadow-xl"
+      >
+        <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-emerald-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-violet-500/20 blur-3xl" />
+        <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-300 backdrop-blur">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-300" /> New · Privacy-first
+            </div>
+            <h3 className="mt-4 font-serif text-4xl font-medium leading-tight md:text-5xl">
+              Ask your own body.
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-slate-300">
+              The same pipeline that calibrates against the historical archive — rPPG heart rate
+              from forehead color, voice pitch and jitter from your microphone, 14 facial action
+              units from face geometry, composite scoring — running entirely in your browser, on
+              your live camera. Nothing uploads. Nothing is stored.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3 text-xs">
+              {[
+                "rPPG · POS",
+                "MediaPipe blendshapes",
+                "YIN pitch",
+                "Web Speech transcript",
+                "MediaRecorder replay",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-white/15 bg-white/5 px-3 py-1 font-medium text-slate-200 backdrop-blur"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          <Link
+            href="/live"
+            className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-semibold text-slate-900 shadow-lg shadow-black/30 transition hover:bg-emerald-300 hover:text-slate-950"
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-500" />
             </span>
-          ))}
+            Try Live Mode
+            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+              →
+            </span>
+          </Link>
         </div>
       </motion.section>
     </motion.div>
