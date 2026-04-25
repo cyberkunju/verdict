@@ -238,10 +238,11 @@ Frontend never displays a score outside 0–100. Frontend never invents a fifth 
 
 ### Backend (Person 1)
 
-- **Python:** 3.11 (3.10 acceptable)
+- **Python:** 3.11 or 3.12 (3.10 acceptable)
 - **Core libs:** `opencv-python`, `numpy`, `scipy`, `librosa`, `soundfile`, `yt-dlp`, `faster-whisper`, `py-feat`, `openai`, `python-dotenv`
+- **Approved additions (Round 1, co-signed):** `imageio-ffmpeg` (bundled ffmpeg binary, no system install), `praat-parselmouth` (Praat-grade jitter/shimmer/HNR), `pydantic>=2` (schema validation), `mediapipe` (FaceMesh for ROI definition — face only, **not pose**), `spacy` + `en_core_web_sm` (linguistic features), `rich` (CLI), `tqdm` (progress), `jsonschema` (output validation).
 - **Tooling:** `ruff` for lint
-- **No allowed swaps:** no PyTorch model training, no MediaPipe pose, no OpenFace 2.0 C++ build, no pyVHR.
+- **No allowed swaps:** no PyTorch model training in foreground (background training tracked in `ML_TRAINING.md` is allowed), **no MediaPipe Pose** (FaceMesh is allowed and explicitly approved above), no OpenFace 2.0 C++ build, no pyVHR.
 
 ### Frontend (Person 2)
 

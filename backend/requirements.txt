@@ -1,0 +1,44 @@
+# VERDICT — Backend dependencies (locked, see CONTRACT.md §6)
+# Python 3.11 or 3.12
+
+# --- Core scientific stack ---
+numpy>=1.26,<2.1
+scipy>=1.11,<1.14
+opencv-python>=4.9,<4.11
+
+# --- Video / audio I/O ---
+yt-dlp>=2024.4.9
+imageio-ffmpeg>=0.5.1          # bundles ffmpeg binary, avoids system install
+soundfile>=0.12.1
+
+# --- Audio analysis ---
+librosa>=0.10.1
+praat-parselmouth>=0.4.4       # Praat-grade jitter, shimmer, HNR
+
+# --- Speech transcription ---
+faster-whisper>=1.0.3
+ctranslate2>=4.4               # backend for faster-whisper
+
+# --- Facial expression / Action Units ---
+py-feat>=0.6.2                 # FACS AUs (AU15/14/6/24...) + emotions
+mediapipe>=0.10.14             # FaceMesh for ROI definition (face only — pose forbidden)
+
+# --- Linguistic analysis ---
+spacy>=3.7,<3.8
+# en_core_web_sm installed via:
+#   python -m spacy download en_core_web_sm
+
+# --- LLM analyst ---
+openai>=1.30.0
+
+# --- Validation / schema ---
+pydantic>=2.7
+jsonschema>=4.22
+
+# --- Utilities ---
+python-dotenv>=1.0.1
+rich>=13.7                     # pretty CLI output
+tqdm>=4.66                     # progress bars
+
+# --- Dev tooling ---
+ruff>=0.4.0
