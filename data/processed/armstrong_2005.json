@@ -123,9 +123,9 @@
     "confidence": 62
   },
   "llm_report": {
-    "behavioral_summary": "Lance Armstrong's denial shows a heart-rate delta of 20.2 bpm and an F0 delta of 314.7 Hz, both elevated relative to a neutral baseline. AU15 lip-suppression peaked at 2.4; hedging language appeared 0 time(s) in the 163 wpm utterance. The composite pattern is consistent with patterns observed in historically resolved false denials.",
-    "comparative_profile": "Among archive entries with confirmed false-denial outcomes, this clip's deception score sits in the upper range. The pattern resembles cases later resolved against the speaker on the public record.",
-    "qualifications": "This is not a truth determination. Physiological arousal can reflect stress, fear, anger, fatigue, or other causes. Some signals on this clip were extracted using fallback estimators where the source video did not permit clean rPPG / AU extraction; treat the report as a research-grade prototype, not a forensic verdict."
+    "behavioral_summary": "During the statement, Lance Armstrong exhibited a heart rate increase from a baseline of 67.5 bpm to a peak of 87.8 bpm, indicating a delta of 20.2 bpm. The fundamental frequency (F0) showed a significant rise from 85.3 Hz to 400.0 Hz, a delta of 314.7 Hz, which is notably high. Facial action units (AUs) recorded AU15 at a maximum intensity of 2.4, AU14 at 1.5, and AU24 at 2.1, with AU6 absent. The speech rate was measured at 163.2 words per minute, with no hedging and a pronoun drop rate of 0.66. These signals are consistent with elevated stress levels.",
+    "comparative_profile": "The signal pattern observed in Armstrong's statement shares similarities with the 'clinton_1998' and 'holmes_2018' entries, where elevated physiological arousal and vocal stress markers were also present. In these cases, high stress levels were noted alongside public denials of allegations.",
+    "qualifications": "Physiological arousal can reflect a variety of emotional states such as stress, fear, anger, or fatigue, and does not solely indicate deception. The signal quality was affected by the use of fallback methods for facial action unit analysis, though heart rate and voice data were reliable. This analysis is not a determination of truth."
   },
   "similar_clips": [
     "clinton_1998",

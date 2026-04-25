@@ -123,9 +123,9 @@
     "confidence": 52
   },
   "llm_report": {
-    "behavioral_summary": "Elizabeth Holmes's denial shows a heart-rate delta of 41.4 bpm and an F0 delta of 213.4 Hz, both elevated relative to a neutral baseline. AU15 lip-suppression peaked at 2.2; hedging language appeared 1 time(s) in the 207 wpm utterance. The composite pattern is consistent with patterns observed in historically resolved false denials.",
-    "comparative_profile": "Among archive entries with confirmed false-denial outcomes, this clip's deception score sits in the upper range. The pattern resembles cases later resolved against the speaker on the public record.",
-    "qualifications": "This is not a truth determination. Physiological arousal can reflect stress, fear, anger, fatigue, or other causes. Some signals on this clip were extracted using fallback estimators where the source video did not permit clean rPPG / AU extraction; treat the report as a research-grade prototype, not a forensic verdict."
+    "behavioral_summary": "During the statement, Elizabeth Holmes exhibited a significant heart rate increase from a baseline of 71.5 bpm to a peak of 112.9 bpm, indicating a delta of 41.4 bpm. Her vocal pitch also rose sharply, with an F0 baseline of 133.1 Hz peaking at 346.5 Hz, resulting in a 213.4 Hz delta. Facial action units showed moderate activation with AU15 maxing at 2.2 and AU14 at 1.6, while AU6 was not present. The speech rate was relatively fast at 206.6 words per minute, with minimal hedging (count of 1) and a pronoun drop rate of 0.73. These signals are consistent with elevated stress levels.",
+    "comparative_profile": "The physiological and vocal patterns observed in Holmes's statement show similarities to the 'sbf_2022' entry, where elevated stress markers were also present. Additionally, the 'armstrong_2005' case displayed a comparable increase in vocal pitch and heart rate under scrutiny. Both historical cases involved high-stakes public defenses.",
+    "qualifications": "Physiological arousal can reflect a range of emotions, including stress, fear, or anger, and does not solely indicate deception. The signal quality for this analysis includes real data for rPPG and voice, with fallback data for facial action units. This is not a truth determination."
   },
   "similar_clips": [
     "sbf_2022",
