@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VerdictFusion Feature Row",
+  "type": "object",
+  "required": ["claim_id", "label", "features", "timeline", "quality"],
+  "properties": {
+    "claim_id": { "type": "string" },
+    "label": {
+      "type": "string",
+      "enum": ["resolved_false", "resolved_true", "sincere_disclosure"]
+    },
+    "features": {
+      "type": "object",
+      "properties": {
+        "hr_baseline_bpm": { "type": "number" },
+        "hr_peak_bpm": { "type": "number" },
+        "hr_delta_bpm": { "type": "number" },
+        "hrv_rmssd_ms": { "type": "number" },
+        "rppg_snr_db": { "type": "number" },
+        "au6": { "type": "number" },
+        "au14": { "type": "number" },
+        "au15": { "type": "number" },
+        "au24": { "type": "number" },
+        "blink_rate": { "type": "number" },
+        "gaze_aversion_rate": { "type": "number" },
+        "head_motion_energy": { "type": "number" },
+        "f0_baseline_hz": { "type": "number" },
+        "f0_peak_hz": { "type": "number" },
+        "f0_delta_hz": { "type": "number" },
+        "jitter_percent": { "type": "number" },
+        "shimmer_db": { "type": "number" },
+        "speech_rate_wpm": { "type": "number" },
+        "pause_rate": { "type": "number" },
+        "voice_arousal": { "type": "number" },
+        "hedging_count": { "type": "integer" },
+        "pronoun_drop_rate": { "type": "number" },
+        "specificity_score": { "type": "number" },
+        "certainty_count": { "type": "integer" },
+        "negation_density": { "type": "number" },
+        "contradiction_risk": { "type": "number" }
+      }
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "t": { "type": "number" },
+          "hr": { "type": "number" },
+          "f0": { "type": "number" },
+          "au15": { "type": "number" },
+          "au24": { "type": "number" },
+          "voice_arousal": { "type": "number" },
+          "pause": { "type": "number" }
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "properties": {
+        "rppg_quality": { "type": "number" },
+        "face_quality": { "type": "number" },
+        "voice_quality": { "type": "number" },
+        "transcript_quality": { "type": "number" },
+        "integrity_quality": { "type": "number" }
+      }
+    },
+    "split": {
+      "type": "object",
+      "properties": {
+        "subject_group": { "type": "string" },
+        "event_group": { "type": "string" },
+        "source_group": { "type": "string" }
+      }
+    }
+  }
+}

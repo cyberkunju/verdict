@@ -1,0 +1,52 @@
+[
+  {
+    "dataset_id": "liar_ucsb",
+    "output": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\M1-data\\processed\\text_claims\\liar_ucsb_claims.jsonl",
+    "counts": {
+      "resolved_false": 3552,
+      "contested_or_partial": 7184,
+      "resolved_true": 2053
+    },
+    "rows": 12789
+  },
+  {
+    "dataset_id": "fakenewsnet_minimal",
+    "output": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\M1-data\\processed\\text_claims\\fakenewsnet_minimal_claims.jsonl",
+    "counts": {
+      "resolved_false": 5755,
+      "resolved_true": 17441
+    },
+    "rows": 23196
+  },
+  {
+    "dataset_id": "datacommons_factcheck",
+    "output": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\M1-data\\processed\\text_claims\\datacommons_factcheck_claims.jsonl",
+    "counts": {
+      "contested_or_partial": 45633,
+      "resolved_false": 50785,
+      "resolved_true": 1733
+    },
+    "rows": 98151
+  },
+  {
+    "dataset_id": "global_claims_factcheck",
+    "output": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\M1-data\\processed\\text_claims\\global_claims_factcheck_claims.jsonl",
+    "counts": {
+      "resolved_false": 57362,
+      "contested_or_partial": 12905,
+      "resolved_true": 2433
+    },
+    "rows": 72700
+  },
+  {
+    "dataset_id": "averitec",
+    "output": "C:\\Users\\knava\\Downloads\\codexplan\\New folder\\M1-data\\processed\\text_claims\\averitec_claims.jsonl",
+    "counts": {
+      "resolved_true": 970,
+      "resolved_false": 2047,
+      "contested_or_partial": 233,
+      "unclear": 317
+    },
+    "rows": 3567
+  }
+]
