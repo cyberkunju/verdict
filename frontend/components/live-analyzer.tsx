@@ -161,6 +161,15 @@ export function LiveAnalyzer() {
   const [f0Spark, setF0Spark] = useState<number[]>([]);
   const [decSpark, setDecSpark] = useState<number[]>([]);
 
+  const [diag, setDiag] = useState({
+    framesTotal: 0,
+    framesWithFace: 0,
+    audioFrames: 0,
+    audioFramesVoiced: 0,
+    mediaPipeErrors: 0,
+    lastMediaPipeError: "",
+  });
+
   /* ─── Refs (high-frequency data) ───────────────────────────── */
   const videoRef = useRef<HTMLVideoElement>(null);
   const sampleCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -182,6 +191,16 @@ export function LiveAnalyzer() {
   const f0Ref = useRef<number | null>(null);
   const rmsRef = useRef(0);
   const f0HistoryRef = useRef<number[]>([]);
+
+  /** Self-diagnostic counters, surfaced in a small panel during a session. */
+  const diagRef = useRef({
+    framesTotal: 0,
+    framesWithFace: 0,
+    audioFrames: 0,
+    audioFramesVoiced: 0,
+    mediaPipeErrors: 0,
+    lastMediaPipeError: "",
+  });
   const transcriptRef = useRef("");
   const finalTranscriptRef = useRef("");
 
@@ -264,12 +283,18 @@ export function LiveAnalyzer() {
         }
       });
 
-      await step("audio pipeline", () => {
+      await step("audio pipeline", async () => {
         const AudioCtx: typeof AudioContext =
           (window.AudioContext as typeof AudioContext) ||
           ((window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext);
         const ctx = new AudioCtx();
         audioCtxRef.current = ctx;
+        // Chrome opens new AudioContexts in 'suspended' state. The Start-session click
+        // is a user gesture so resume() is allowed; without it, the analyser writes
+        // zeros forever and F0 / RMS / jitter all stay flat.
+        if (ctx.state === "suspended") {
+          await ctx.resume();
+        }
         const src = ctx.createMediaStreamSource(stream);
         const analyser = ctx.createAnalyser();
         analyser.fftSize = 2048;
@@ -371,10 +396,19 @@ export function LiveAnalyzer() {
           ctx.drawImage(video, 0, 0, sampleCanvas.width, sampleCanvas.height);
 
           let result: FaceLandmarkerResult | null = null;
+          diagRef.current.framesTotal += 1;
           try {
             result = lm.detectForVideo(video, performance.now());
-          } catch {
-            /* mediapipe occasionally throws on resolution changes; skip frame */
+          } catch (err) {
+            diagRef.current.mediaPipeErrors += 1;
+            const msg = err instanceof Error ? err.message : String(err);
+            diagRef.current.lastMediaPipeError = msg;
+            if (diagRef.current.mediaPipeErrors <= 3) {
+              console.error("[live] detectForVideo failed:", err);
+            }
+          }
+          if (result?.faceLandmarks?.[0]?.length) {
+            diagRef.current.framesWithFace += 1;
           }
 
           if (result?.faceLandmarks?.[0]?.length && result.faceBlendshapes?.[0]) {
@@ -393,13 +427,21 @@ export function LiveAnalyzer() {
               if (p.x > maxX) maxX = p.x;
               if (p.y > maxY) maxY = p.y;
             }
-            const padX = (maxX - minX) * 0.1;
-            const padY = (maxY - minY) * 0.4;
+            // Build a forehead rectangle that always sits inside the frame.
+            // The four landmarks span the upper forehead; we shrink horizontally and
+            // expand vertically *toward the hairline* (not above the frame).
+            const padX = (maxX - minX) * 0.15;
+            const heightFrac = Math.max(0.04, (maxY - minY) * 0.8);
+            const cx = (minX + maxX) / 2;
+            const top = Math.max(0, minY - heightFrac * 0.2);
+            const bottom = Math.min(1, top + heightFrac);
+            const left = Math.max(0, cx - (maxX - minX) / 2 + padX);
+            const right = Math.min(1, cx + (maxX - minX) / 2 - padX);
             const roi = {
-              x: (minX + padX) * sampleCanvas.width,
-              y: (minY - padY) * sampleCanvas.height,
-              width: ((maxX - minX) - 2 * padX) * sampleCanvas.width,
-              height: Math.max(8, padY * sampleCanvas.height),
+              x: left * sampleCanvas.width,
+              y: top * sampleCanvas.height,
+              width: Math.max(8, (right - left) * sampleCanvas.width),
+              height: Math.max(8, (bottom - top) * sampleCanvas.height),
             };
             if (roi.width > 4 && roi.height > 4) {
               try {
@@ -455,6 +497,8 @@ export function LiveAnalyzer() {
         analyser.getFloatTimeDomainData(audioBuf);
         const energy = rms(audioBuf);
         rmsRef.current = energy;
+        diagRef.current.audioFrames += 1;
+        if (energy > 0.005) diagRef.current.audioFramesVoiced += 1;
         const f0 = detectPitch(audioBuf, audioCtx.sampleRate);
         f0Ref.current = f0;
         if (f0 != null) {
@@ -480,6 +524,7 @@ export function LiveAnalyzer() {
       setRmsDb(rmsToDb(rmsRef.current));
       setJitterPct(jitterPercent(f0HistoryRef.current));
       setTranscript(transcriptRef.current);
+      setDiag({ ...diagRef.current });
 
       // Calibration progress
       if (calibStartRef.current != null) {
@@ -1093,6 +1138,69 @@ export function LiveAnalyzer() {
                 <BarRow label="Surprise" value={emotions.surprise} color="amber" />
                 <BarRow label="Disgust" value={emotions.disgust} color="rose" />
               </div>
+            </div>
+
+            {/* Diagnostics — small at-a-glance pipeline-health panel */}
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm">
+              <header className="mb-2 flex items-center justify-between">
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                  Pipeline Diagnostics
+                </p>
+                <p className="text-[10px] text-slate-400">refresh 10 Hz</p>
+              </header>
+              <dl className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[11px]">
+                <div className="flex items-center justify-between">
+                  <dt className="text-slate-500">Face frames</dt>
+                  <dd
+                    className={`font-mono tabular-nums ${
+                      diag.framesWithFace > 0 ? "text-emerald-700" : "text-red-600"
+                    }`}
+                  >
+                    {diag.framesWithFace}/{diag.framesTotal}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-slate-500">Audio voiced</dt>
+                  <dd
+                    className={`font-mono tabular-nums ${
+                      diag.audioFramesVoiced > 0 ? "text-emerald-700" : "text-red-600"
+                    }`}
+                  >
+                    {diag.audioFramesVoiced}/{diag.audioFrames}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-slate-500">Audio ctx</dt>
+                  <dd className="font-mono tabular-nums text-slate-700">
+                    {audioCtxRef.current?.state ?? "—"}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-slate-500">MP errors</dt>
+                  <dd
+                    className={`font-mono tabular-nums ${
+                      diag.mediaPipeErrors > 0 ? "text-red-600" : "text-slate-700"
+                    }`}
+                  >
+                    {diag.mediaPipeErrors}
+                  </dd>
+                </div>
+              </dl>
+              {diag.framesTotal > 30 && diag.framesWithFace === 0 && (
+                <p className="mt-2 text-[10px] text-red-600">
+                  No face detected yet — check lighting and that you’re centered in frame.
+                </p>
+              )}
+              {diag.audioFrames > 30 && diag.audioFramesVoiced === 0 && (
+                <p className="mt-1 text-[10px] text-red-600">
+                  No audio energy detected — check mic permission and OS input level.
+                </p>
+              )}
+              {diag.lastMediaPipeError && (
+                <p className="mt-1 truncate text-[10px] text-red-600" title={diag.lastMediaPipeError}>
+                  Last MP error: {diag.lastMediaPipeError}
+                </p>
+              )}
             </div>
 
             {/* Deception sparkline */}
