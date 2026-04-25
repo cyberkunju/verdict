@@ -91,7 +91,21 @@ const ZERO_SCORES: LiveScores = { deception: 0, sincerity: 0, stress: 0, confide
 
 const CALIBRATION_SECONDS = 12;
 const SPARK_WINDOW_SECONDS = 30;
-const FOREHEAD_LANDMARKS = [10, 109, 338, 151] as const;
+
+/**
+ * rPPG sampling regions. Multi-region averaging is dramatically more robust
+ * than forehead-only against backlight, partial shadow, or skin tone variation.
+ * Indices are from the MediaPipe FaceLandmarker canonical 478-point mesh.
+ */
+const RPPG_REGIONS = {
+  forehead: [10, 109, 338, 151] as const,
+  leftCheek: [116, 117, 118, 187] as const,
+  rightCheek: [345, 346, 347, 411] as const,
+};
+
+/** Brightness limits for a usable face image (0-255 luminance). */
+const BRIGHTNESS_OK_MIN = 35;
+const BRIGHTNESS_OK_MAX = 230;
 
 /** Web Speech API isn't in the default DOM lib; declare a minimal interface. */
 interface SpeechRecognitionAlternative {
@@ -134,6 +148,49 @@ declare global {
   }
 }
 
+/** Small green/red status pill used by the signal quality gate. */
+function QualityIndicator({
+  label,
+  ok,
+  detail,
+}: {
+  label: string;
+  ok: boolean;
+  detail: string;
+}) {
+  return (
+    <div
+      className={`flex flex-col rounded-xl border p-2 transition-colors ${
+        ok
+          ? "border-emerald-200 bg-emerald-50"
+          : "border-red-200 bg-red-50"
+      }`}
+    >
+      <div className="flex items-center gap-1.5">
+        <span
+          className={`h-1.5 w-1.5 rounded-full ${
+            ok ? "bg-emerald-500" : "animate-pulse bg-red-500"
+          }`}
+        />
+        <p
+          className={`text-[10px] font-bold uppercase tracking-[0.14em] ${
+            ok ? "text-emerald-800" : "text-red-800"
+          }`}
+        >
+          {label}
+        </p>
+      </div>
+      <p
+        className={`mt-1 truncate font-mono text-[11px] tabular-nums ${
+          ok ? "text-emerald-700" : "text-red-700"
+        }`}
+      >
+        {detail}
+      </p>
+    </div>
+  );
+}
+
 export function LiveAnalyzer() {
   /* ─── State (low-frequency UI) ─────────────────────────────── */
   const [phase, setPhase] = useState<Phase>("idle");
@@ -164,10 +221,13 @@ export function LiveAnalyzer() {
   const [diag, setDiag] = useState({
     framesTotal: 0,
     framesWithFace: 0,
+    framesWithGoodLighting: 0,
     audioFrames: 0,
     audioFramesVoiced: 0,
     mediaPipeErrors: 0,
     lastMediaPipeError: "",
+    lastBrightness: 0,
+    peakBlendshape: 0,
   });
 
   /* ─── Refs (high-frequency data) ───────────────────────────── */
@@ -196,10 +256,14 @@ export function LiveAnalyzer() {
   const diagRef = useRef({
     framesTotal: 0,
     framesWithFace: 0,
+    framesWithGoodLighting: 0,
     audioFrames: 0,
     audioFramesVoiced: 0,
     mediaPipeErrors: 0,
     lastMediaPipeError: "",
+    lastBrightness: 0,
+    /** Highest blendshape value seen so far — a quick health check on AU detection. */
+    peakBlendshape: 0,
   });
   const transcriptRef = useRef("");
   const finalTranscriptRef = useRef("");
@@ -414,41 +478,80 @@ export function LiveAnalyzer() {
           if (result?.faceLandmarks?.[0]?.length && result.faceBlendshapes?.[0]) {
             const lms = result.faceLandmarks[0];
 
-            // Forehead ROI box from 4 landmarks
-            let minX = 1;
-            let minY = 1;
-            let maxX = 0;
-            let maxY = 0;
-            for (const idx of FOREHEAD_LANDMARKS) {
-              const p = lms[idx];
-              if (!p) continue;
-              if (p.x < minX) minX = p.x;
-              if (p.y < minY) minY = p.y;
-              if (p.x > maxX) maxX = p.x;
-              if (p.y > maxY) maxY = p.y;
-            }
-            // Build a forehead rectangle that always sits inside the frame.
-            // The four landmarks span the upper forehead; we shrink horizontally and
-            // expand vertically *toward the hairline* (not above the frame).
-            const padX = (maxX - minX) * 0.15;
-            const heightFrac = Math.max(0.04, (maxY - minY) * 0.8);
-            const cx = (minX + maxX) / 2;
-            const top = Math.max(0, minY - heightFrac * 0.2);
-            const bottom = Math.min(1, top + heightFrac);
-            const left = Math.max(0, cx - (maxX - minX) / 2 + padX);
-            const right = Math.min(1, cx + (maxX - minX) / 2 - padX);
-            const roi = {
-              x: left * sampleCanvas.width,
-              y: top * sampleCanvas.height,
-              width: Math.max(8, (right - left) * sampleCanvas.width),
-              height: Math.max(8, (bottom - top) * sampleCanvas.height),
+            /**
+             * Build a clamped, in-frame rectangle from a list of landmark indices.
+             * Returns null if the resulting box is too small to sample reliably.
+             */
+            const roiFromLandmarks = (
+              indices: readonly number[],
+              shrinkX = 0.15,
+              shrinkY = 0.15,
+            ): { x: number; y: number; width: number; height: number } | null => {
+              let mnX = 1;
+              let mnY = 1;
+              let mxX = 0;
+              let mxY = 0;
+              for (const idx of indices) {
+                const p = lms[idx];
+                if (!p) continue;
+                if (p.x < mnX) mnX = p.x;
+                if (p.y < mnY) mnY = p.y;
+                if (p.x > mxX) mxX = p.x;
+                if (p.y > mxY) mxY = p.y;
+              }
+              const padX = (mxX - mnX) * shrinkX;
+              const padY = (mxY - mnY) * shrinkY;
+              const left = Math.max(0, mnX + padX);
+              const right = Math.min(1, mxX - padX);
+              const top = Math.max(0, mnY + padY);
+              const bottom = Math.min(1, mxY - padY);
+              const w = (right - left) * sampleCanvas.width;
+              const h = (bottom - top) * sampleCanvas.height;
+              if (w < 6 || h < 6) return null;
+              return {
+                x: left * sampleCanvas.width,
+                y: top * sampleCanvas.height,
+                width: w,
+                height: h,
+              };
             };
-            if (roi.width > 4 && roi.height > 4) {
-              try {
-                const rgb = sampleRoiRgb(ctx, roi);
-                rppgRef.current.push({ t: performance.now(), ...rgb });
-              } catch {
-                /* getImageData can fail for taint; ignore */
+
+            // Multi-region rPPG: forehead + both cheeks. Average their RGB samples
+            // to suppress motion noise and to stay robust against partial shadow.
+            const foreheadRoi = roiFromLandmarks(RPPG_REGIONS.forehead, 0.15, 0.4);
+            const leftCheekRoi = roiFromLandmarks(RPPG_REGIONS.leftCheek, 0.2, 0.2);
+            const rightCheekRoi = roiFromLandmarks(RPPG_REGIONS.rightCheek, 0.2, 0.2);
+            const rois = [foreheadRoi, leftCheekRoi, rightCheekRoi].filter(
+              (r): r is { x: number; y: number; width: number; height: number } => r !== null,
+            );
+
+            if (rois.length > 0) {
+              let rSum = 0;
+              let gSum = 0;
+              let bSum = 0;
+              let counted = 0;
+              for (const region of rois) {
+                try {
+                  const rgb = sampleRoiRgb(ctx, region);
+                  rSum += rgb.r;
+                  gSum += rgb.g;
+                  bSum += rgb.b;
+                  counted += 1;
+                } catch {
+                  /* getImageData can fail for taint; skip region */
+                }
+              }
+              if (counted > 0) {
+                const r = rSum / counted;
+                const g = gSum / counted;
+                const b = bSum / counted;
+                rppgRef.current.push({ t: performance.now(), r, g, b });
+                // Luminance approximation (Rec. 601) for lighting health check
+                const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+                diagRef.current.lastBrightness = luma;
+                if (luma >= BRIGHTNESS_OK_MIN && luma <= BRIGHTNESS_OK_MAX) {
+                  diagRef.current.framesWithGoodLighting += 1;
+                }
               }
             }
 
@@ -459,6 +562,13 @@ export function LiveAnalyzer() {
             }));
             ausRef.current = blendshapesToAUs(blendshapes);
             emotionsRef.current = emotionsFromBlendshapes(blendshapes);
+            // Track the highest blendshape we've ever seen so we can warn if AU detection
+            // is silently producing all zeros (poor lighting / face too small).
+            for (const b of blendshapes) {
+              if (b.score > diagRef.current.peakBlendshape) {
+                diagRef.current.peakBlendshape = b.score;
+              }
+            }
 
             // Draw overlay
             if (overlay) {
@@ -473,13 +583,20 @@ export function LiveAnalyzer() {
                   oc.arc(p.x * overlay.width, p.y * overlay.height, 1, 0, Math.PI * 2);
                   oc.fill();
                 }
-                // Forehead ROI rectangle
+                // Draw all active rPPG regions in green
                 oc.strokeStyle = "rgba(16, 185, 129, 0.85)";
                 oc.lineWidth = 2;
-                oc.strokeRect(roi.x, roi.y, roi.width, roi.height);
+                oc.font = "600 10px Inter, sans-serif";
                 oc.fillStyle = "rgba(16, 185, 129, 0.95)";
-                oc.font = "600 11px Inter, sans-serif";
-                oc.fillText("rPPG ROI", roi.x, Math.max(12, roi.y - 4));
+                const labels = ["forehead", "L cheek", "R cheek"];
+                rois.forEach((region, i) => {
+                  oc.strokeRect(region.x, region.y, region.width, region.height);
+                  oc.fillText(
+                    labels[i] ?? "ROI",
+                    region.x,
+                    Math.max(10, region.y - 3),
+                  );
+                });
               }
             }
           } else if (overlay) {
@@ -498,8 +615,12 @@ export function LiveAnalyzer() {
         const energy = rms(audioBuf);
         rmsRef.current = energy;
         diagRef.current.audioFrames += 1;
-        if (energy > 0.005) diagRef.current.audioFramesVoiced += 1;
-        const f0 = detectPitch(audioBuf, audioCtx.sampleRate);
+        // 0.003 is a generous "any non-silent input" threshold — even quiet rooms
+        // produce ~0.001 RMS from mic self-noise. We use a tighter threshold for
+        // pitch detection inside detectPitch().
+        if (energy > 0.003) diagRef.current.audioFramesVoiced += 1;
+        // Use a lower voicedRmsThreshold for pitch so we don't miss quieter speakers.
+        const f0 = detectPitch(audioBuf, audioCtx.sampleRate, { voicedRmsThreshold: 0.008 });
         f0Ref.current = f0;
         if (f0 != null) {
           f0HistoryRef.current.push(f0);
@@ -708,6 +829,14 @@ export function LiveAnalyzer() {
         closestArchive: closest,
         recordingBlobUrl,
         transcript: transcriptRef.current,
+        dataQuality: {
+          hrSamples: accum.hrSamples.length,
+          f0Samples: accum.f0Samples.length,
+          auFrames: accum.auSamples.length,
+          voicedAudioFrames: diagRef.current.audioFramesVoiced,
+          peakBlendshape: diagRef.current.peakBlendshape,
+          avgBrightness: diagRef.current.lastBrightness,
+        },
       });
       setPhase("reviewing");
     },
@@ -805,6 +934,26 @@ export function LiveAnalyzer() {
   const calibComplete = calibProgress >= 1;
   const hrStatus = hrQuality > 0.18 ? "ok" : hrBpm != null ? "warming" : "off";
   const f0Status = f0Hz != null ? "ok" : "off";
+
+  // Live signal quality gate. We only block recording when the pipeline is
+  // clearly not producing data (rather than when it's producing weak data),
+  // and we always offer an override so the user can record anyway.
+  const lightingPct =
+    diag.framesWithFace > 0 ? diag.framesWithGoodLighting / diag.framesWithFace : 0;
+  const qualityChecks = {
+    face: diag.framesTotal > 20 && diag.framesWithFace > 3,
+    audio: diag.audioFrames > 20 && diag.audioFramesVoiced > 3,
+    lighting:
+      diag.framesWithFace > 10 &&
+      lightingPct > 0.3 &&
+      diag.lastBrightness >= BRIGHTNESS_OK_MIN &&
+      diag.lastBrightness <= BRIGHTNESS_OK_MAX,
+    blendshapes: diag.peakBlendshape > 0.05,
+  };
+  const blockingFailures: string[] = [];
+  if (!qualityChecks.face) blockingFailures.push("face");
+  if (!qualityChecks.audio) blockingFailures.push("audio");
+  const recordingAllowed = calibComplete && blockingFailures.length === 0;
 
   return (
     <motion.div
@@ -952,6 +1101,26 @@ export function LiveAnalyzer() {
                   </span>
                 )}
               </div>
+
+              {/* Live mic level — top-right overlay so the user can see the mic is alive */}
+              <div className="absolute right-3 top-3 flex w-32 flex-col gap-1 rounded-xl bg-slate-900/70 px-2.5 py-1.5 backdrop-blur">
+                <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-[0.14em] text-slate-200">
+                  <span className="flex items-center gap-1">
+                    <Mic className="h-3 w-3" /> mic
+                  </span>
+                  <span className="font-mono tabular-nums">
+                    {rmsDb > -80 ? `${rmsDb.toFixed(0)}` : "—"}dB
+                  </span>
+                </div>
+                <div className="h-1 w-full overflow-hidden rounded-full bg-slate-800">
+                  <div
+                    className="h-full rounded-full bg-emerald-400 transition-[width] duration-100"
+                    style={{
+                      width: `${Math.max(0, Math.min(100, ((rmsDb + 60) / 60) * 100))}%`,
+                    }}
+                  />
+                </div>
+              </div>
               {phase === "starting" && (
                 <div className="absolute inset-0 flex items-center justify-center bg-slate-900/70 backdrop-blur-sm">
                   <p className="font-serif text-xl text-white">Loading face model…</p>
@@ -959,10 +1128,11 @@ export function LiveAnalyzer() {
               )}
             </div>
 
-            {/* Calibration / record controls */}
+            {/* Signal quality gate + record controls */}
             <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-              {!calibComplete ? (
-                <>
+              {/* Calibration progress */}
+              {!calibComplete && (
+                <div className="mb-4">
                   <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500">
                     Baseline calibration
                   </p>
@@ -978,44 +1148,132 @@ export function LiveAnalyzer() {
                   <p className="mt-2 text-xs text-slate-500">
                     {(calibProgress * 100).toFixed(0)}% — capturing resting HR + voice baseline.
                   </p>
-                </>
-              ) : (
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500">
-                      {phase === "recording" ? "Recording…" : "Ready"}
-                    </p>
-                    <p className="mt-1 font-serif text-lg text-slate-900">
-                      {phase === "recording"
-                        ? `Speak naturally · ${recordingSeconds}s captured`
-                        : "Start recording to capture a session for deep analysis."}
-                    </p>
-                    {hrBaseline != null && (
-                      <p className="mt-1 text-xs text-slate-500">
-                        Baseline established: HR {hrBaseline.toFixed(0)} bpm
-                        {f0Baseline != null && ` · F0 ${f0Baseline.toFixed(0)} Hz`}
-                      </p>
+                </div>
+              )}
+
+              {/* Live signal quality checklist — always visible during a session */}
+              <div className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                <QualityIndicator
+                  label="Face"
+                  ok={qualityChecks.face}
+                  detail={`${diag.framesWithFace}/${diag.framesTotal}`}
+                />
+                <QualityIndicator
+                  label="Audio"
+                  ok={qualityChecks.audio}
+                  detail={`${diag.audioFramesVoiced}/${diag.audioFrames}`}
+                />
+                <QualityIndicator
+                  label="Lighting"
+                  ok={qualityChecks.lighting}
+                  detail={
+                    diag.lastBrightness > 0
+                      ? `${diag.lastBrightness.toFixed(0)} luma`
+                      : "—"
+                  }
+                />
+                <QualityIndicator
+                  label="Expression"
+                  ok={qualityChecks.blendshapes}
+                  detail={`peak ${(diag.peakBlendshape * 100).toFixed(0)}%`}
+                />
+              </div>
+
+              {/* Hint banner when something is failing */}
+              {calibComplete && blockingFailures.length > 0 && (
+                <div className="mb-3 rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs text-amber-900">
+                  <p className="font-semibold">
+                    Recording is gated — {blockingFailures.join(" + ")} pipeline not producing
+                    data yet.
+                  </p>
+                  <ul className="mt-1.5 ml-4 list-disc space-y-0.5">
+                    {!qualityChecks.face && (
+                      <li>
+                        Face: center yourself in the frame, sit ~50&nbsp;cm from the camera, make
+                        sure the room isn&rsquo;t backlit (no bright window/light source behind
+                        you).
+                      </li>
                     )}
-                  </div>
-                  {phase === "recording" ? (
-                    <button
-                      type="button"
-                      onClick={stopRecording}
-                      className="inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-red-700"
-                    >
-                      <CircleStop className="h-4 w-4" /> Stop & analyze
-                    </button>
-                  ) : (
+                    {!qualityChecks.audio && (
+                      <li>
+                        Audio: check the microphone padlock, raise the OS input level, and say
+                        &ldquo;testing one two&rdquo; to confirm.
+                      </li>
+                    )}
+                    {qualityChecks.face && !qualityChecks.lighting && (
+                      <li>
+                        Lighting:{" "}
+                        {diag.lastBrightness < BRIGHTNESS_OK_MIN
+                          ? "too dark — turn on a lamp or face a window."
+                          : "too bright — move out of direct sunlight."}
+                      </li>
+                    )}
+                    {qualityChecks.face && !qualityChecks.blendshapes && (
+                      <li>
+                        Expression: face is too small or shadowed for action-unit detection.
+                        Move closer or improve lighting.
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              )}
+
+              {/* Record / Stop controls */}
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                    {phase === "recording"
+                      ? "Recording…"
+                      : recordingAllowed
+                        ? "Ready"
+                        : calibComplete
+                          ? "Waiting for signals"
+                          : "Calibrating"}
+                  </p>
+                  <p className="mt-1 font-serif text-lg text-slate-900">
+                    {phase === "recording"
+                      ? `Speak naturally · ${recordingSeconds}s captured`
+                      : recordingAllowed
+                        ? "All signal pipelines green. Hit Record when ready."
+                        : "Resolve the warnings above before recording."}
+                  </p>
+                  {hrBaseline != null && (
+                    <p className="mt-1 text-xs text-slate-500">
+                      Baseline established: HR {hrBaseline.toFixed(0)} bpm
+                      {f0Baseline != null && ` · F0 ${f0Baseline.toFixed(0)} Hz`}
+                    </p>
+                  )}
+                </div>
+                {phase === "recording" ? (
+                  <button
+                    type="button"
+                    onClick={stopRecording}
+                    className="inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-red-700"
+                  >
+                    <CircleStop className="h-4 w-4" /> Stop & analyze
+                  </button>
+                ) : (
+                  <div className="flex flex-col items-end gap-1.5">
                     <button
                       type="button"
                       onClick={startRecording}
-                      className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
+                      disabled={!recordingAllowed}
+                      className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
                     >
                       <span className="h-2.5 w-2.5 rounded-full bg-red-500" /> Record
                     </button>
-                  )}
-                </div>
-              )}
+                    {calibComplete && !recordingAllowed && (
+                      <button
+                        type="button"
+                        onClick={startRecording}
+                        className="text-[10px] text-slate-400 underline-offset-2 hover:text-slate-700 hover:underline"
+                      >
+                        Record anyway (low quality)
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Live transcript */}
